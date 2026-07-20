@@ -7,15 +7,64 @@ import { createServer as createViteServer } from 'vite';
 
 dotenv.config();
 
+// Import logging utilities
+import { logger } from './src/utils/logger.js';
+import { AppError, ErrorCodes, createErrorResponse } from './src/utils/errorHandler.js';
+import { securityHeaders } from './src/utils/securityHeaders.js';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(express.json());
 
+// Security headers middleware
+if (process.env.NODE_ENV === 'production') {
+  app.use(securityHeaders);
+}
+
+// Request logging middleware
+app.use((req, res, next) => {
+  const startTime = Date.now();
+  const originalSend = res.send;
+
+  res.send = function (data: any) {
+    const duration = Date.now() - startTime;
+    logger.logRequest(req.method, req.path, startTime, res.statusCode);
+    
+    if (res.statusCode >= 400) {
+      logger.warn(`HTTP ${res.statusCode} - ${req.method} ${req.path}`);
+    } else {
+      logger.debug(`${req.method} ${req.path} completed in ${duration}ms`);
+    }
+
+    return originalSend.call(this, data);
+  };
+
+  next();
+});
+
+// Global error handling middleware
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+app.use((err: any, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
+  const requestId = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+  
+  logger.error(`Request failed: ${err.message}`, err, {
+    requestId,
+  });
+
+  const errorResponse = createErrorResponse(err, requestId);
+  res.status(errorResponse.statusCode).json(errorResponse.error);
+});
+
 // Initialize Gemini API Client securely
+if (!process.env.GEMINI_API_KEY) {
+  console.error('[ERROR] GEMINI_API_KEY environment variable is not set. AI features will be unavailable.');
+  process.exit(1);
+}
+
 const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY || '',
+  apiKey: process.env.GEMINI_API_KEY,
   httpOptions: {
     headers: {
       'User-Agent': 'aistudio-build',
@@ -710,31 +759,41 @@ app.get('/api/inventory', (req, res) => {
   res.json(joinedInventory);
 });
 
-app.post('/api/inventory', (req, res) => {
-  const { branchId, productId, stock, minAlertThreshold } = req.body;
-  if (!branchId || !productId) {
-    return res.status(400).json({ error: 'branchId and productId are required.' });
-  }
-
-  let item = branchInventories.find(i => i.branchId === branchId && i.productId === productId);
-  if (item) {
-    if (stock !== undefined) {
-      item.stock = Number(stock);
+app.post('/api/inventory', (req, res, next) => {
+  try {
+    const { branchId, productId, stock, minAlertThreshold } = req.body;
+    if (!branchId || !productId) {
+      throw new AppError(
+        400,
+        'branchId and productId are required',
+        ErrorCodes.BAD_REQUEST.code,
+        { required: ['branchId', 'productId'] }
+      );
     }
-    if (minAlertThreshold !== undefined) {
-      item.minAlertThreshold = Number(minAlertThreshold);
-    }
-  } else {
-    item = {
-      branchId,
-      productId,
-      stock: stock !== undefined ? Number(stock) : 0,
-      minAlertThreshold: minAlertThreshold !== undefined ? Number(minAlertThreshold) : 3
-    };
-    branchInventories.push(item);
-  }
 
-  res.status(200).json(item);
+    let item = branchInventories.find(i => i.branchId === branchId && i.productId === productId);
+    if (item) {
+      if (stock !== undefined) {
+        item.stock = Number(stock);
+      }
+      if (minAlertThreshold !== undefined) {
+        item.minAlertThreshold = Number(minAlertThreshold);
+      }
+    } else {
+      item = {
+        branchId,
+        productId,
+        stock: stock !== undefined ? Number(stock) : 0,
+        minAlertThreshold: minAlertThreshold !== undefined ? Number(minAlertThreshold) : 3
+      };
+      branchInventories.push(item);
+    }
+
+    logger.info('Inventory updated', { branchId, productId, stock: item.stock });
+    res.status(200).json(item);
+  } catch (error) {
+    next(error);
+  }
 });
 
 // Update stock alert thresholds
@@ -825,19 +884,30 @@ app.put('/api/transfers/:id', (req, res) => {
 });
 
 // --- POS Checkout ---
-app.post('/api/pos/checkout', (req, res) => {
-  const { branchId, customerName, customerPhone, customerEmail, items, paymentMethod, discountAmount, cashierName } = req.body;
-  if (!branchId || !items || !items.length) {
-    return res.status(400).json({ error: 'Missing branch or cart items' });
-  }
-
-  // Validate stock
-  for (const item of items) {
-    const inv = branchInventories.find(i => i.branchId === branchId && i.productId === item.productId);
-    if (!inv || inv.stock < item.quantity) {
-      return res.status(400).json({ error: `Insufficient inventory for ${item.name} at this branch.` });
+app.post('/api/pos/checkout', (req, res, next) => {
+  try {
+    const { branchId, customerName, customerPhone, customerEmail, items, paymentMethod, discountAmount, cashierName } = req.body;
+    if (!branchId || !items || !items.length) {
+      throw new AppError(
+        400,
+        'Branch ID and cart items are required',
+        ErrorCodes.BAD_REQUEST.code,
+        { required: ['branchId', 'items'] }
+      );
     }
-  }
+
+    // Validate stock
+    for (const item of items) {
+      const inv = branchInventories.find(i => i.branchId === branchId && i.productId === item.productId);
+      if (!inv || inv.stock < item.quantity) {
+        throw new AppError(
+          409,
+          `Insufficient inventory for ${item.name} at this branch`,
+          ErrorCodes.INSUFFICIENT_STOCK.code,
+          { product: item.name, requested: item.quantity, available: inv?.stock || 0 }
+        );
+      }
+    }
 
   // Deduct stock
   let totalOrder = 0;
@@ -868,67 +938,71 @@ app.post('/api/pos/checkout', (req, res) => {
     createdAt: new Date().toISOString()
   };
 
-  posSales.unshift(newSale);
+    posSales.unshift(newSale);
 
-  // Update employee commission & sales performance
-  const matchedCashier = employees.find(e => e.name === cashierName);
-  if (matchedCashier) {
-    matchedCashier.currentSales += totalWithTax;
-  }
-
-  // Update Chart of accounts balances
-  const salesRevAcct = chartOfAccounts.find(c => c.code === '4000');
-  if (salesRevAcct) salesRevAcct.balance += totalWithTax;
-
-  const cogsAcct = chartOfAccounts.find(c => c.code === '5000');
-  if (cogsAcct) cogsAcct.balance += Math.round(totalOrder * 0.7); // Estimated COGS
-
-  if (paymentMethod === 'cash') {
-    const cashAcct = chartOfAccounts.find(c => c.code === '1010');
-    if (cashAcct) cashAcct.balance += totalWithTax;
-  } else if (paymentMethod === 'kbzpay') {
-    const kbzAcct = chartOfAccounts.find(c => c.code === '1020');
-    if (kbzAcct) kbzAcct.balance += totalWithTax;
-  } else if (paymentMethod === 'wavepay') {
-    const waveAcct = chartOfAccounts.find(c => c.code === '1030');
-    if (waveAcct) waveAcct.balance += totalWithTax;
-  }
-
-  // CRM Update
-  if (customerPhone && customerPhone !== 'N/A') {
-    let customer = customers.find(c => c.phone === customerPhone);
-    const addedPoints = Math.floor(totalWithTax / 1000); // 1 point per 1000 MMK
-
-    if (customer) {
-      customer.loyaltyPoints += addedPoints;
-      customer.totalSpent += totalWithTax;
-      if (paymentMethod === 'credit') {
-        customer.creditBalance += totalWithTax;
-      }
-      if (customer.totalSpent >= 15000000) {
-        customer.tier = 'VIP';
-      } else if (customer.totalSpent >= 8000000) {
-        customer.tier = 'Gold';
-      } else if (customer.totalSpent >= 3000000) {
-        customer.tier = 'Silver';
-      }
-    } else {
-      const newC: Customer = {
-        id: `c-${Math.floor(100 + Math.random() * 900)}`,
-        name: customerName,
-        phone: customerPhone,
-        email: customerEmail || `${customerName.toLowerCase().replace(/\s+/g, '')}@gmail.com`,
-        tier: totalWithTax >= 15000000 ? 'VIP' : (totalWithTax >= 8000000 ? 'Gold' : (totalWithTax >= 3000000 ? 'Silver' : 'Bronze')),
-        loyaltyPoints: addedPoints,
-        totalSpent: totalWithTax,
-        creditBalance: paymentMethod === 'credit' ? totalWithTax : 0,
-        createdAt: new Date().toISOString()
-      };
-      customers.push(newC);
+    // Update employee commission & sales performance
+    const matchedCashier = employees.find(e => e.name === cashierName);
+    if (matchedCashier) {
+      matchedCashier.currentSales += totalWithTax;
     }
-  }
 
-  res.status(201).json(newSale);
+    // Update Chart of accounts balances
+    const salesRevAcct = chartOfAccounts.find(c => c.code === '4000');
+    if (salesRevAcct) salesRevAcct.balance += totalWithTax;
+
+    const cogsAcct = chartOfAccounts.find(c => c.code === '5000');
+    if (cogsAcct) cogsAcct.balance += Math.round(totalOrder * 0.7); // Estimated COGS
+
+    if (paymentMethod === 'cash') {
+      const cashAcct = chartOfAccounts.find(c => c.code === '1010');
+      if (cashAcct) cashAcct.balance += totalWithTax;
+    } else if (paymentMethod === 'kbzpay') {
+      const kbzAcct = chartOfAccounts.find(c => c.code === '1020');
+      if (kbzAcct) kbzAcct.balance += totalWithTax;
+    } else if (paymentMethod === 'wavepay') {
+      const waveAcct = chartOfAccounts.find(c => c.code === '1030');
+      if (waveAcct) waveAcct.balance += totalWithTax;
+    }
+
+    // CRM Update
+    if (customerPhone && customerPhone !== 'N/A') {
+      let customer = customers.find(c => c.phone === customerPhone);
+      const addedPoints = Math.floor(totalWithTax / 1000); // 1 point per 1000 MMK
+
+      if (customer) {
+        customer.loyaltyPoints += addedPoints;
+        customer.totalSpent += totalWithTax;
+        if (paymentMethod === 'credit') {
+          customer.creditBalance += totalWithTax;
+        }
+        if (customer.totalSpent >= 15000000) {
+          customer.tier = 'VIP';
+        } else if (customer.totalSpent >= 8000000) {
+          customer.tier = 'Gold';
+        } else if (customer.totalSpent >= 3000000) {
+          customer.tier = 'Silver';
+        }
+      } else {
+        const newC: Customer = {
+          id: `c-${Math.floor(100 + Math.random() * 900)}`,
+          name: customerName,
+          phone: customerPhone,
+          email: customerEmail || `${customerName.toLowerCase().replace(/\s+/g, '')}@gmail.com`,
+          tier: totalWithTax >= 15000000 ? 'VIP' : (totalWithTax >= 8000000 ? 'Gold' : (totalWithTax >= 3000000 ? 'Silver' : 'Bronze')),
+          loyaltyPoints: addedPoints,
+          totalSpent: totalWithTax,
+          creditBalance: paymentMethod === 'credit' ? totalWithTax : 0,
+          createdAt: new Date().toISOString()
+        };
+        customers.push(newC);
+      }
+    }
+
+    logger.info('POS sale completed', { saleId: salesId, amount: totalWithTax, paymentMethod, branchId });
+    res.status(201).json(newSale);
+  } catch (error) {
+    next(error);
+  }
 });
 
 // --- Sales Ledger ---
@@ -1295,29 +1369,35 @@ app.post('/api/notifications', (req, res) => {
 // ==========================================
 // GEMINI INTELLIGENT BUSINESS ANALYST
 // ==========================================
-app.post('/api/assistant', async (req, res) => {
-  const { message, chatHistory } = req.body;
-  if (!message) {
-    return res.status(400).json({ error: 'Inquiry message payload is required.' });
-  }
+app.post('/api/assistant', async (req, res, next) => {
+  try {
+    const { message, chatHistory } = req.body;
+    if (!message) {
+      throw new AppError(
+        400,
+        'Message is required',
+        ErrorCodes.BAD_REQUEST.code,
+        { required: ['message'] }
+      );
+    }
 
   // Compile full localized Myanmar ERP context for Gemini to read
-  const catalogStr = products.map(p => `- [ID: ${p.id}] ${p.name} (${p.brand}) Category: ${p.category} Price: ${p.price.toLocaleString()} MMK`).join('\n');
-  const inventoryStr = branchInventories.map(inv => {
-    const b = branches.find(branch => branch.id === inv.branchId)?.name || inv.branchId;
-    const p = products.find(prod => prod.id === inv.productId)?.name || inv.productId;
-    return `- ${b}: ${p} (Stock: ${inv.stock} units, Alert Threshold: ${inv.minAlertThreshold})`;
-  }).join('\n');
+    const catalogStr = products.map(p => `- [ID: ${p.id}] ${p.name} (${p.brand}) Category: ${p.category} Price: ${p.price.toLocaleString()} MMK`).join('\n');
+    const inventoryStr = branchInventories.map(inv => {
+      const b = branches.find(branch => branch.id === inv.branchId)?.name || inv.branchId;
+      const p = products.find(prod => prod.id === inv.productId)?.name || inv.productId;
+      return `- ${b}: ${p} (Stock: ${inv.stock} units, Alert Threshold: ${inv.minAlertThreshold})`;
+    }).join('\n');
 
-  const crmStr = customers.map(c => `- ${c.name} (Tier: ${c.tier}, Phone: ${c.phone}, Spent: ${c.totalSpent.toLocaleString()} MMK, points: ${c.loyaltyPoints})`).join('\n');
-  const activeTickets = repairTickets.map(r => `- [${r.id}] ${r.customerName}'s ${r.deviceBrand} ${r.deviceModel} is [${r.status.toUpperCase()}] at branch ${r.branchId}. Est. Cost: ${r.estimatedCost.toLocaleString()} MMK`).join('\n');
-  const recentSalesStr = posSales.slice(0, 10).map(s => `- Sale [${s.id}] at ${s.branchId}: ${s.totalAmount.toLocaleString()} MMK paid via ${s.paymentMethod.toUpperCase()} for ${s.items.length} item(s)`).join('\n');
-  
-  const totalRevenue = posSales.reduce((sum, s) => sum + s.totalAmount, 0);
-  const totalExpenses = expenses.reduce((sum, e) => sum + e.amount, 0);
-  const netEarnings = totalRevenue - totalExpenses;
+    const crmStr = customers.map(c => `- ${c.name} (Tier: ${c.tier}, Phone: ${c.phone}, Spent: ${c.totalSpent.toLocaleString()} MMK, points: ${c.loyaltyPoints})`).join('\n');
+    const activeTickets = repairTickets.map(r => `- [${r.id}] ${r.customerName}'s ${r.deviceBrand} ${r.deviceModel} is [${r.status.toUpperCase()}] at branch ${r.branchId}. Est. Cost: ${r.estimatedCost.toLocaleString()} MMK`).join('\n');
+    const recentSalesStr = posSales.slice(0, 10).map(s => `- Sale [${s.id}] at ${s.branchId}: ${s.totalAmount.toLocaleString()} MMK paid via ${s.paymentMethod.toUpperCase()} for ${s.items.length} item(s)`).join('\n');
+    
+    const totalRevenue = posSales.reduce((sum, s) => sum + s.totalAmount, 0);
+    const totalExpenses = expenses.reduce((sum, e) => sum + e.amount, 0);
+    const netEarnings = totalRevenue - totalExpenses;
 
-  const systemPrompt = `You are "AKK Mobile Enterprise Brain", an elite AI Business Intelligence Director and CRM Agent for AKK Mobile, based in Myanmar. 
+    const systemPrompt = `You are "AKK Mobile Enterprise Brain", an elite AI Business Intelligence Director and CRM Agent for AKK Mobile, based in Myanmar. 
 You possess full access to the real-time Cloud POS database, CRM directories, multi-branch inventories, financial ledger accounts, and service center tickets.
 Your objective is to provide high-fidelity, extremely professional, data-driven answers to operators, or respond gracefully to CRM customer service inquiries.
 
@@ -1368,7 +1448,6 @@ ${(chatHistory || []).map((h: any) => `${h.sender === 'user' ? 'Operator' : 'AI'
 
 LATEST INQUIRY: "${message}"`;
 
-  try {
     const response = await ai.models.generateContent({
       model: 'gemini-3.5-flash',
       contents: systemPrompt,
@@ -1377,14 +1456,60 @@ LATEST INQUIRY: "${message}"`;
       }
     });
 
+    logger.info('AI assistant query processed', { hasResponse: !!response.text });
     res.json({ text: response.text || "Synchronizations stable. Query parsed." });
   } catch (error: any) {
-    console.error('Gemini Enterprise assistant failed:', error);
-    res.status(500).json({
-      error: 'Failed to access AI Intelligence Core',
-      details: error.message || String(error)
-    });
+    logger.error('AI assistant failed', error, { message: error.message });
+    throw new AppError(
+      503,
+      'AI service temporarily unavailable',
+      'AI_SERVICE_ERROR',
+      { originalError: error.message }
+    );
   }
+});
+
+// ==========================================
+// HEALTH & MONITORING ENDPOINTS
+// ==========================================
+app.get('/api/health', (req, res) => {
+  const metrics = logger.getMetrics();
+  res.json({
+    status: 'healthy',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    environment: process.env.NODE_ENV || 'development',
+    metrics: {
+      totalRequests: metrics.requestCount,
+      averageResponseTime: `${Math.round(metrics.avgRequestDuration)}ms`,
+      totalLogs: metrics.totalLogs,
+      errorCount: metrics.errorCount,
+      warningCount: metrics.warnCount,
+    },
+  });
+});
+
+app.get('/api/logs', (req, res) => {
+  const level = req.query.level as string | undefined;
+  const limit = Math.min(Number(req.query.limit) || 100, 500);
+  
+  const logs = logger.getLogs(level as any, limit);
+  res.json({
+    timestamp: new Date().toISOString(),
+    count: logs.length,
+    logs,
+  });
+});
+
+app.get('/api/requests/recent', (req, res) => {
+  const limit = Math.min(Number(req.query.limit) || 50, 500);
+  const requests = logger.getRequestLogs(limit);
+  
+  res.json({
+    timestamp: new Date().toISOString(),
+    count: requests.length,
+    requests,
+  });
 });
 
 // Integrate Vite middleware for development, or serve static assets in production
