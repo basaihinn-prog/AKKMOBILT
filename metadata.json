@@ -1,0 +1,6 @@
+{
+  "name": "AKK Mobile Enterprise Suite",
+  "description": "Integrated multi-branch cloud POS terminal, real-time ERP warehouse inventory ledger, stock transfer logistics, and VIP loyalty CRM with Gemini AI business operations assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

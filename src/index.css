@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Custom enterprise design system animations */
+  --animate-slide-down: slide-down 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-scanline: scanline 1.8s ease-in-out infinite;
+  --animate-paper-feed: paper-feed 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  --animate-fade-in-delayed: fade-in-delayed 0.6s ease-out 0.8s both;
+
+  @keyframes slide-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-24px) scale(0.98);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes scanline {
+    0% {
+      top: 0%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      top: 100%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes paper-feed {
+    0% {
+      transform: translateY(-40px);
+      max-height: 120px;
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(0);
+      max-height: 1500px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in-delayed {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
