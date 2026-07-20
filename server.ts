@@ -4,11 +4,24 @@ import { fileURLToPath } from 'url';
 import { GoogleGenAI } from '@google/genai';
 import dotenv from 'dotenv';
 import { createServer as createViteServer } from 'vite';
+import { initializeDatabase, db } from './src/lib/database.js';
+import { ProductService } from './src/lib/services/ProductService.js';
+import { SalesService } from './src/lib/services/SalesService.js';
+import { RepairService } from './src/lib/services/RepairService.js';
+import { CustomerService } from './src/lib/services/CustomerService.js';
+import { InventoryService } from './src/lib/services/InventoryService.js';
+import { PurchaseService } from './src/lib/services/PurchaseService.js';
+import { AccountingService } from './src/lib/services/AccountingService.js';
+import { IMEIService } from './src/lib/services/IMEIService.js';
+import { setupDatabaseRoutes } from './src/lib/api-routes.js';
 
 dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Initialize database
+initializeDatabase();
 
 const app = express();
 app.use(express.json());
@@ -1386,6 +1399,9 @@ LATEST INQUIRY: "${message}"`;
     });
   }
 });
+
+// Setup database-backed API routes
+setupDatabaseRoutes(app);
 
 // Integrate Vite middleware for development, or serve static assets in production
 if (process.env.NODE_ENV !== 'production') {
