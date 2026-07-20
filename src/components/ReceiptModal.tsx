@@ -49,7 +49,7 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
   const originalSubtotal = sale?.items.reduce((sum, i) => sum + (i.price * i.quantity), 0) || 0;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0f172e]/80 backdrop-blur-sm overflow-y-auto" id="pos-receipt-modal">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-surface/80 backdrop-blur-sm overflow-y-auto" id="pos-receipt-modal">
       <div className={`bg-white text-slate-900 w-full rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative flex flex-col transition-all duration-500 overflow-hidden border border-slate-100 ${
         className || 'animate-slide-down'
       } ${
@@ -58,7 +58,7 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
         
         {/* Sweeping scanline emulating physical thermal head engraving */}
         {isPrinting && (
-          <div className="absolute inset-0 bg-[#10b981]/[0.015] pointer-events-none overflow-hidden z-30">
+          <div className="absolute inset-0 bg-success/[0.015] pointer-events-none overflow-hidden z-30">
             <div className="absolute left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#34d399] animate-scanline" />
           </div>
         )}
@@ -92,24 +92,24 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
         </div>
 
         {/* Dynamic Hardware Printer Feeder Simulation */}
-        <div className="relative w-full bg-[#0f172e] text-[#f0f4ff] rounded-xl p-3 border border-[#1a2554] shadow-xl overflow-hidden mb-4 font-mono text-[10px] flex flex-col gap-1.5 shrink-0 select-none">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#10b981]/5 via-[#00d4ff]/5 to-[#10b981]/5 opacity-40" />
+        <div className="relative w-full bg-surface text-foreground rounded-xl p-3 border border-border shadow-xl overflow-hidden mb-4 font-mono text-[10px] flex flex-col gap-1.5 shrink-0 select-none">
+          <div className="absolute inset-0 bg-gradient-to-r from-success/5 via-primary/5 to-success/5 opacity-40" />
           <div className="flex items-center justify-between relative z-10">
             <div className="flex items-center space-x-2">
-              <div className={`w-2 h-2 rounded-full ${isPrinting ? 'bg-amber-500 animate-ping' : 'bg-[#10b981]'} shrink-0`} />
+              <div className={`w-2 h-2 rounded-full ${isPrinting ? 'bg-amber-500 animate-ping' : 'bg-success'} shrink-0`} />
               <span className="font-extrabold uppercase tracking-wider text-slate-300">
                 {isPrinting ? 'SYSTEM DECK: PRINT FEED ACTIVE' : 'SYSTEM DECK: THERMAL FEED READY'}
               </span>
             </div>
-            <span className="text-[#8891ac] font-black">
+            <span className="text-subtle font-black">
               {isPrinting ? `FEEDING ${printProgress}%` : 'READY TO TEAR'}
             </span>
           </div>
           
           {/* Progress Bar */}
-          <div className="w-full h-1.5 bg-[#1a2554] rounded-full overflow-hidden relative z-10 border border-[#222f5a]">
+          <div className="w-full h-1.5 bg-card rounded-full overflow-hidden relative z-10 border border-border">
             <div 
-              className={`h-full bg-gradient-to-r from-[#10b981] to-sky-400 transition-all duration-100 ${
+              className={`h-full bg-gradient-to-r from-success to-sky-400 transition-all duration-100 ${
                 isPrinting ? 'shadow-[0_0_8px_rgba(16,185,129,0.5)]' : ''
               }`}
               style={{ width: `${printProgress}%` }}
@@ -138,10 +138,10 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
 
               {/* BRAND LOGO DESIGN (HIGH CONTRAST PRINT FRIENDLY) */}
               <div className="flex flex-col items-center justify-center space-y-1 pb-3 border-b border-dashed border-slate-300 text-center">
-                <div className="bg-[#0f172e] text-white px-3 py-1 rounded-md border border-[#1a2554] flex items-center space-x-1.5 font-sans leading-none shadow-sm mb-1 select-none">
+                <div className="bg-surface text-white px-3 py-1 rounded-md border border-border flex items-center space-x-1.5 font-sans leading-none shadow-sm mb-1 select-none">
                   <span className="text-amber-400 font-black tracking-widest text-sm">A</span>
                   <span className="text-white font-black tracking-widest text-sm">K</span>
-                  <span className="text-[#00d4ff] font-black tracking-widest text-sm">K</span>
+                  <span className="text-primary font-black tracking-widest text-sm">K</span>
                   <span className="h-3.5 w-[1px] bg-slate-700" />
                   <span className="text-[8px] uppercase tracking-widest font-extrabold text-slate-300">MOBILE</span>
                 </div>
@@ -149,8 +149,8 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
                 <p className="text-[10px] text-slate-500 font-bold">
                   {matchedBranch.name}
                 </p>
-                <p className="text-[9px] text-[#8891ac]">Tel: {matchedBranch.phone}</p>
-                <p className="text-[9px] text-[#8891ac]">{repair ? 'Repair Diagnostic Ticket' : 'Myanmar Kyat Receipt (MMK)'}</p>
+                <p className="text-[9px] text-subtle">Tel: {matchedBranch.phone}</p>
+                <p className="text-[9px] text-subtle">{repair ? 'Repair Diagnostic Ticket' : 'Myanmar Kyat Receipt (MMK)'}</p>
               </div>
 
               {/* Metadata */}
@@ -288,11 +288,11 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
 
               {/* Barcode Mockup */}
               <div className="pt-2 flex flex-col items-center justify-center space-y-1 border-t border-dashed border-slate-300">
-                <div className="h-6 w-44 bg-[#0f172e] flex items-center justify-center tracking-[5px] text-white text-[8px] font-sans font-black select-none">
+                <div className="h-6 w-44 bg-surface flex items-center justify-center tracking-[5px] text-white text-[8px] font-sans font-black select-none">
                   ||||| | ||||| || ||| | || ||||
                 </div>
-                <span className="text-[8px] text-[#8891ac] font-sans tracking-wide">ELECTRONIC FISCAL RECORD SYNCED</span>
-                <p className="text-[7px] text-[#8891ac] font-mono">Thank you for trusting AKK Mobile Service!</p>
+                <span className="text-[8px] text-subtle font-sans tracking-wide">ELECTRONIC FISCAL RECORD SYNCED</span>
+                <p className="text-[7px] text-subtle font-mono">Thank you for trusting AKK Mobile Service!</p>
               </div>
             </div>
           ) : (
@@ -305,10 +305,10 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
               <div className="flex justify-between items-start border-b border-slate-200 pb-5">
                 {/* AKK CORPORATE BRAND LOGO DESIGN */}
                 <div className="flex items-center space-x-3.5">
-                  <div className="flex items-center justify-center bg-[#0f172e] text-white rounded-xl p-3.5 shadow-md border border-[#1a2554] shrink-0 select-none">
+                  <div className="flex items-center justify-center bg-surface text-white rounded-xl p-3.5 shadow-md border border-border shrink-0 select-none">
                     <div className="flex flex-col items-center justify-center font-mono leading-none">
                       <span className="text-amber-400 font-black text-xl tracking-widest">AKK</span>
-                      <span className="text-[7px] text-[#8891ac] font-bold uppercase tracking-widest mt-1">Mobile</span>
+                      <span className="text-[7px] text-subtle font-bold uppercase tracking-widest mt-1">Mobile</span>
                     </div>
                   </div>
                   <div>
@@ -334,7 +334,7 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
               {/* Vendor & Client Details Split Grid */}
               <div className="grid grid-cols-2 gap-8 border-b border-slate-200 pb-5">
                 <div className="space-y-1">
-                  <span className="text-[9px] text-[#8891ac] font-bold uppercase block tracking-wider">Service Branch Location</span>
+                  <span className="text-[9px] text-subtle font-bold uppercase block tracking-wider">Service Branch Location</span>
                   <strong className="text-slate-950 block text-[11px] font-extrabold">{matchedBranch.name}</strong>
                   <p className="text-slate-500 text-[10px]">
                     City: {matchedBranch.city}<br />
@@ -344,7 +344,7 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
                 </div>
 
                 <div className="space-y-1">
-                  <span className="text-[9px] text-[#8891ac] font-bold uppercase block tracking-wider">Billed To Customer</span>
+                  <span className="text-[9px] text-subtle font-bold uppercase block tracking-wider">Billed To Customer</span>
                   <strong className="text-slate-950 block text-[11px] font-extrabold">{repair ? repair.customerName : (sale?.customerName || '')}</strong>
                   <p className="text-slate-500 text-[10px]">
                     Phone Link: {repair ? repair.customerPhone : (sale?.customerPhone || '')}<br />
@@ -357,19 +357,19 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
               {/* General metadata header */}
               <div className="grid grid-cols-4 gap-4 bg-slate-50 p-3 rounded-xl border border-slate-100 font-mono text-[10px]">
                 <div>
-                  <span className="text-[#8891ac] block font-bold">{repair ? 'TICKET NO' : 'INVOICE NO'}</span>
+                  <span className="text-subtle block font-bold">{repair ? 'TICKET NO' : 'INVOICE NO'}</span>
                   <strong className="text-slate-950">{repair ? repair.id : (sale?.id || '')}</strong>
                 </div>
                 <div>
-                  <span className="text-[#8891ac] block font-bold">{repair ? 'REPAIR STATE' : 'PAYMENT METHOD'}</span>
+                  <span className="text-subtle block font-bold">{repair ? 'REPAIR STATE' : 'PAYMENT METHOD'}</span>
                   <strong className="text-slate-950 uppercase text-indigo-600">{repair ? repair.status : (sale?.paymentMethod || '')}</strong>
                 </div>
                 <div>
-                  <span className="text-[#8891ac] block font-bold">{repair ? 'RESPONSIBLE TECH' : 'CASHIER TERM'}</span>
+                  <span className="text-subtle block font-bold">{repair ? 'RESPONSIBLE TECH' : 'CASHIER TERM'}</span>
                   <strong className="text-slate-950">{repair ? (repair.assignedTechnician || 'Lead Technician') : (sale?.cashierName || '')}</strong>
                 </div>
                 <div>
-                  <span className="text-[#8891ac] block font-bold">{repair ? 'WARRANTY PLAN' : 'TAX STATUS'}</span>
+                  <span className="text-subtle block font-bold">{repair ? 'WARRANTY PLAN' : 'TAX STATUS'}</span>
                   <strong className={repair ? 'text-indigo-600' : 'text-emerald-600'}>
                     {repair ? `${repair.warrantyMonths}m Warranty` : '5% COM. TAX'}
                   </strong>
@@ -392,7 +392,7 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
                   <tbody className="divide-y divide-slate-100">
                     {repair ? (
                       <tr className="hover:bg-slate-50/50">
-                        <td className="px-4 py-4 text-[#8891ac] font-mono">1</td>
+                        <td className="px-4 py-4 text-subtle font-mono">1</td>
                         <td className="px-4 py-4">
                           <strong className="text-slate-950 block">Hardware Diagnostics, Repair Labor & Parts Service</strong>
                           <span className="text-[10px] text-indigo-600 bg-indigo-50/60 px-1.5 py-0.5 rounded font-mono mt-1 inline-block">
@@ -402,7 +402,7 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
                         <td className="px-4 py-4">
                           <span className="font-bold text-slate-800">📱 {repair.deviceBrand} {repair.deviceModel}</span>
                           {repair.technicianNotes && (
-                            <p className="text-[9px] text-[#8891ac] italic mt-0.5">Note: {repair.technicianNotes}</p>
+                            <p className="text-[9px] text-subtle italic mt-0.5">Note: {repair.technicianNotes}</p>
                           )}
                         </td>
                         <td className="px-4 py-4 text-right font-mono text-slate-600">
@@ -416,10 +416,10 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
                     ) : (
                       sale?.items.map((item, idx) => (
                         <tr key={idx} className="hover:bg-slate-50/50">
-                          <td className="px-4 py-3 text-[#8891ac] font-mono">{idx + 1}</td>
+                          <td className="px-4 py-3 text-subtle font-mono">{idx + 1}</td>
                           <td className="px-4 py-3">
                             <strong className="text-slate-950 block">{item.name}</strong>
-                            <span className="text-[9px] text-[#8891ac] font-mono">SKU: {item.productId}</span>
+                            <span className="text-[9px] text-subtle font-mono">SKU: {item.productId}</span>
                           </td>
                           <td className="px-4 py-3 text-slate-500">{item.color}</td>
                           <td className="px-4 py-3 text-right font-mono text-slate-600">
@@ -493,7 +493,7 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
               </div>
 
               {/* Signature lines */}
-              <div className="pt-8 flex justify-between items-center text-center font-mono text-[9px] text-[#8891ac] border-t border-slate-100">
+              <div className="pt-8 flex justify-between items-center text-center font-mono text-[9px] text-subtle border-t border-slate-100">
                 <div className="space-y-1">
                   <div className="h-9 w-32 border-b border-slate-200 mx-auto flex items-end justify-center">
                     <span className="text-[8px] italic font-sans text-slate-500 font-bold">e-Verified</span>
@@ -501,7 +501,7 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
                   <span>{repair ? 'AUTHORISED TECHNICIAN' : 'AUTHORISED CASHIER SIGN'}</span>
                 </div>
                 <div>
-                  <div className="h-6 w-32 bg-slate-100 border border-slate-200 mx-auto flex items-center justify-center font-sans font-black tracking-wide text-[#8891ac] text-[8px] select-none">
+                  <div className="h-6 w-32 bg-slate-100 border border-slate-200 mx-auto flex items-center justify-center font-sans font-black tracking-wide text-subtle text-[8px] select-none">
                     AKK SYNCED
                   </div>
                   <span className="text-[8px]">DIGITAL SYSTEM AUDIT</span>
@@ -519,7 +519,7 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
         {/* Closing actions */}
         <div className="flex items-center justify-end space-x-2 border-t border-slate-100 pt-3 mt-3 shrink-0 font-sans">
           {isPrinting ? (
-            <div className="flex items-center space-x-2 text-[#8891ac] font-mono text-[10px] uppercase font-bold tracking-widest mr-2 py-2">
+            <div className="flex items-center space-x-2 text-subtle font-mono text-[10px] uppercase font-bold tracking-widest mr-2 py-2">
               <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-ping mr-1" />
               <span>Engraving thermal plate...</span>
             </div>
@@ -535,7 +535,7 @@ export default function ReceiptModal({ sale, repair, branches = [], onClose, cla
               </button>
               <button
                 onClick={onClose}
-                className="bg-[#0f172e] hover:bg-slate-850 text-white font-bold py-2 px-4 rounded-xl text-xs transition-all flex items-center justify-center space-x-1 hover:scale-[1.02] active:scale-95"
+                className="bg-surface hover:bg-slate-850 text-white font-bold py-2 px-4 rounded-xl text-xs transition-all flex items-center justify-center space-x-1 hover:scale-[1.02] active:scale-95"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 <span>{repair ? 'Back to Repair Desk' : 'Back to POS Terminal'}</span>

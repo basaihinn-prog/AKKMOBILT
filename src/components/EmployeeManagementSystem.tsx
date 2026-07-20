@@ -242,7 +242,7 @@ export default function EmployeeManagementSystem({
   const COLORS = ['#3B82F6', '#10B981', '#F59E0B', '#EF4444'];
 
   return (
-    <div className="w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 min-h-screen text-white p-4 sm:p-6">
+    <div className="w-full bg-gradient-to-br from-card via-slate-800 to-card min-h-screen text-white p-4 sm:p-6">
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
         <div>
@@ -250,7 +250,7 @@ export default function EmployeeManagementSystem({
             <Users size={32} className="text-blue-400" />
             Employee Management
           </h1>
-          <p className="text-[#8891ac] mt-1">{employeeRecords.length} employees • Attendance, payroll, performance</p>
+          <p className="text-subtle mt-1">{employeeRecords.length} employees • Attendance, payroll, performance</p>
         </div>
 
         <button
@@ -263,7 +263,7 @@ export default function EmployeeManagementSystem({
       </div>
 
       {/* View Tabs */}
-      <div className="flex gap-2 mb-6 overflow-x-auto pb-2 border-b border-slate-700">
+      <div className="flex gap-2 mb-6 overflow-x-auto pb-2 border-b border-border">
         {['list', 'detail', 'attendance', 'payroll', 'performance', 'analytics'].map(view => (
           <button
             key={view}
@@ -274,7 +274,7 @@ export default function EmployeeManagementSystem({
             className={`px-4 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition ${
               activeView === view
                 ? 'bg-blue-600 text-white'
-                : 'text-slate-300 hover:bg-slate-700'
+                : 'text-muted hover:bg-elevated'
             }`}
           >
             {view === 'list' && <Users size={16} className="inline mr-2" />}
@@ -294,19 +294,19 @@ export default function EmployeeManagementSystem({
           {/* Search & Filter */}
           <div className="flex flex-col sm:flex-row gap-3 mb-6">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-3 text-[#8891ac]" size={18} />
+              <Search className="absolute left-3 top-3 text-subtle" size={18} />
               <input
                 type="text"
                 placeholder="Search employees by name, email, or ID..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-slate-700 border border-slate-600 rounded-lg pl-10 pr-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-blue-500"
+                className="w-full bg-elevated border border-slate-600 rounded-lg pl-10 pr-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-blue-500"
               />
             </div>
             <select
               value={filterRole}
               onChange={(e) => setFilterRole(e.target.value)}
-              className="bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white"
+              className="bg-elevated border border-slate-600 rounded-lg px-3 py-2 text-white"
             >
               <option value="all">All Roles</option>
               <option value="Technician">Technician</option>
@@ -318,7 +318,7 @@ export default function EmployeeManagementSystem({
             <select
               value={filterBranch}
               onChange={(e) => setFilterBranch(e.target.value)}
-              className="bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white"
+              className="bg-elevated border border-slate-600 rounded-lg px-3 py-2 text-white"
             >
               <option value="all">All Branches</option>
               <option value="b-yangon">Yangon</option>
@@ -336,7 +336,7 @@ export default function EmployeeManagementSystem({
                   setSelectedEmployee(emp);
                   setActiveView('detail');
                 }}
-                className="bg-[#222f5a] border border-slate-700 rounded-lg p-6 hover:border-blue-500 transition cursor-pointer"
+                className="bg-elevated border border-border rounded-lg p-6 hover:border-blue-500 transition cursor-pointer"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-start gap-3 flex-1">
@@ -345,24 +345,24 @@ export default function EmployeeManagementSystem({
                     </div>
                     <div>
                       <h3 className="font-bold">{emp.name}</h3>
-                      <p className="text-sm text-[#8891ac]">{emp.role}</p>
+                      <p className="text-sm text-subtle">{emp.role}</p>
                     </div>
                   </div>
                   <div className={`px-2 py-1 rounded text-xs font-medium ${
                     emp.attendanceStatus === 'checked_in'
-                      ? 'bg-emerald-600/20 text-[#10b981]'
-                      : 'bg-slate-700 text-[#8891ac]'
+                      ? 'bg-emerald-600/20 text-success'
+                      : 'bg-elevated text-subtle'
                   }`}>
                     {emp.attendanceStatus === 'checked_in' ? 'Present' : 'Off'}
                   </div>
                 </div>
 
-                <div className="space-y-2 text-sm mb-4 pt-4 border-t border-slate-700">
-                  <div className="flex items-center gap-2 text-[#8891ac]">
+                <div className="space-y-2 text-sm mb-4 pt-4 border-t border-border">
+                  <div className="flex items-center gap-2 text-subtle">
                     <MapPin size={14} />
                     {emp.branchId === 'b-yangon' ? 'Yangon' : emp.branchId === 'b-mandalay' ? 'Mandalay' : 'Naypyitaw'}
                   </div>
-                  <div className="flex items-center gap-2 text-[#8891ac]">
+                  <div className="flex items-center gap-2 text-subtle">
                     <Phone size={14} />
                     {emp.phone}
                   </div>
@@ -371,12 +371,12 @@ export default function EmployeeManagementSystem({
                 {emp.performance && (
                   <div className="mb-4">
                     <div className="flex items-center justify-between mb-1 text-xs">
-                      <span className="text-[#8891ac]">Performance</span>
+                      <span className="text-subtle">Performance</span>
                       <span className="font-bold text-amber-400">{emp.performance}%</span>
                     </div>
-                    <div className="w-full bg-slate-700 rounded-full h-2">
+                    <div className="w-full bg-elevated rounded-full h-2">
                       <div
-                        className="bg-gradient-to-r from-amber-500 to-[#10b981] h-2 rounded-full"
+                        className="bg-gradient-to-r from-amber-500 to-success h-2 rounded-full"
                         style={{ width: `${emp.performance}%` }}
                       />
                     </div>
@@ -384,7 +384,7 @@ export default function EmployeeManagementSystem({
                 )}
 
                 <div className="flex gap-2">
-                  <button className="flex-1 bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded font-medium text-sm transition">
+                  <button className="flex-1 bg-elevated hover:bg-slate-600 px-3 py-2 rounded font-medium text-sm transition">
                     <Eye size={14} className="inline mr-2" />
                     View
                   </button>
@@ -412,28 +412,28 @@ export default function EmployeeManagementSystem({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Employee Profile */}
             <div className="lg:col-span-1 space-y-4">
-              <div className="bg-[#222f5a] rounded-lg p-6">
+              <div className="bg-elevated rounded-lg p-6">
                 <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center font-bold text-3xl mx-auto mb-4">
                   {selectedEmployee.name.charAt(0)}
                 </div>
                 <h2 className="text-xl font-bold text-center">{selectedEmployee.name}</h2>
-                <p className="text-center text-[#8891ac] mt-1">{selectedEmployee.role}</p>
+                <p className="text-center text-subtle mt-1">{selectedEmployee.role}</p>
 
-                <div className="space-y-3 mt-6 pt-6 border-t border-slate-700">
+                <div className="space-y-3 mt-6 pt-6 border-t border-border">
                   <div>
-                    <p className="text-[#8891ac] text-sm">Department</p>
+                    <p className="text-subtle text-sm">Department</p>
                     <p className="font-medium mt-1">{selectedEmployee.department}</p>
                   </div>
                   <div>
-                    <p className="text-[#8891ac] text-sm">Position</p>
+                    <p className="text-subtle text-sm">Position</p>
                     <p className="font-medium mt-1">{selectedEmployee.position}</p>
                   </div>
                   <div>
-                    <p className="text-[#8891ac] text-sm">Join Date</p>
+                    <p className="text-subtle text-sm">Join Date</p>
                     <p className="font-medium mt-1">{selectedEmployee.joinDate}</p>
                   </div>
                   <div>
-                    <p className="text-[#8891ac] text-sm">Performance Score</p>
+                    <p className="text-subtle text-sm">Performance Score</p>
                     <p className="font-bold text-amber-400 mt-1">{selectedEmployee.performance}%</p>
                   </div>
                 </div>
@@ -459,20 +459,20 @@ export default function EmployeeManagementSystem({
             {/* Employee Details */}
             <div className="lg:col-span-2 space-y-6">
               {/* Contact Info */}
-              <div className="bg-[#222f5a] rounded-lg p-6">
+              <div className="bg-elevated rounded-lg p-6">
                 <h3 className="font-bold mb-4">Contact Information</h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <Mail size={18} className="text-blue-400" />
                     <div>
-                      <p className="text-[#8891ac] text-sm">Email</p>
+                      <p className="text-subtle text-sm">Email</p>
                       <p className="font-medium">{selectedEmployee.email}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Phone size={18} className="text-[#10b981]" />
+                    <Phone size={18} className="text-success" />
                     <div>
-                      <p className="text-[#8891ac] text-sm">Phone</p>
+                      <p className="text-subtle text-sm">Phone</p>
                       <p className="font-medium">{selectedEmployee.phone}</p>
                     </div>
                   </div>
@@ -480,7 +480,7 @@ export default function EmployeeManagementSystem({
               </div>
 
               {/* Certifications */}
-              <div className="bg-[#222f5a] rounded-lg p-6">
+              <div className="bg-elevated rounded-lg p-6">
                 <h3 className="font-bold mb-4 flex items-center gap-2">
                   <Award size={20} />
                   Certifications
@@ -496,20 +496,20 @@ export default function EmployeeManagementSystem({
 
               {/* Salary Info */}
               {selectedEmployee.baseSalary && (
-                <div className="bg-[#222f5a] rounded-lg p-6">
+                <div className="bg-elevated rounded-lg p-6">
                   <h3 className="font-bold mb-4 flex items-center gap-2">
                     <DollarSign size={20} />
                     Salary Information
                   </h3>
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-[#8891ac]">Base Salary</span>
+                      <span className="text-subtle">Base Salary</span>
                       <span className="font-bold">{selectedEmployee.baseSalary.toLocaleString()} MMK</span>
                     </div>
                     {selectedEmployee.commission > 0 && (
                       <div className="flex items-center justify-between">
-                        <span className="text-[#8891ac]">Commission Rate</span>
-                        <span className="font-bold text-[#10b981]">{(selectedEmployee.commissionRate * 100).toFixed(1)}%</span>
+                        <span className="text-subtle">Commission Rate</span>
+                        <span className="font-bold text-success">{(selectedEmployee.commissionRate * 100).toFixed(1)}%</span>
                       </div>
                     )}
                   </div>
@@ -523,7 +523,7 @@ export default function EmployeeManagementSystem({
       {/* ATTENDANCE VIEW */}
       {activeView === 'attendance' && (
         <div className="space-y-6">
-          <div className="bg-[#222f5a] rounded-lg p-6">
+          <div className="bg-elevated rounded-lg p-6">
             <h2 className="text-lg font-bold mb-4">Weekly Attendance Overview</h2>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={attendanceChartData}>
@@ -545,7 +545,7 @@ export default function EmployeeManagementSystem({
       {activeView === 'payroll' && (
         <div className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-[#222f5a] rounded-lg p-6">
+            <div className="bg-elevated rounded-lg p-6">
               <h2 className="text-lg font-bold mb-4">Salary Breakdown</h2>
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
@@ -568,23 +568,23 @@ export default function EmployeeManagementSystem({
               </ResponsiveContainer>
             </div>
 
-            <div className="bg-[#222f5a] rounded-lg p-6">
+            <div className="bg-elevated rounded-lg p-6">
               <h2 className="text-lg font-bold mb-4">Payroll Summary</h2>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-[#8891ac]">Total Base Salary</span>
+                  <span className="text-subtle">Total Base Salary</span>
                   <span className="font-bold text-lg">4,200,000 MMK</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-[#8891ac]">Commission</span>
-                  <span className="font-bold text-[#10b981]">168,000 MMK</span>
+                  <span className="text-subtle">Commission</span>
+                  <span className="font-bold text-success">168,000 MMK</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-[#8891ac]">Bonuses</span>
+                  <span className="text-subtle">Bonuses</span>
                   <span className="font-bold text-blue-400">80,000 MMK</span>
                 </div>
-                <div className="border-t border-slate-700 pt-4 mt-4 flex items-center justify-between">
-                  <span className="text-[#8891ac]">Total This Month</span>
+                <div className="border-t border-border pt-4 mt-4 flex items-center justify-between">
+                  <span className="text-subtle">Total This Month</span>
                   <span className="font-bold text-lg">4,448,000 MMK</span>
                 </div>
               </div>
@@ -597,7 +597,7 @@ export default function EmployeeManagementSystem({
       {activeView === 'performance' && (
         <div className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-[#222f5a] rounded-lg p-6">
+            <div className="bg-elevated rounded-lg p-6">
               <h2 className="text-lg font-bold mb-4">Performance Distribution</h2>
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
@@ -620,14 +620,14 @@ export default function EmployeeManagementSystem({
               </ResponsiveContainer>
             </div>
 
-            <div className="bg-[#222f5a] rounded-lg p-6">
+            <div className="bg-elevated rounded-lg p-6">
               <h2 className="text-lg font-bold mb-4">Top Performers</h2>
               <div className="space-y-3">
                 {employeeRecords.sort((a, b) => (b.performance || 0) - (a.performance || 0)).slice(0, 5).map(emp => (
-                  <div key={emp.id} className="flex items-center justify-between bg-slate-700 p-3 rounded-lg">
+                  <div key={emp.id} className="flex items-center justify-between bg-elevated p-3 rounded-lg">
                     <div>
                       <p className="font-medium">{emp.name}</p>
-                      <p className="text-xs text-[#8891ac]">{emp.position}</p>
+                      <p className="text-xs text-subtle">{emp.position}</p>
                     </div>
                     <span className="font-bold text-amber-400">⭐ {emp.performance}%</span>
                   </div>

@@ -41,7 +41,7 @@ const META_GROUPS: MetaGroup[] = [
     key: 'warehouses',
     label: 'Warehouses',
     icon: Building,
-    color: 'text-[#3052a3]',
+    color: 'text-primary',
     description: 'Manage logistics facilities, raw parts inventories, and regional supply chain hubs.',
     fields: [
       { name: 'name', label: 'Warehouse Name', placeholder: 'e.g. Central Mandalay Depot', type: 'text' },
@@ -74,7 +74,7 @@ const META_GROUPS: MetaGroup[] = [
     key: 'positions',
     label: 'Positions / Jobs',
     icon: Briefcase,
-    color: 'text-[#00d4ff]',
+    color: 'text-primary',
     description: 'Job positions, grade specifications, base brackets, and reporting structures.',
     fields: [
       { name: 'name', label: 'Job Title', placeholder: 'e.g. Senior Logic Technician', type: 'text' },
@@ -141,7 +141,7 @@ const META_GROUPS: MetaGroup[] = [
     key: 'discounts',
     label: 'Discounts & Loyalty',
     icon: Percent,
-    color: 'text-[#10b981]',
+    color: 'text-success',
     description: 'System discounts, promotional seasonal price markdowns, and CRM membership tiers.',
     fields: [
       { name: 'name', label: 'Discount Campaign', placeholder: 'e.g. Thadingyut Special Promo', type: 'text' },
@@ -269,8 +269,8 @@ export default function AdminMetaManagement() {
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6" id="meta-management-root">
       
       {/* 1. Left Nav: Selector Categories */}
-      <div className="lg:col-span-4 bg-[#1a2554]/15 border border-[#1a2554] p-4 rounded-2xl space-y-3">
-        <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono block px-2">Administrative Master Configuration</span>
+      <div className="lg:col-span-4 bg-card/15 border border-border p-4 rounded-2xl space-y-3">
+        <span className="text-[10px] text-subtle font-bold uppercase tracking-wider font-mono block px-2">Administrative Master Configuration</span>
         
         <div className="space-y-1 max-h-[480px] overflow-y-auto pr-1">
           {META_GROUPS.map((g) => {
@@ -285,14 +285,14 @@ export default function AdminMetaManagement() {
                 }}
                 className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl font-mono text-xs font-bold transition-all text-left ${
                   activeGroupKey === g.key
-                    ? 'bg-[#0f172e] border border-slate-850 text-white'
-                    : 'text-[#8891ac] hover:text-[#b0b8d4] hover:bg-[#1a2554]/10'
+                    ? 'bg-surface border border-slate-850 text-white'
+                    : 'text-subtle hover:text-muted hover:bg-card/10'
                 }`}
               >
                 <Icon className={`w-4 h-4 shrink-0 ${g.color}`} />
                 <div className="truncate">
                   <span>{g.label}</span>
-                  <span className="text-[9px] text-slate-500 font-normal block truncate">Count: {metaStore[g.key]?.length || 0} entries</span>
+                  <span className="text-[9px] text-subtle font-normal block truncate">Count: {metaStore[g.key]?.length || 0} entries</span>
                 </div>
               </button>
             );
@@ -300,10 +300,10 @@ export default function AdminMetaManagement() {
         </div>
 
         {/* Static Company settings page link */}
-        <div className="pt-3.5 border-t border-[#1a2554]">
-          <div className="bg-[#0f172e]/60 p-3.5 border border-[#1a2554] rounded-xl space-y-2 font-mono text-[10px]">
+        <div className="pt-3.5 border-t border-border">
+          <div className="bg-surface/60 p-3.5 border border-border rounded-xl space-y-2 font-mono text-[10px]">
             <span className="text-[8px] font-black text-rose-400 block uppercase">🏢 Company Settings Profile</span>
-            <div className="space-y-1 text-[#8891ac]">
+            <div className="space-y-1 text-subtle">
               <p>Legal Name: <strong>AKK Mobile Suite</strong></p>
               <p>Base Currency: <strong>Myanmar Kyat (MMK)</strong></p>
               <p>Default Tax Model: <strong>5.0% Sales VAT</strong></p>
@@ -317,23 +317,23 @@ export default function AdminMetaManagement() {
       <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-12 gap-6">
         
         {/* Registry ledger */}
-        <div className="md:col-span-7 bg-[#1a2554]/15 border border-[#1a2554] p-5 rounded-2xl flex flex-col justify-between space-y-4">
+        <div className="md:col-span-7 bg-card/15 border border-border p-5 rounded-2xl flex flex-col justify-between space-y-4">
           <div className="space-y-3">
-            <div className="border-b border-[#1a2554] pb-2.5">
-              <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono">Master Registry Ledger</span>
-              <h3 className="text-sm font-black text-[#b0b8d4] font-mono mt-0.5">{activeGroup.label} Config Table</h3>
-              <p className="text-[10px] text-slate-500 font-mono mt-1 leading-normal">{activeGroup.description}</p>
+            <div className="border-b border-border pb-2.5">
+              <span className="text-[10px] text-subtle font-bold uppercase tracking-wider font-mono">Master Registry Ledger</span>
+              <h3 className="text-sm font-black text-muted font-mono mt-0.5">{activeGroup.label} Config Table</h3>
+              <p className="text-[10px] text-subtle font-mono mt-1 leading-normal">{activeGroup.description}</p>
             </div>
 
             {/* Search Bar */}
-            <div className="relative bg-[#0f172e] border border-[#1a2554] rounded-xl p-2.5 flex items-center space-x-2 font-mono text-xs">
-              <Search className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+            <div className="relative bg-surface border border-border rounded-xl p-2.5 flex items-center space-x-2 font-mono text-xs">
+              <Search className="w-3.5 h-3.5 text-subtle shrink-0" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={`Search records in ${activeGroup.label.toLowerCase()}...`}
-                className="w-full bg-transparent outline-none text-[11px] text-[#b0b8d4]"
+                className="w-full bg-transparent outline-none text-[11px] text-muted"
               />
             </div>
 
@@ -341,18 +341,18 @@ export default function AdminMetaManagement() {
             <div className="space-y-2 max-h-[300px] overflow-y-auto pr-1 font-mono text-xs">
               {filteredRecords.length > 0 ? (
                 filteredRecords.map((rec) => (
-                  <div key={rec.id} className="group flex items-center justify-between p-3 bg-[#0f172e]/40 border border-[#1a2554]/60 rounded-xl">
+                  <div key={rec.id} className="group flex items-center justify-between p-3 bg-surface/40 border border-border/60 rounded-xl">
                     <div>
-                      <strong className="text-[#b0b8d4] block font-bold text-[11px]">{rec.name}</strong>
-                      <span className="text-[9px] text-[#8891ac] block mt-0.5">{rec.detail1}</span>
-                      <span className="text-[9px] text-slate-500 block">{rec.detail2}</span>
+                      <strong className="text-muted block font-bold text-[11px]">{rec.name}</strong>
+                      <span className="text-[9px] text-subtle block mt-0.5">{rec.detail1}</span>
+                      <span className="text-[9px] text-subtle block">{rec.detail2}</span>
                     </div>
 
                     <div className="flex items-center space-x-2 shrink-0">
-                      <span className="text-[8px] bg-[#1a2554] px-1.5 py-0.5 border border-slate-850 rounded text-slate-500">{rec.id}</span>
+                      <span className="text-[8px] bg-card px-1.5 py-0.5 border border-slate-850 rounded text-subtle">{rec.id}</span>
                       <button
                         onClick={() => handleDeleteMeta(rec.id)}
-                        className="opacity-0 group-hover:opacity-100 p-1 hover:bg-[#1a2554] rounded text-rose-500 hover:text-rose-400 transition"
+                        className="opacity-0 group-hover:opacity-100 p-1 hover:bg-card rounded text-rose-500 hover:text-rose-400 transition"
                         title="Delete record"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -361,22 +361,22 @@ export default function AdminMetaManagement() {
                   </div>
                 ))
               ) : (
-                <div className="text-center py-12 text-slate-500 italic">No records registered in this configuration catalog</div>
+                <div className="text-center py-12 text-subtle italic">No records registered in this configuration catalog</div>
               )}
             </div>
           </div>
         </div>
 
         {/* Creation form */}
-        <div className="md:col-span-5 bg-[#1a2554]/15 border border-[#1a2554] p-5 rounded-2xl flex flex-col justify-between">
+        <div className="md:col-span-5 bg-card/15 border border-border p-5 rounded-2xl flex flex-col justify-between">
           <form onSubmit={handleAddMetaSubmit} className="space-y-4 font-mono text-xs">
-            <div className="border-b border-[#1a2554] pb-3">
-              <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Add Register Record</span>
-              <strong className="text-[11px] text-[#3052a3] block mt-0.5 uppercase">New {activeGroup.label.slice(0, -1)} Form</strong>
+            <div className="border-b border-border pb-3">
+              <span className="text-[10px] text-subtle font-bold uppercase tracking-wider block">Add Register Record</span>
+              <strong className="text-[11px] text-primary block mt-0.5 uppercase">New {activeGroup.label.slice(0, -1)} Form</strong>
             </div>
 
             {addSuccess && (
-              <div className="bg-[#10b981]/10 border border-[#10b981]/25 p-2.5 rounded-lg text-[#10b981] text-[10px] text-center font-bold">
+              <div className="bg-success/10 border border-success/25 p-2.5 rounded-lg text-success text-[10px] text-center font-bold">
                 🎉 Entry appended successfully to memory master registers!
               </div>
             )}
@@ -384,14 +384,14 @@ export default function AdminMetaManagement() {
             <div className="space-y-3">
               {activeGroup.fields.map((f) => (
                 <div key={f.name} className="space-y-1">
-                  <label className="text-[#8891ac] text-[10px] font-bold">{f.label}</label>
+                  <label className="text-subtle text-[10px] font-bold">{f.label}</label>
                   <input
                     type={f.type}
                     required
                     placeholder={f.placeholder}
                     value={formInputs[f.name] || ''}
                     onChange={(e) => handleInputChange(f.name, e.target.value)}
-                    className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4] text-xs outline-none"
+                    className="w-full bg-surface border border-border rounded p-2 text-muted text-xs outline-none"
                   />
                 </div>
               ))}
@@ -399,16 +399,16 @@ export default function AdminMetaManagement() {
 
             <button
               type="submit"
-              className="w-full bg-[#3052a3] hover:bg-indigo-600 text-slate-950 font-black py-2.5 rounded-xl uppercase transition shadow"
+              className="w-full bg-primary hover:bg-accent text-slate-950 font-black py-2.5 rounded-xl uppercase transition shadow"
             >
               Commit Configuration
             </button>
           </form>
 
           {/* Help box */}
-          <div className="bg-[#0f172e] p-3 border border-[#1a2554] rounded-xl space-y-1.5 mt-4 text-[9px] font-mono leading-relaxed text-[#8891ac]">
-            <div className="flex items-center space-x-1 text-[8px] font-black text-[#8891ac] uppercase">
-              <HelpCircle className="w-3 h-3 text-slate-500" />
+          <div className="bg-surface p-3 border border-border rounded-xl space-y-1.5 mt-4 text-[9px] font-mono leading-relaxed text-subtle">
+            <div className="flex items-center space-x-1 text-[8px] font-black text-subtle uppercase">
+              <HelpCircle className="w-3 h-3 text-subtle" />
               <span>Catalog Guideline</span>
             </div>
             <p>Altering parameters updates live cashier invoice printouts, billing tax computations, and inventory thresholds system-wide instantly.</p>

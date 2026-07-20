@@ -156,7 +156,7 @@ export default function PermissionBuilder({
   };
 
   return (
-    <div className="w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 min-h-screen text-white p-4 sm:p-6">
+    <div className="w-full bg-gradient-to-br from-card via-slate-800 to-card min-h-screen text-white p-4 sm:p-6">
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
         <div>
@@ -164,7 +164,7 @@ export default function PermissionBuilder({
             <Shield size={32} className="text-blue-400" />
             Permission Builder
           </h1>
-          <p className="text-[#8891ac] mt-1">Create and manage roles, permissions, and access controls</p>
+          <p className="text-subtle mt-1">Create and manage roles, permissions, and access controls</p>
         </div>
 
         {activeView === 'list' && (
@@ -183,13 +183,13 @@ export default function PermissionBuilder({
         <div className="space-y-4">
           {/* Search */}
           <div className="relative mb-6">
-            <Search className="absolute left-3 top-3 text-[#8891ac]" size={18} />
+            <Search className="absolute left-3 top-3 text-subtle" size={18} />
             <input
               type="text"
               placeholder="Search roles..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-slate-700 border border-slate-600 rounded-lg pl-10 pr-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-blue-500"
+              className="w-full bg-elevated border border-slate-600 rounded-lg pl-10 pr-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-blue-500"
             />
           </div>
 
@@ -198,7 +198,7 @@ export default function PermissionBuilder({
             {filteredRoles.map(role => (
               <div
                 key={role.id}
-                className="bg-[#222f5a] border border-slate-700 rounded-lg p-6 hover:border-blue-500 transition"
+                className="bg-elevated border border-border rounded-lg p-6 hover:border-blue-500 transition"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-start gap-3">
@@ -216,23 +216,23 @@ export default function PermissionBuilder({
                   </div>
                 </div>
 
-                <p className="text-[#8891ac] text-sm mb-4">{role.description}</p>
+                <p className="text-subtle text-sm mb-4">{role.description}</p>
 
-                <div className="space-y-2 text-sm mb-4 pt-4 border-t border-slate-700">
+                <div className="space-y-2 text-sm mb-4 pt-4 border-t border-border">
                   <div className="flex items-center justify-between">
-                    <span className="text-[#8891ac]">Assigned to</span>
+                    <span className="text-subtle">Assigned to</span>
                     <span className="font-bold">{role.employeeCount} employees</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-[#8891ac]">Module Access</span>
-                    <span className="font-bold text-[#10b981]">
+                    <span className="text-subtle">Module Access</span>
+                    <span className="font-bold text-success">
                       {Object.values(role.permissions.modules).filter(Boolean).length}/9
                     </span>
                   </div>
                 </div>
 
                 {/* Permission Summary */}
-                <div className="flex flex-wrap gap-2 mb-4 pt-3 border-t border-slate-700">
+                <div className="flex flex-wrap gap-2 mb-4 pt-3 border-t border-border">
                   {Object.entries(role.permissions.modules)
                     .filter(([_, enabled]) => enabled)
                     .slice(0, 3)
@@ -243,7 +243,7 @@ export default function PermissionBuilder({
                       </div>
                     ))}
                   {Object.values(role.permissions.modules).filter(Boolean).length > 3 && (
-                    <div className="bg-slate-700 text-slate-300 px-2 py-1 rounded text-xs font-medium">
+                    <div className="bg-elevated text-muted px-2 py-1 rounded text-xs font-medium">
                       +{Object.values(role.permissions.modules).filter(Boolean).length - 3} more
                     </div>
                   )}
@@ -291,7 +291,7 @@ export default function PermissionBuilder({
                   setActiveView('list');
                   setSelectedRole(null);
                 }}
-                className="bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition"
+                className="bg-elevated hover:bg-slate-600 px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition"
               >
                 <X size={18} />
                 Cancel
@@ -306,27 +306,27 @@ export default function PermissionBuilder({
             </div>
           </div>
 
-          <div className="bg-[#222f5a] border border-slate-700 rounded-lg p-6 space-y-6">
+          <div className="bg-elevated border border-border rounded-lg p-6 space-y-6">
             {/* Role Metadata */}
             <div>
               <h2 className="text-xl font-bold mb-4">Role Information</h2>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm text-[#8891ac] mb-2">Role Name</label>
+                  <label className="block text-sm text-subtle mb-2">Role Name</label>
                   <input
                     type="text"
                     value={editingRoleName}
                     onChange={(e) => setEditingRoleName(e.target.value)}
                     disabled
-                    className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white opacity-50 cursor-not-allowed"
+                    className="w-full bg-elevated border border-slate-600 rounded-lg px-4 py-2 text-white opacity-50 cursor-not-allowed"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm text-[#8891ac] mb-2">Description</label>
+                  <label className="block text-sm text-subtle mb-2">Description</label>
                   <textarea
                     value={editingRoleDescription}
                     onChange={(e) => setEditingRoleDescription(e.target.value)}
-                    className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 h-24 resize-none"
+                    className="w-full bg-elevated border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 h-24 resize-none"
                     placeholder="Role description..."
                   />
                 </div>
@@ -338,7 +338,7 @@ export default function PermissionBuilder({
               <h2 className="text-xl font-bold mb-4">Module Access</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {Object.entries(editingPermissions.modules).map(([module, enabled]) => (
-                  <div key={module} className="bg-slate-700 rounded-lg p-4">
+                  <div key={module} className="bg-elevated rounded-lg p-4">
                     <button
                       onClick={() => {
                         setEditingPermissions({
@@ -356,9 +356,9 @@ export default function PermissionBuilder({
                         <span className="font-medium">{moduleLabels[module]}</span>
                       </div>
                       {enabled ? (
-                        <ToggleRight size={20} className="text-[#10b981]" />
+                        <ToggleRight size={20} className="text-success" />
                       ) : (
-                        <ToggleLeft size={20} className="text-slate-500" />
+                        <ToggleLeft size={20} className="text-subtle" />
                       )}
                     </button>
                   </div>
@@ -371,7 +371,7 @@ export default function PermissionBuilder({
               <h2 className="text-xl font-bold mb-4">Data Operations (CRUD)</h2>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 {['create', 'read', 'update', 'delete'].map(action => (
-                  <div key={action} className="bg-slate-700 rounded-lg p-4">
+                  <div key={action} className="bg-elevated rounded-lg p-4">
                     <button
                       onClick={() => {
                         setEditingPermissions({
@@ -386,9 +386,9 @@ export default function PermissionBuilder({
                     >
                       <span className="font-medium capitalize">{action}</span>
                       {editingPermissions.crud[action as keyof typeof editingPermissions.crud] ? (
-                        <Check size={18} className="text-[#10b981]" />
+                        <Check size={18} className="text-success" />
                       ) : (
-                        <X size={18} className="text-slate-500" />
+                        <X size={18} className="text-subtle" />
                       )}
                     </button>
                   </div>
@@ -401,10 +401,10 @@ export default function PermissionBuilder({
               <h2 className="text-xl font-bold mb-4">Advanced Features</h2>
               <div className="space-y-4">
                 {/* Approve/Reject */}
-                <div className="flex items-center justify-between bg-slate-700 p-4 rounded-lg">
+                <div className="flex items-center justify-between bg-elevated p-4 rounded-lg">
                   <div>
                     <p className="font-medium">Approve/Reject Actions</p>
-                    <p className="text-sm text-[#8891ac]">Can approve or reject pending operations</p>
+                    <p className="text-sm text-subtle">Can approve or reject pending operations</p>
                   </div>
                   <button
                     onClick={() => {
@@ -419,15 +419,15 @@ export default function PermissionBuilder({
                     className="transition"
                   >
                     {editingPermissions.features.approveReject ? (
-                      <ToggleRight size={24} className="text-[#10b981]" />
+                      <ToggleRight size={24} className="text-success" />
                     ) : (
-                      <ToggleLeft size={24} className="text-slate-500" />
+                      <ToggleLeft size={24} className="text-subtle" />
                     )}
                   </button>
                 </div>
 
                 {/* Branch Restriction */}
-                <div className="bg-slate-700 p-4 rounded-lg">
+                <div className="bg-elevated p-4 rounded-lg">
                   <p className="font-medium mb-3">Branch Restriction</p>
                   <select
                     value={editingPermissions.features.branchRestriction}
@@ -449,7 +449,7 @@ export default function PermissionBuilder({
                 </div>
 
                 {/* API Access */}
-                <div className="bg-slate-700 p-4 rounded-lg">
+                <div className="bg-elevated p-4 rounded-lg">
                   <p className="font-medium mb-3">API Access Level</p>
                   <select
                     value={editingPermissions.features.apiAccess}
@@ -471,10 +471,10 @@ export default function PermissionBuilder({
                 </div>
 
                 {/* Advanced Settings */}
-                <div className="flex items-center justify-between bg-slate-700 p-4 rounded-lg">
+                <div className="flex items-center justify-between bg-elevated p-4 rounded-lg">
                   <div>
                     <p className="font-medium">Advanced Settings</p>
-                    <p className="text-sm text-[#8891ac]">Access to system configuration</p>
+                    <p className="text-sm text-subtle">Access to system configuration</p>
                   </div>
                   <button
                     onClick={() => {
@@ -489,9 +489,9 @@ export default function PermissionBuilder({
                     className="transition"
                   >
                     {editingPermissions.features.advancedSettings ? (
-                      <ToggleRight size={24} className="text-[#10b981]" />
+                      <ToggleRight size={24} className="text-success" />
                     ) : (
-                      <ToggleLeft size={24} className="text-slate-500" />
+                      <ToggleLeft size={24} className="text-subtle" />
                     )}
                   </button>
                 </div>
@@ -499,26 +499,26 @@ export default function PermissionBuilder({
             </div>
 
             {/* Permissions Summary */}
-            <div className="bg-slate-700 rounded-lg p-4">
+            <div className="bg-elevated rounded-lg p-4">
               <h3 className="font-bold mb-3 flex items-center gap-2">
-                <CheckCircle size={20} className="text-[#10b981]" />
+                <CheckCircle size={20} className="text-success" />
                 Permission Summary
               </h3>
               <div className="space-y-2 text-sm">
                 <p>
-                  <span className="text-[#8891ac]">Module Access:</span>{' '}
+                  <span className="text-subtle">Module Access:</span>{' '}
                   <span className="font-bold">
                     {Object.values(editingPermissions.modules).filter(Boolean).length}/9
                   </span>
                 </p>
                 <p>
-                  <span className="text-[#8891ac]">CRUD Operations:</span>{' '}
+                  <span className="text-subtle">CRUD Operations:</span>{' '}
                   <span className="font-bold">
                     {Object.values(editingPermissions.crud).filter(Boolean).length}/4
                   </span>
                 </p>
                 <p>
-                  <span className="text-[#8891ac]">Branch Restriction:</span>{' '}
+                  <span className="text-subtle">Branch Restriction:</span>{' '}
                   <span className="font-bold capitalize">{editingPermissions.features.branchRestriction.replace(/_/g, ' ')}</span>
                 </p>
               </div>

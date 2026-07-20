@@ -713,25 +713,25 @@ export default function AdminDashboard({
     <div className="space-y-6 animate-fade-in" id="admin-dashboard-root">
       
       {/* Top Banner and Navigation Switch Board */}
-      <div className="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-4 bg-[#1a2554]/30 border border-[#1a2554] rounded-2xl p-5">
+      <div className="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-4 bg-card/30 border border-border rounded-2xl p-5">
         <div>
-          <h3 className="text-base font-extrabold text-[#f0f4ff] font-mono uppercase tracking-wider flex items-center space-x-2">
-            <ShieldCheck className="w-5 h-5 text-[#3052a3]" />
+          <h3 className="text-base font-extrabold text-foreground font-mono uppercase tracking-wider flex items-center space-x-2">
+            <ShieldCheck className="w-5 h-5 text-primary" />
             <span>AKK Mobile Enterprise Command Center</span>
           </h3>
-          <p className="text-[11px] text-[#8891ac] font-mono mt-1 leading-relaxed">
+          <p className="text-[11px] text-subtle font-mono mt-1 leading-relaxed">
             Centralized administrative system controllers for sales checkout, inventories, transfers, cellular top-ups, accounting, & CRM dispatches.
           </p>
         </div>
 
         {/* Outer Command Tabs */}
-        <div className="flex flex-wrap items-center gap-1.5 bg-[#0f172e] p-1.5 rounded-xl border border-slate-850 w-full xl:w-auto font-mono text-[10px] font-bold">
+        <div className="flex flex-wrap items-center gap-1.5 bg-surface p-1.5 rounded-xl border border-slate-850 w-full xl:w-auto font-mono text-[10px] font-bold">
           <button
             onClick={() => setAdminActiveSubTab('executive_dashboard')}
             className={`px-3 py-1.5 rounded-lg transition-all flex items-center space-x-1 ${
               adminActiveSubTab === 'executive_dashboard'
                 ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
-                : 'text-[#8891ac] hover:text-[#b0b8d4]'
+                : 'text-subtle hover:text-muted'
             }`}
           >
             <TrendingUp className="w-3.5 h-3.5 text-rose-400" />
@@ -741,22 +741,22 @@ export default function AdminDashboard({
             onClick={() => setAdminActiveSubTab('kpis')}
             className={`px-3 py-1.5 rounded-lg transition-all flex items-center space-x-1 ${
               adminActiveSubTab === 'kpis'
-                ? 'bg-[#3052a3]/10 text-[#3052a3] border border-[#3052a3]/20'
-                : 'text-[#8891ac] hover:text-[#b0b8d4]'
+                ? 'bg-primary/10 text-primary border border-primary/20'
+                : 'text-subtle hover:text-muted'
             }`}
           >
-            <Layers className="w-3.5 h-3.5 text-[#3052a3]" />
+            <Layers className="w-3.5 h-3.5 text-primary" />
             <span>RAW RECHARTS</span>
           </button>
           <button
             onClick={() => setAdminActiveSubTab('forms')}
             className={`px-3 py-1.5 rounded-lg transition-all flex items-center space-x-1 ${
               adminActiveSubTab === 'forms'
-                ? 'bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20'
-                : 'text-[#8891ac] hover:text-[#b0b8d4]'
+                ? 'bg-success/10 text-success border border-success/20'
+                : 'text-subtle hover:text-muted'
             }`}
           >
-            <Zap className="w-3.5 h-3.5 text-[#10b981]" />
+            <Zap className="w-3.5 h-3.5 text-success" />
             <span>DISPATCH FORMS</span>
           </button>
           <button
@@ -764,7 +764,7 @@ export default function AdminDashboard({
             className={`px-3 py-1.5 rounded-lg transition-all flex items-center space-x-1 ${
               adminActiveSubTab === 'employees'
                 ? 'bg-teal-500/10 text-teal-400 border border-teal-500/20'
-                : 'text-[#8891ac] hover:text-[#b0b8d4]'
+                : 'text-subtle hover:text-muted'
             }`}
           >
             <Users className="w-3.5 h-3.5 text-teal-400" />
@@ -775,7 +775,7 @@ export default function AdminDashboard({
             className={`px-3 py-1.5 rounded-lg transition-all flex items-center space-x-1 ${
               adminActiveSubTab === 'branches'
                 ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-                : 'text-[#8891ac] hover:text-[#b0b8d4]'
+                : 'text-subtle hover:text-muted'
             }`}
           >
             <Building className="w-3.5 h-3.5 text-amber-400" />
@@ -786,7 +786,7 @@ export default function AdminDashboard({
             className={`px-3 py-1.5 rounded-lg transition-all flex items-center space-x-1 ${
               adminActiveSubTab === 'metadata'
                 ? 'bg-purple-500/10 text-purple-400 border border-purple-500/20'
-                : 'text-[#8891ac] hover:text-[#b0b8d4]'
+                : 'text-subtle hover:text-muted'
             }`}
           >
             <Sliders className="w-3.5 h-3.5 text-purple-400" />
@@ -797,7 +797,7 @@ export default function AdminDashboard({
             className={`px-3 py-1.5 rounded-lg transition-all flex items-center space-x-1 ${
               adminActiveSubTab === 'rbac'
                 ? 'bg-pink-500/10 text-pink-400 border border-pink-500/20'
-                : 'text-[#8891ac] hover:text-[#b0b8d4]'
+                : 'text-subtle hover:text-muted'
             }`}
           >
             <ShieldCheck className="w-3.5 h-3.5 text-pink-400" />
@@ -807,11 +807,11 @@ export default function AdminDashboard({
             onClick={() => setAdminActiveSubTab('integrations')}
             className={`px-3 py-1.5 rounded-lg transition-all flex items-center space-x-1 ${
               adminActiveSubTab === 'integrations'
-                ? 'bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/20'
-                : 'text-[#8891ac] hover:text-[#b0b8d4]'
+                ? 'bg-primary/10 text-primary border border-primary/20'
+                : 'text-subtle hover:text-muted'
             }`}
           >
-            <Server className="w-3.5 h-3.5 text-[#00d4ff]" />
+            <Server className="w-3.5 h-3.5 text-primary" />
             <span>TELEMETRY GATEWAY</span>
           </button>
         </div>
@@ -878,36 +878,36 @@ export default function AdminDashboard({
       {adminActiveSubTab === 'kpis' && (
         <div className="space-y-6 animate-fade-in">
           {/* Sub-tab scope filter controls */}
-          <div className="flex flex-wrap items-center justify-between gap-3 bg-[#0f172e]/40 border border-[#1a2554] p-3 rounded-xl font-mono text-xs">
+          <div className="flex flex-wrap items-center justify-between gap-3 bg-surface/40 border border-border p-3 rounded-xl font-mono text-xs">
             <div className="flex items-center space-x-2">
-              <Building className="w-4 h-4 text-slate-500" />
-              <span className="text-[#8891ac] font-bold">Select Active Scope:</span>
+              <Building className="w-4 h-4 text-subtle" />
+              <span className="text-subtle font-bold">Select Active Scope:</span>
               <select
                 value={selectedBranchFilter}
                 onChange={(e) => setSelectedBranchFilter(e.target.value)}
-                className="bg-transparent text-xs text-[#b0b8d4] outline-none font-bold cursor-pointer"
+                className="bg-transparent text-xs text-muted outline-none font-bold cursor-pointer"
               >
-                <option value="All" className="bg-[#0f172e]">Consolidated Ledger (All Branches)</option>
-                <option value="b-yangon" className="bg-[#0f172e]">Yangon Head Office (Kaba Aye)</option>
-                <option value="b-mandalay" className="bg-[#0f172e]">Mandalay Division Branch</option>
-                <option value="b-naypyitaw" className="bg-[#0f172e]">Naypyitaw Capital Mall</option>
+                <option value="All" className="bg-surface">Consolidated Ledger (All Branches)</option>
+                <option value="b-yangon" className="bg-surface">Yangon Head Office (Kaba Aye)</option>
+                <option value="b-mandalay" className="bg-surface">Mandalay Division Branch</option>
+                <option value="b-naypyitaw" className="bg-surface">Naypyitaw Capital Mall</option>
               </select>
             </div>
 
             <div className="flex items-center space-x-2">
-              <span className="text-slate-500">Download Excel Audit:</span>
+              <span className="text-subtle">Download Excel Audit:</span>
               <button
                 onClick={exportSalesCSV}
-                className="bg-[#1a2554] hover:bg-slate-850 border border-[#222f5a] hover:border-[#10b981]/20 text-slate-300 font-bold px-2.5 py-1.5 rounded text-[10px] flex items-center space-x-1"
+                className="bg-card hover:bg-slate-850 border border-border hover:border-success/20 text-muted font-bold px-2.5 py-1.5 rounded text-[10px] flex items-center space-x-1"
               >
-                <Download className="w-3 h-3 text-[#10b981]" />
+                <Download className="w-3 h-3 text-success" />
                 <span>Sales CSV</span>
               </button>
               <button
                 onClick={exportInventoryCSV}
-                className="bg-[#1a2554] hover:bg-slate-850 border border-[#222f5a] hover:border-[#00d4ff]/20 text-slate-300 font-bold px-2.5 py-1.5 rounded text-[10px] flex items-center space-x-1"
+                className="bg-card hover:bg-slate-850 border border-border hover:border-primary/20 text-muted font-bold px-2.5 py-1.5 rounded text-[10px] flex items-center space-x-1"
               >
-                <Download className="w-3 h-3 text-[#00d4ff]" />
+                <Download className="w-3 h-3 text-primary" />
                 <span>Inventory CSV</span>
               </button>
             </div>
@@ -916,73 +916,73 @@ export default function AdminDashboard({
           {/* Metric cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono">
             
-            <div className="bg-[#1a2554]/25 border border-[#1a2554] rounded-2xl p-4.5 space-y-2 group hover:border-slate-850 transition">
+            <div className="bg-card/25 border border-border rounded-2xl p-4.5 space-y-2 group hover:border-slate-850 transition">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Gross Retail Sales</span>
-                <div className="p-1.5 bg-[#10b981]/10 text-[#10b981] rounded-lg">
+                <span className="text-[10px] text-subtle font-bold uppercase tracking-wider">Gross Retail Sales</span>
+                <div className="p-1.5 bg-success/10 text-success rounded-lg">
                   <DollarSign className="w-3.5 h-3.5" />
                 </div>
               </div>
               <div>
-                <strong className="text-xl sm:text-2xl text-[#10b981] block font-black">
+                <strong className="text-xl sm:text-2xl text-success block font-black">
                   {totalSalesRevenue.toLocaleString()} MMK
                 </strong>
-                <div className="flex items-center space-x-1.5 mt-1 text-[10px] text-[#8891ac]">
+                <div className="flex items-center space-x-1.5 mt-1 text-[10px] text-subtle">
                   <span>Sales Count:</span>
-                  <strong className="text-[#f0f4ff]">{filteredSales.length} bills</strong>
-                  <span className="text-slate-600">•</span>
+                  <strong className="text-foreground">{filteredSales.length} bills</strong>
+                  <span className="text-subtle">•</span>
                   <span>GST/VAT:</span>
-                  <strong className="text-[#f0f4ff]">{totalSalesTax.toLocaleString()}</strong>
+                  <strong className="text-foreground">{totalSalesTax.toLocaleString()}</strong>
                 </div>
               </div>
             </div>
 
-            <div className="bg-[#1a2554]/25 border border-[#1a2554] rounded-2xl p-4.5 space-y-2 group hover:border-slate-850 transition">
+            <div className="bg-card/25 border border-border rounded-2xl p-4.5 space-y-2 group hover:border-slate-850 transition">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Net Surplus Balance</span>
-                <div className="p-1.5 bg-[#00d4ff]/10 text-[#00d4ff] rounded-lg">
+                <span className="text-[10px] text-subtle font-bold uppercase tracking-wider">Net Surplus Balance</span>
+                <div className="p-1.5 bg-primary/10 text-primary rounded-lg">
                   <TrendingUp className="w-3.5 h-3.5" />
                 </div>
               </div>
               <div>
-                <strong className="text-xl sm:text-2xl text-[#f0f4ff] block font-black">
+                <strong className="text-xl sm:text-2xl text-foreground block font-black">
                   {netProfit.toLocaleString()} MMK
                 </strong>
-                <div className="flex items-center space-x-1.5 mt-1 text-[10px] text-[#8891ac]">
+                <div className="flex items-center space-x-1.5 mt-1 text-[10px] text-subtle">
                   <span>Opex booked:</span>
                   <strong className="text-rose-400">-{totalExpenseAmount.toLocaleString()}</strong>
-                  <span className="text-slate-600">•</span>
+                  <span className="text-subtle">•</span>
                   <span>Est COGS:</span>
-                  <strong className="text-[#8891ac]">{totalCogs.toLocaleString()}</strong>
+                  <strong className="text-subtle">{totalCogs.toLocaleString()}</strong>
                 </div>
               </div>
             </div>
 
-            <div className="bg-[#1a2554]/25 border border-[#1a2554] rounded-2xl p-4.5 space-y-2 group hover:border-slate-850 transition">
+            <div className="bg-card/25 border border-border rounded-2xl p-4.5 space-y-2 group hover:border-slate-850 transition">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Inventory Asset Valuation</span>
-                <div className="p-1.5 bg-[#3052a3]/10 text-[#3052a3] rounded-lg">
+                <span className="text-[10px] text-subtle font-bold uppercase tracking-wider">Inventory Asset Valuation</span>
+                <div className="p-1.5 bg-primary/10 text-primary rounded-lg">
                   <Package className="w-3.5 h-3.5" />
                 </div>
               </div>
               <div>
-                <strong className="text-xl sm:text-2xl text-indigo-300 block font-black">
+                <strong className="text-xl sm:text-2xl text-accent block font-black">
                   {totalStockValue.toLocaleString()} MMK
                 </strong>
-                <div className="flex items-center space-x-1.5 mt-1 text-[10px] text-[#8891ac]">
+                <div className="flex items-center space-x-1.5 mt-1 text-[10px] text-subtle">
                   <span>Units:</span>
-                  <strong className="text-[#f0f4ff]">{totalUnitsInStock} pcs</strong>
-                  <span className="text-slate-600">•</span>
-                  <span className={`font-bold ${lowStockAlarmsCount > 0 ? 'text-amber-400 animate-pulse' : 'text-slate-500'}`}>
+                  <strong className="text-foreground">{totalUnitsInStock} pcs</strong>
+                  <span className="text-subtle">•</span>
+                  <span className={`font-bold ${lowStockAlarmsCount > 0 ? 'text-amber-400 animate-pulse' : 'text-subtle'}`}>
                     {lowStockAlarmsCount} alerts
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-[#1a2554]/25 border border-[#1a2554] rounded-2xl p-4.5 space-y-2 group hover:border-slate-850 transition">
+            <div className="bg-card/25 border border-border rounded-2xl p-4.5 space-y-2 group hover:border-slate-850 transition">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Hardware service pipeline</span>
+                <span className="text-[10px] text-subtle font-bold uppercase tracking-wider">Hardware service pipeline</span>
                 <div className="p-1.5 bg-pink-500/10 text-pink-400 rounded-lg">
                   <Wrench className="w-3.5 h-3.5" />
                 </div>
@@ -991,9 +991,9 @@ export default function AdminDashboard({
                 <strong className="text-xl sm:text-2xl text-pink-400 block font-black">
                   {activeRepairsCount} tickets pending
                 </strong>
-                <div className="flex items-center space-x-1.5 mt-1 text-[10px] text-[#8891ac]">
+                <div className="flex items-center space-x-1.5 mt-1 text-[10px] text-subtle">
                   <span>Est revenue:</span>
-                  <strong className="text-[#10b981]">{pendingServiceRevenue.toLocaleString()} MMK</strong>
+                  <strong className="text-success">{pendingServiceRevenue.toLocaleString()} MMK</strong>
                 </div>
               </div>
             </div>
@@ -1004,8 +1004,8 @@ export default function AdminDashboard({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             
             {/* Sales Trends Chart */}
-            <div className="lg:col-span-8 bg-[#1a2554]/15 border border-[#1a2554] rounded-2xl p-5 space-y-3">
-              <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono block">Multi-Branch Consolidated Sales Over Time (MMK)</span>
+            <div className="lg:col-span-8 bg-card/15 border border-border rounded-2xl p-5 space-y-3">
+              <span className="text-[10px] text-subtle font-bold uppercase tracking-wider font-mono block">Multi-Branch Consolidated Sales Over Time (MMK)</span>
               <div className="h-64 sm:h-72">
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={getSalesOverTime()} margin={{ left: -10, right: 10, top: 10, bottom: 0 }}>
@@ -1030,8 +1030,8 @@ export default function AdminDashboard({
             </div>
 
             {/* Expenses Category Pie Chart */}
-            <div className="lg:col-span-4 bg-[#1a2554]/15 border border-[#1a2554] rounded-2xl p-5 flex flex-col justify-between space-y-4">
-              <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono block">Operating Expense Categories</span>
+            <div className="lg:col-span-4 bg-card/15 border border-border rounded-2xl p-5 flex flex-col justify-between space-y-4">
+              <span className="text-[10px] text-subtle font-bold uppercase tracking-wider font-mono block">Operating Expense Categories</span>
               
               <div className="h-48 flex items-center justify-center relative">
                 {getExpensesCategoryData().length > 0 ? (
@@ -1057,24 +1057,24 @@ export default function AdminDashboard({
                     </PieChart>
                   </ResponsiveContainer>
                 ) : (
-                  <div className="text-center font-mono text-[10px] text-slate-600">
+                  <div className="text-center font-mono text-[10px] text-subtle">
                     No operating expenses recorded.
                   </div>
                 )}
                 <div className="absolute flex flex-col items-center justify-center text-center">
-                  <span className="text-[9px] text-slate-500 font-mono font-bold uppercase">Expense</span>
-                  <strong className="text-xs font-black text-[#b0b8d4] font-mono">
+                  <span className="text-[9px] text-subtle font-mono font-bold uppercase">Expense</span>
+                  <strong className="text-xs font-black text-muted font-mono">
                     {totalExpenseAmount.toLocaleString()}
                   </strong>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-1 text-[9px] font-mono text-[#8891ac]">
+              <div className="grid grid-cols-2 gap-1 text-[9px] font-mono text-subtle">
                 {getExpensesCategoryData().map((entry, idx) => (
-                  <div key={idx} className="flex items-center space-x-1 px-1.5 py-1 bg-[#0f172e]/40 rounded border border-[#1a2554]/40">
+                  <div key={idx} className="flex items-center space-x-1 px-1.5 py-1 bg-surface/40 rounded border border-border/40">
                     <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: entry.color }} />
                     <span className="truncate flex-1">{entry.name}</span>
-                    <strong className="text-[#b0b8d4]">{((entry.value / totalExpenseAmount) * 100).toFixed(0)}%</strong>
+                    <strong className="text-muted">{((entry.value / totalExpenseAmount) * 100).toFixed(0)}%</strong>
                   </div>
                 ))}
               </div>
@@ -1085,8 +1085,8 @@ export default function AdminDashboard({
           {/* Branch Performance grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             
-            <div className="bg-[#1a2554]/20 border border-[#1a2554] rounded-2xl p-5 space-y-4">
-              <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono block">Branch Output Breakdown (Revenue vs Expenses)</span>
+            <div className="bg-card/20 border border-border rounded-2xl p-5 space-y-4">
+              <span className="text-[10px] text-subtle font-bold uppercase tracking-wider font-mono block">Branch Output Breakdown (Revenue vs Expenses)</span>
               <div className="space-y-4 pr-1">
                 {getBranchComparisonData().map((b, idx) => {
                   const maxVal = Math.max(...getBranchComparisonData().map((x) => x.Revenue)) || 1;
@@ -1095,16 +1095,16 @@ export default function AdminDashboard({
                   return (
                     <div key={idx} className="space-y-1.5 font-mono text-xs">
                       <div className="flex justify-between items-baseline">
-                        <span className="font-extrabold text-slate-300">{b.name} Showroom</span>
+                        <span className="font-extrabold text-muted">{b.name} Showroom</span>
                         <div className="space-x-1.5 text-[10px]">
-                          <span className="text-slate-500">Rev:</span>
-                          <strong className="text-[#10b981]">{b.Revenue.toLocaleString()}</strong>
-                          <span className="text-slate-600">|</span>
-                          <span className="text-slate-500">Exp:</span>
+                          <span className="text-subtle">Rev:</span>
+                          <strong className="text-success">{b.Revenue.toLocaleString()}</strong>
+                          <span className="text-subtle">|</span>
+                          <span className="text-subtle">Exp:</span>
                           <strong className="text-rose-400">{b.Expenses.toLocaleString()}</strong>
                         </div>
                       </div>
-                      <div className="w-full bg-[#0f172e] h-2 rounded-full overflow-hidden border border-[#1a2554]">
+                      <div className="w-full bg-surface h-2 rounded-full overflow-hidden border border-border">
                         <div
                           className="bg-indigo-400 h-full rounded-full transition-all duration-500"
                           style={{ width: `${barPct}%` }}
@@ -1117,37 +1117,37 @@ export default function AdminDashboard({
             </div>
 
             {/* Demographics, low stock */}
-            <div className="bg-[#1a2554]/20 border border-[#1a2554] rounded-2xl p-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-card/20 border border-border rounded-2xl p-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2.5 font-mono text-xs">
-                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">CRM CRM loyalty overview</span>
-                <div className="bg-[#0f172e]/60 p-3 rounded-xl border border-[#1a2554] space-y-2">
+                <span className="text-[10px] text-subtle font-bold uppercase tracking-wider">CRM CRM loyalty overview</span>
+                <div className="bg-surface/60 p-3 rounded-xl border border-border space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-[#8891ac]">Total Clients:</span>
-                    <strong className="text-[#b0b8d4]">{totalCustomersCount}</strong>
+                    <span className="text-subtle">Total Clients:</span>
+                    <strong className="text-muted">{totalCustomersCount}</strong>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#8891ac]">VIP Members:</span>
+                    <span className="text-subtle">VIP Members:</span>
                     <strong className="text-pink-400">{vipTierCount}</strong>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#8891ac]">Outstanding Credit:</span>
+                    <span className="text-subtle">Outstanding Credit:</span>
                     <strong className="text-rose-400">{totalOutstandingCredit.toLocaleString()} MMK</strong>
                   </div>
                 </div>
               </div>
 
               <div className="space-y-2.5 font-mono text-xs">
-                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Critical alerts log</span>
-                <div className="bg-[#0f172e]/60 p-3 rounded-xl border border-[#1a2554] space-y-1 max-h-[100px] overflow-y-auto">
+                <span className="text-[10px] text-subtle font-bold uppercase tracking-wider">Critical alerts log</span>
+                <div className="bg-surface/60 p-3 rounded-xl border border-border space-y-1 max-h-[100px] overflow-y-auto">
                   {criticalLowStockList.length > 0 ? (
                     criticalLowStockList.slice(0, 3).map((item, idx) => (
                       <div key={idx} className="flex justify-between text-[10px]">
-                        <span className="text-[#8891ac] truncate max-w-[100px]">{item.productName}</span>
+                        <span className="text-subtle truncate max-w-[100px]">{item.productName}</span>
                         <strong className="text-rose-400 shrink-0">{item.stock} left ({item.branchId.toUpperCase().slice(2, 6)})</strong>
                       </div>
                     ))
                   ) : (
-                    <div className="text-slate-500 text-[10px] italic">No active inventory alerts</div>
+                    <div className="text-subtle text-[10px] italic">No active inventory alerts</div>
                   )}
                 </div>
               </div>
@@ -1165,12 +1165,12 @@ export default function AdminDashboard({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 animate-fade-in">
           
           {/* Form category sidebar selectors */}
-          <div className="lg:col-span-4 bg-[#1a2554]/30 border border-[#1a2554] p-4 rounded-2xl space-y-1.5">
-            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono block px-2 mb-3">Trigger Core Business Event</span>
+          <div className="lg:col-span-4 bg-card/30 border border-border p-4 rounded-2xl space-y-1.5">
+            <span className="text-[10px] text-subtle font-bold uppercase tracking-wider font-mono block px-2 mb-3">Trigger Core Business Event</span>
             {[
-              { key: 'sale', label: 'Manual POS Checkout Ticket', icon: DollarSign, color: 'text-[#10b981]' },
-              { key: 'product', label: 'Catalog New Handset SKU', icon: Plus, color: 'text-[#3052a3]' },
-              { key: 'replenish', label: 'Warehouse Stock Replenish', icon: Package, color: 'text-[#00d4ff]' },
+              { key: 'sale', label: 'Manual POS Checkout Ticket', icon: DollarSign, color: 'text-success' },
+              { key: 'product', label: 'Catalog New Handset SKU', icon: Plus, color: 'text-primary' },
+              { key: 'replenish', label: 'Warehouse Stock Replenish', icon: Package, color: 'text-primary' },
               { key: 'transfer', label: 'Inter-Branch Stock Transfer', icon: ArrowLeftRight, color: 'text-amber-400' },
               { key: 'repair', label: 'Hardware Repair Ticket Intake', icon: Wrench, color: 'text-pink-400' },
               { key: 'vtu', label: 'Cellular E-Load VTU Dispatch', icon: Wifi, color: 'text-purple-400' },
@@ -1189,8 +1189,8 @@ export default function AdminDashboard({
                   }}
                   className={`w-full flex items-center space-x-2.5 px-3 py-2.5 rounded-xl font-mono text-xs font-bold transition-all text-left ${
                     activeFormType === f.key
-                      ? 'bg-[#0f172e] border border-slate-850 text-white shadow'
-                      : 'text-[#8891ac] hover:text-[#b0b8d4] hover:bg-[#0f172e]/20'
+                      ? 'bg-surface border border-slate-850 text-white shadow'
+                      : 'text-subtle hover:text-muted hover:bg-surface/20'
                   }`}
                 >
                   <IconComp className={`w-4 h-4 ${f.color}`} />
@@ -1201,12 +1201,12 @@ export default function AdminDashboard({
           </div>
 
           {/* Interactive Form Panel */}
-          <div className="lg:col-span-8 bg-[#1a2554]/15 border border-[#1a2554] p-5 rounded-2xl space-y-4">
+          <div className="lg:col-span-8 bg-card/15 border border-border p-5 rounded-2xl space-y-4">
             
             {/* Display status banners */}
             {formSuccessMessage && (
-              <div className="bg-[#10b981]/10 border border-[#10b981]/25 p-3.5 rounded-xl text-[#10b981] font-bold font-mono text-xs flex items-start space-x-2">
-                <CheckCircle2 className="w-5 h-5 shrink-0 text-[#10b981] mt-0.5" />
+              <div className="bg-success/10 border border-success/25 p-3.5 rounded-xl text-success font-bold font-mono text-xs flex items-start space-x-2">
+                <CheckCircle2 className="w-5 h-5 shrink-0 text-success mt-0.5" />
                 <span>{formSuccessMessage}</span>
               </div>
             )}
@@ -1221,21 +1221,21 @@ export default function AdminDashboard({
             {/* Skeleton Loading Panel */}
             {formSubmitLoading ? (
               <div className="space-y-4 py-8 animate-pulse font-mono text-xs">
-                <div className="h-6 bg-[#222f5a] rounded-md w-1/3 mb-6" />
+                <div className="h-6 bg-elevated rounded-md w-1/3 mb-6" />
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="h-10 bg-[#222f5a] rounded-md" />
-                  <div className="h-10 bg-[#222f5a] rounded-md" />
+                  <div className="h-10 bg-elevated rounded-md" />
+                  <div className="h-10 bg-elevated rounded-md" />
                 </div>
-                <div className="h-20 bg-[#222f5a] rounded-md" />
-                <div className="h-10 bg-[#222f5a] rounded-md w-full mt-6" />
-                <p className="text-center text-slate-500 animate-pulse">LOCKING LEDGER SEGMENT & WRITING BACKEND TRANSACTION...</p>
+                <div className="h-20 bg-elevated rounded-md" />
+                <div className="h-10 bg-elevated rounded-md w-full mt-6" />
+                <p className="text-center text-subtle animate-pulse">LOCKING LEDGER SEGMENT & WRITING BACKEND TRANSACTION...</p>
               </div>
             ) : (
               <form onSubmit={handleProcessSubmit} className="space-y-4 font-mono text-xs">
                 
                 {/* Form header description */}
-                <div className="border-b border-[#1a2554] pb-3 flex items-center justify-between">
-                  <span className="text-xs font-black text-[#f0f4ff] uppercase tracking-wider">
+                <div className="border-b border-border pb-3 flex items-center justify-between">
+                  <span className="text-xs font-black text-foreground uppercase tracking-wider">
                     {activeFormType === 'sale' && 'Checkout Form: Book New POS Sale'}
                     {activeFormType === 'product' && 'Product Form: Catalogue New Handset SKU'}
                     {activeFormType === 'replenish' && 'Warehouse Form: Replenish Product Stock'}
@@ -1246,7 +1246,7 @@ export default function AdminDashboard({
                     {activeFormType === 'employee' && 'Personnel Form: HR Staff Onboarding'}
                     {activeFormType === 'loyalty' && 'CRM Form: VIP Customer Registry'}
                   </span>
-                  <span className="text-[10px] bg-[#0f172e] px-2 py-0.5 border border-slate-850 rounded text-slate-500">POST Action</span>
+                  <span className="text-[10px] bg-surface px-2 py-0.5 border border-slate-850 rounded text-subtle">POST Action</span>
                 </div>
 
                 {/* 1. MANUAL POS SALE CHECKOUT */}
@@ -1254,11 +1254,11 @@ export default function AdminDashboard({
                   <div className="space-y-3">
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Target Branch</label>
+                        <label className="text-subtle">Target Branch</label>
                         <select
                           value={saleBranchId}
                           onChange={(e) => setSaleBranchId(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         >
                           <option value="b-yangon">Yangon HQ</option>
                           <option value="b-mandalay">Mandalay Branch</option>
@@ -1266,11 +1266,11 @@ export default function AdminDashboard({
                         </select>
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Choose Handset SKU</label>
+                        <label className="text-subtle">Choose Handset SKU</label>
                         <select
                           value={saleProductId}
                           onChange={(e) => setSaleProductId(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           required
                         >
                           <option value="">-- Choose Stock SKU --</option>
@@ -1285,30 +1285,30 @@ export default function AdminDashboard({
 
                     <div className="grid grid-cols-3 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Color Variant</label>
+                        <label className="text-subtle">Color Variant</label>
                         <input
                           type="text"
                           value={saleColor}
                           onChange={(e) => setSaleColor(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Quantity (Units)</label>
+                        <label className="text-subtle">Quantity (Units)</label>
                         <input
                           type="number"
                           value={saleQty}
                           onChange={(e) => setSaleQty(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           min="1"
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Payment Channel</label>
+                        <label className="text-subtle">Payment Channel</label>
                         <select
                           value={salePaymentMethod}
                           onChange={(e) => setSalePaymentMethod(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         >
                           <option value="cash">Cash (Myanmar Kyat)</option>
                           <option value="kbzpay">KBZPay Digital</option>
@@ -1320,32 +1320,32 @@ export default function AdminDashboard({
 
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Client Name</label>
+                        <label className="text-subtle">Client Name</label>
                         <input
                           type="text"
                           value={saleCustomerName}
                           onChange={(e) => setSaleCustomerName(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Client Telephone (09...)</label>
+                        <label className="text-subtle">Client Telephone (09...)</label>
                         <input
                           type="text"
                           value={saleCustomerPhone}
                           onChange={(e) => setSaleCustomerPhone(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         />
                       </div>
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-[#8891ac]">Discount Amount (MMK)</label>
+                      <label className="text-subtle">Discount Amount (MMK)</label>
                       <input
                         type="number"
                         value={saleDiscount}
                         onChange={(e) => setSaleDiscount(e.target.value)}
-                        className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                        className="w-full bg-surface border border-border rounded p-2 text-muted"
                       />
                     </div>
                   </div>
@@ -1356,22 +1356,22 @@ export default function AdminDashboard({
                   <div className="space-y-3">
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Handset/Model Name</label>
+                        <label className="text-subtle">Handset/Model Name</label>
                         <input
                           type="text"
                           value={prodName}
                           onChange={(e) => setProdName(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           placeholder="e.g. Redmi Note 15 Pro+"
                           required
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Brand Designation</label>
+                        <label className="text-subtle">Brand Designation</label>
                         <select
                           value={prodBrand}
                           onChange={(e) => setProdBrand(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         >
                           <option value="Apple">Apple</option>
                           <option value="Samsung">Samsung</option>
@@ -1384,44 +1384,44 @@ export default function AdminDashboard({
 
                     <div className="grid grid-cols-3 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Original Cost (MMK)</label>
+                        <label className="text-subtle">Original Cost (MMK)</label>
                         <input
                           type="number"
                           value={prodOriginalPrice}
                           onChange={(e) => setProdOriginalPrice(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           placeholder="900000"
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Selling Price (MMK)</label>
+                        <label className="text-subtle">Selling Price (MMK)</label>
                         <input
                           type="number"
                           value={prodPrice}
                           onChange={(e) => setProdPrice(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           placeholder="1200000"
                           required
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Initial Colorway</label>
+                        <label className="text-subtle">Initial Colorway</label>
                         <input
                           type="text"
                           value={prodColor}
                           onChange={(e) => setProdColor(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Category</label>
+                        <label className="text-subtle">Category</label>
                         <select
                           value={prodCategory}
                           onChange={(e) => setProdCategory(e.target.value as any)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         >
                           <option value="Phone">Phone Catalog</option>
                           <option value="Accessories">Accessories Catalog</option>
@@ -1430,33 +1430,33 @@ export default function AdminDashboard({
                         </select>
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Screen specs</label>
+                        <label className="text-subtle">Screen specs</label>
                         <input
                           type="text"
                           value={prodSpecs.screen}
                           onChange={(e) => setProdSpecs({ ...prodSpecs, screen: e.target.value })}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">RAM Variant</label>
+                        <label className="text-subtle">RAM Variant</label>
                         <input
                           type="text"
                           value={prodSpecs.ram}
                           onChange={(e) => setProdSpecs({ ...prodSpecs, ram: e.target.value })}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Storage capacity</label>
+                        <label className="text-subtle">Storage capacity</label>
                         <input
                           type="text"
                           value={prodSpecs.storage}
                           onChange={(e) => setProdSpecs({ ...prodSpecs, storage: e.target.value })}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         />
                       </div>
                     </div>
@@ -1467,11 +1467,11 @@ export default function AdminDashboard({
                 {activeFormType === 'replenish' && (
                   <div className="space-y-3">
                     <div className="space-y-1">
-                      <label className="text-[#8891ac]">Select Branch Warehouse</label>
+                      <label className="text-subtle">Select Branch Warehouse</label>
                       <select
                         value={replenishBranchId}
                         onChange={(e) => setReplenishBranchId(e.target.value)}
-                        className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                        className="w-full bg-surface border border-border rounded p-2 text-muted"
                       >
                         <option value="b-yangon">Yangon HQ Warehouse</option>
                         <option value="b-mandalay">Mandalay Branch Warehouse</option>
@@ -1480,11 +1480,11 @@ export default function AdminDashboard({
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-[#8891ac]">Select Product Catalog SKU</label>
+                      <label className="text-subtle">Select Product Catalog SKU</label>
                       <select
                         value={replenishProductId}
                         onChange={(e) => setReplenishProductId(e.target.value)}
-                        className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                        className="w-full bg-surface border border-border rounded p-2 text-muted"
                         required
                       >
                         <option value="">-- Choose Target Product --</option>
@@ -1498,23 +1498,23 @@ export default function AdminDashboard({
 
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Absolute Stock level to Set (Units)</label>
+                        <label className="text-subtle">Absolute Stock level to Set (Units)</label>
                         <input
                           type="number"
                           value={replenishStock}
                           onChange={(e) => setReplenishStock(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           min="0"
                           required
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Minimum Safe Stock Alert Limit</label>
+                        <label className="text-subtle">Minimum Safe Stock Alert Limit</label>
                         <input
                           type="number"
                           value={replenishMinThreshold}
                           onChange={(e) => setReplenishMinThreshold(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           min="1"
                           required
                         />
@@ -1528,11 +1528,11 @@ export default function AdminDashboard({
                   <div className="space-y-3">
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Origin Branch (Source)</label>
+                        <label className="text-subtle">Origin Branch (Source)</label>
                         <select
                           value={transferFromBranch}
                           onChange={(e) => setTransferFromBranch(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         >
                           <option value="b-yangon">Yangon HQ</option>
                           <option value="b-mandalay">Mandalay Branch</option>
@@ -1540,11 +1540,11 @@ export default function AdminDashboard({
                         </select>
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Destination Branch (Target)</label>
+                        <label className="text-subtle">Destination Branch (Target)</label>
                         <select
                           value={transferToBranch}
                           onChange={(e) => setTransferToBranch(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         >
                           <option value="b-yangon">Yangon HQ</option>
                           <option value="b-mandalay">Mandalay Branch</option>
@@ -1554,11 +1554,11 @@ export default function AdminDashboard({
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-[#8891ac]">Choose Handset SKU to dispatch</label>
+                      <label className="text-subtle">Choose Handset SKU to dispatch</label>
                       <select
                         value={transferProductId}
                         onChange={(e) => setTransferProductId(e.target.value)}
-                        className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                        className="w-full bg-surface border border-border rounded p-2 text-muted"
                         required
                       >
                         <option value="">-- Choose Dispatch SKU --</option>
@@ -1571,12 +1571,12 @@ export default function AdminDashboard({
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-[#8891ac]">Transfer Quantity (Units)</label>
+                      <label className="text-subtle">Transfer Quantity (Units)</label>
                       <input
                         type="number"
                         value={transferQty}
                         onChange={(e) => setTransferQty(e.target.value)}
-                        className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                        className="w-full bg-surface border border-border rounded p-2 text-muted"
                         min="1"
                         required
                       />
@@ -1589,11 +1589,11 @@ export default function AdminDashboard({
                   <div className="space-y-3">
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Diagnostics Lab Branch</label>
+                        <label className="text-subtle">Diagnostics Lab Branch</label>
                         <select
                           value={repairBranchId}
                           onChange={(e) => setRepairBranchId(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         >
                           <option value="b-yangon">Yangon HQ Service Lab</option>
                           <option value="b-mandalay">Mandalay Service Lab</option>
@@ -1601,12 +1601,12 @@ export default function AdminDashboard({
                         </select>
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Device Brand</label>
+                        <label className="text-subtle">Device Brand</label>
                         <input
                           type="text"
                           value={repairDeviceBrand}
                           onChange={(e) => setRepairDeviceBrand(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           placeholder="e.g. Apple"
                         />
                       </div>
@@ -1614,23 +1614,23 @@ export default function AdminDashboard({
 
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Device Model SKU</label>
+                        <label className="text-subtle">Device Model SKU</label>
                         <input
                           type="text"
                           value={repairDeviceModel}
                           onChange={(e) => setRepairDeviceModel(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           placeholder="e.g. iPhone 15 Pro (Cracked Screen)"
                           required
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Diagnostics Issue Description</label>
+                        <label className="text-subtle">Diagnostics Issue Description</label>
                         <input
                           type="text"
                           value={repairIssue}
                           onChange={(e) => setRepairIssue(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           placeholder="Broken display module assembly replacement needed"
                         />
                       </div>
@@ -1638,54 +1638,54 @@ export default function AdminDashboard({
 
                     <div className="grid grid-cols-3 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Est. Repair Cost (MMK)</label>
+                        <label className="text-subtle">Est. Repair Cost (MMK)</label>
                         <input
                           type="number"
                           value={repairEstCost}
                           onChange={(e) => setRepairEstCost(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           required
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Warranty duration (Mth)</label>
+                        <label className="text-subtle">Warranty duration (Mth)</label>
                         <input
                           type="number"
                           value={repairWarranty}
                           onChange={(e) => setRepairWarranty(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Assigned Technician</label>
+                        <label className="text-subtle">Assigned Technician</label>
                         <input
                           type="text"
                           value={repairTechnician}
                           onChange={(e) => setRepairTechnician(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Client Full Name</label>
+                        <label className="text-subtle">Client Full Name</label>
                         <input
                           type="text"
                           value={repairCustName}
                           onChange={(e) => setRepairCustName(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           placeholder="Ma Moe Moe"
                           required
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Client Contact Mobile</label>
+                        <label className="text-subtle">Client Contact Mobile</label>
                         <input
                           type="tel"
                           value={repairCustPhone}
                           onChange={(e) => setRepairCustPhone(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           placeholder="09798765432"
                           required
                         />
@@ -1699,11 +1699,11 @@ export default function AdminDashboard({
                   <div className="space-y-3">
                     <div className="grid grid-cols-3 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Target Operator</label>
+                        <label className="text-subtle">Target Operator</label>
                         <select
                           value={vtuOperator}
                           onChange={(e) => setVtuOperator(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4] font-bold"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted font-bold"
                         >
                           <option value="MPT">MPT Cellular</option>
                           <option value="Atom">Atom Cellular</option>
@@ -1712,22 +1712,22 @@ export default function AdminDashboard({
                         </select>
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Top-up Package</label>
+                        <label className="text-subtle">Top-up Package</label>
                         <select
                           value={vtuType}
                           onChange={(e) => setVtuType(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         >
                           <option value="airtime">Airtime Credit (Kyats)</option>
                           <option value="data">Data Internet Pack</option>
                         </select>
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Dispatch Branch</label>
+                        <label className="text-subtle">Dispatch Branch</label>
                         <select
                           value={vtuBranchId}
                           onChange={(e) => setVtuBranchId(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         >
                           <option value="b-yangon">Yangon HQ</option>
                           <option value="b-mandalay">Mandalay Store</option>
@@ -1738,23 +1738,23 @@ export default function AdminDashboard({
 
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Recipient Phone Number (09...)</label>
+                        <label className="text-subtle">Recipient Phone Number (09...)</label>
                         <input
                           type="tel"
                           value={vtuPhone}
                           onChange={(e) => setVtuPhone(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4] font-bold"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted font-bold"
                           placeholder="e.g. 09799123456"
                           required
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Recharge Amount (Kyats)</label>
+                        <label className="text-subtle">Recharge Amount (Kyats)</label>
                         <input
                           type="number"
                           value={vtuAmount}
                           onChange={(e) => setVtuAmount(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4] font-bold"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted font-bold"
                           placeholder="5000"
                           min="1000"
                           required
@@ -1769,11 +1769,11 @@ export default function AdminDashboard({
                   <div className="space-y-3">
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Target Branch</label>
+                        <label className="text-subtle">Target Branch</label>
                         <select
                           value={closingBranchId}
                           onChange={(e) => setClosingBranchId(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         >
                           <option value="b-yangon">Yangon HQ</option>
                           <option value="b-mandalay">Mandalay Branch</option>
@@ -1781,75 +1781,75 @@ export default function AdminDashboard({
                         </select>
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Audit Supervisor Name</label>
+                        <label className="text-subtle">Audit Supervisor Name</label>
                         <input
                           type="text"
                           value={closingBy}
                           onChange={(e) => setClosingBy(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-4 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Cash drawer (MMK)</label>
+                        <label className="text-subtle">Cash drawer (MMK)</label>
                         <input
                           type="number"
                           value={closingCash}
                           onChange={(e) => setClosingCash(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           required
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">KBZPay (MMK)</label>
+                        <label className="text-subtle">KBZPay (MMK)</label>
                         <input
                           type="number"
                           value={closingKPay}
                           onChange={(e) => setClosingKPay(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           required
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">WavePay (MMK)</label>
+                        <label className="text-subtle">WavePay (MMK)</label>
                         <input
                           type="number"
                           value={closingWave}
                           onChange={(e) => setClosingWave(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           required
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Other Dig (MMK)</label>
+                        <label className="text-subtle">Other Dig (MMK)</label>
                         <input
                           type="number"
                           value={closingOther}
                           onChange={(e) => setClosingOther(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Recorded OPEX cash expense during shift</label>
+                        <label className="text-subtle">Recorded OPEX cash expense during shift</label>
                         <input
                           type="number"
                           value={closingExpense}
                           onChange={(e) => setClosingExpense(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Drawer Discrepancy difference</label>
+                        <label className="text-subtle">Drawer Discrepancy difference</label>
                         <input
                           type="number"
                           value={closingDiff}
                           onChange={(e) => setClosingDiff(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         />
                       </div>
                     </div>
@@ -1861,23 +1861,23 @@ export default function AdminDashboard({
                   <div className="space-y-3">
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Full Staff Name</label>
+                        <label className="text-subtle">Full Staff Name</label>
                         <input
                           type="text"
                           value={empName}
                           onChange={(e) => setEmpName(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           placeholder="e.g. Maing Ye Naing"
                           required
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Telephone Contact</label>
+                        <label className="text-subtle">Telephone Contact</label>
                         <input
                           type="tel"
                           value={empPhone}
                           onChange={(e) => setEmpPhone(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           placeholder="e.g. 09420001111"
                           required
                         />
@@ -1886,11 +1886,11 @@ export default function AdminDashboard({
 
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Primary Role designation</label>
+                        <label className="text-subtle">Primary Role designation</label>
                         <select
                           value={empRole}
                           onChange={(e) => setEmpRole(e.target.value as any)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         >
                           <option value="Cashier">Cashier Operator</option>
                           <option value="Branch Manager">Showroom Branch Manager</option>
@@ -1900,11 +1900,11 @@ export default function AdminDashboard({
                         </select>
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Branch assigned</label>
+                        <label className="text-subtle">Branch assigned</label>
                         <select
                           value={empBranchId}
                           onChange={(e) => setEmpBranchId(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         >
                           <option value="b-yangon">Yangon Head Office</option>
                           <option value="b-mandalay">Mandalay Branch</option>
@@ -1915,22 +1915,22 @@ export default function AdminDashboard({
 
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Monthly Sales Target (MMK)</label>
+                        <label className="text-subtle">Monthly Sales Target (MMK)</label>
                         <input
                           type="number"
                           value={empSalesTarget}
                           onChange={(e) => setEmpSalesTarget(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           required
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Commission incentive rate (%)</label>
+                        <label className="text-subtle">Commission incentive rate (%)</label>
                         <input
                           type="number"
                           value={empCommission}
                           onChange={(e) => setEmpCommission(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           step="0.1"
                           required
                         />
@@ -1944,23 +1944,23 @@ export default function AdminDashboard({
                   <div className="space-y-3">
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Client full name</label>
+                        <label className="text-subtle">Client full name</label>
                         <input
                           type="text"
                           value={vipName}
                           onChange={(e) => setVipName(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           placeholder="U Khin Maung"
                           required
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Contact Telephone</label>
+                        <label className="text-subtle">Contact Telephone</label>
                         <input
                           type="tel"
                           value={vipPhone}
                           onChange={(e) => setVipPhone(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           placeholder="09421111222"
                           required
                         />
@@ -1969,30 +1969,30 @@ export default function AdminDashboard({
 
                     <div className="grid grid-cols-3 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Email address</label>
+                        <label className="text-subtle">Email address</label>
                         <input
                           type="email"
                           value={vipEmail}
                           onChange={(e) => setVipEmail(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                           placeholder="khin@gmail.com"
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">Initial loyalty points</label>
+                        <label className="text-subtle">Initial loyalty points</label>
                         <input
                           type="number"
                           value={vipPoints}
                           onChange={(e) => setVipPoints(e.target.value)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4]"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted"
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[#8891ac]">VIP Tier status</label>
+                        <label className="text-subtle">VIP Tier status</label>
                         <select
                           value={vipTier}
                           onChange={(e) => setVipTier(e.target.value as any)}
-                          className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4] font-bold"
+                          className="w-full bg-surface border border-border rounded p-2 text-muted font-bold"
                         >
                           <option value="Bronze">Bronze member tier</option>
                           <option value="Silver">Silver member tier</option>
@@ -2003,12 +2003,12 @@ export default function AdminDashboard({
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-[#8891ac]">Current Outstanding Credit balance (MMK)</label>
+                      <label className="text-subtle">Current Outstanding Credit balance (MMK)</label>
                       <input
                         type="number"
                         value={vipDebt}
                         onChange={(e) => setVipDebt(e.target.value)}
-                        className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-rose-400 font-bold"
+                        className="w-full bg-surface border border-border rounded p-2 text-rose-400 font-bold"
                       />
                     </div>
                   </div>
@@ -2017,7 +2017,7 @@ export default function AdminDashboard({
                 {/* Form submit button */}
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-[#10b981] to-emerald-600 text-slate-950 font-black py-3 rounded-xl uppercase transition hover:opacity-90 flex items-center justify-center space-x-1.5 shadow"
+                  className="w-full bg-gradient-to-r from-success to-emerald-600 text-slate-950 font-black py-3 rounded-xl uppercase transition hover:opacity-90 flex items-center justify-center space-x-1.5 shadow"
                 >
                   <CheckCircle2 className="w-4 h-4 stroke-[2.5]" />
                   <span>TRANSMIT EVENT & LOG TO LEDGERS</span>
@@ -2037,13 +2037,13 @@ export default function AdminDashboard({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 animate-fade-in">
           
           {/* Key Configurations Form Panel */}
-          <div className="lg:col-span-7 bg-[#1a2554]/15 border border-[#1a2554] p-5 rounded-2xl space-y-4">
-            <div className="border-b border-[#1a2554] pb-3 flex items-center justify-between">
-              <span className="text-xs font-bold text-[#f0f4ff] uppercase tracking-wider font-mono">Third-Party API & Webhook Credentials</span>
+          <div className="lg:col-span-7 bg-card/15 border border-border p-5 rounded-2xl space-y-4">
+            <div className="border-b border-border pb-3 flex items-center justify-between">
+              <span className="text-xs font-bold text-foreground uppercase tracking-wider font-mono">Third-Party API & Webhook Credentials</span>
               <button
                 type="button"
                 onClick={() => setShowSecrets(!showSecrets)}
-                className="text-[#8891ac] hover:text-[#00d4ff] text-[10px] font-mono font-bold flex items-center space-x-1"
+                className="text-subtle hover:text-primary text-[10px] font-mono font-bold flex items-center space-x-1"
               >
                 {showSecrets ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
                 <span>{showSecrets ? 'Mask secrets' : 'Reveal raw keys'}</span>
@@ -2051,7 +2051,7 @@ export default function AdminDashboard({
             </div>
 
             {saveSuccess && (
-              <div className="bg-[#00d4ff]/10 border border-[#00d4ff]/25 p-3 rounded-xl text-[#00d4ff] font-bold font-mono text-xs text-center">
+              <div className="bg-primary/10 border border-primary/25 p-3 rounded-xl text-primary font-bold font-mono text-xs text-center">
                 🎉 Integration tokens secured & updated in live memories!
               </div>
             )}
@@ -2060,117 +2060,117 @@ export default function AdminDashboard({
               
               {/* Telegram bot campaign integrations */}
               <div className="space-y-2.5">
-                <span className="text-[10px] text-[#3052a3] font-black uppercase tracking-wider block">💬 Telegram Broadcast Integration</span>
+                <span className="text-[10px] text-primary font-black uppercase tracking-wider block">💬 Telegram Broadcast Integration</span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="space-y-1">
-                    <label className="text-[#8891ac]">Telegram Bot API Token</label>
+                    <label className="text-subtle">Telegram Bot API Token</label>
                     <input
                       type={showSecrets ? 'text' : 'password'}
                       value={integrationKeys.telegramBotToken}
                       onChange={(e) => setIntegrationKeys({ ...integrationKeys, telegramBotToken: e.target.value })}
                       placeholder="e.g. 739482015:AAH_fG40b2-u8q5_kM..."
-                      className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4] outline-none"
+                      className="w-full bg-surface border border-border rounded p-2 text-muted outline-none"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[#8891ac]">Broadcast Channel Chat ID</label>
+                    <label className="text-subtle">Broadcast Channel Chat ID</label>
                     <input
                       type="text"
                       value={integrationKeys.telegramChatId}
                       onChange={(e) => setIntegrationKeys({ ...integrationKeys, telegramChatId: e.target.value })}
                       placeholder="e.g. -100204918231"
-                      className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4] outline-none"
+                      className="w-full bg-surface border border-border rounded p-2 text-muted outline-none"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Real-time sync webhooks */}
-              <div className="space-y-2.5 pt-2 border-t border-[#1a2554]/60">
-                <span className="text-[10px] text-[#10b981] font-black uppercase tracking-wider block">🌐 Inbound/Outbound Real-time webhooks</span>
+              <div className="space-y-2.5 pt-2 border-t border-border/60">
+                <span className="text-[10px] text-success font-black uppercase tracking-wider block">🌐 Inbound/Outbound Real-time webhooks</span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="space-y-1">
-                    <label className="text-[#8891ac]">Partner Webhook Trigger URL</label>
+                    <label className="text-subtle">Partner Webhook Trigger URL</label>
                     <input
                       type="text"
                       value={integrationKeys.webhookUrl}
                       onChange={(e) => setIntegrationKeys({ ...integrationKeys, webhookUrl: e.target.value })}
                       placeholder="https://api.externalpartner.com/v1/pos-webhooks"
-                      className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4] outline-none"
+                      className="w-full bg-surface border border-border rounded p-2 text-muted outline-none"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[#8891ac]">Webhook Bearer Token</label>
+                    <label className="text-subtle">Webhook Bearer Token</label>
                     <input
                       type={showSecrets ? 'text' : 'password'}
                       value={integrationKeys.webhookAuthToken}
                       onChange={(e) => setIntegrationKeys({ ...integrationKeys, webhookAuthToken: e.target.value })}
                       placeholder="bearer_sec_tkn_84920..."
-                      className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4] outline-none"
+                      className="w-full bg-surface border border-border rounded p-2 text-muted outline-none"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Supabase PostgreSQL credentials */}
-              <div className="space-y-2.5 pt-2 border-t border-[#1a2554]/60">
-                <span className="text-[10px] text-[#00d4ff] font-black uppercase tracking-wider block">🗄️ Relational Supabase Cloud Backup</span>
+              <div className="space-y-2.5 pt-2 border-t border-border/60">
+                <span className="text-[10px] text-primary font-black uppercase tracking-wider block">🗄️ Relational Supabase Cloud Backup</span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="space-y-1">
-                    <label className="text-[#8891ac]">Supabase Project URL</label>
+                    <label className="text-subtle">Supabase Project URL</label>
                     <input
                       type="text"
                       value={integrationKeys.supabaseUrl}
                       onChange={(e) => setIntegrationKeys({ ...integrationKeys, supabaseUrl: e.target.value })}
                       placeholder="https://kkkmgkti67zhhq6zrc.supabase.co"
-                      className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4] outline-none"
+                      className="w-full bg-surface border border-border rounded p-2 text-muted outline-none"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[#8891ac]">Supabase Service Role Key</label>
+                    <label className="text-subtle">Supabase Service Role Key</label>
                     <input
                       type={showSecrets ? 'text' : 'password'}
                       value={integrationKeys.supabaseKey}
                       onChange={(e) => setIntegrationKeys({ ...integrationKeys, supabaseKey: e.target.value })}
                       placeholder="eyJhbGciOiJIUzI1NiIsIn..."
-                      className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4] outline-none"
+                      className="w-full bg-surface border border-border rounded p-2 text-muted outline-none"
                     />
                   </div>
                 </div>
               </div>
 
               {/* SMS cellular and VTU provider gateways */}
-              <div className="space-y-2.5 pt-2 border-t border-[#1a2554]/60">
+              <div className="space-y-2.5 pt-2 border-t border-border/60">
                 <span className="text-[10px] text-purple-400 font-black uppercase tracking-wider block">📶 Telecom SMS & E-Load Gateways</span>
                 <div className="grid grid-cols-3 gap-3">
                   <div className="space-y-1">
-                    <label className="text-[#8891ac]">SMS cellular API key</label>
+                    <label className="text-subtle">SMS cellular API key</label>
                     <input
                       type={showSecrets ? 'text' : 'password'}
                       value={integrationKeys.smsGatewayKey}
                       onChange={(e) => setIntegrationKeys({ ...integrationKeys, smsGatewayKey: e.target.value })}
                       placeholder="sms_live_api_8390..."
-                      className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4] outline-none"
+                      className="w-full bg-surface border border-border rounded p-2 text-muted outline-none"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[#8891ac]">VTU Merchant ID</label>
+                    <label className="text-subtle">VTU Merchant ID</label>
                     <input
                       type="text"
                       value={integrationKeys.vtuMerchantId}
                       onChange={(e) => setIntegrationKeys({ ...integrationKeys, vtuMerchantId: e.target.value })}
                       placeholder="vtu_merch_94821"
-                      className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4] outline-none"
+                      className="w-full bg-surface border border-border rounded p-2 text-muted outline-none"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[#8891ac]">VTU gateway Secret</label>
+                    <label className="text-subtle">VTU gateway Secret</label>
                     <input
                       type={showSecrets ? 'text' : 'password'}
                       value={integrationKeys.vtuSecretKey}
                       onChange={(e) => setIntegrationKeys({ ...integrationKeys, vtuSecretKey: e.target.value })}
                       placeholder="vtu_sec_key_9482..."
-                      className="w-full bg-[#0f172e] border border-[#222f5a] rounded p-2 text-[#b0b8d4] outline-none"
+                      className="w-full bg-surface border border-border rounded p-2 text-muted outline-none"
                     />
                   </div>
                 </div>
@@ -2181,7 +2181,7 @@ export default function AdminDashboard({
                 <button
                   type="submit"
                   disabled={saveLoading}
-                  className="flex-1 bg-[#00d4ff] hover:bg-sky-450 disabled:opacity-50 text-slate-950 font-black py-2.5 rounded-xl uppercase transition"
+                  className="flex-1 bg-primary hover:bg-sky-450 disabled:opacity-50 text-slate-950 font-black py-2.5 rounded-xl uppercase transition"
                 >
                   {saveLoading ? 'Securing keys...' : 'Commit Gateway Tokens'}
                 </button>
@@ -2191,22 +2191,22 @@ export default function AdminDashboard({
           </div>
 
           {/* Test Link connection Pinger Terminal Simulator */}
-          <div className="lg:col-span-5 bg-[#0f172e] border border-[#1a2554] rounded-2xl p-5 flex flex-col justify-between h-[480px]">
+          <div className="lg:col-span-5 bg-surface border border-border rounded-2xl p-5 flex flex-col justify-between h-[480px]">
             <div className="space-y-2.5">
-              <div className="flex items-center justify-between border-b border-[#1a2554] pb-2.5">
+              <div className="flex items-center justify-between border-b border-border pb-2.5">
                 <div className="flex items-center space-x-2">
                   <span className="w-3 h-3 bg-red-500 rounded-full animate-ping" />
-                  <span className="text-[10px] font-black font-mono text-slate-300 uppercase tracking-wider">Live Network Ping Tester</span>
+                  <span className="text-[10px] font-black font-mono text-muted uppercase tracking-wider">Live Network Ping Tester</span>
                 </div>
-                <span className="text-[9px] text-slate-600 font-mono">PORT 3000 Inbound</span>
+                <span className="text-[9px] text-subtle font-mono">PORT 3000 Inbound</span>
               </div>
 
               {/* Terminal screen output */}
-              <div className="bg-[#0f172e] p-3.5 border border-[#1a2554] rounded-xl h-72 overflow-y-auto font-mono text-[10px] text-[#10b981] space-y-2 leading-relaxed">
+              <div className="bg-surface p-3.5 border border-border rounded-xl h-72 overflow-y-auto font-mono text-[10px] text-success space-y-2 leading-relaxed">
                 {terminalLogs.length > 0 ? (
                   terminalLogs.map((log, idx) => <p key={idx}>{log}</p>)
                 ) : (
-                  <p className="text-slate-500 italic text-center pt-24">Terminal idle. Click 'RUN LINK DIAGNOSTICS' below to execute secure ping test across active APIs.</p>
+                  <p className="text-subtle italic text-center pt-24">Terminal idle. Click 'RUN LINK DIAGNOSTICS' below to execute secure ping test across active APIs.</p>
                 )}
               </div>
             </div>
@@ -2215,7 +2215,7 @@ export default function AdminDashboard({
               type="button"
               onClick={triggerPingSimulator}
               disabled={pinging}
-              className="w-full bg-[#1a2554] hover:bg-slate-850 border border-[#222f5a] text-[#00d4ff] font-bold py-2.5 rounded-xl uppercase transition flex items-center justify-center space-x-1.5"
+              className="w-full bg-card hover:bg-slate-850 border border-border text-primary font-bold py-2.5 rounded-xl uppercase transition flex items-center justify-center space-x-1.5"
             >
               <RefreshCw className={`w-4 h-4 ${pinging ? 'animate-spin' : ''}`} />
               <span>{pinging ? 'PING DIAGNOSTICS RUNNING...' : 'RUN LINK DIAGNOSTICS'}</span>

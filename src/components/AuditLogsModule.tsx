@@ -252,7 +252,7 @@ export default function AuditLogsModule({
   const COLORS = ['#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6'];
 
   return (
-    <div className="w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 min-h-screen text-white p-4 sm:p-6">
+    <div className="w-full bg-gradient-to-br from-card via-slate-800 to-card min-h-screen text-white p-4 sm:p-6">
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
         <div>
@@ -260,7 +260,7 @@ export default function AuditLogsModule({
             <Shield size={32} className="text-blue-400" />
             Audit Logs
           </h1>
-          <p className="text-[#8891ac] mt-1">Complete system change tracking and compliance audit trail</p>
+          <p className="text-subtle mt-1">Complete system change tracking and compliance audit trail</p>
         </div>
 
         <button
@@ -273,7 +273,7 @@ export default function AuditLogsModule({
       </div>
 
       {/* View Tabs */}
-      <div className="flex gap-2 mb-6 overflow-x-auto pb-2 border-b border-slate-700">
+      <div className="flex gap-2 mb-6 overflow-x-auto pb-2 border-b border-border">
         {['logs', 'timeline', 'analytics', 'retention'].map(view => (
           <button
             key={view}
@@ -281,7 +281,7 @@ export default function AuditLogsModule({
             className={`px-4 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition ${
               activeView === view
                 ? 'bg-blue-600 text-white'
-                : 'text-slate-300 hover:bg-slate-700'
+                : 'text-muted hover:bg-elevated'
             }`}
           >
             {view === 'logs' && <FileText size={16} className="inline mr-2" />}
@@ -299,20 +299,20 @@ export default function AuditLogsModule({
           {/* Filters */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
             <div className="relative">
-              <Search className="absolute left-3 top-3 text-[#8891ac]" size={18} />
+              <Search className="absolute left-3 top-3 text-subtle" size={18} />
               <input
                 type="text"
                 placeholder="Search user, resource, ID..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-slate-700 border border-slate-600 rounded-lg pl-10 pr-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-blue-500"
+                className="w-full bg-elevated border border-slate-600 rounded-lg pl-10 pr-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-blue-500"
               />
             </div>
 
             <select
               value={filterAction}
               onChange={(e) => setFilterAction(e.target.value)}
-              className="bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white"
+              className="bg-elevated border border-slate-600 rounded-lg px-3 py-2 text-white"
             >
               <option value="all">All Actions</option>
               <option value="create">Create</option>
@@ -326,7 +326,7 @@ export default function AuditLogsModule({
             <select
               value={filterResourceType}
               onChange={(e) => setFilterResourceType(e.target.value)}
-              className="bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white"
+              className="bg-elevated border border-slate-600 rounded-lg px-3 py-2 text-white"
             >
               <option value="all">All Resources</option>
               <option value="sale">Sale</option>
@@ -339,7 +339,7 @@ export default function AuditLogsModule({
             <select
               value={filterUser}
               onChange={(e) => setFilterUser(e.target.value)}
-              className="bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white"
+              className="bg-elevated border border-slate-600 rounded-lg px-3 py-2 text-white"
             >
               <option value="all">All Users</option>
               <option value="Daw Su Su">Daw Su Su</option>
@@ -350,7 +350,7 @@ export default function AuditLogsModule({
             <select
               value={dateRange}
               onChange={(e) => setDateRange(e.target.value as any)}
-              className="bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white"
+              className="bg-elevated border border-slate-600 rounded-lg px-3 py-2 text-white"
             >
               <option value="today">Today</option>
               <option value="week">This Week</option>
@@ -360,23 +360,23 @@ export default function AuditLogsModule({
           </div>
 
           {/* Logs Table */}
-          <div className="bg-[#222f5a] border border-slate-700 rounded-lg overflow-hidden">
+          <div className="bg-elevated border border-border rounded-lg overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-slate-700 border-b border-slate-600">
+                <thead className="bg-elevated border-b border-slate-600">
                   <tr>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-slate-300">User</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-slate-300">Action</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-slate-300">Resource</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-slate-300">Timestamp</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-slate-300">Status</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-slate-300">IP Address</th>
-                    <th className="px-4 py-3 text-center text-sm font-medium text-slate-300">Details</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-muted">User</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-muted">Action</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-muted">Resource</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-muted">Timestamp</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-muted">Status</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-muted">IP Address</th>
+                    <th className="px-4 py-3 text-center text-sm font-medium text-muted">Details</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-700">
                   {filteredLogs.map(log => (
-                    <tr key={log.id} className="hover:bg-slate-700/50 transition">
+                    <tr key={log.id} className="hover:bg-elevated/50 transition">
                       <td className="px-4 py-3 text-sm">
                         <div className="flex items-center gap-2">
                           <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center font-bold text-xs">
@@ -399,10 +399,10 @@ export default function AuditLogsModule({
                       <td className="px-4 py-3 text-sm">
                         <div>
                           <p className="font-medium">{log.resourceType}</p>
-                          <p className="text-[#8891ac] text-xs">{log.resourceId}</p>
+                          <p className="text-subtle text-xs">{log.resourceId}</p>
                         </div>
                       </td>
-                      <td className="px-4 py-3 text-sm text-[#8891ac]">
+                      <td className="px-4 py-3 text-sm text-subtle">
                         <div className="flex items-center gap-1">
                           <Clock size={14} />
                           {new Date(log.timestamp).toLocaleString()}
@@ -410,7 +410,7 @@ export default function AuditLogsModule({
                       </td>
                       <td className="px-4 py-3 text-sm">
                         {log.status === 'success' ? (
-                          <span className="flex items-center gap-1 text-[#10b981]">
+                          <span className="flex items-center gap-1 text-success">
                             <CheckCircle size={16} />
                             Success
                           </span>
@@ -421,7 +421,7 @@ export default function AuditLogsModule({
                           </span>
                         )}
                       </td>
-                      <td className="px-4 py-3 text-sm text-[#8891ac] font-mono text-xs">{log.ipAddress}</td>
+                      <td className="px-4 py-3 text-sm text-subtle font-mono text-xs">{log.ipAddress}</td>
                       <td className="px-4 py-3 text-center">
                         <button
                           onClick={() => setDetailsOpen(detailsOpen === log.id ? null : log.id)}
@@ -438,20 +438,20 @@ export default function AuditLogsModule({
 
             {/* Expanded details */}
             {detailsOpen && (
-              <div className="border-t border-slate-700 p-6 bg-slate-700/50">
+              <div className="border-t border-border p-6 bg-elevated/50">
                 {filteredLogs.find(l => l.id === detailsOpen) && (
                   <div className="space-y-4">
                     <h3 className="font-bold text-lg">Change Details</h3>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                       <div>
-                        <p className="text-[#8891ac] text-sm mb-2">Before</p>
-                        <pre className="bg-[#1a2554] p-3 rounded text-xs overflow-auto max-h-32 text-slate-300">
+                        <p className="text-subtle text-sm mb-2">Before</p>
+                        <pre className="bg-card p-3 rounded text-xs overflow-auto max-h-32 text-muted">
                           {JSON.stringify(filteredLogs.find(l => l.id === detailsOpen)?.changes.before || {}, null, 2)}
                         </pre>
                       </div>
                       <div>
-                        <p className="text-[#8891ac] text-sm mb-2">After</p>
-                        <pre className="bg-[#1a2554] p-3 rounded text-xs overflow-auto max-h-32 text-slate-300">
+                        <p className="text-subtle text-sm mb-2">After</p>
+                        <pre className="bg-card p-3 rounded text-xs overflow-auto max-h-32 text-muted">
                           {JSON.stringify(filteredLogs.find(l => l.id === detailsOpen)?.changes.after || {}, null, 2)}
                         </pre>
                       </div>
@@ -478,18 +478,18 @@ export default function AuditLogsModule({
                 </div>
 
                 {idx < activityTimeline.length - 1 && (
-                  <div className="absolute -left-2 top-8 h-8 w-0.5 bg-slate-700" />
+                  <div className="absolute -left-2 top-8 h-8 w-0.5 bg-elevated" />
                 )}
 
-                <div className="bg-[#222f5a] border border-slate-700 rounded-lg p-4">
+                <div className="bg-elevated border border-border rounded-lg p-4">
                   <div className="flex items-start justify-between">
                     <div>
                       <p className="font-bold">{item.resourceName}</p>
-                      <p className="text-sm text-[#8891ac] mt-1 flex items-center gap-2">
+                      <p className="text-sm text-subtle mt-1 flex items-center gap-2">
                         <User size={14} />
                         {item.userName} • {item.action}
                       </p>
-                      <p className="text-xs text-slate-500 mt-2 flex items-center gap-1">
+                      <p className="text-xs text-subtle mt-2 flex items-center gap-1">
                         <Clock size={12} />
                         {new Date(item.timestamp).toLocaleString()}
                       </p>
@@ -514,7 +514,7 @@ export default function AuditLogsModule({
         <div className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Action Distribution */}
-            <div className="bg-[#222f5a] rounded-lg p-6">
+            <div className="bg-elevated rounded-lg p-6">
               <h2 className="text-lg font-bold mb-4">Action Distribution</h2>
               <ResponsiveContainer width="100%" height={250}>
                 <PieChart>
@@ -538,7 +538,7 @@ export default function AuditLogsModule({
             </div>
 
             {/* Resource Distribution */}
-            <div className="bg-[#222f5a] rounded-lg p-6">
+            <div className="bg-elevated rounded-lg p-6">
               <h2 className="text-lg font-bold mb-4">Resource Types</h2>
               <ResponsiveContainer width="100%" height={250}>
                 <PieChart>
@@ -562,7 +562,7 @@ export default function AuditLogsModule({
             </div>
 
             {/* User Activity */}
-            <div className="bg-[#222f5a] rounded-lg p-6">
+            <div className="bg-elevated rounded-lg p-6">
               <h2 className="text-lg font-bold mb-4">User Activity</h2>
               <ResponsiveContainer width="100%" height={250}>
                 <PieChart>
@@ -610,23 +610,23 @@ export default function AuditLogsModule({
 
       {/* RETENTION VIEW */}
       {activeView === 'retention' && (
-        <div className="bg-[#222f5a] rounded-lg p-6">
+        <div className="bg-elevated rounded-lg p-6">
           <h2 className="text-lg font-bold mb-4">Audit Log Retention Policy</h2>
           <div className="space-y-4">
-            <div className="border-l-4 border-l-blue-500 bg-slate-700 p-4 rounded">
+            <div className="border-l-4 border-l-blue-500 bg-elevated p-4 rounded">
               <p className="font-bold">Retention Period</p>
-              <p className="text-[#8891ac] mt-2">Audit logs are retained for 90 days by default. Logs older than 90 days are automatically archived.</p>
+              <p className="text-subtle mt-2">Audit logs are retained for 90 days by default. Logs older than 90 days are automatically archived.</p>
             </div>
-            <div className="border-l-4 border-l-emerald-500 bg-slate-700 p-4 rounded">
+            <div className="border-l-4 border-l-emerald-500 bg-elevated p-4 rounded">
               <p className="font-bold">Compliance</p>
-              <p className="text-[#8891ac] mt-2">All audit logs are encrypted and stored securely. Access is restricted to authorized administrators only.</p>
+              <p className="text-subtle mt-2">All audit logs are encrypted and stored securely. Access is restricted to authorized administrators only.</p>
             </div>
-            <div className="border-l-4 border-l-amber-500 bg-slate-700 p-4 rounded">
+            <div className="border-l-4 border-l-amber-500 bg-elevated p-4 rounded">
               <p className="font-bold">Storage</p>
-              <p className="text-[#8891ac] mt-2">Current storage usage: 2.3 GB / 10 GB. Archived logs available for 1 year.</p>
+              <p className="text-subtle mt-2">Current storage usage: 2.3 GB / 10 GB. Archived logs available for 1 year.</p>
               <div className="mt-3">
                 <div className="w-full bg-slate-600 rounded-full h-2">
-                  <div className="bg-gradient-to-r from-blue-500 to-[#10b981] h-2 rounded-full" style={{ width: '23%' }} />
+                  <div className="bg-gradient-to-r from-blue-500 to-success h-2 rounded-full" style={{ width: '23%' }} />
                 </div>
               </div>
             </div>
