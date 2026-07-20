@@ -250,7 +250,7 @@ export default function EmployeeManagementSystem({
             <Users size={32} className="text-blue-400" />
             Employee Management
           </h1>
-          <p className="text-slate-400 mt-1">{employeeRecords.length} employees • Attendance, payroll, performance</p>
+          <p className="text-[#8891ac] mt-1">{employeeRecords.length} employees • Attendance, payroll, performance</p>
         </div>
 
         <button
@@ -294,7 +294,7 @@ export default function EmployeeManagementSystem({
           {/* Search & Filter */}
           <div className="flex flex-col sm:flex-row gap-3 mb-6">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-3 text-slate-400" size={18} />
+              <Search className="absolute left-3 top-3 text-[#8891ac]" size={18} />
               <input
                 type="text"
                 placeholder="Search employees by name, email, or ID..."
@@ -336,7 +336,7 @@ export default function EmployeeManagementSystem({
                   setSelectedEmployee(emp);
                   setActiveView('detail');
                 }}
-                className="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-blue-500 transition cursor-pointer"
+                className="bg-[#222f5a] border border-slate-700 rounded-lg p-6 hover:border-blue-500 transition cursor-pointer"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-start gap-3 flex-1">
@@ -345,24 +345,24 @@ export default function EmployeeManagementSystem({
                     </div>
                     <div>
                       <h3 className="font-bold">{emp.name}</h3>
-                      <p className="text-sm text-slate-400">{emp.role}</p>
+                      <p className="text-sm text-[#8891ac]">{emp.role}</p>
                     </div>
                   </div>
                   <div className={`px-2 py-1 rounded text-xs font-medium ${
                     emp.attendanceStatus === 'checked_in'
-                      ? 'bg-emerald-600/20 text-emerald-400'
-                      : 'bg-slate-700 text-slate-400'
+                      ? 'bg-emerald-600/20 text-[#10b981]'
+                      : 'bg-slate-700 text-[#8891ac]'
                   }`}>
                     {emp.attendanceStatus === 'checked_in' ? 'Present' : 'Off'}
                   </div>
                 </div>
 
                 <div className="space-y-2 text-sm mb-4 pt-4 border-t border-slate-700">
-                  <div className="flex items-center gap-2 text-slate-400">
+                  <div className="flex items-center gap-2 text-[#8891ac]">
                     <MapPin size={14} />
                     {emp.branchId === 'b-yangon' ? 'Yangon' : emp.branchId === 'b-mandalay' ? 'Mandalay' : 'Naypyitaw'}
                   </div>
-                  <div className="flex items-center gap-2 text-slate-400">
+                  <div className="flex items-center gap-2 text-[#8891ac]">
                     <Phone size={14} />
                     {emp.phone}
                   </div>
@@ -371,12 +371,12 @@ export default function EmployeeManagementSystem({
                 {emp.performance && (
                   <div className="mb-4">
                     <div className="flex items-center justify-between mb-1 text-xs">
-                      <span className="text-slate-400">Performance</span>
+                      <span className="text-[#8891ac]">Performance</span>
                       <span className="font-bold text-amber-400">{emp.performance}%</span>
                     </div>
                     <div className="w-full bg-slate-700 rounded-full h-2">
                       <div
-                        className="bg-gradient-to-r from-amber-500 to-emerald-500 h-2 rounded-full"
+                        className="bg-gradient-to-r from-amber-500 to-[#10b981] h-2 rounded-full"
                         style={{ width: `${emp.performance}%` }}
                       />
                     </div>
@@ -412,28 +412,28 @@ export default function EmployeeManagementSystem({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Employee Profile */}
             <div className="lg:col-span-1 space-y-4">
-              <div className="bg-slate-800 rounded-lg p-6">
+              <div className="bg-[#222f5a] rounded-lg p-6">
                 <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center font-bold text-3xl mx-auto mb-4">
                   {selectedEmployee.name.charAt(0)}
                 </div>
                 <h2 className="text-xl font-bold text-center">{selectedEmployee.name}</h2>
-                <p className="text-center text-slate-400 mt-1">{selectedEmployee.role}</p>
+                <p className="text-center text-[#8891ac] mt-1">{selectedEmployee.role}</p>
 
                 <div className="space-y-3 mt-6 pt-6 border-t border-slate-700">
                   <div>
-                    <p className="text-slate-400 text-sm">Department</p>
+                    <p className="text-[#8891ac] text-sm">Department</p>
                     <p className="font-medium mt-1">{selectedEmployee.department}</p>
                   </div>
                   <div>
-                    <p className="text-slate-400 text-sm">Position</p>
+                    <p className="text-[#8891ac] text-sm">Position</p>
                     <p className="font-medium mt-1">{selectedEmployee.position}</p>
                   </div>
                   <div>
-                    <p className="text-slate-400 text-sm">Join Date</p>
+                    <p className="text-[#8891ac] text-sm">Join Date</p>
                     <p className="font-medium mt-1">{selectedEmployee.joinDate}</p>
                   </div>
                   <div>
-                    <p className="text-slate-400 text-sm">Performance Score</p>
+                    <p className="text-[#8891ac] text-sm">Performance Score</p>
                     <p className="font-bold text-amber-400 mt-1">{selectedEmployee.performance}%</p>
                   </div>
                 </div>
@@ -459,20 +459,20 @@ export default function EmployeeManagementSystem({
             {/* Employee Details */}
             <div className="lg:col-span-2 space-y-6">
               {/* Contact Info */}
-              <div className="bg-slate-800 rounded-lg p-6">
+              <div className="bg-[#222f5a] rounded-lg p-6">
                 <h3 className="font-bold mb-4">Contact Information</h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <Mail size={18} className="text-blue-400" />
                     <div>
-                      <p className="text-slate-400 text-sm">Email</p>
+                      <p className="text-[#8891ac] text-sm">Email</p>
                       <p className="font-medium">{selectedEmployee.email}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Phone size={18} className="text-emerald-400" />
+                    <Phone size={18} className="text-[#10b981]" />
                     <div>
-                      <p className="text-slate-400 text-sm">Phone</p>
+                      <p className="text-[#8891ac] text-sm">Phone</p>
                       <p className="font-medium">{selectedEmployee.phone}</p>
                     </div>
                   </div>
@@ -480,7 +480,7 @@ export default function EmployeeManagementSystem({
               </div>
 
               {/* Certifications */}
-              <div className="bg-slate-800 rounded-lg p-6">
+              <div className="bg-[#222f5a] rounded-lg p-6">
                 <h3 className="font-bold mb-4 flex items-center gap-2">
                   <Award size={20} />
                   Certifications
@@ -496,20 +496,20 @@ export default function EmployeeManagementSystem({
 
               {/* Salary Info */}
               {selectedEmployee.baseSalary && (
-                <div className="bg-slate-800 rounded-lg p-6">
+                <div className="bg-[#222f5a] rounded-lg p-6">
                   <h3 className="font-bold mb-4 flex items-center gap-2">
                     <DollarSign size={20} />
                     Salary Information
                   </h3>
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-slate-400">Base Salary</span>
+                      <span className="text-[#8891ac]">Base Salary</span>
                       <span className="font-bold">{selectedEmployee.baseSalary.toLocaleString()} MMK</span>
                     </div>
                     {selectedEmployee.commission > 0 && (
                       <div className="flex items-center justify-between">
-                        <span className="text-slate-400">Commission Rate</span>
-                        <span className="font-bold text-emerald-400">{(selectedEmployee.commissionRate * 100).toFixed(1)}%</span>
+                        <span className="text-[#8891ac]">Commission Rate</span>
+                        <span className="font-bold text-[#10b981]">{(selectedEmployee.commissionRate * 100).toFixed(1)}%</span>
                       </div>
                     )}
                   </div>
@@ -523,7 +523,7 @@ export default function EmployeeManagementSystem({
       {/* ATTENDANCE VIEW */}
       {activeView === 'attendance' && (
         <div className="space-y-6">
-          <div className="bg-slate-800 rounded-lg p-6">
+          <div className="bg-[#222f5a] rounded-lg p-6">
             <h2 className="text-lg font-bold mb-4">Weekly Attendance Overview</h2>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={attendanceChartData}>
@@ -545,7 +545,7 @@ export default function EmployeeManagementSystem({
       {activeView === 'payroll' && (
         <div className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-slate-800 rounded-lg p-6">
+            <div className="bg-[#222f5a] rounded-lg p-6">
               <h2 className="text-lg font-bold mb-4">Salary Breakdown</h2>
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
@@ -568,23 +568,23 @@ export default function EmployeeManagementSystem({
               </ResponsiveContainer>
             </div>
 
-            <div className="bg-slate-800 rounded-lg p-6">
+            <div className="bg-[#222f5a] rounded-lg p-6">
               <h2 className="text-lg font-bold mb-4">Payroll Summary</h2>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-400">Total Base Salary</span>
+                  <span className="text-[#8891ac]">Total Base Salary</span>
                   <span className="font-bold text-lg">4,200,000 MMK</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-400">Commission</span>
-                  <span className="font-bold text-emerald-400">168,000 MMK</span>
+                  <span className="text-[#8891ac]">Commission</span>
+                  <span className="font-bold text-[#10b981]">168,000 MMK</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-400">Bonuses</span>
+                  <span className="text-[#8891ac]">Bonuses</span>
                   <span className="font-bold text-blue-400">80,000 MMK</span>
                 </div>
                 <div className="border-t border-slate-700 pt-4 mt-4 flex items-center justify-between">
-                  <span className="text-slate-400">Total This Month</span>
+                  <span className="text-[#8891ac]">Total This Month</span>
                   <span className="font-bold text-lg">4,448,000 MMK</span>
                 </div>
               </div>
@@ -597,7 +597,7 @@ export default function EmployeeManagementSystem({
       {activeView === 'performance' && (
         <div className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-slate-800 rounded-lg p-6">
+            <div className="bg-[#222f5a] rounded-lg p-6">
               <h2 className="text-lg font-bold mb-4">Performance Distribution</h2>
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
@@ -620,14 +620,14 @@ export default function EmployeeManagementSystem({
               </ResponsiveContainer>
             </div>
 
-            <div className="bg-slate-800 rounded-lg p-6">
+            <div className="bg-[#222f5a] rounded-lg p-6">
               <h2 className="text-lg font-bold mb-4">Top Performers</h2>
               <div className="space-y-3">
                 {employeeRecords.sort((a, b) => (b.performance || 0) - (a.performance || 0)).slice(0, 5).map(emp => (
                   <div key={emp.id} className="flex items-center justify-between bg-slate-700 p-3 rounded-lg">
                     <div>
                       <p className="font-medium">{emp.name}</p>
-                      <p className="text-xs text-slate-400">{emp.position}</p>
+                      <p className="text-xs text-[#8891ac]">{emp.position}</p>
                     </div>
                     <span className="font-bold text-amber-400">⭐ {emp.performance}%</span>
                   </div>

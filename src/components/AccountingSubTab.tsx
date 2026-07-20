@@ -79,13 +79,13 @@ export default function AccountingSubTab({ activeBranchId, cashierName }: Accoun
   return (
     <div className="grid grid-cols-1 xl:grid-cols-12 gap-6" id="accounting-sub-tab">
       {/* Chart of Accounts */}
-      <div className="xl:col-span-7 bg-slate-900/20 border border-slate-900 rounded-2xl overflow-hidden">
-        <div className="px-5 py-4 border-b border-slate-900 flex items-center justify-between">
-          <h4 className="font-bold text-sm text-slate-100 font-mono uppercase tracking-wider flex items-center space-x-2">
-            <BookOpen className="w-4 h-4 text-emerald-400" />
+      <div className="xl:col-span-7 bg-[#1a2554]/20 border border-[#1a2554] rounded-2xl overflow-hidden">
+        <div className="px-5 py-4 border-b border-[#1a2554] flex items-center justify-between">
+          <h4 className="font-bold text-sm text-[#f0f4ff] font-mono uppercase tracking-wider flex items-center space-x-2">
+            <BookOpen className="w-4 h-4 text-[#10b981]" />
             <span>AKK Mobile General Ledger Accounts (MMK)</span>
           </h4>
-          <span className="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-mono font-bold">
+          <span className="text-[10px] bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20 px-2 py-0.5 rounded font-mono font-bold">
             Double Entry GAAP
           </span>
         </div>
@@ -93,7 +93,7 @@ export default function AccountingSubTab({ activeBranchId, cashierName }: Accoun
         <div className="overflow-x-auto">
           <table className="w-full text-left font-mono text-xs">
             <thead>
-              <tr className="bg-slate-950 text-slate-400 text-[10px] border-b border-slate-900">
+              <tr className="bg-[#0f172e] text-[#8891ac] text-[10px] border-b border-[#1a2554]">
                 <th className="px-5 py-3 font-extrabold">CODE</th>
                 <th className="px-5 py-3 font-extrabold">ACCOUNT NAME</th>
                 <th className="px-5 py-3 font-extrabold">CATEGORY</th>
@@ -102,21 +102,21 @@ export default function AccountingSubTab({ activeBranchId, cashierName }: Accoun
             </thead>
             <tbody className="divide-y divide-slate-900/40">
               {coa.map((acct) => (
-                <tr key={acct.code} className="hover:bg-slate-900/10 transition-colors">
-                  <td className="px-5 py-3 text-slate-400 font-bold">{acct.code}</td>
-                  <td className="px-5 py-3 text-slate-200 font-bold">{acct.name}</td>
+                <tr key={acct.code} className="hover:bg-[#1a2554]/10 transition-colors">
+                  <td className="px-5 py-3 text-[#8891ac] font-bold">{acct.code}</td>
+                  <td className="px-5 py-3 text-[#b0b8d4] font-bold">{acct.name}</td>
                   <td className="px-5 py-3">
                     <span className={`px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-wider ${
-                      acct.category === 'Asset' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/10' :
+                      acct.category === 'Asset' ? 'bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/10' :
                       acct.category === 'Liability' ? 'bg-rose-500/10 text-rose-400 border border-rose-500/10' :
-                      acct.category === 'Equity' ? 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/10' :
-                      acct.category === 'Revenue' ? 'bg-sky-500/10 text-sky-400 border border-sky-500/10' :
-                      'bg-slate-800 text-slate-400'
+                      acct.category === 'Equity' ? 'bg-[#3052a3]/10 text-[#3052a3] border border-[#3052a3]/10' :
+                      acct.category === 'Revenue' ? 'bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/10' :
+                      'bg-[#222f5a] text-[#8891ac]'
                     }`}>
                       {acct.category}
                     </span>
                   </td>
-                  <td className="px-5 py-3 text-right font-black text-slate-100">
+                  <td className="px-5 py-3 text-right font-black text-[#f0f4ff]">
                     {acct.balance.toLocaleString()} MMK
                   </td>
                 </tr>
@@ -127,33 +127,33 @@ export default function AccountingSubTab({ activeBranchId, cashierName }: Accoun
       </div>
 
       {/* Daily Drawer Closing Form */}
-      <div className="xl:col-span-5 bg-slate-900/30 border border-slate-900 rounded-2xl p-5 space-y-4">
-        <div className="border-b border-slate-900 pb-3 flex items-center justify-between">
-          <span className="font-bold text-slate-200 uppercase font-mono tracking-wider text-xs">End-of-Day Shift Close</span>
+      <div className="xl:col-span-5 bg-[#1a2554]/30 border border-[#1a2554] rounded-2xl p-5 space-y-4">
+        <div className="border-b border-[#1a2554] pb-3 flex items-center justify-between">
+          <span className="font-bold text-[#b0b8d4] uppercase font-mono tracking-wider text-xs">End-of-Day Shift Close</span>
           <span className="text-[10px] text-slate-500 font-mono">Location: {activeBranchId.toUpperCase()}</span>
         </div>
 
         <form onSubmit={handleCloseDay} className="space-y-3 font-mono text-xs">
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-1">
-              <label className="text-slate-400 text-[11px]">Drawer Cash (MMK)</label>
+              <label className="text-[#8891ac] text-[11px]">Drawer Cash (MMK)</label>
               <input
                 type="number"
                 placeholder="450000"
                 value={cash}
                 onChange={(e) => setCash(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 rounded px-2.5 py-1.5 text-slate-200 font-bold"
+                className="w-full bg-[#0f172e] border border-[#222f5a] rounded px-2.5 py-1.5 text-[#b0b8d4] font-bold"
                 required
               />
             </div>
             <div className="space-y-1">
-              <label className="text-slate-400 text-[11px]">KBZPay Total (MMK)</label>
+              <label className="text-[#8891ac] text-[11px]">KBZPay Total (MMK)</label>
               <input
                 type="number"
                 placeholder="2450000"
                 value={kPay}
                 onChange={(e) => setKPay(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 rounded px-2.5 py-1.5 text-slate-200 font-bold"
+                className="w-full bg-[#0f172e] border border-[#222f5a] rounded px-2.5 py-1.5 text-[#b0b8d4] font-bold"
                 required
               />
             </div>
@@ -161,47 +161,47 @@ export default function AccountingSubTab({ activeBranchId, cashierName }: Accoun
 
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-1">
-              <label className="text-slate-400 text-[11px]">WavePay Total (MMK)</label>
+              <label className="text-[#8891ac] text-[11px]">WavePay Total (MMK)</label>
               <input
                 type="number"
                 placeholder="1200000"
                 value={wave}
                 onChange={(e) => setWave(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 rounded px-2.5 py-1.5 text-slate-200 font-bold"
+                className="w-full bg-[#0f172e] border border-[#222f5a] rounded px-2.5 py-1.5 text-[#b0b8d4] font-bold"
                 required
               />
             </div>
             <div className="space-y-1">
-              <label className="text-slate-400 text-[11px]">Other Wallets (MMK)</label>
+              <label className="text-[#8891ac] text-[11px]">Other Wallets (MMK)</label>
               <input
                 type="number"
                 placeholder="300000"
                 value={otherDigital}
                 onChange={(e) => setOtherDigital(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 rounded px-2.5 py-1.5 text-slate-200 font-bold"
+                className="w-full bg-[#0f172e] border border-[#222f5a] rounded px-2.5 py-1.5 text-[#b0b8d4] font-bold"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-1">
-              <label className="text-slate-400 text-[11px]">Shift Cash Expense (MMK)</label>
+              <label className="text-[#8891ac] text-[11px]">Shift Cash Expense (MMK)</label>
               <input
                 type="number"
                 placeholder="50000"
                 value={expense}
                 onChange={(e) => setExpense(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 rounded px-2.5 py-1.5 text-rose-400 font-bold"
+                className="w-full bg-[#0f172e] border border-[#222f5a] rounded px-2.5 py-1.5 text-rose-400 font-bold"
               />
             </div>
             <div className="space-y-1">
-              <label className="text-slate-400 text-[11px]">Drawer Discrepancy</label>
+              <label className="text-[#8891ac] text-[11px]">Drawer Discrepancy</label>
               <input
                 type="number"
                 placeholder="0"
                 value={drawerDiff}
                 onChange={(e) => setDrawerDiff(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 rounded px-2.5 py-1.5 text-amber-400 font-bold"
+                className="w-full bg-[#0f172e] border border-[#222f5a] rounded px-2.5 py-1.5 text-amber-400 font-bold"
               />
             </div>
           </div>
@@ -209,7 +209,7 @@ export default function AccountingSubTab({ activeBranchId, cashierName }: Accoun
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-emerald-500 hover:bg-emerald-450 disabled:opacity-50 text-slate-950 font-black py-2.5 rounded-xl uppercase transition font-sans text-xs flex items-center justify-center space-x-1.5"
+            className="w-full bg-[#10b981] hover:bg-emerald-450 disabled:opacity-50 text-slate-950 font-black py-2.5 rounded-xl uppercase transition font-sans text-xs flex items-center justify-center space-x-1.5"
           >
             <CheckCircle2 className="w-4 h-4 stroke-[2.5]" />
             <span>{loading ? 'POSTING LEDGER AUDIT...' : 'POST CLOSING SHIFT'}</span>
@@ -217,16 +217,16 @@ export default function AccountingSubTab({ activeBranchId, cashierName }: Accoun
         </form>
 
         {/* Prior closings log */}
-        <div className="space-y-2 pt-3 border-t border-slate-900">
+        <div className="space-y-2 pt-3 border-t border-[#1a2554]">
           <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono">Recent Closed Audits</span>
           <div className="space-y-1.5 max-h-40 overflow-y-auto pr-1">
             {closings.map((cls) => (
-              <div key={cls.id} className="bg-slate-950 border border-slate-900 p-2.5 rounded-lg flex justify-between font-mono text-[10px] text-slate-400">
+              <div key={cls.id} className="bg-[#0f172e] border border-[#1a2554] p-2.5 rounded-lg flex justify-between font-mono text-[10px] text-[#8891ac]">
                 <div className="space-y-0.5">
                   <div className="flex items-center space-x-2">
-                    <strong className="text-slate-200">{cls.id}</strong>
+                    <strong className="text-[#b0b8d4]">{cls.id}</strong>
                     <span className="text-slate-600">|</span>
-                    <span className="text-emerald-400 font-black">{cls.branchId.toUpperCase()}</span>
+                    <span className="text-[#10b981] font-black">{cls.branchId.toUpperCase()}</span>
                   </div>
                   <span>Audit by: {cls.closedBy}</span>
                 </div>

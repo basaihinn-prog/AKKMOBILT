@@ -368,12 +368,12 @@ export default function AdminEmployeeView() {
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6" id="employee-manager-root">
       
       {/* 1. Employee List Sidebar */}
-      <div className="lg:col-span-4 bg-slate-900/15 border border-slate-900 p-4 rounded-2xl space-y-4">
+      <div className="lg:col-span-4 bg-[#1a2554]/15 border border-[#1a2554] p-4 rounded-2xl space-y-4">
         <div className="flex items-center justify-between">
           <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono">Staff Directory</span>
           <button
             onClick={() => setIsAddingEmp(true)}
-            className="p-1 hover:bg-slate-850 border border-slate-800 rounded text-rose-400 font-bold text-[10px] flex items-center space-x-1 transition"
+            className="p-1 hover:bg-slate-850 border border-[#222f5a] rounded text-rose-400 font-bold text-[10px] flex items-center space-x-1 transition"
           >
             <Plus className="w-3.5 h-3.5" />
             <span className="font-mono">Add Employee</span>
@@ -381,28 +381,28 @@ export default function AdminEmployeeView() {
         </div>
 
         {isAddingEmp ? (
-          <form onSubmit={handleAddEmployee} className="bg-slate-950 p-4 rounded-xl border border-slate-850 space-y-3 font-mono text-xs">
-            <span className="text-[10px] text-rose-400 font-black uppercase block border-b border-slate-900 pb-1.5">New Employee Profile</span>
+          <form onSubmit={handleAddEmployee} className="bg-[#0f172e] p-4 rounded-xl border border-slate-850 space-y-3 font-mono text-xs">
+            <span className="text-[10px] text-rose-400 font-black uppercase block border-b border-[#1a2554] pb-1.5">New Employee Profile</span>
             
             <div className="space-y-1">
-              <label className="text-slate-400 text-[10px]">Staff Full Name</label>
+              <label className="text-[#8891ac] text-[10px]">Staff Full Name</label>
               <input
                 type="text"
                 required
                 value={newEmp.name}
                 onChange={(e) => setNewEmp({ ...newEmp, name: e.target.value })}
                 placeholder="e.g. U Hla Maung"
-                className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200 outline-none"
+                className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4] outline-none"
               />
             </div>
 
             <div className="grid grid-cols-2 gap-2">
               <div className="space-y-1">
-                <label className="text-slate-400 text-[10px]">Primary Role</label>
+                <label className="text-[#8891ac] text-[10px]">Primary Role</label>
                 <select
                   value={newEmp.role}
                   onChange={(e) => setNewEmp({ ...newEmp, role: e.target.value as any })}
-                  className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200 text-xs"
+                  className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4] text-xs"
                 >
                   <option value="Sales">Sales Professional</option>
                   <option value="Cashier">Cashier Operator</option>
@@ -412,11 +412,11 @@ export default function AdminEmployeeView() {
                 </select>
               </div>
               <div className="space-y-1">
-                <label className="text-slate-400 text-[10px]">Showroom Branch</label>
+                <label className="text-[#8891ac] text-[10px]">Showroom Branch</label>
                 <select
                   value={newEmp.branchId}
                   onChange={(e) => setNewEmp({ ...newEmp, branchId: e.target.value as any })}
-                  className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200 text-xs"
+                  className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4] text-xs"
                 >
                   <option value="b-yangon">Yangon Head Office</option>
                   <option value="b-mandalay">Mandalay Branch</option>
@@ -427,45 +427,45 @@ export default function AdminEmployeeView() {
 
             <div className="grid grid-cols-2 gap-2">
               <div className="space-y-1">
-                <label className="text-slate-400 text-[10px]">Phone Number</label>
+                <label className="text-[#8891ac] text-[10px]">Phone Number</label>
                 <input
                   type="tel"
                   required
                   value={newEmp.phone}
                   onChange={(e) => setNewEmp({ ...newEmp, phone: e.target.value })}
                   placeholder="09..."
-                  className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200 outline-none"
+                  className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4] outline-none"
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-slate-400 text-[10px]">Email Address</label>
+                <label className="text-[#8891ac] text-[10px]">Email Address</label>
                 <input
                   type="email"
                   required
                   value={newEmp.email}
                   onChange={(e) => setNewEmp({ ...newEmp, email: e.target.value })}
                   placeholder="name@akk.com"
-                  className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200 outline-none"
+                  className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4] outline-none"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-2">
               <div className="space-y-1">
-                <label className="text-slate-400 text-[10px]">Base Salary (MMK)</label>
+                <label className="text-[#8891ac] text-[10px]">Base Salary (MMK)</label>
                 <input
                   type="number"
                   value={newEmp.salary}
                   onChange={(e) => setNewEmp({ ...newEmp, salary: e.target.value })}
-                  className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200"
+                  className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4]"
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-slate-400 text-[10px]">Shift Designation</label>
+                <label className="text-[#8891ac] text-[10px]">Shift Designation</label>
                 <select
                   value={newEmp.shift}
                   onChange={(e) => setNewEmp({ ...newEmp, shift: e.target.value as any })}
-                  className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200 text-xs"
+                  className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4] text-xs"
                 >
                   <option value="Full-Time">Full-Time (9-6)</option>
                   <option value="Morning">Morning Shift (8-4)</option>
@@ -476,31 +476,31 @@ export default function AdminEmployeeView() {
 
             <div className="grid grid-cols-2 gap-2">
               <div className="space-y-1">
-                <label className="text-slate-400 text-[10px]">Sales Target (MMK)</label>
+                <label className="text-[#8891ac] text-[10px]">Sales Target (MMK)</label>
                 <input
                   type="number"
                   value={newEmp.salesTarget}
                   onChange={(e) => setNewEmp({ ...newEmp, salesTarget: e.target.value })}
-                  className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200"
+                  className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4]"
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-slate-400 text-[10px]">Commission (%)</label>
+                <label className="text-[#8891ac] text-[10px]">Commission (%)</label>
                 <input
                   type="number"
                   step="0.1"
                   value={newEmp.commissionRate}
                   onChange={(e) => setNewEmp({ ...newEmp, commissionRate: e.target.value })}
-                  className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200"
+                  className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4]"
                 />
               </div>
             </div>
 
-            <div className="flex gap-2 pt-2 border-t border-slate-900">
+            <div className="flex gap-2 pt-2 border-t border-[#1a2554]">
               <button
                 type="button"
                 onClick={() => setIsAddingEmp(false)}
-                className="flex-1 bg-slate-900 text-slate-400 py-2 rounded font-bold hover:text-slate-200"
+                className="flex-1 bg-[#1a2554] text-[#8891ac] py-2 rounded font-bold hover:text-[#b0b8d4]"
               >
                 Cancel
               </button>
@@ -520,16 +520,16 @@ export default function AdminEmployeeView() {
                 onClick={() => setSelectedEmpId(emp.id)}
                 className={`flex items-center justify-between p-3 rounded-xl border font-mono text-xs cursor-pointer transition ${
                   selectedEmpId === emp.id
-                    ? 'bg-slate-950 border-rose-500/20 shadow'
-                    : 'bg-slate-900/10 border-transparent hover:border-slate-850 hover:bg-slate-900/25'
+                    ? 'bg-[#0f172e] border-rose-500/20 shadow'
+                    : 'bg-[#1a2554]/10 border-transparent hover:border-slate-850 hover:bg-[#1a2554]/25'
                 }`}
               >
                 <div className="flex items-center space-x-2.5">
-                  <div className="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-rose-400 font-extrabold text-xs">
+                  <div className="w-8 h-8 rounded-full bg-[#1a2554] border border-[#222f5a] flex items-center justify-center text-rose-400 font-extrabold text-xs">
                     {emp.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div>
-                    <span className="font-extrabold text-slate-200 block">{emp.name}</span>
+                    <span className="font-extrabold text-[#b0b8d4] block">{emp.name}</span>
                     <span className="text-[10px] text-slate-500 block">{emp.role} • {emp.id}</span>
                   </div>
                 </div>
@@ -537,10 +537,10 @@ export default function AdminEmployeeView() {
                 <div className="flex flex-col items-end gap-1">
                   <span className={`text-[9px] px-2 py-0.5 rounded-full font-bold ${
                     emp.attendanceStatus === 'checked_in'
-                      ? 'bg-emerald-500/10 text-emerald-400'
+                      ? 'bg-[#10b981]/10 text-[#10b981]'
                       : emp.attendanceStatus === 'checked_out'
                       ? 'bg-amber-500/10 text-amber-400'
-                      : 'bg-slate-800 text-slate-500'
+                      : 'bg-[#222f5a] text-slate-500'
                   }`}>
                     {emp.attendanceStatus === 'checked_in' ? 'checked-in' : emp.attendanceStatus === 'checked_out' ? 'checked-out' : 'absent'}
                   </span>
@@ -558,60 +558,60 @@ export default function AdminEmployeeView() {
         {/* Profile Card & digital ID Card side-by-side */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {/* Profile particulars */}
-          <div className="md:col-span-7 bg-slate-900/15 border border-slate-900 p-5 rounded-2xl flex flex-col justify-between space-y-4 font-mono text-xs">
-            <div className="border-b border-slate-900 pb-3.5">
+          <div className="md:col-span-7 bg-[#1a2554]/15 border border-[#1a2554] p-5 rounded-2xl flex flex-col justify-between space-y-4 font-mono text-xs">
+            <div className="border-b border-[#1a2554] pb-3.5">
               <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Staff Profile Details</span>
-              <h3 className="text-base font-extrabold text-slate-100 mt-1 flex items-center gap-2">
+              <h3 className="text-base font-extrabold text-[#f0f4ff] mt-1 flex items-center gap-2">
                 <User className="w-5 h-5 text-rose-400" />
                 <span>{selectedEmp.name}</span>
               </h3>
             </div>
 
             <div className="grid grid-cols-2 gap-4 text-[11px]">
-              <div className="space-y-1 bg-slate-950/40 border border-slate-900 p-2.5 rounded-xl">
+              <div className="space-y-1 bg-[#0f172e]/40 border border-[#1a2554] p-2.5 rounded-xl">
                 <span className="text-slate-500 block text-[9px] uppercase font-bold">Roster Code</span>
                 <strong className="text-slate-300 font-bold block">{selectedEmp.id}</strong>
               </div>
-              <div className="space-y-1 bg-slate-950/40 border border-slate-900 p-2.5 rounded-xl">
+              <div className="space-y-1 bg-[#0f172e]/40 border border-[#1a2554] p-2.5 rounded-xl">
                 <span className="text-slate-500 block text-[9px] uppercase font-bold">Work Department</span>
                 <strong className="text-slate-300 font-bold block">{selectedEmp.department}</strong>
               </div>
-              <div className="space-y-1 bg-slate-950/40 border border-slate-900 p-2.5 rounded-xl">
+              <div className="space-y-1 bg-[#0f172e]/40 border border-[#1a2554] p-2.5 rounded-xl">
                 <span className="text-slate-500 block text-[9px] uppercase font-bold">Showroom Branch</span>
                 <strong className="text-slate-300 font-bold block">{selectedEmp.branchId.toUpperCase().replace('B-', '')} Office</strong>
               </div>
-              <div className="space-y-1 bg-slate-950/40 border border-slate-900 p-2.5 rounded-xl">
+              <div className="space-y-1 bg-[#0f172e]/40 border border-[#1a2554] p-2.5 rounded-xl">
                 <span className="text-slate-500 block text-[9px] uppercase font-bold">Date of Joining</span>
                 <strong className="text-slate-300 font-bold block">{selectedEmp.joinedDate}</strong>
               </div>
             </div>
 
-            <div className="space-y-2 bg-slate-950/40 border border-slate-900 p-3 rounded-xl">
+            <div className="space-y-2 bg-[#0f172e]/40 border border-[#1a2554] p-3 rounded-xl">
               <div className="flex items-center space-x-2 text-[10px]">
-                <Phone className="w-3.5 h-3.5 text-slate-400" />
-                <span className="text-slate-400">Phone:</span>
-                <strong className="text-slate-200">{selectedEmp.phone}</strong>
+                <Phone className="w-3.5 h-3.5 text-[#8891ac]" />
+                <span className="text-[#8891ac]">Phone:</span>
+                <strong className="text-[#b0b8d4]">{selectedEmp.phone}</strong>
               </div>
               <div className="flex items-center space-x-2 text-[10px]">
-                <Briefcase className="w-3.5 h-3.5 text-slate-400" />
-                <span className="text-slate-400">Work Email:</span>
-                <strong className="text-slate-200">{selectedEmp.email}</strong>
+                <Briefcase className="w-3.5 h-3.5 text-[#8891ac]" />
+                <span className="text-[#8891ac]">Work Email:</span>
+                <strong className="text-[#b0b8d4]">{selectedEmp.email}</strong>
               </div>
               <div className="flex items-center space-x-2 text-[10px]">
-                <Clock className="w-3.5 h-3.5 text-slate-400" />
-                <span className="text-slate-400">Shift Schedule:</span>
+                <Clock className="w-3.5 h-3.5 text-[#8891ac]" />
+                <span className="text-[#8891ac]">Shift Schedule:</span>
                 <strong className="text-rose-400 font-bold bg-rose-500/10 px-2 py-0.5 rounded text-[9px]">{selectedEmp.shift}</strong>
               </div>
             </div>
 
             {/* Attendance & Sales simulations */}
-            <div className="flex flex-wrap gap-2.5 pt-3 border-t border-slate-900">
+            <div className="flex flex-wrap gap-2.5 pt-3 border-t border-[#1a2554]">
               <button
                 onClick={() => handleToggleAttendance(selectedEmp.id)}
                 className={`flex-1 min-w-[120px] font-black py-2 rounded-xl text-[10px] uppercase transition flex items-center justify-center space-x-1 border ${
                   selectedEmp.attendanceStatus === 'checked_in'
                     ? 'bg-rose-500/10 hover:bg-rose-500/20 border-rose-500/25 text-rose-400'
-                    : 'bg-emerald-500/10 hover:bg-emerald-500/20 border-emerald-500/25 text-emerald-400'
+                    : 'bg-[#10b981]/10 hover:bg-[#10b981]/20 border-[#10b981]/25 text-[#10b981]'
                 }`}
               >
                 <Fingerprint className="w-3.5 h-3.5" />
@@ -620,7 +620,7 @@ export default function AdminEmployeeView() {
 
               <button
                 onClick={() => handleSimulateSale(selectedEmp.id, 1200000)}
-                className="flex-1 min-w-[120px] bg-slate-900 hover:bg-slate-850 border border-slate-800 hover:border-emerald-500/20 text-emerald-400 font-black py-2 rounded-xl text-[10px] uppercase transition flex items-center justify-center space-x-1"
+                className="flex-1 min-w-[120px] bg-[#1a2554] hover:bg-slate-850 border border-[#222f5a] hover:border-[#10b981]/20 text-[#10b981] font-black py-2 rounded-xl text-[10px] uppercase transition flex items-center justify-center space-x-1"
               >
                 <TrendingUp className="w-3.5 h-3.5" />
                 <span>SIMULATE +1.2M SALE</span>
@@ -629,60 +629,60 @@ export default function AdminEmployeeView() {
           </div>
 
           {/* Interactive Digital ID Card preview */}
-          <div className="md:col-span-5 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 border border-slate-800 p-5 rounded-2xl flex flex-col justify-between items-center text-center font-mono relative overflow-hidden h-[300px] md:h-auto group shadow">
+          <div className="md:col-span-5 bg-gradient-to-br from-[#0f172e] via-slate-900 to-[#0f172e] border border-[#222f5a] p-5 rounded-2xl flex flex-col justify-between items-center text-center font-mono relative overflow-hidden h-[300px] md:h-auto group shadow">
             {/* Glossy overlay */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-rose-500/5 blur-3xl rounded-full" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-indigo-500/5 blur-3xl rounded-full" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#3052a3]/5 blur-3xl rounded-full" />
 
-            <div className="w-full flex justify-between items-center border-b border-slate-900 pb-2">
-              <strong className="text-[10px] font-black tracking-widest text-slate-400 uppercase">AKK ENTERPRISE</strong>
-              <span className="text-[8px] bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded font-black">ACTIVE</span>
+            <div className="w-full flex justify-between items-center border-b border-[#1a2554] pb-2">
+              <strong className="text-[10px] font-black tracking-widest text-[#8891ac] uppercase">AKK ENTERPRISE</strong>
+              <span className="text-[8px] bg-[#10b981]/10 border border-[#10b981]/20 text-[#10b981] px-1.5 py-0.5 rounded font-black">ACTIVE</span>
             </div>
 
             <div className="space-y-2 mt-4">
-              <div className="w-16 h-16 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center mx-auto text-rose-400 font-extrabold text-lg shadow-lg">
+              <div className="w-16 h-16 rounded-full bg-[#1a2554] border border-slate-700 flex items-center justify-center mx-auto text-rose-400 font-extrabold text-lg shadow-lg">
                 {selectedEmp.name.split(' ').map(n => n[0]).join('')}
               </div>
               <div>
-                <h4 className="text-xs font-black text-slate-100">{selectedEmp.name}</h4>
-                <p className="text-[9px] text-slate-400 uppercase font-bold tracking-wider mt-0.5">{selectedEmp.role}</p>
+                <h4 className="text-xs font-black text-[#f0f4ff]">{selectedEmp.name}</h4>
+                <p className="text-[9px] text-[#8891ac] uppercase font-bold tracking-wider mt-0.5">{selectedEmp.role}</p>
                 <p className="text-[8px] text-slate-600 mt-0.5">ID: {selectedEmp.id}</p>
               </div>
             </div>
 
-            <div className="w-full bg-slate-950 border border-slate-900 p-2 rounded-xl flex items-center justify-between gap-2 mt-4 text-left">
+            <div className="w-full bg-[#0f172e] border border-[#1a2554] p-2 rounded-xl flex items-center justify-between gap-2 mt-4 text-left">
               <div>
                 <span className="text-[7px] text-slate-500 block uppercase font-black">Official Branch</span>
                 <strong className="text-[9px] text-slate-300 block">{selectedEmp.branchId.toUpperCase().replace('B-', '')} SHOWROOM</strong>
               </div>
-              <QrCode className="w-7 h-7 text-slate-400 shrink-0" />
+              <QrCode className="w-7 h-7 text-[#8891ac] shrink-0" />
             </div>
           </div>
         </div>
 
         {/* Financial metrics: base salary, sales target vs current sales, commission earned */}
-        <div className="bg-slate-900/15 border border-slate-900 p-5 rounded-2xl space-y-4 font-mono text-xs">
+        <div className="bg-[#1a2554]/15 border border-[#1a2554] p-5 rounded-2xl space-y-4 font-mono text-xs">
           <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Payroll, Targets & Commissions</span>
           
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="bg-slate-950/50 border border-slate-900 p-3.5 rounded-xl space-y-1">
+            <div className="bg-[#0f172e]/50 border border-[#1a2554] p-3.5 rounded-xl space-y-1">
               <span className="text-[9px] text-slate-500 uppercase font-bold">Monthly Base Contract</span>
-              <strong className="text-sm text-slate-200 font-black block">
+              <strong className="text-sm text-[#b0b8d4] font-black block">
                 {selectedEmp.salary.toLocaleString()} MMK
               </strong>
               <span className="text-[9px] text-slate-500 leading-none block">Frequency: Monthly pay-slip</span>
             </div>
 
-            <div className="bg-slate-950/50 border border-slate-900 p-3.5 rounded-xl space-y-1">
+            <div className="bg-[#0f172e]/50 border border-[#1a2554] p-3.5 rounded-xl space-y-1">
               <span className="text-[9px] text-slate-500 uppercase font-bold">Accumulated Commissions</span>
-              <strong className="text-sm text-emerald-400 font-black block">
+              <strong className="text-sm text-[#10b981] font-black block">
                 {Math.round(selectedEmp.currentSales * selectedEmp.commissionRate).toLocaleString()} MMK
               </strong>
               <span className="text-[9px] text-slate-500 leading-none block">Incentive Rate: {(selectedEmp.commissionRate * 100).toFixed(1)}%</span>
             </div>
 
-            <div className="bg-slate-950/50 border border-slate-900 p-3.5 rounded-xl space-y-1">
-              <span className="text-[9px] text-slate-400 uppercase font-bold">Overall Performance Score</span>
+            <div className="bg-[#0f172e]/50 border border-[#1a2554] p-3.5 rounded-xl space-y-1">
+              <span className="text-[9px] text-[#8891ac] uppercase font-bold">Overall Performance Score</span>
               <div className="flex items-baseline space-x-1">
                 <strong className="text-sm text-rose-400 font-black">
                   {selectedEmp.performanceScore}%
@@ -694,19 +694,19 @@ export default function AdminEmployeeView() {
           </div>
 
           {/* Sales Target progress bar */}
-          <div className="bg-slate-950/50 border border-slate-900 p-4 rounded-xl space-y-2">
+          <div className="bg-[#0f172e]/50 border border-[#1a2554] p-4 rounded-xl space-y-2">
             <div className="flex justify-between items-baseline text-[10px]">
-              <span className="text-slate-400 font-bold">Monthly Sales Target Progress</span>
+              <span className="text-[#8891ac] font-bold">Monthly Sales Target Progress</span>
               <div className="space-x-1.5">
                 <span className="text-slate-500">Achieved:</span>
-                <strong className="text-emerald-400">{selectedEmp.currentSales.toLocaleString()} MMK</strong>
+                <strong className="text-[#10b981]">{selectedEmp.currentSales.toLocaleString()} MMK</strong>
                 <span className="text-slate-600">/</span>
-                <span className="text-slate-400">{selectedEmp.salesTarget.toLocaleString()} MMK</span>
+                <span className="text-[#8891ac]">{selectedEmp.salesTarget.toLocaleString()} MMK</span>
               </div>
             </div>
             
             {/* Bar */}
-            <div className="w-full bg-slate-900 h-2.5 rounded-full overflow-hidden border border-slate-850">
+            <div className="w-full bg-[#1a2554] h-2.5 rounded-full overflow-hidden border border-slate-850">
               <div
                 className="bg-gradient-to-r from-rose-500 to-rose-400 h-full rounded-full transition-all duration-500"
                 style={{ width: `${Math.min(100, Math.round((selectedEmp.currentSales / selectedEmp.salesTarget) * 100))}%` }}
@@ -726,21 +726,21 @@ export default function AdminEmployeeView() {
         {/* Attendance, Leaves & Documents Tabs */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Leaves Section */}
-          <div className="bg-slate-900/15 border border-slate-900 p-4 rounded-2xl space-y-4 font-mono text-xs">
-            <div className="border-b border-slate-900 pb-2 flex items-center justify-between">
+          <div className="bg-[#1a2554]/15 border border-[#1a2554] p-4 rounded-2xl space-y-4 font-mono text-xs">
+            <div className="border-b border-[#1a2554] pb-2 flex items-center justify-between">
               <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Leave Applications</span>
-              <span className="text-[10px] text-slate-400 font-bold">Balance: <strong className="text-rose-400">{selectedEmp.leaveBalance} days</strong></span>
+              <span className="text-[10px] text-[#8891ac] font-bold">Balance: <strong className="text-rose-400">{selectedEmp.leaveBalance} days</strong></span>
             </div>
 
             {leaveSuccess && (
-              <div className="bg-emerald-500/10 border border-emerald-500/25 p-2 rounded-lg text-emerald-400 font-bold text-[10px] text-center">
+              <div className="bg-[#10b981]/10 border border-[#10b981]/25 p-2 rounded-lg text-[#10b981] font-bold text-[10px] text-center">
                 Applied for leave! Manager audit pending.
               </div>
             )}
 
             {/* Apply Leave mini-form */}
-            <form onSubmit={handleApplyLeaveSubmit} className="bg-slate-950/40 border border-slate-900 p-3 rounded-xl space-y-2 text-[10px]">
-              <span className="text-slate-400 font-bold block uppercase text-[9px]">Apply for Leave (Self)</span>
+            <form onSubmit={handleApplyLeaveSubmit} className="bg-[#0f172e]/40 border border-[#1a2554] p-3 rounded-xl space-y-2 text-[10px]">
+              <span className="text-[#8891ac] font-bold block uppercase text-[9px]">Apply for Leave (Self)</span>
               
               <div className="grid grid-cols-3 gap-2">
                 <div className="space-y-0.5">
@@ -748,7 +748,7 @@ export default function AdminEmployeeView() {
                   <select
                     value={applyLeaveType}
                     onChange={(e) => setApplyLeaveType(e.target.value as any)}
-                    className="w-full bg-slate-900 border border-slate-800 rounded p-1 text-slate-200 text-[10px]"
+                    className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1 text-[#b0b8d4] text-[10px]"
                   >
                     <option value="Paid Leave">Paid Leave</option>
                     <option value="Sick Leave">Sick Leave</option>
@@ -763,7 +763,7 @@ export default function AdminEmployeeView() {
                     required
                     value={applyStart}
                     onChange={(e) => setApplyStart(e.target.value)}
-                    className="w-full bg-slate-900 border border-slate-800 rounded p-1 text-slate-200 text-[10px]"
+                    className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1 text-[#b0b8d4] text-[10px]"
                   />
                 </div>
                 <div className="space-y-0.5">
@@ -773,7 +773,7 @@ export default function AdminEmployeeView() {
                     required
                     value={applyEnd}
                     onChange={(e) => setApplyEnd(e.target.value)}
-                    className="w-full bg-slate-900 border border-slate-800 rounded p-1 text-slate-200 text-[10px]"
+                    className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1 text-[#b0b8d4] text-[10px]"
                   />
                 </div>
               </div>
@@ -786,7 +786,7 @@ export default function AdminEmployeeView() {
                   placeholder="Reason for taking leave..."
                   value={applyReason}
                   onChange={(e) => setApplyReason(e.target.value)}
-                  className="w-full bg-slate-900 border border-slate-800 rounded p-1 text-slate-200 outline-none text-[10px]"
+                  className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1 text-[#b0b8d4] outline-none text-[10px]"
                 />
               </div>
 
@@ -801,11 +801,11 @@ export default function AdminEmployeeView() {
             {/* Leave applications pending */}
             <div className="space-y-1.5 max-h-[140px] overflow-y-auto pr-1">
               {leaveRequests.map((lr) => (
-                <div key={lr.id} className="bg-slate-950/60 p-2.5 border border-slate-900 rounded-lg flex items-center justify-between text-[10px]">
+                <div key={lr.id} className="bg-[#0f172e]/60 p-2.5 border border-[#1a2554] rounded-lg flex items-center justify-between text-[10px]">
                   <div>
                     <span className="font-extrabold text-slate-300 block">{lr.employeeName} • {lr.type}</span>
                     <span className="text-[9px] text-slate-500 block">{lr.startDate} to {lr.endDate} ({lr.days} days)</span>
-                    <span className="text-[9px] text-slate-400 italic block mt-0.5">Reason: "{lr.reason}"</span>
+                    <span className="text-[9px] text-[#8891ac] italic block mt-0.5">Reason: "{lr.reason}"</span>
                   </div>
 
                   <div className="shrink-0 flex items-center gap-1.5">
@@ -813,7 +813,7 @@ export default function AdminEmployeeView() {
                       <div className="flex gap-1">
                         <button
                           onClick={() => handleLeaveAction(lr.id, 'approved')}
-                          className="p-1 bg-emerald-500/10 border border-emerald-500/20 hover:bg-emerald-500/25 rounded text-emerald-400"
+                          className="p-1 bg-[#10b981]/10 border border-[#10b981]/20 hover:bg-[#10b981]/25 rounded text-[#10b981]"
                           title="Approve leave"
                         >
                           <Check className="w-3.5 h-3.5" />
@@ -828,7 +828,7 @@ export default function AdminEmployeeView() {
                       </div>
                     ) : (
                       <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded uppercase ${
-                        lr.status === 'approved' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-rose-500/10 text-rose-400'
+                        lr.status === 'approved' ? 'bg-[#10b981]/10 text-[#10b981]' : 'bg-rose-500/10 text-rose-400'
                       }`}>
                         {lr.status}
                       </span>
@@ -840,14 +840,14 @@ export default function AdminEmployeeView() {
           </div>
 
           {/* HR Documents Vault */}
-          <div className="bg-slate-900/15 border border-slate-900 p-4 rounded-2xl space-y-4 font-mono text-xs">
-            <div className="border-b border-slate-900 pb-2">
+          <div className="bg-[#1a2554]/15 border border-[#1a2554] p-4 rounded-2xl space-y-4 font-mono text-xs">
+            <div className="border-b border-[#1a2554] pb-2">
               <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Verified Document Vault</span>
             </div>
 
             <div className="space-y-2 max-h-[280px] overflow-y-auto pr-1">
               {selectedEmp.documents.map((doc, idx) => (
-                <div key={idx} className="bg-slate-950/60 p-3 border border-slate-900 rounded-xl flex items-center justify-between text-[11px]">
+                <div key={idx} className="bg-[#0f172e]/60 p-3 border border-[#1a2554] rounded-xl flex items-center justify-between text-[11px]">
                   <div className="flex items-center space-x-2.5">
                     <div className="p-1.5 bg-rose-500/10 text-rose-400 rounded-lg">
                       <FileText className="w-4 h-4" />
@@ -860,12 +860,12 @@ export default function AdminEmployeeView() {
 
                   <div className="flex items-center space-x-2">
                     <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded uppercase ${
-                      doc.status === 'verified' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-amber-500/10 text-amber-400'
+                      doc.status === 'verified' ? 'bg-[#10b981]/10 text-[#10b981]' : 'bg-amber-500/10 text-amber-400'
                     }`}>
                       {doc.status}
                     </span>
                     <button
-                      className="p-1 hover:bg-slate-900 rounded text-slate-400 hover:text-slate-200 transition"
+                      className="p-1 hover:bg-[#1a2554] rounded text-[#8891ac] hover:text-[#b0b8d4] transition"
                       title="Download PDF Document"
                     >
                       <Download className="w-3.5 h-3.5" />
@@ -875,7 +875,7 @@ export default function AdminEmployeeView() {
               ))}
 
               {/* Mock upload */}
-              <div className="border border-dashed border-slate-800 rounded-xl p-4 text-center cursor-pointer hover:bg-slate-900/10 transition">
+              <div className="border border-dashed border-[#222f5a] rounded-xl p-4 text-center cursor-pointer hover:bg-[#1a2554]/10 transition">
                 <span className="text-[9px] text-slate-500 uppercase font-black tracking-wider block">DRAG & DROP STAFF DOCUMENTS</span>
                 <span className="text-[8px] text-slate-600 block mt-0.5">Upload verified NID, contract, or academic degree certificates</span>
               </div>

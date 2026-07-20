@@ -215,17 +215,17 @@ export default function AdminExecutiveDashboard({
     <div className="space-y-6" id="executive-dashboard-root">
       
       {/* 1. Global Search & Perspective Controls */}
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 bg-slate-900/30 border border-slate-900 rounded-2xl p-4.5">
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 bg-[#1a2554]/30 border border-[#1a2554] rounded-2xl p-4.5">
         
         {/* Global search input */}
-        <div className="relative flex-1 bg-slate-950 border border-slate-850 hover:border-slate-800 rounded-xl px-3 py-2 flex items-center space-x-2.5 font-mono text-xs">
+        <div className="relative flex-1 bg-[#0f172e] border border-slate-850 hover:border-[#222f5a] rounded-xl px-3 py-2 flex items-center space-x-2.5 font-mono text-xs">
           <Search className="w-4 h-4 text-slate-500 shrink-0" />
           <input
             type="text"
             value={globalSearch}
             onChange={(e) => handleGlobalSearchChange(e.target.value)}
             placeholder="Search Products, CRM Tiers, Repairs, Staff ID..."
-            className="w-full bg-transparent text-xs text-slate-200 outline-none"
+            className="w-full bg-transparent text-xs text-[#b0b8d4] outline-none"
           />
           {globalSearch && (
             <button
@@ -241,15 +241,15 @@ export default function AdminExecutiveDashboard({
 
           {/* Floating Global Search Dropdown */}
           {searchResults && (
-            <div className="absolute top-12 left-0 right-0 bg-slate-950 border border-slate-800 rounded-xl p-3.5 shadow-2xl z-50 space-y-3.5 font-mono text-[11px] text-slate-400">
+            <div className="absolute top-12 left-0 right-0 bg-[#0f172e] border border-[#222f5a] rounded-xl p-3.5 shadow-2xl z-50 space-y-3.5 font-mono text-[11px] text-[#8891ac]">
               {/* Product Results */}
               {searchResults.products.length > 0 && (
                 <div className="space-y-1">
                   <span className="text-[9px] text-slate-500 uppercase font-black tracking-wider block">Handset Products Match</span>
                   {searchResults.products.map((p) => (
-                    <div key={p.id} className="flex justify-between items-center bg-slate-900/40 p-1.5 rounded border border-slate-900">
-                      <span className="text-slate-200 font-extrabold">{p.name} <span className="text-slate-500">({p.brand})</span></span>
-                      <strong className="text-emerald-400">{p.price.toLocaleString()} MMK</strong>
+                    <div key={p.id} className="flex justify-between items-center bg-[#1a2554]/40 p-1.5 rounded border border-[#1a2554]">
+                      <span className="text-[#b0b8d4] font-extrabold">{p.name} <span className="text-slate-500">({p.brand})</span></span>
+                      <strong className="text-[#10b981]">{p.price.toLocaleString()} MMK</strong>
                     </div>
                   ))}
                 </div>
@@ -258,10 +258,10 @@ export default function AdminExecutiveDashboard({
               {/* Customer Results */}
               {searchResults.customers.length > 0 && (
                 <div className="space-y-1">
-                  <span className="text-[9px] text-indigo-400 uppercase font-black tracking-wider block">VIP Customer Guest Match</span>
+                  <span className="text-[9px] text-[#3052a3] uppercase font-black tracking-wider block">VIP Customer Guest Match</span>
                   {searchResults.customers.map((c) => (
-                    <div key={c.id} className="flex justify-between items-center bg-slate-900/40 p-1.5 rounded border border-slate-900">
-                      <span className="text-slate-200 font-extrabold">{c.name} <span className="text-slate-500">({c.phone})</span></span>
+                    <div key={c.id} className="flex justify-between items-center bg-[#1a2554]/40 p-1.5 rounded border border-[#1a2554]">
+                      <span className="text-[#b0b8d4] font-extrabold">{c.name} <span className="text-slate-500">({c.phone})</span></span>
                       <strong className="text-rose-400 text-[10px] uppercase font-bold">{c.tier} Member</strong>
                     </div>
                   ))}
@@ -273,9 +273,9 @@ export default function AdminExecutiveDashboard({
                 <div className="space-y-1">
                   <span className="text-[9px] text-pink-400 uppercase font-black tracking-wider block">Service Diagnostics Match</span>
                   {searchResults.repairs.map((r) => (
-                    <div key={r.id} className="flex justify-between items-center bg-slate-900/40 p-1.5 rounded border border-slate-900">
-                      <span className="text-slate-200 font-extrabold">{r.customerName} <span className="text-slate-500">({r.deviceModel})</span></span>
-                      <span className="text-slate-400 text-[10px] uppercase font-bold">{r.status}</span>
+                    <div key={r.id} className="flex justify-between items-center bg-[#1a2554]/40 p-1.5 rounded border border-[#1a2554]">
+                      <span className="text-[#b0b8d4] font-extrabold">{r.customerName} <span className="text-slate-500">({r.deviceModel})</span></span>
+                      <span className="text-[#8891ac] text-[10px] uppercase font-bold">{r.status}</span>
                     </div>
                   ))}
                 </div>
@@ -289,13 +289,13 @@ export default function AdminExecutiveDashboard({
         </div>
 
         {/* Perspective Toggles */}
-        <div className="flex flex-wrap items-center gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-850 font-mono text-[10px] font-bold">
+        <div className="flex flex-wrap items-center gap-1.5 bg-[#0f172e] p-1 rounded-xl border border-slate-850 font-mono text-[10px] font-bold">
           <button
             onClick={() => setPerspective('owner')}
             className={`px-3 py-1.5 rounded-lg transition-all ${
               perspective === 'owner'
                 ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-[#8891ac] hover:text-[#b0b8d4]'
             }`}
           >
             Owner View
@@ -304,8 +304,8 @@ export default function AdminExecutiveDashboard({
             onClick={() => setPerspective('super_admin')}
             className={`px-3 py-1.5 rounded-lg transition-all ${
               perspective === 'super_admin'
-                ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/20'
+                : 'text-[#8891ac] hover:text-[#b0b8d4]'
             }`}
           >
             Super Admin View
@@ -315,7 +315,7 @@ export default function AdminExecutiveDashboard({
             className={`px-3 py-1.5 rounded-lg transition-all ${
               perspective === 'branch'
                 ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-[#8891ac] hover:text-[#b0b8d4]'
             }`}
           >
             Branch View
@@ -327,10 +327,10 @@ export default function AdminExecutiveDashboard({
           <select
             value={selectedBranchId}
             onChange={(e) => setSelectedBranchId(e.target.value)}
-            className="bg-slate-950 border border-slate-850 hover:border-slate-800 text-amber-400 font-mono font-bold text-xs rounded-xl px-3 py-2 outline-none cursor-pointer"
+            className="bg-[#0f172e] border border-slate-850 hover:border-[#222f5a] text-amber-400 font-mono font-bold text-xs rounded-xl px-3 py-2 outline-none cursor-pointer"
           >
             {branches.map((b) => (
-              <option key={b.id} value={b.id} className="bg-slate-950 text-slate-200">
+              <option key={b.id} value={b.id} className="bg-[#0f172e] text-[#b0b8d4]">
                 {b.name}
               </option>
             ))}
@@ -343,15 +343,15 @@ export default function AdminExecutiveDashboard({
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono">
         
         {/* KPI 1: Consolidated Revenue */}
-        <div className="bg-slate-900/15 border border-slate-900 rounded-2xl p-4.5 space-y-2 relative overflow-hidden group hover:border-slate-800 transition">
+        <div className="bg-[#1a2554]/15 border border-[#1a2554] rounded-2xl p-4.5 space-y-2 relative overflow-hidden group hover:border-[#222f5a] transition">
           <div className="flex items-center justify-between">
             <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Gross Retail Turnover</span>
-            <div className="p-1.5 bg-emerald-500/10 text-emerald-400 rounded-lg">
+            <div className="p-1.5 bg-[#10b981]/10 text-[#10b981] rounded-lg">
               <DollarSign className="w-3.5 h-3.5" />
             </div>
           </div>
           <div>
-            <strong className="text-xl sm:text-2xl text-emerald-400 block font-black">
+            <strong className="text-xl sm:text-2xl text-[#10b981] block font-black">
               {grossSalesValue.toLocaleString()} MMK
             </strong>
             <div className="flex items-center space-x-1 mt-1 text-[9px] text-slate-500 leading-none">
@@ -362,7 +362,7 @@ export default function AdminExecutiveDashboard({
         </div>
 
         {/* KPI 2: Net Surplus */}
-        <div className="bg-slate-900/15 border border-slate-900 rounded-2xl p-4.5 space-y-2 relative overflow-hidden group hover:border-slate-800 transition">
+        <div className="bg-[#1a2554]/15 border border-[#1a2554] rounded-2xl p-4.5 space-y-2 relative overflow-hidden group hover:border-[#222f5a] transition">
           <div className="flex items-center justify-between">
             <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Estimated Net Margin</span>
             <div className="p-1.5 bg-rose-500/10 text-rose-400 rounded-lg">
@@ -375,16 +375,16 @@ export default function AdminExecutiveDashboard({
             </strong>
             <div className="flex items-center space-x-1 mt-1 text-[9px] text-slate-500 leading-none">
               <span>COGS deductions:</span>
-              <strong className="text-slate-400">-{estimatedCogs.toLocaleString()} MMK</strong>
+              <strong className="text-[#8891ac]">-{estimatedCogs.toLocaleString()} MMK</strong>
             </div>
           </div>
         </div>
 
         {/* KPI 3: Stock asset valuation */}
-        <div className="bg-slate-900/15 border border-slate-900 rounded-2xl p-4.5 space-y-2 relative overflow-hidden group hover:border-slate-800 transition">
+        <div className="bg-[#1a2554]/15 border border-[#1a2554] rounded-2xl p-4.5 space-y-2 relative overflow-hidden group hover:border-[#222f5a] transition">
           <div className="flex items-center justify-between">
             <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Showroom Asset Valuation</span>
-            <div className="p-1.5 bg-indigo-500/10 text-indigo-400 rounded-lg">
+            <div className="p-1.5 bg-[#3052a3]/10 text-[#3052a3] rounded-lg">
               <Package className="w-3.5 h-3.5" />
             </div>
           </div>
@@ -394,7 +394,7 @@ export default function AdminExecutiveDashboard({
             </strong>
             <div className="flex items-center space-x-1 mt-1 text-[9px] text-slate-500 leading-none">
               <span>Physical Balance:</span>
-              <strong className="text-indigo-400">{stockUnitQuantity} pcs</strong>
+              <strong className="text-[#3052a3]">{stockUnitQuantity} pcs</strong>
               <span className="text-slate-600">•</span>
               <strong className="text-amber-400 font-black">{lowStockCount} alerts</strong>
             </div>
@@ -402,10 +402,10 @@ export default function AdminExecutiveDashboard({
         </div>
 
         {/* KPI 4: Service Hardware Diagnostics */}
-        <div className="bg-slate-900/15 border border-slate-900 rounded-2xl p-4.5 space-y-2 relative overflow-hidden group hover:border-slate-800 transition">
+        <div className="bg-[#1a2554]/15 border border-[#1a2554] rounded-2xl p-4.5 space-y-2 relative overflow-hidden group hover:border-[#222f5a] transition">
           <div className="flex items-center justify-between">
             <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Service intake status</span>
-            <div className="p-1.5 bg-sky-500/10 text-sky-400 rounded-lg">
+            <div className="p-1.5 bg-[#00d4ff]/10 text-[#00d4ff] rounded-lg">
               <Wrench className="w-3.5 h-3.5" />
             </div>
           </div>
@@ -415,7 +415,7 @@ export default function AdminExecutiveDashboard({
             </strong>
             <div className="flex items-center space-x-1 mt-1 text-[9px] text-slate-500 leading-none">
               <span>Est Pipe Val:</span>
-              <strong className="text-emerald-400">{repairPipelineRevenue.toLocaleString()} MMK</strong>
+              <strong className="text-[#10b981]">{repairPipelineRevenue.toLocaleString()} MMK</strong>
             </div>
           </div>
         </div>
@@ -426,10 +426,10 @@ export default function AdminExecutiveDashboard({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
         {/* Sales trends area chart */}
-        <div className="lg:col-span-8 bg-slate-900/15 border border-slate-900 rounded-2xl p-5 space-y-3">
+        <div className="lg:col-span-8 bg-[#1a2554]/15 border border-[#1a2554] rounded-2xl p-5 space-y-3">
           <div className="flex justify-between items-center">
             <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono">Consolidated Sales trends over time (MMK)</span>
-            <span className="text-[9px] font-mono font-bold bg-slate-950 border border-slate-850 px-2 py-0.5 rounded text-indigo-400">REVENUE VS ESTIMATED PROFIT</span>
+            <span className="text-[9px] font-mono font-bold bg-[#0f172e] border border-slate-850 px-2 py-0.5 rounded text-[#3052a3]">REVENUE VS ESTIMATED PROFIT</span>
           </div>
           <div className="h-64 sm:h-72">
             <ResponsiveContainer width="100%" height="100%">
@@ -460,7 +460,7 @@ export default function AdminExecutiveDashboard({
         </div>
 
         {/* Expenses category pie chart */}
-        <div className="lg:col-span-4 bg-slate-900/15 border border-slate-900 rounded-2xl p-5 flex flex-col justify-between space-y-4">
+        <div className="lg:col-span-4 bg-[#1a2554]/15 border border-[#1a2554] rounded-2xl p-5 flex flex-col justify-between space-y-4">
           <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono">Operating Expenses Categories</span>
           
           <div className="h-44 flex items-center justify-center relative">
@@ -492,18 +492,18 @@ export default function AdminExecutiveDashboard({
             
             <div className="absolute flex flex-col items-center justify-center text-center">
               <span className="text-[8px] text-slate-500 font-mono font-bold uppercase">Expenses</span>
-              <strong className="text-xs font-black text-slate-200 font-mono">
+              <strong className="text-xs font-black text-[#b0b8d4] font-mono">
                 {totalExpenses.toLocaleString()}
               </strong>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-1.5 text-[9px] font-mono text-slate-400">
+          <div className="grid grid-cols-2 gap-1.5 text-[9px] font-mono text-[#8891ac]">
             {getExpensesBreakdown().map((entry, idx) => (
-              <div key={idx} className="flex items-center space-x-1.5 px-2 py-1 bg-slate-950/40 rounded border border-slate-900/40">
+              <div key={idx} className="flex items-center space-x-1.5 px-2 py-1 bg-[#0f172e]/40 rounded border border-[#1a2554]/40">
                 <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: entry.color }} />
                 <span className="truncate flex-1">{entry.name}</span>
-                <strong className="text-slate-200">{((entry.value / totalExpenses) * 100).toFixed(0)}%</strong>
+                <strong className="text-[#b0b8d4]">{((entry.value / totalExpenses) * 100).toFixed(0)}%</strong>
               </div>
             ))}
           </div>
@@ -516,7 +516,7 @@ export default function AdminExecutiveDashboard({
         
         {/* Left: Showroom output comparison (Only relevant for Owner) OR Infrastructure Status (Super Admin) */}
         {perspective !== 'super_admin' ? (
-          <div className="bg-slate-900/15 border border-slate-900 rounded-2xl p-5 space-y-4 font-mono text-xs">
+          <div className="bg-[#1a2554]/15 border border-[#1a2554] rounded-2xl p-5 space-y-4 font-mono text-xs">
             <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Showroom Performance Comparison</span>
             <div className="space-y-4">
               {getBranchesPerformance().map((b, idx) => {
@@ -529,13 +529,13 @@ export default function AdminExecutiveDashboard({
                       <span className="font-extrabold text-slate-300">{b.name} Office</span>
                       <div className="space-x-1.5 text-[9px]">
                         <span className="text-slate-500">Sales:</span>
-                        <strong className="text-emerald-400">{b.Revenue.toLocaleString()}</strong>
+                        <strong className="text-[#10b981]">{b.Revenue.toLocaleString()}</strong>
                         <span className="text-slate-600">|</span>
                         <span className="text-slate-500">OPEX:</span>
                         <strong className="text-rose-400">{b.Expenses.toLocaleString()}</strong>
                       </div>
                     </div>
-                    <div className="w-full bg-slate-950 h-2 rounded-full overflow-hidden border border-slate-900">
+                    <div className="w-full bg-[#0f172e] h-2 rounded-full overflow-hidden border border-[#1a2554]">
                       <div
                         className="bg-indigo-400 h-full rounded-full transition-all duration-500"
                         style={{ width: `${barPct}%` }}
@@ -547,41 +547,41 @@ export default function AdminExecutiveDashboard({
             </div>
           </div>
         ) : (
-          <div className="bg-slate-900/15 border border-slate-900 rounded-2xl p-5 space-y-4 font-mono text-xs">
-            <div className="flex items-center justify-between border-b border-slate-900 pb-2.5">
+          <div className="bg-[#1a2554]/15 border border-[#1a2554] rounded-2xl p-5 space-y-4 font-mono text-xs">
+            <div className="flex items-center justify-between border-b border-[#1a2554] pb-2.5">
               <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Infrastructure Server Status</span>
               <div className="flex items-center space-x-1.5">
                 <span className="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse" />
-                <span className="text-[9px] text-emerald-400 font-extrabold">ONLINE</span>
+                <span className="text-[9px] text-[#10b981] font-extrabold">ONLINE</span>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 text-[10px] text-slate-400">
-              <div className="bg-slate-950 border border-slate-900 p-2.5 rounded-xl space-y-1">
+            <div className="grid grid-cols-2 gap-3 text-[10px] text-[#8891ac]">
+              <div className="bg-[#0f172e] border border-[#1a2554] p-2.5 rounded-xl space-y-1">
                 <span className="text-slate-500 uppercase font-bold text-[8px]">Inbound API Port</span>
-                <strong className="text-slate-200 block flex items-center gap-1">
-                  <Server className="w-3.5 h-3.5 text-sky-400" />
+                <strong className="text-[#b0b8d4] block flex items-center gap-1">
+                  <Server className="w-3.5 h-3.5 text-[#00d4ff]" />
                   <span>Port 3000 Ingress</span>
                 </strong>
               </div>
-              <div className="bg-slate-950 border border-slate-900 p-2.5 rounded-xl space-y-1">
+              <div className="bg-[#0f172e] border border-[#1a2554] p-2.5 rounded-xl space-y-1">
                 <span className="text-slate-500 uppercase font-bold text-[8px]">Database Backup State</span>
-                <strong className="text-slate-200 block flex items-center gap-1">
-                  <Database className="w-3.5 h-3.5 text-indigo-400" />
+                <strong className="text-[#b0b8d4] block flex items-center gap-1">
+                  <Database className="w-3.5 h-3.5 text-[#3052a3]" />
                   <span>Supabase Live CDC</span>
                 </strong>
               </div>
-              <div className="bg-slate-950 border border-slate-900 p-2.5 rounded-xl space-y-1">
+              <div className="bg-[#0f172e] border border-[#1a2554] p-2.5 rounded-xl space-y-1">
                 <span className="text-slate-500 uppercase font-bold text-[8px]">Antigravity Engine</span>
-                <strong className="text-slate-200 block flex items-center gap-1">
+                <strong className="text-[#b0b8d4] block flex items-center gap-1">
                   <Zap className="w-3.5 h-3.5 text-amber-400" />
                   <span>Gemini v2 API Active</span>
                 </strong>
               </div>
-              <div className="bg-slate-950 border border-slate-900 p-2.5 rounded-xl space-y-1">
+              <div className="bg-[#0f172e] border border-[#1a2554] p-2.5 rounded-xl space-y-1">
                 <span className="text-slate-500 uppercase font-bold text-[8px]">E-Load VTU Gateways</span>
-                <strong className="text-slate-200 block flex items-center gap-1">
-                  <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
+                <strong className="text-[#b0b8d4] block flex items-center gap-1">
+                  <CheckCircle className="w-3.5 h-3.5 text-[#10b981]" />
                   <span>MPT/Atom/Ooredoo</span>
                 </strong>
               </div>
@@ -590,8 +590,8 @@ export default function AdminExecutiveDashboard({
         )}
 
         {/* Right: Active Notifications Hub & timeline */}
-        <div className="bg-slate-900/15 border border-slate-900 rounded-2xl p-5 space-y-3.5 font-mono text-xs">
-          <div className="flex justify-between items-baseline border-b border-slate-900 pb-2">
+        <div className="bg-[#1a2554]/15 border border-[#1a2554] rounded-2xl p-5 space-y-3.5 font-mono text-xs">
+          <div className="flex justify-between items-baseline border-b border-[#1a2554] pb-2">
             <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider flex items-center space-x-1">
               <Bell className="w-3.5 h-3.5 text-rose-400 shrink-0" />
               <span>Active Notifications Hub</span>
@@ -600,26 +600,26 @@ export default function AdminExecutiveDashboard({
           </div>
 
           <div className="space-y-2.5 max-h-[160px] overflow-y-auto pr-1">
-            <div className="bg-slate-950 border-l-2 border-rose-500 p-2.5 rounded-xl flex items-start gap-2.5">
+            <div className="bg-[#0f172e] border-l-2 border-rose-500 p-2.5 rounded-xl flex items-start gap-2.5">
               <ShieldAlert className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
               <div>
-                <strong className="text-slate-200 text-[10px] block font-bold">Thilawa Warehouse Low Stock Warning</strong>
+                <strong className="text-[#b0b8d4] text-[10px] block font-bold">Thilawa Warehouse Low Stock Warning</strong>
                 <p className="text-[9px] text-slate-500 mt-0.5">Handset stock SKU: iPhone 15 Pro is critically low (1 unit remaining). Dispatch transfer request.</p>
               </div>
             </div>
 
-            <div className="bg-slate-950 border-l-2 border-rose-500 p-2.5 rounded-xl flex items-start gap-2.5">
+            <div className="bg-[#0f172e] border-l-2 border-rose-500 p-2.5 rounded-xl flex items-start gap-2.5">
               <ShieldAlert className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
               <div>
-                <strong className="text-slate-200 text-[10px] block font-bold">Large Outgoing OPEX recorded</strong>
+                <strong className="text-[#b0b8d4] text-[10px] block font-bold">Large Outgoing OPEX recorded</strong>
                 <p className="text-[9px] text-slate-500 mt-0.5">Mandalay Branch manager recorded a cash expense of 650,000 MMK under 'Rent'.</p>
               </div>
             </div>
 
-            <div className="bg-slate-950 border-l-2 border-amber-500 p-2.5 rounded-xl flex items-start gap-2.5">
+            <div className="bg-[#0f172e] border-l-2 border-amber-500 p-2.5 rounded-xl flex items-start gap-2.5">
               <Clock className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
               <div>
-                <strong className="text-slate-200 text-[10px] block font-bold">Hardware Repair Ticket Overdue</strong>
+                <strong className="text-[#b0b8d4] text-[10px] block font-bold">Hardware Repair Ticket Overdue</strong>
                 <p className="text-[9px] text-slate-500 mt-0.5">Ticket #R-048 (AMOLED glass service) is past estimated delivery. assigned: Technician Aung Win.</p>
               </div>
             </div>
@@ -629,22 +629,22 @@ export default function AdminExecutiveDashboard({
       </div>
 
       {/* 5. Business Audit Ledger */}
-      <div className="bg-slate-900/15 border border-slate-900 rounded-2xl p-5 space-y-4">
-        <div className="border-b border-slate-900 pb-3 flex items-center justify-between">
+      <div className="bg-[#1a2554]/15 border border-[#1a2554] rounded-2xl p-5 space-y-4">
+        <div className="border-b border-[#1a2554] pb-3 flex items-center justify-between">
           <div>
             <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono flex items-center space-x-1">
-              <History className="w-3.5 h-3.5 text-indigo-400" />
+              <History className="w-3.5 h-3.5 text-[#3052a3]" />
               <span>Enterprise Audit Trail Logs</span>
             </span>
             <p className="text-[10px] text-slate-500 font-mono mt-1">Chronological record of write operations executed across active branches.</p>
           </div>
-          <span className="text-[9px] font-mono text-slate-600">SIMULATING ACTIVE ROLE: <strong className="text-indigo-400 uppercase">{activeSimulatedRole}</strong></span>
+          <span className="text-[9px] font-mono text-slate-600">SIMULATING ACTIVE ROLE: <strong className="text-[#3052a3] uppercase">{activeSimulatedRole}</strong></span>
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse font-mono text-xs">
             <thead>
-              <tr className="border-b border-slate-900 text-slate-500 font-bold uppercase text-[10px]">
+              <tr className="border-b border-[#1a2554] text-slate-500 font-bold uppercase text-[10px]">
                 <th className="py-2 pr-2">Timestamp</th>
                 <th className="py-2 px-2">Authorized User</th>
                 <th className="py-2 px-2 text-center">Action Type</th>
@@ -654,14 +654,14 @@ export default function AdminExecutiveDashboard({
             </thead>
             <tbody>
               {auditLogs.map((log, idx) => (
-                <tr key={idx} className="border-b border-slate-900/50 text-[11px] hover:bg-slate-900/10 text-slate-400">
+                <tr key={idx} className="border-b border-[#1a2554]/50 text-[11px] hover:bg-[#1a2554]/10 text-[#8891ac]">
                   <td className="py-2.5 pr-2 whitespace-nowrap text-slate-500">{log.timestamp}</td>
-                  <td className="py-2.5 px-2 font-bold text-slate-200">
+                  <td className="py-2.5 px-2 font-bold text-[#b0b8d4]">
                     <span>{log.user}</span>
                     <span className="text-[9px] text-slate-500 block">{log.role}</span>
                   </td>
                   <td className="py-2.5 px-2 text-center">
-                    <span className="bg-slate-950 border border-slate-850 text-indigo-400 font-bold text-[9px] px-2 py-0.5 rounded">
+                    <span className="bg-[#0f172e] border border-slate-850 text-[#3052a3] font-bold text-[9px] px-2 py-0.5 rounded">
                       {log.action}
                     </span>
                   </td>

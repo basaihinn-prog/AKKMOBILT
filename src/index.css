@@ -6,11 +6,61 @@
   --font-display: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
+  /* ============================================
+     AKK MOBILE ENTERPRISE THEME COLORS
+     Based on Modern Dark Blue/Purple with Cyan Accents
+     ============================================ */
+  
+  /* Primary Colors */
+  --color-primary-900: #0f172e;
+  --color-primary-800: #1a2855;
+  --color-primary-700: #253b7a;
+  --color-primary-600: #3052a3;
+  --color-primary-500: #3d66cc;
+  --color-primary-400: #5a7fdb;
+  
+  /* Secondary - Cyan Accents */
+  --color-secondary-500: #00d4ff;
+  --color-secondary-400: #33e0ff;
+  --color-secondary-300: #66ecff;
+  
+  /* Accent Colors for Cards */
+  --color-accent-pink: #ff1493;
+  --color-accent-purple: #9d4edd;
+  --color-accent-orange: #ff8c42;
+  --color-accent-green: #10b981;
+  --color-accent-red: #ef4444;
+  
+  /* Neutral Colors */
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #f9fafb;
+  --color-neutral-100: #f3f4f6;
+  --color-neutral-200: #e5e7eb;
+  --color-neutral-300: #d1d5db;
+  --color-neutral-400: #9ca3af;
+  --color-neutral-500: #6b7280;
+  --color-neutral-600: #4b5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1f2937;
+  --color-neutral-900: #111827;
+  
+  /* Background Colors */
+  --color-bg-dark: #0f1729;
+  --color-bg-darker: #0a0e1f;
+  --color-bg-card: #1a2554;
+  --color-bg-card-hover: #222f5a;
+  
+  /* Text Colors */
+  --color-text-primary: #f0f4ff;
+  --color-text-secondary: #b0b8d4;
+  --color-text-tertiary: #8891ac;
+  
   /* Custom enterprise design system animations */
   --animate-slide-down: slide-down 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-scanline: scanline 1.8s ease-in-out infinite;
   --animate-paper-feed: paper-feed 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   --animate-fade-in-delayed: fade-in-delayed 0.6s ease-out 0.8s both;
+  --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
 
   @keyframes slide-down {
     0% {
@@ -61,4 +111,125 @@
       opacity: 1;
     }
   }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
+    }
+  }
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+html {
+  background-color: #0a0e1f;
+  color: #f0f4ff;
+}
+
+body {
+  background: linear-gradient(135deg, #0a0e1f 0%, #0f1729 50%, #1a2554 100%);
+  color: #f0f4ff;
+}
+
+/* ============================================
+   UTILITY CLASSES FOR DESIGN SYSTEM
+   ============================================ */
+.akk-gradient-header {
+  background: linear-gradient(135deg, #1a2855 0%, #253b7a 50%, #3052a3 100%);
+}
+
+.akk-gradient-sidebar {
+  background: linear-gradient(180deg, #0f172e 0%, #1a2554 100%);
+}
+
+.akk-card-base {
+  background: #1a2554;
+  border: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.akk-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.akk-card-hover:hover {
+  background: #222f5a;
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
+}
+
+.akk-button-primary {
+  background: linear-gradient(135deg, #3052a3 0%, #3d66cc 100%);
+  color: #f0f4ff;
+  transition: all 0.3s ease;
+}
+
+.akk-button-primary:hover {
+  background: linear-gradient(135deg, #3d66cc 0%, #5a7fdb 100%);
+  box-shadow: 0 8px 24px rgba(61, 102, 204, 0.3);
+}
+
+.akk-button-secondary {
+  background: transparent;
+  color: #00d4ff;
+  border: 2px solid #00d4ff;
+}
+
+.akk-button-secondary:hover {
+  background: rgba(0, 212, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.akk-text-accent {
+  color: #00d4ff;
+}
+
+.akk-badge-pink {
+  background: rgba(255, 20, 147, 0.2);
+  color: #ff1493;
+  border: 1px solid rgba(255, 20, 147, 0.4);
+}
+
+.akk-badge-purple {
+  background: rgba(157, 78, 221, 0.2);
+  color: #9d4edd;
+  border: 1px solid rgba(157, 78, 221, 0.4);
+}
+
+.akk-badge-orange {
+  background: rgba(255, 140, 66, 0.2);
+  color: #ff8c42;
+  border: 1px solid rgba(255, 140, 66, 0.4);
+}
+
+.akk-badge-green {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.akk-chart-bg {
+  background: rgba(26, 37, 84, 0.5);
+  border-radius: 12px;
+}
+
+.akk-input-base {
+  background: rgba(26, 37, 84, 0.7);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  color: #f0f4ff;
+}
+
+.akk-input-base::placeholder {
+  color: #8891ac;
+}
+
+.akk-input-base:focus {
+  background: rgba(26, 37, 84, 0.9);
+  border-color: rgba(0, 212, 255, 0.6);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  outline: none;
 }

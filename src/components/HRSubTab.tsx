@@ -52,13 +52,13 @@ export default function HRSubTab({ activeBranchId }: HRSubTabProps) {
 
   return (
     <div className="space-y-6" id="hr-sub-tab">
-      <div className="bg-slate-900/20 border border-slate-900 rounded-2xl overflow-hidden">
-        <div className="px-5 py-4 border-b border-slate-900 flex items-center justify-between flex-wrap gap-2">
-          <h4 className="font-bold text-sm text-slate-100 font-mono uppercase tracking-wider flex items-center space-x-2">
-            <CalendarDays className="w-4 h-4 text-sky-400" />
+      <div className="bg-[#1a2554]/20 border border-[#1a2554] rounded-2xl overflow-hidden">
+        <div className="px-5 py-4 border-b border-[#1a2554] flex items-center justify-between flex-wrap gap-2">
+          <h4 className="font-bold text-sm text-[#f0f4ff] font-mono uppercase tracking-wider flex items-center space-x-2">
+            <CalendarDays className="w-4 h-4 text-[#00d4ff]" />
             <span>Myanmar Retail HR Attendance & Performance Console</span>
           </h4>
-          <span className="text-[10px] bg-slate-950 border border-slate-800 text-slate-400 px-3 py-1 rounded font-mono font-bold">
+          <span className="text-[10px] bg-[#0f172e] border border-[#222f5a] text-[#8891ac] px-3 py-1 rounded font-mono font-bold">
             {employees.length} Staff Enrolled
           </span>
         </div>
@@ -66,7 +66,7 @@ export default function HRSubTab({ activeBranchId }: HRSubTabProps) {
         <div className="overflow-x-auto">
           <table className="w-full text-left font-mono text-xs border-collapse">
             <thead>
-              <tr className="bg-slate-950 text-slate-400 text-[10px] border-b border-slate-900">
+              <tr className="bg-[#0f172e] text-[#8891ac] text-[10px] border-b border-[#1a2554]">
                 <th className="px-5 py-3 font-extrabold">STAFF NAME / ROLE</th>
                 <th className="px-5 py-3 font-extrabold">BRANCH LOCATION</th>
                 <th className="px-5 py-3 font-extrabold text-center">SHIFT ATTENDANCE</th>
@@ -81,21 +81,21 @@ export default function HRSubTab({ activeBranchId }: HRSubTabProps) {
                 const achievementRate = emp.salesTarget > 0 ? (emp.currentSales / emp.salesTarget) * 100 : 0;
 
                 return (
-                  <tr key={emp.id} className="hover:bg-slate-900/10 transition-colors">
+                  <tr key={emp.id} className="hover:bg-[#1a2554]/10 transition-colors">
                     <td className="px-5 py-3.5">
                       <div className="font-bold text-white text-sm">{emp.name}</div>
                       <div className="text-[10px] text-slate-500 font-medium">{emp.role}</div>
                     </td>
                     <td className="px-5 py-3.5">
                       <span className="font-semibold text-slate-300 flex items-center space-x-1">
-                        <MapPin className="w-3 h-3 text-sky-500" />
+                        <MapPin className="w-3 h-3 text-[#00d4ff]" />
                         <span>{emp.branchId.toUpperCase()}</span>
                       </span>
                     </td>
                     <td className="px-5 py-3.5 text-center">
                       <span className={`px-2.5 py-0.5 rounded text-[10px] font-bold ${
                         emp.attendanceStatus === 'checked_in'
-                          ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                          ? 'bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20'
                           : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
                       }`}>
                         {emp.attendanceStatus === 'checked_in' ? `In [${emp.attendanceTime || '08:00 AM'}]` : 'Checked Out'}
@@ -104,16 +104,16 @@ export default function HRSubTab({ activeBranchId }: HRSubTabProps) {
                     <td className="px-5 py-3.5 space-y-1">
                       <div className="flex justify-between text-[10px]">
                         <span>Target: <strong>{emp.salesTarget.toLocaleString()}</strong></span>
-                        <span className="text-slate-400">Achieved: <strong>{emp.currentSales.toLocaleString()} ({Math.round(achievementRate)}%)</strong></span>
+                        <span className="text-[#8891ac]">Achieved: <strong>{emp.currentSales.toLocaleString()} ({Math.round(achievementRate)}%)</strong></span>
                       </div>
-                      <div className="w-full bg-slate-950 h-1.5 rounded-full overflow-hidden">
+                      <div className="w-full bg-[#0f172e] h-1.5 rounded-full overflow-hidden">
                         <div
-                          className="bg-emerald-500 h-1.5 rounded-full"
+                          className="bg-[#10b981] h-1.5 rounded-full"
                           style={{ width: `${Math.min(100, achievementRate)}%` }}
                         />
                       </div>
                     </td>
-                    <td className="px-5 py-3.5 font-bold text-emerald-400">
+                    <td className="px-5 py-3.5 font-bold text-[#10b981]">
                       {commissionMMK.toLocaleString()} MMK
                       <span className="block text-[9px] text-slate-500 font-normal">Rate: {emp.commissionRate * 100}%</span>
                     </td>
@@ -125,11 +125,11 @@ export default function HRSubTab({ activeBranchId }: HRSubTabProps) {
                             value={newTargetVal}
                             onChange={(e) => setNewTargetVal(e.target.value)}
                             placeholder="Target"
-                            className="bg-slate-950 border border-slate-800 text-center rounded w-20 py-1 font-bold text-[10px]"
+                            className="bg-[#0f172e] border border-[#222f5a] text-center rounded w-20 py-1 font-bold text-[10px]"
                           />
                           <button
                             onClick={() => handleUpdateTarget(emp.id)}
-                            className="bg-emerald-500 text-slate-950 p-1.5 rounded"
+                            className="bg-[#10b981] text-slate-950 p-1.5 rounded"
                           >
                             <CheckCircle2 className="w-3 h-3" />
                           </button>
@@ -141,7 +141,7 @@ export default function HRSubTab({ activeBranchId }: HRSubTabProps) {
                               setTargetId(emp.id);
                               setNewTargetVal(String(emp.salesTarget));
                             }}
-                            className="text-[10px] text-slate-400 hover:text-white bg-slate-950 border border-slate-800 px-2 py-1 rounded"
+                            className="text-[10px] text-[#8891ac] hover:text-white bg-[#0f172e] border border-[#222f5a] px-2 py-1 rounded"
                           >
                             Set Target
                           </button>
@@ -150,7 +150,7 @@ export default function HRSubTab({ activeBranchId }: HRSubTabProps) {
                             className={`text-[10px] px-2 py-1 rounded border ${
                               emp.attendanceStatus === 'checked_in'
                                 ? 'bg-rose-500/10 border-rose-500/20 text-rose-400 hover:bg-rose-500/25'
-                                : 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/25'
+                                : 'bg-[#10b981]/10 border-[#10b981]/20 text-[#10b981] hover:bg-[#10b981]/25'
                             }`}
                           >
                             {emp.attendanceStatus === 'checked_in' ? 'Check Out' : 'Check In'}

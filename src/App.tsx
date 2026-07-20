@@ -721,65 +721,65 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-emerald-500/30 selection:text-emerald-200 relative overflow-x-hidden" id="akk-enterprise-app">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-40 right-1/4 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-10 left-1/3 w-[600px] h-[600px] bg-sky-500/5 rounded-full blur-[150px] pointer-events-none" />
+    <div className="min-h-screen bg-[#0a0e1f] text-[#f0f4ff] flex flex-col font-sans selection:bg-[#00d4ff]/30 selection:text-[#66ecff] relative overflow-x-hidden" id="akk-enterprise-app">
+      {/* Background decoration - AKK Theme */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#3052a3]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-40 right-1/4 w-[400px] h-[400px] bg-[#00d4ff]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-10 left-1/3 w-[600px] h-[600px] bg-[#9d4edd]/5 rounded-full blur-[150px] pointer-events-none" />
 
-      {/* HEADER BAR */}
-      <header className="border-b border-slate-900/80 bg-slate-950/60 backdrop-blur-xl sticky top-0 z-40 px-6 py-4 flex flex-col lg:flex-row items-center justify-between gap-4 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
+      {/* HEADER BAR - AKK THEME */}
+      <header className="border-b border-[#00d4ff]/20 bg-gradient-to-r from-[#1a2855]/60 to-[#0f172e]/60 backdrop-blur-xl sticky top-0 z-40 px-6 py-4 flex flex-col lg:flex-row items-center justify-between gap-4 shadow-[0_4px_30px_rgba(0,212,255,0.1)]">
         <div className="flex items-center space-x-4">
-          <div className="p-3 bg-gradient-to-tr from-emerald-500 via-sky-500 to-indigo-500 rounded-2xl shadow-xl shadow-emerald-500/10 flex items-center justify-center relative group">
-            <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500 via-sky-500 to-indigo-500 rounded-2xl blur group-hover:opacity-60 opacity-0 transition-opacity duration-300" />
-            <Building2 className="w-6 h-6 text-slate-950 stroke-[2.5] relative z-10" />
+          <div className="p-3 bg-gradient-to-tr from-[#3052a3] via-[#00d4ff] to-[#9d4edd] rounded-2xl shadow-xl shadow-[#00d4ff]/20 flex items-center justify-center relative group">
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#3052a3] via-[#00d4ff] to-[#9d4edd] rounded-2xl blur group-hover:opacity-60 opacity-0 transition-opacity duration-300" />
+            <Building2 className="w-6 h-6 text-[#0a0e1f] stroke-[2.5] relative z-10" />
           </div>
           <div>
             <div className="flex items-center space-x-2.5">
-              <h1 className="font-display font-black text-xl sm:text-2xl tracking-tight bg-gradient-to-r from-emerald-400 via-sky-400 to-indigo-300 bg-clip-text text-transparent">
+              <h1 className="font-display font-black text-xl sm:text-2xl tracking-tight bg-gradient-to-r from-[#00d4ff] via-[#5a7fdb] to-[#9d4edd] bg-clip-text text-transparent">
                 AKK MOBILE
               </h1>
-              <span className="bg-emerald-500/10 text-emerald-400 text-[10px] font-mono font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+              <span className="bg-[#00d4ff]/10 text-[#00d4ff] text-[10px] font-mono font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-[#00d4ff]/30 shadow-[0_0_15px_rgba(0,212,255,0.2)]">
                 ENTERPRISE SUITE
               </span>
             </div>
-            <p className="text-[10px] text-slate-400 font-mono tracking-wider uppercase flex items-center gap-1.5 mt-0.5">
-              <span className="inline-block w-1 h-1 rounded-full bg-slate-600" />
+            <p className="text-[10px] text-[#b0b8d4] font-mono tracking-wider uppercase flex items-center gap-1.5 mt-0.5">
+              <span className="inline-block w-1 h-1 rounded-full bg-[#5a7fdb]" />
               Yangon • Mandalay • Naypyitaw Cloud POS, Repair Lab & GAAP Accounts
             </p>
           </div>
         </div>
 
-        {/* OPERATIONS CONTEXT */}
+        {/* OPERATIONS CONTEXT - AKK THEME */}
         <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center space-x-2.5 bg-slate-900/50 border border-slate-800/80 px-4 py-2 rounded-xl focus-within:border-emerald-500/30 transition-all duration-300">
-            <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-            <span className="text-[11px] font-mono text-slate-400 mr-1 font-extrabold uppercase tracking-wider">POS Loc:</span>
+          <div className="flex items-center space-x-2.5 bg-[#1a2554]/50 border border-[#00d4ff]/30 px-4 py-2 rounded-xl focus-within:border-[#00d4ff]/60 transition-all duration-300">
+            <MapPin className="w-3.5 h-3.5 text-[#00d4ff]" />
+            <span className="text-[11px] font-mono text-[#8891ac] mr-1 font-extrabold uppercase tracking-wider">POS Loc:</span>
             <select
               value={activeBranchId}
               onChange={(e) => setActiveBranchId(e.target.value as BranchId)}
-              className="bg-transparent text-xs text-slate-200 outline-none font-extrabold font-mono cursor-pointer pr-1"
+              className="bg-transparent text-xs text-[#f0f4ff] outline-none font-extrabold font-mono cursor-pointer pr-1"
               id="branch-selector"
             >
-              <option value="b-yangon" className="bg-slate-950 text-slate-200">Yangon HQ (Kaba Aye)</option>
-              <option value="b-mandalay" className="bg-slate-950 text-slate-200">Mandalay (73rd St)</option>
-              <option value="b-naypyitaw" className="bg-slate-950 text-slate-200">Naypyitaw Store</option>
+              <option value="b-yangon" className="bg-[#0f172e] text-[#f0f4ff]">Yangon HQ (Kaba Aye)</option>
+              <option value="b-mandalay" className="bg-[#0f172e] text-[#f0f4ff]">Mandalay (73rd St)</option>
+              <option value="b-naypyitaw" className="bg-[#0f172e] text-[#f0f4ff]">Naypyitaw Store</option>
             </select>
           </div>
 
-          <div className="hidden sm:flex items-center space-x-2.5 bg-slate-900/30 border border-slate-800/60 px-4 py-2 rounded-xl text-xs font-mono focus-within:border-sky-500/30 transition-all duration-300">
-            <User className="w-3.5 h-3.5 text-sky-400" />
-            <span className="text-slate-400 uppercase tracking-wider text-[10px] font-bold">Cashier:</span>
+          <div className="hidden sm:flex items-center space-x-2.5 bg-[#1a2554]/30 border border-[#00d4ff]/20 px-4 py-2 rounded-xl text-xs font-mono focus-within:border-[#00d4ff]/50 transition-all duration-300">
+            <User className="w-3.5 h-3.5 text-[#00d4ff]" />
+            <span className="text-[#8891ac] uppercase tracking-wider text-[10px] font-bold">Cashier:</span>
             <input
               type="text"
               value={cashierName}
               onChange={(e) => setCashierName(e.target.value)}
-              className="bg-transparent border-none text-slate-200 font-extrabold outline-none w-36 text-xs"
+              className="bg-transparent border-none text-[#f0f4ff] font-extrabold outline-none w-36 text-xs"
             />
           </div>
 
-          <div className="flex items-center space-x-1.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3.5 py-2 rounded-xl text-[10px] font-mono font-black uppercase tracking-wider shadow-[0_0_15px_rgba(16,185,129,0.05)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping mr-1" />
+          <div className="flex items-center space-x-1.5 bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/30 px-3.5 py-2 rounded-xl text-[10px] font-mono font-black uppercase tracking-wider shadow-[0_0_15px_rgba(0,212,255,0.1)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] animate-ping mr-1" />
             <span>CLOUD SYNCED</span>
           </div>
         </div>
@@ -788,17 +788,17 @@ export default function App() {
       {/* WORKSPACE LAYOUT */}
       <div className="flex-1 flex flex-col lg:flex-row w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 gap-6 relative z-10" id="workspace-layout">
         
-        {/* SIDEBAR NAVIGATION */}
-        <aside className="lg:w-64 shrink-0 flex flex-row lg:flex-col gap-2 p-2 bg-slate-900/20 backdrop-blur-md border border-slate-900/80 rounded-2xl overflow-x-auto lg:overflow-x-visible shadow-lg">
+        {/* SIDEBAR NAVIGATION - AKK THEME */}
+        <aside className="lg:w-64 shrink-0 flex flex-row lg:flex-col gap-2 p-2 bg-[#1a2554]/20 backdrop-blur-md border border-[#00d4ff]/20 rounded-2xl overflow-x-auto lg:overflow-x-visible shadow-lg">
           <button
             onClick={() => setActiveTab('pos')}
             className={`flex-1 lg:flex-initial flex items-center justify-center lg:justify-start space-x-3.5 px-4.5 py-3.5 text-xs font-bold font-mono rounded-xl transition-all duration-300 border ${
               activeTab === 'pos'
-                ? 'bg-gradient-to-r from-emerald-500/15 via-emerald-500/5 to-transparent text-emerald-400 border-emerald-500/30 shadow-[0_0_20px_rgba(16,185,129,0.05)]'
-                : 'text-slate-400 hover:text-slate-200 border-transparent hover:bg-slate-900/30'
+                ? 'bg-gradient-to-r from-[#10b981]/15 via-[#10b981]/5 to-transparent text-[#10b981] border-[#10b981]/30 shadow-[0_0_20px_rgba(16,185,129,0.1)]'
+                : 'text-[#8891ac] hover:text-[#b0b8d4] border-transparent hover:bg-[#1a2554]/30'
             }`}
           >
-            <ShoppingCart className={`w-4 h-4 transition-transform duration-300 ${activeTab === 'pos' ? 'scale-110 text-emerald-400' : 'text-slate-400'}`} />
+            <ShoppingCart className={`w-4 h-4 transition-transform duration-300 ${activeTab === 'pos' ? 'scale-110 text-[#10b981]' : 'text-[#8891ac]'}`} />
             <span className="hidden sm:inline uppercase tracking-wider">POS CHECKOUT</span>
           </button>
 
@@ -809,11 +809,11 @@ export default function App() {
             }}
             className={`flex-1 lg:flex-initial flex items-center justify-center lg:justify-start space-x-3.5 px-4.5 py-3.5 text-xs font-bold font-mono rounded-xl transition-all duration-300 border ${
               activeTab === 'erp'
-                ? 'bg-gradient-to-r from-sky-500/15 via-sky-500/5 to-transparent text-sky-400 border-sky-500/30 shadow-[0_0_20px_rgba(6,182,212,0.05)]'
-                : 'text-slate-400 hover:text-slate-200 border-transparent hover:bg-slate-900/30'
+                ? 'bg-gradient-to-r from-[#00d4ff]/15 via-[#00d4ff]/5 to-transparent text-[#00d4ff] border-[#00d4ff]/30 shadow-[0_0_20px_rgba(0,212,255,0.1)]'
+                : 'text-[#8891ac] hover:text-[#b0b8d4] border-transparent hover:bg-[#1a2554]/30'
             }`}
           >
-            <Layers className={`w-4 h-4 transition-transform duration-300 ${activeTab === 'erp' ? 'scale-110 text-sky-400' : 'text-slate-400'}`} />
+            <Layers className={`w-4 h-4 transition-transform duration-300 ${activeTab === 'erp' ? 'scale-110 text-[#00d4ff]' : 'text-[#8891ac]'}`} />
             <span className="hidden sm:inline uppercase tracking-wider">WAREHOUSE ERP</span>
           </button>
 
@@ -821,11 +821,11 @@ export default function App() {
             onClick={() => setActiveTab('crm')}
             className={`flex-1 lg:flex-initial flex items-center justify-center lg:justify-start space-x-3.5 px-4.5 py-3.5 text-xs font-bold font-mono rounded-xl transition-all duration-300 border ${
               activeTab === 'crm'
-                ? 'bg-gradient-to-r from-indigo-500/15 via-indigo-500/5 to-transparent text-indigo-400 border-indigo-500/30 shadow-[0_0_20px_rgba(99,102,241,0.05)]'
-                : 'text-slate-400 hover:text-slate-200 border-transparent hover:bg-slate-900/30'
+                ? 'bg-gradient-to-r from-[#3052a3]/15 via-[#3052a3]/5 to-transparent text-[#3052a3] border-[#3052a3]/30 shadow-[0_0_20px_rgba(99,102,241,0.05)]'
+                : 'text-[#8891ac] hover:text-[#b0b8d4] border-transparent hover:bg-[#1a2554]/30'
             }`}
           >
-            <Wrench className={`w-4 h-4 transition-transform duration-300 ${activeTab === 'crm' ? 'scale-110 text-indigo-400' : 'text-slate-400'}`} />
+            <Wrench className={`w-4 h-4 transition-transform duration-300 ${activeTab === 'crm' ? 'scale-110 text-[#3052a3]' : 'text-[#8891ac]'}`} />
             <span className="hidden sm:inline uppercase tracking-wider">REPAIR & CRM</span>
           </button>
 
@@ -834,10 +834,10 @@ export default function App() {
             className={`flex-1 lg:flex-initial flex items-center justify-center lg:justify-start space-x-3.5 px-4.5 py-3.5 text-xs font-bold font-mono rounded-xl transition-all duration-300 border ${
               activeTab === 'ai'
                 ? 'bg-gradient-to-r from-pink-500/15 via-pink-500/5 to-transparent text-pink-400 border-pink-500/30 shadow-[0_0_20px_rgba(236,72,153,0.05)]'
-                : 'text-slate-400 hover:text-slate-200 border-transparent hover:bg-slate-900/30'
+                : 'text-[#8891ac] hover:text-[#b0b8d4] border-transparent hover:bg-[#1a2554]/30'
             }`}
           >
-            <Sparkles className={`w-4 h-4 transition-transform duration-300 ${activeTab === 'ai' ? 'scale-110 text-pink-400' : 'text-slate-400'}`} />
+            <Sparkles className={`w-4 h-4 transition-transform duration-300 ${activeTab === 'ai' ? 'scale-110 text-pink-400' : 'text-[#8891ac]'}`} />
             <span className="hidden sm:inline uppercase tracking-wider">AI INSIGHTS</span>
           </button>
 
@@ -846,23 +846,23 @@ export default function App() {
             className={`flex-1 lg:flex-initial flex items-center justify-center lg:justify-start space-x-3.5 px-4.5 py-3.5 text-xs font-bold font-mono rounded-xl transition-all duration-300 border ${
               activeTab === 'admin'
                 ? 'bg-gradient-to-r from-purple-500/15 via-purple-500/5 to-transparent text-purple-400 border-purple-500/30 shadow-[0_0_20px_rgba(168,85,247,0.05)]'
-                : 'text-slate-400 hover:text-slate-200 border-transparent hover:bg-slate-900/30'
+                : 'text-[#8891ac] hover:text-[#b0b8d4] border-transparent hover:bg-[#1a2554]/30'
             }`}
           >
-            <ShieldCheck className={`w-4 h-4 transition-transform duration-300 ${activeTab === 'admin' ? 'scale-110 text-purple-400' : 'text-slate-400'}`} />
+            <ShieldCheck className={`w-4 h-4 transition-transform duration-300 ${activeTab === 'admin' ? 'scale-110 text-purple-400' : 'text-[#8891ac]'}`} />
             <span className="hidden sm:inline uppercase tracking-wider">ADMIN PANEL</span>
           </button>
 
           {/* Quick Stats Sidebar */}
-          <div className="hidden lg:block mt-6 border-t border-slate-900/80 pt-5 px-3 space-y-3 font-mono text-[11px] text-slate-400">
+          <div className="hidden lg:block mt-6 border-t border-[#1a2554]/80 pt-5 px-3 space-y-3 font-mono text-[11px] text-[#8891ac]">
             <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Active POS Stats</span>
-            <div className="space-y-2 bg-slate-950/40 border border-slate-900 p-4 rounded-xl shadow-inner">
+            <div className="space-y-2 bg-[#0f172e]/40 border border-[#1a2554] p-4 rounded-xl shadow-inner">
               <div className="flex justify-between items-center">
                 <span>Branch Stock:</span>
                 {isLoadingInventory ? (
-                  <div className="h-3.5 w-14 bg-slate-800 rounded animate-pulse" />
+                  <div className="h-3.5 w-14 bg-[#222f5a] rounded animate-pulse" />
                 ) : (
-                  <strong className="text-slate-100 font-bold">
+                  <strong className="text-[#f0f4ff] font-bold">
                     {activeBranchStock.reduce((sum, item) => sum + item.stock, 0)} Units
                   </strong>
                 )}
@@ -870,17 +870,17 @@ export default function App() {
               <div className="flex justify-between items-center">
                 <span>POS Tickets:</span>
                 {isLoadingSales ? (
-                  <div className="h-3.5 w-10 bg-slate-800 rounded animate-pulse" />
+                  <div className="h-3.5 w-10 bg-[#222f5a] rounded animate-pulse" />
                 ) : (
-                  <strong className="text-slate-100 font-bold">
+                  <strong className="text-[#f0f4ff] font-bold">
                     {sales.filter(s => s.branchId === activeBranchId).length} items
                   </strong>
                 )}
               </div>
-              <div className="flex justify-between items-center border-t border-slate-900/80 pt-2 mt-2">
+              <div className="flex justify-between items-center border-t border-[#1a2554]/80 pt-2 mt-2">
                 <span>Alert Flags:</span>
                 {isLoadingInventory ? (
-                  <div className="h-3.5 w-16 bg-slate-800 rounded animate-pulse" />
+                  <div className="h-3.5 w-16 bg-[#222f5a] rounded animate-pulse" />
                 ) : (
                   <strong className={`font-bold ${lowStockCount > 0 ? 'text-rose-400 animate-pulse' : 'text-slate-500'}`}>
                     {lowStockCount} critical
@@ -901,21 +901,21 @@ export default function App() {
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 animate-fade-in animate-duration-300" id="pos-view">
               {/* Left Catalog column */}
               <div className="xl:col-span-7 space-y-6">
-                <div className="bg-slate-900/40 backdrop-blur-md border border-slate-900/90 rounded-2xl p-5 space-y-4 shadow-xl">
+                <div className="bg-[#1a2554]/40 backdrop-blur-md border border-[#1a2554]/90 rounded-2xl p-5 space-y-4 shadow-xl">
                   <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
-                    <div className="flex items-center space-x-2 bg-slate-950 border border-slate-800/80 px-3.5 py-2.5 rounded-xl shrink-0 focus-within:border-emerald-500/30 transition-all duration-300">
+                    <div className="flex items-center space-x-2 bg-[#0f172e] border border-[#222f5a]/80 px-3.5 py-2.5 rounded-xl shrink-0 focus-within:border-[#10b981]/30 transition-all duration-300">
                       <span className="text-[10px] text-slate-500 uppercase font-black font-mono tracking-wider">Brand:</span>
                       <select
                         value={posBrandFilter}
                         onChange={(e) => setPosBrandFilter(e.target.value)}
-                        className="bg-transparent text-xs text-slate-200 outline-none font-bold font-mono cursor-pointer pr-1"
+                        className="bg-transparent text-xs text-[#b0b8d4] outline-none font-bold font-mono cursor-pointer pr-1"
                       >
-                        <option value="All" className="bg-slate-950 text-slate-200">All Brands</option>
-                        <option value="Apple" className="bg-slate-950 text-slate-200">Apple</option>
-                        <option value="Samsung" className="bg-slate-950 text-slate-200">Samsung</option>
-                        <option value="Google" className="bg-slate-950 text-slate-200">Google</option>
-                        <option value="OnePlus" className="bg-slate-950 text-slate-200">OnePlus</option>
-                        <option value="Xiaomi" className="bg-slate-950 text-slate-200">Xiaomi</option>
+                        <option value="All" className="bg-[#0f172e] text-[#b0b8d4]">All Brands</option>
+                        <option value="Apple" className="bg-[#0f172e] text-[#b0b8d4]">Apple</option>
+                        <option value="Samsung" className="bg-[#0f172e] text-[#b0b8d4]">Samsung</option>
+                        <option value="Google" className="bg-[#0f172e] text-[#b0b8d4]">Google</option>
+                        <option value="OnePlus" className="bg-[#0f172e] text-[#b0b8d4]">OnePlus</option>
+                        <option value="Xiaomi" className="bg-[#0f172e] text-[#b0b8d4]">Xiaomi</option>
                       </select>
                     </div>
 
@@ -926,13 +926,13 @@ export default function App() {
                         placeholder="Search model specifications..."
                         value={posSearchQuery}
                         onChange={(e) => setPosSearchQuery(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800/80 rounded-xl pl-10 pr-4 py-3 text-xs text-slate-200 outline-none font-mono focus:border-emerald-500/40 focus:ring-4 focus:ring-emerald-500/5 placeholder-slate-600 transition-all duration-300"
+                        className="w-full bg-[#0f172e] border border-[#222f5a]/80 rounded-xl pl-10 pr-4 py-3 text-xs text-[#b0b8d4] outline-none font-mono focus:border-[#10b981]/40 focus:ring-4 focus:ring-emerald-500/5 placeholder-slate-600 transition-all duration-300"
                       />
                     </div>
                   </div>
 
                   {/* Custom billable Form */}
-                  <form onSubmit={addCustomItemToCart} className="flex flex-col sm:flex-row items-stretch gap-3 pt-3 border-t border-slate-900/60">
+                  <form onSubmit={addCustomItemToCart} className="flex flex-col sm:flex-row items-stretch gap-3 pt-3 border-t border-[#1a2554]/60">
                     <div className="flex-1 flex items-center space-x-2">
                       <Sliders className="w-4 h-4 text-slate-500 shrink-0" />
                       <input
@@ -940,7 +940,7 @@ export default function App() {
                         placeholder="Custom charge (e.g. Screen Guard, VTU topup)"
                         value={customItemName}
                         onChange={(e) => setCustomItemName(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800/80 rounded-xl px-3 py-2.5 text-xs text-slate-200 outline-none font-mono focus:border-sky-500/40 focus:ring-4 focus:ring-sky-500/5 placeholder-slate-600 transition-all duration-300"
+                        className="w-full bg-[#0f172e] border border-[#222f5a]/80 rounded-xl px-3 py-2.5 text-xs text-[#b0b8d4] outline-none font-mono focus:border-[#00d4ff]/40 focus:ring-4 focus:ring-sky-500/5 placeholder-slate-600 transition-all duration-300"
                       />
                     </div>
                     <div className="flex items-center space-x-2.5 w-full sm:w-60 shrink-0">
@@ -949,11 +949,11 @@ export default function App() {
                         placeholder="Price (MMK)"
                         value={customItemPrice}
                         onChange={(e) => setCustomItemPrice(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800/80 rounded-xl px-3 py-2.5 text-xs text-slate-200 outline-none font-mono focus:border-sky-500/40 focus:ring-4 focus:ring-sky-500/5 placeholder-slate-600 transition-all duration-300"
+                        className="w-full bg-[#0f172e] border border-[#222f5a]/80 rounded-xl px-3 py-2.5 text-xs text-[#b0b8d4] outline-none font-mono focus:border-[#00d4ff]/40 focus:ring-4 focus:ring-sky-500/5 placeholder-slate-600 transition-all duration-300"
                       />
                       <button
                         type="submit"
-                        className="bg-slate-800 hover:bg-slate-700 text-slate-200 font-extrabold px-4 py-2.5 rounded-xl text-xs font-mono border border-slate-700/60 shrink-0 transition-all active:scale-95 shadow-md"
+                        className="bg-[#222f5a] hover:bg-slate-700 text-[#b0b8d4] font-extrabold px-4 py-2.5 rounded-xl text-xs font-mono border border-slate-700/60 shrink-0 transition-all active:scale-95 shadow-md"
                       >
                         Add to Cart
                       </button>
@@ -967,25 +967,25 @@ export default function App() {
                     Array.from({ length: 6 }).map((_, idx) => (
                       <div
                         key={`sku-skeleton-${idx}`}
-                        className="bg-slate-900/20 border border-slate-900/60 rounded-2xl p-4 flex flex-col justify-between h-44 animate-pulse"
+                        className="bg-[#1a2554]/20 border border-[#1a2554]/60 rounded-2xl p-4 flex flex-col justify-between h-44 animate-pulse"
                       >
                         <div>
                           <div className="flex justify-between items-center mb-3">
-                            <div className="h-3 w-14 bg-slate-800 rounded-md" />
-                            <div className="h-5 w-20 bg-slate-800 rounded-md" />
+                            <div className="h-3 w-14 bg-[#222f5a] rounded-md" />
+                            <div className="h-5 w-20 bg-[#222f5a] rounded-md" />
                           </div>
-                          <div className="h-4 w-3/4 bg-slate-800 rounded-md mb-2" />
-                          <div className="h-3 w-1/2 bg-slate-800 rounded-md mb-4" />
+                          <div className="h-4 w-3/4 bg-[#222f5a] rounded-md mb-2" />
+                          <div className="h-3 w-1/2 bg-[#222f5a] rounded-md mb-4" />
                           <div className="flex items-baseline space-x-2 mt-2">
-                            <div className="h-4 w-24 bg-slate-800 rounded-md" />
-                            <div className="h-3 w-12 bg-slate-800 rounded-md" />
+                            <div className="h-4 w-24 bg-[#222f5a] rounded-md" />
+                            <div className="h-3 w-12 bg-[#222f5a] rounded-md" />
                           </div>
                         </div>
-                        <div className="border-t border-slate-900/40 pt-3 mt-4 flex items-center justify-between">
-                          <div className="h-3 w-16 bg-slate-800 rounded-md" />
+                        <div className="border-t border-[#1a2554]/40 pt-3 mt-4 flex items-center justify-between">
+                          <div className="h-3 w-16 bg-[#222f5a] rounded-md" />
                           <div className="flex space-x-1.5">
-                            <div className="h-5.5 w-12 bg-slate-800 rounded" />
-                            <div className="h-5.5 w-12 bg-slate-800 rounded" />
+                            <div className="h-5.5 w-12 bg-[#222f5a] rounded" />
+                            <div className="h-5.5 w-12 bg-[#222f5a] rounded" />
                           </div>
                         </div>
                       </div>
@@ -1001,25 +1001,25 @@ export default function App() {
                         return (
                           <div
                             key={p.id}
-                            className="bg-slate-900/20 backdrop-blur-sm border border-slate-900 rounded-2xl p-4 flex flex-col justify-between hover:border-slate-800 hover:bg-slate-900/30 transition-all duration-300 group relative overflow-hidden shadow-lg hover:shadow-2xl"
+                            className="bg-[#1a2554]/20 backdrop-blur-sm border border-[#1a2554] rounded-2xl p-4 flex flex-col justify-between hover:border-[#222f5a] hover:bg-[#1a2554]/30 transition-all duration-300 group relative overflow-hidden shadow-lg hover:shadow-2xl"
                             id={`pos-item-${p.id}`}
                           >
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-emerald-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#10b981]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                             <div>
                               <div className="flex justify-between items-center mb-2.5">
-                                <span className="text-[10px] text-emerald-400 font-mono font-black uppercase tracking-wider bg-emerald-500/5 border border-emerald-500/10 px-2 py-0.5 rounded-md">
+                                <span className="text-[10px] text-[#10b981] font-mono font-black uppercase tracking-wider bg-[#10b981]/5 border border-[#10b981]/10 px-2 py-0.5 rounded-md">
                                   {p.brand}
                                 </span>
                                 <span className={`text-[10px] font-mono font-black px-2 py-0.5 rounded-full border ${
                                   stockVal === 0 ? 'bg-rose-500/10 text-rose-400 border-rose-500/20' :
                                   isLow ? 'bg-amber-500/10 text-amber-400 border-amber-500/20 animate-pulse' :
-                                  'bg-slate-950 text-slate-400 border-slate-800/80'
+                                  'bg-[#0f172e] text-[#8891ac] border-[#222f5a]/80'
                                 }`}>
                                   {stockVal === 0 ? 'Out of stock' : `${stockVal} Available`}
                                 </span>
                               </div>
 
-                              <h4 className="font-display font-bold text-sm text-slate-100 group-hover:text-emerald-300 transition-colors duration-300">
+                              <h4 className="font-display font-bold text-sm text-[#f0f4ff] group-hover:text-emerald-300 transition-colors duration-300">
                                 {p.name}
                               </h4>
                               <p className="text-[10px] text-slate-500 font-mono mt-1 flex items-center gap-1.5">
@@ -1037,7 +1037,7 @@ export default function App() {
                               </div>
                             </div>
 
-                            <div className="border-t border-slate-900/60 pt-3 mt-4 flex items-center justify-between gap-1.5">
+                            <div className="border-t border-[#1a2554]/60 pt-3 mt-4 flex items-center justify-between gap-1.5">
                               <span className="text-[10px] text-slate-500 font-mono font-bold uppercase tracking-wider">Select Color:</span>
                               <div className="flex items-center space-x-1.5">
                                 {p.colors.map((col, idx) => (
@@ -1045,7 +1045,7 @@ export default function App() {
                                     key={idx}
                                     onClick={() => addToCart(p, col)}
                                     disabled={stockVal === 0}
-                                    className="text-[9px] bg-slate-950 hover:bg-slate-900 disabled:opacity-30 border border-slate-800 hover:border-emerald-500/40 text-slate-300 font-mono px-2 py-1.5 rounded-lg transition-all duration-200 hover:scale-105 active:scale-95"
+                                    className="text-[9px] bg-[#0f172e] hover:bg-[#1a2554] disabled:opacity-30 border border-[#222f5a] hover:border-[#10b981]/40 text-slate-300 font-mono px-2 py-1.5 rounded-lg transition-all duration-200 hover:scale-105 active:scale-95"
                                   >
                                     {col.split(' ')[0]}
                                   </button>
@@ -1060,28 +1060,28 @@ export default function App() {
               </div>
 
               {/* Right cart column */}
-              <div className="xl:col-span-5 bg-slate-900/20 backdrop-blur-md border border-slate-900 rounded-2xl p-5 flex flex-col justify-between space-y-5 shadow-xl">
+              <div className="xl:col-span-5 bg-[#1a2554]/20 backdrop-blur-md border border-[#1a2554] rounded-2xl p-5 flex flex-col justify-between space-y-5 shadow-xl">
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between border-b border-slate-900 pb-3">
-                    <h3 className="font-display font-black text-xs text-slate-200 uppercase tracking-wider flex items-center space-x-2">
-                      <ShoppingCart className="w-4 h-4 text-emerald-400" />
+                  <div className="flex items-center justify-between border-b border-[#1a2554] pb-3">
+                    <h3 className="font-display font-black text-xs text-[#b0b8d4] uppercase tracking-wider flex items-center space-x-2">
+                      <ShoppingCart className="w-4 h-4 text-[#10b981]" />
                       <span>Ticket Cart Entry</span>
                     </h3>
-                    <span className="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-0.5 rounded-full font-mono font-bold shadow-[0_0_10px_rgba(16,185,129,0.05)]">
+                    <span className="text-[10px] bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20 px-2.5 py-0.5 rounded-full font-mono font-bold shadow-[0_0_10px_rgba(16,185,129,0.05)]">
                       {posCart.reduce((sum, item) => sum + item.quantity, 0)} Items
                     </span>
                   </div>
 
                   {/* Customer link */}
-                  <div className="bg-slate-950/60 border border-slate-900/80 p-4 rounded-2xl space-y-3">
+                  <div className="bg-[#0f172e]/60 border border-[#1a2554]/80 p-4 rounded-2xl space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-[11px] text-slate-400 font-mono font-black uppercase tracking-wider flex items-center space-x-1.5">
-                        <Users className="w-3.5 h-3.5 text-indigo-400" />
+                      <span className="text-[11px] text-[#8891ac] font-mono font-black uppercase tracking-wider flex items-center space-x-1.5">
+                        <Users className="w-3.5 h-3.5 text-[#3052a3]" />
                         <span>CRM Customer Loyalty Link</span>
                       </span>
                       <button
                         onClick={() => setIsAddingPosCustomer(!isAddingPosCustomer)}
-                        className="text-[10px] text-emerald-400 hover:text-emerald-300 font-extrabold font-mono flex items-center space-x-0.5 transition"
+                        className="text-[10px] text-[#10b981] hover:text-emerald-300 font-extrabold font-mono flex items-center space-x-0.5 transition"
                       >
                         {isAddingPosCustomer ? <X className="w-3 h-3" /> : <Plus className="w-3 h-3" />}
                         <span>{isAddingPosCustomer ? 'Cancel' : 'Quick Create'}</span>
@@ -1092,11 +1092,11 @@ export default function App() {
                       <select
                         value={selectedCustomerId}
                         onChange={(e) => setSelectedCustomerId(e.target.value)}
-                        className="w-full bg-slate-900/60 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 outline-none font-mono cursor-pointer focus:border-indigo-500/30 transition"
+                        className="w-full bg-[#1a2554]/60 border border-[#222f5a] rounded-xl p-2.5 text-xs text-[#b0b8d4] outline-none font-mono cursor-pointer focus:border-[#3052a3]/30 transition"
                       >
-                        <option value="" className="bg-slate-950">Walk-In Guest Billing (No loyalty points accrued)</option>
+                        <option value="" className="bg-[#0f172e]">Walk-In Guest Billing (No loyalty points accrued)</option>
                         {customersList.map(c => (
-                          <option key={c.id} value={c.id} className="bg-slate-950 text-slate-300">
+                          <option key={c.id} value={c.id} className="bg-[#0f172e] text-slate-300">
                             {c.name} ({c.phone}) - [{c.tier} Tier, {c.loyaltyPoints} pts]
                           </option>
                         ))}
@@ -1108,7 +1108,7 @@ export default function App() {
                           placeholder="Full Name"
                           value={newCustomerName}
                           onChange={(e) => setNewCustomerName(e.target.value)}
-                          className="w-full bg-slate-900/60 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-slate-200 outline-none focus:border-indigo-500/40 transition"
+                          className="w-full bg-[#1a2554]/60 border border-[#222f5a] rounded-xl px-3 py-2.5 text-xs text-[#b0b8d4] outline-none focus:border-[#3052a3]/40 transition"
                           required
                         />
                         <div className="grid grid-cols-2 gap-2">
@@ -1117,7 +1117,7 @@ export default function App() {
                             placeholder="Phone (e.g. 09...)"
                             value={newCustomerPhone}
                             onChange={(e) => setNewCustomerPhone(e.target.value)}
-                            className="w-full bg-slate-900/60 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-slate-200 outline-none focus:border-indigo-500/40 transition"
+                            className="w-full bg-[#1a2554]/60 border border-[#222f5a] rounded-xl px-3 py-2.5 text-xs text-[#b0b8d4] outline-none focus:border-[#3052a3]/40 transition"
                             required
                           />
                           <input
@@ -1125,12 +1125,12 @@ export default function App() {
                             placeholder="Email address"
                             value={newCustomerEmail}
                             onChange={(e) => setNewCustomerEmail(e.target.value)}
-                            className="w-full bg-slate-900/60 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-slate-200 outline-none focus:border-indigo-500/40 transition"
+                            className="w-full bg-[#1a2554]/60 border border-[#222f5a] rounded-xl px-3 py-2.5 text-xs text-[#b0b8d4] outline-none focus:border-[#3052a3]/40 transition"
                           />
                         </div>
                         <button
                           type="submit"
-                          className="w-full bg-indigo-500 hover:bg-indigo-400 text-slate-950 font-black py-2.5 rounded-xl text-[10px] uppercase tracking-wider transition-all active:scale-[0.98] shadow-md shadow-indigo-500/5"
+                          className="w-full bg-[#3052a3] hover:bg-indigo-400 text-slate-950 font-black py-2.5 rounded-xl text-[10px] uppercase tracking-wider transition-all active:scale-[0.98] shadow-md shadow-indigo-500/5"
                         >
                           Confirm & Bind to Invoice
                         </button>
@@ -1142,9 +1142,9 @@ export default function App() {
                   <div className="space-y-2 max-h-60 overflow-y-auto pr-1">
                     {posCart.length > 0 ? (
                       posCart.map((item, idx) => (
-                        <div key={idx} className="bg-slate-950/40 border border-slate-900 p-3 rounded-xl flex items-center justify-between gap-3 font-mono text-xs">
+                        <div key={idx} className="bg-[#0f172e]/40 border border-[#1a2554] p-3 rounded-xl flex items-center justify-between gap-3 font-mono text-xs">
                           <div className="min-w-0 flex-1">
-                            <h5 className="font-bold text-slate-200 truncate">{item.name}</h5>
+                            <h5 className="font-bold text-[#b0b8d4] truncate">{item.name}</h5>
                             <span className="text-[10px] text-slate-500 block mt-0.5">
                               Color: {item.color} • Unit: {item.price.toLocaleString()} MMK
                             </span>
@@ -1153,14 +1153,14 @@ export default function App() {
                           <div className="flex items-center space-x-2">
                             <button
                               onClick={() => updateCartQty(item.productId, item.color, -1)}
-                              className="p-1 bg-slate-900 border border-slate-800 rounded hover:bg-slate-800 text-slate-400 transition"
+                              className="p-1 bg-[#1a2554] border border-[#222f5a] rounded hover:bg-[#222f5a] text-[#8891ac] transition"
                             >
                               <Minus className="w-3 h-3" />
                             </button>
-                            <span className="font-bold text-slate-200 min-w-[12px] text-center">{item.quantity}</span>
+                            <span className="font-bold text-[#b0b8d4] min-w-[12px] text-center">{item.quantity}</span>
                             <button
                               onClick={() => updateCartQty(item.productId, item.color, 1)}
-                              className="p-1 bg-slate-900 border border-slate-800 rounded hover:bg-slate-800 text-slate-400 transition"
+                              className="p-1 bg-[#1a2554] border border-[#222f5a] rounded hover:bg-[#222f5a] text-[#8891ac] transition"
                             >
                               <Plus className="w-3 h-3" />
                             </button>
@@ -1172,7 +1172,7 @@ export default function App() {
                             </button>
                           </div>
 
-                          <span className="font-bold text-slate-200 shrink-0">
+                          <span className="font-bold text-[#b0b8d4] shrink-0">
                             {(item.price * item.quantity).toLocaleString()}
                           </span>
                         </div>
@@ -1188,19 +1188,19 @@ export default function App() {
 
                 {/* Subtotal, Wallets */}
                 {posCart.length > 0 && (
-                  <div className="space-y-4 pt-4 border-t border-slate-900/80">
-                    <div className="space-y-2 font-mono text-[11px] text-slate-400">
+                  <div className="space-y-4 pt-4 border-t border-[#1a2554]/80">
+                    <div className="space-y-2 font-mono text-[11px] text-[#8891ac]">
                       <div className="flex justify-between">
                         <span>POS Sales Subtotal:</span>
-                        <span className="text-slate-200 font-bold">{getSubtotal().toLocaleString()} MMK</span>
+                        <span className="text-[#b0b8d4] font-bold">{getSubtotal().toLocaleString()} MMK</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Commercial Tax (5%):</span>
-                        <span className="text-slate-200 font-bold">{getTax().toLocaleString()} MMK</span>
+                        <span className="text-[#b0b8d4] font-bold">{getTax().toLocaleString()} MMK</span>
                       </div>
-                      <div className="flex justify-between border-t border-slate-900/60 pt-2.5 text-xs">
+                      <div className="flex justify-between border-t border-[#1a2554]/60 pt-2.5 text-xs">
                         <span className="text-slate-300 font-bold uppercase tracking-wider">TOTAL DUE:</span>
-                        <strong className="text-emerald-400 font-black text-sm">{getTotal().toLocaleString()} MMK</strong>
+                        <strong className="text-[#10b981] font-black text-sm">{getTotal().toLocaleString()} MMK</strong>
                       </div>
                     </div>
 
@@ -1222,8 +1222,8 @@ export default function App() {
                             onClick={() => setPaymentMethod(pm.key as PaymentMethod)}
                             className={`py-2 px-1 text-center border rounded-lg font-extrabold transition-all duration-200 hover:scale-[1.02] ${
                               paymentMethod === pm.key
-                                ? 'bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.1)]'
-                                : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700'
+                                ? 'bg-[#10b981]/10 border-[#10b981] text-[#10b981] shadow-[0_0_15px_rgba(16,185,129,0.1)]'
+                                : 'bg-[#0f172e] border-[#222f5a] text-[#8891ac] hover:text-[#b0b8d4] hover:border-slate-700'
                             }`}
                           >
                             {pm.label}
@@ -1234,7 +1234,7 @@ export default function App() {
 
                     <button
                       onClick={handleCheckoutSubmit}
-                      className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-slate-950 font-black text-xs py-4 rounded-xl transition-all duration-300 active:scale-[0.99] shadow-lg shadow-emerald-500/10 flex items-center justify-center space-x-1.5 uppercase tracking-wider"
+                      className="w-full bg-gradient-to-r from-[#10b981] to-emerald-600 hover:from-emerald-400 hover:to-[#10b981] text-slate-950 font-black text-xs py-4 rounded-xl transition-all duration-300 active:scale-[0.99] shadow-lg shadow-emerald-500/10 flex items-center justify-center space-x-1.5 uppercase tracking-wider"
                     >
                       <CreditCard className="w-4 h-4 stroke-[2.5]" />
                       <span>DISPENSE ORDER & INVOICE</span>
@@ -1262,7 +1262,7 @@ export default function App() {
             <div className="space-y-6 animate-fade-in" id="erp-view">
               
               {/* INNER SUB-TABS */}
-              <div className="flex items-center space-x-1.5 bg-slate-900/40 p-1 rounded-xl border border-slate-900 w-full overflow-x-auto">
+              <div className="flex items-center space-x-1.5 bg-[#1a2554]/40 p-1 rounded-xl border border-[#1a2554] w-full overflow-x-auto">
                 {[
                   { key: 'inventory', label: 'Branch Inventory', icon: Layers3 },
                   { key: 'transfers', label: 'Stock Transfers', icon: ArrowLeftRight },
@@ -1278,8 +1278,8 @@ export default function App() {
                       onClick={() => setActiveSubTab(tab.key as SubTabType)}
                       className={`flex items-center space-x-1.5 px-3.5 py-2 text-xs font-bold font-mono rounded-lg transition-all whitespace-nowrap ${
                         activeSubTab === tab.key
-                          ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20'
-                          : 'text-slate-400 hover:text-slate-200'
+                          ? 'bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/20'
+                          : 'text-[#8891ac] hover:text-[#b0b8d4]'
                       }`}
                     >
                       <IconComp className="w-3.5 h-3.5" />
@@ -1297,17 +1297,17 @@ export default function App() {
                       <div className="flex items-center space-x-3">
                         <AlertCircle className="w-5 h-5 text-amber-400 shrink-0" />
                         <div>
-                          <p className="text-slate-200 font-bold">ERP Core alert: {lowStockCount} stock items have breached safe limits!</p>
-                          <p className="text-slate-400 text-[10px] mt-0.5">Recommend inter-branch dispatch balancing from Yangon HQ immediately.</p>
+                          <p className="text-[#b0b8d4] font-bold">ERP Core alert: {lowStockCount} stock items have breached safe limits!</p>
+                          <p className="text-[#8891ac] text-[10px] mt-0.5">Recommend inter-branch dispatch balancing from Yangon HQ immediately.</p>
                         </div>
                       </div>
                     </div>
                   )}
 
-                  <div className="bg-slate-900/20 border border-slate-900 rounded-2xl overflow-hidden">
-                    <div className="px-5 py-4 border-b border-slate-900 flex items-center justify-between flex-wrap gap-2">
-                      <h4 className="font-bold text-sm text-slate-100 font-mono uppercase tracking-wider">Multi-Branch Telemetry Log</h4>
-                      <span className="text-[10px] bg-slate-950 border border-slate-800 text-slate-400 px-3 py-1 rounded font-mono font-bold">
+                  <div className="bg-[#1a2554]/20 border border-[#1a2554] rounded-2xl overflow-hidden">
+                    <div className="px-5 py-4 border-b border-[#1a2554] flex items-center justify-between flex-wrap gap-2">
+                      <h4 className="font-bold text-sm text-[#f0f4ff] font-mono uppercase tracking-wider">Multi-Branch Telemetry Log</h4>
+                      <span className="text-[10px] bg-[#0f172e] border border-[#222f5a] text-[#8891ac] px-3 py-1 rounded font-mono font-bold">
                         {inventories.length} SKUs Monitored
                       </span>
                     </div>
@@ -1315,7 +1315,7 @@ export default function App() {
                     <div className="overflow-x-auto">
                       <table className="w-full text-left font-mono text-xs">
                         <thead>
-                          <tr className="bg-slate-950 text-slate-400 text-[10px] border-b border-slate-900">
+                          <tr className="bg-[#0f172e] text-[#8891ac] text-[10px] border-b border-[#1a2554]">
                             <th className="px-5 py-3 font-extrabold">BRANCH LOCATION</th>
                             <th className="px-5 py-3 font-extrabold">HANDSET CATALOG</th>
                             <th className="px-5 py-3 font-extrabold">RETAIL VALUE</th>
@@ -1327,25 +1327,25 @@ export default function App() {
                         <tbody className="divide-y divide-slate-900/60">
                           {isLoadingInventory ? (
                             Array.from({ length: 6 }).map((_, idx) => (
-                              <tr key={`inv-skeleton-${idx}`} className="animate-pulse border-b border-slate-900/40">
+                              <tr key={`inv-skeleton-${idx}`} className="animate-pulse border-b border-[#1a2554]/40">
                                 <td className="px-5 py-4">
-                                  <div className="h-3.5 w-28 bg-slate-800 rounded-md" />
+                                  <div className="h-3.5 w-28 bg-[#222f5a] rounded-md" />
                                 </td>
                                 <td className="px-5 py-4">
-                                  <div className="h-3.5 w-40 bg-slate-800 rounded-md mb-1.5" />
-                                  <div className="h-2.5 w-20 bg-slate-800 rounded-md" />
+                                  <div className="h-3.5 w-40 bg-[#222f5a] rounded-md mb-1.5" />
+                                  <div className="h-2.5 w-20 bg-[#222f5a] rounded-md" />
                                 </td>
                                 <td className="px-5 py-4">
-                                  <div className="h-3.5 w-24 bg-slate-800 rounded-md" />
+                                  <div className="h-3.5 w-24 bg-[#222f5a] rounded-md" />
                                 </td>
                                 <td className="px-5 py-4">
-                                  <div className="h-3.5 w-16 bg-slate-800 rounded-md" />
+                                  <div className="h-3.5 w-16 bg-[#222f5a] rounded-md" />
                                 </td>
                                 <td className="px-5 py-4">
-                                  <div className="h-3.5 w-24 bg-slate-800 rounded-md mx-auto" />
+                                  <div className="h-3.5 w-24 bg-[#222f5a] rounded-md mx-auto" />
                                 </td>
                                 <td className="px-5 py-4 text-right">
-                                  <div className="h-5 w-20 bg-slate-800 rounded-md inline-block" />
+                                  <div className="h-5 w-20 bg-[#222f5a] rounded-md inline-block" />
                                 </td>
                               </tr>
                             ))
@@ -1355,7 +1355,7 @@ export default function App() {
                               const isCriticalEmpty = item.stock === 0;
 
                               return (
-                                <tr key={idx} className="hover:bg-slate-900/10 transition-colors">
+                                <tr key={idx} className="hover:bg-[#1a2554]/10 transition-colors">
                                   <td className="px-5 py-3.5 font-bold text-slate-300">
                                     {item.branchName}
                                   </td>
@@ -1363,11 +1363,11 @@ export default function App() {
                                     <div className="font-bold text-white">{item.productName}</div>
                                     <div className="text-[10px] text-slate-500 font-medium">{item.productBrand}</div>
                                   </td>
-                                  <td className="px-5 py-3.5 font-bold text-emerald-400">
+                                  <td className="px-5 py-3.5 font-bold text-[#10b981]">
                                     {item.productPrice.toLocaleString()} MMK
                                   </td>
                                   <td className="px-5 py-3.5">
-                                    <span className={`font-bold text-sm ${isCriticalEmpty ? 'text-rose-400' : isLow ? 'text-amber-400' : 'text-slate-100'}`}>
+                                    <span className={`font-bold text-sm ${isCriticalEmpty ? 'text-rose-400' : isLow ? 'text-amber-400' : 'text-[#f0f4ff]'}`}>
                                       {item.stock} Units
                                     </span>
                                   </td>
@@ -1378,12 +1378,12 @@ export default function App() {
                                           type="number"
                                           value={editingThresholdVal}
                                           onChange={(e) => setEditingThresholdVal(e.target.value)}
-                                          className="bg-slate-950 border border-slate-800 text-center rounded w-12 text-xs py-0.5 text-slate-200 font-bold outline-none"
+                                          className="bg-[#0f172e] border border-[#222f5a] text-center rounded w-12 text-xs py-0.5 text-[#b0b8d4] font-bold outline-none"
                                           min="1"
                                         />
                                         <button
                                           onClick={() => handleUpdateThreshold(item.branchId, item.productId, parseInt(editingThresholdVal))}
-                                          className="bg-emerald-500 text-slate-950 p-1 rounded"
+                                          className="bg-[#10b981] text-slate-950 p-1 rounded"
                                         >
                                           <CheckCircle2 className="w-3.5 h-3.5 stroke-[2.5]" />
                                         </button>
@@ -1396,7 +1396,7 @@ export default function App() {
                                             setEditingThresholdKey(`${item.branchId}-${item.productId}`);
                                             setEditingThresholdVal(String(item.minAlertThreshold));
                                           }}
-                                          className="text-slate-500 hover:text-sky-400 text-[10px] underline cursor-pointer"
+                                          className="text-slate-500 hover:text-[#00d4ff] text-[10px] underline cursor-pointer"
                                         >
                                           Edit
                                         </button>
@@ -1409,7 +1409,7 @@ export default function App() {
                                     ) : isLow ? (
                                       <span className="text-[10px] bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded font-bold animate-pulse">LOW LIMIT ALERT</span>
                                     ) : (
-                                      <span className="text-[10px] bg-slate-950 text-slate-500 border border-slate-850 px-2 py-0.5 rounded">STABLE</span>
+                                      <span className="text-[10px] bg-[#0f172e] text-slate-500 border border-slate-850 px-2 py-0.5 rounded">STABLE</span>
                                     )}
                                   </td>
                                 </tr>
@@ -1426,19 +1426,19 @@ export default function App() {
               {/* SUBTAB B: STOCK TRANSFERS */}
               {activeSubTab === 'transfers' && (
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6" id="erp-sub-transfers">
-                  <div className="lg:col-span-4 bg-slate-900/30 border border-slate-900 rounded-2xl p-5 space-y-4">
-                    <div className="flex items-center space-x-2 border-b border-slate-900 pb-3">
-                      <ArrowLeftRight className="w-5 h-5 text-sky-400" />
-                      <h4 className="font-extrabold text-sm font-mono text-slate-100 uppercase tracking-wider">Inter-Branch Dispatch</h4>
+                  <div className="lg:col-span-4 bg-[#1a2554]/30 border border-[#1a2554] rounded-2xl p-5 space-y-4">
+                    <div className="flex items-center space-x-2 border-b border-[#1a2554] pb-3">
+                      <ArrowLeftRight className="w-5 h-5 text-[#00d4ff]" />
+                      <h4 className="font-extrabold text-sm font-mono text-[#f0f4ff] uppercase tracking-wider">Inter-Branch Dispatch</h4>
                     </div>
 
                     <form onSubmit={handleRequestTransfer} className="space-y-4 font-mono text-xs">
                       <div className="space-y-1.5">
-                        <label className="text-slate-400">Handset Model</label>
+                        <label className="text-[#8891ac]">Handset Model</label>
                         <select
                           value={selectedTransferProduct}
                           onChange={(e) => setSelectedTransferProduct(e.target.value)}
-                          className="w-full bg-slate-950 border border-slate-850 rounded p-2 text-slate-200 font-bold outline-none"
+                          className="w-full bg-[#0f172e] border border-slate-850 rounded p-2 text-[#b0b8d4] font-bold outline-none"
                           required
                         >
                           <option value="">-- Choose Handset SKU --</option>
@@ -1450,11 +1450,11 @@ export default function App() {
 
                       <div className="grid grid-cols-2 gap-3">
                         <div className="space-y-1.5">
-                          <label className="text-slate-400">Source</label>
+                          <label className="text-[#8891ac]">Source</label>
                           <select
                             value={transferFromBranch}
                             onChange={(e) => setTransferFromBranch(e.target.value as BranchId)}
-                            className="w-full bg-slate-950 border border-slate-850 rounded p-2 text-slate-200 outline-none"
+                            className="w-full bg-[#0f172e] border border-slate-850 rounded p-2 text-[#b0b8d4] outline-none"
                           >
                             <option value="b-yangon">Yangon HQ</option>
                             <option value="b-mandalay">Mandalay</option>
@@ -1462,11 +1462,11 @@ export default function App() {
                           </select>
                         </div>
                         <div className="space-y-1.5">
-                          <label className="text-slate-400">Target</label>
+                          <label className="text-[#8891ac]">Target</label>
                           <select
                             value={transferToBranch}
                             onChange={(e) => setTransferToBranch(e.target.value as BranchId)}
-                            className="w-full bg-slate-950 border border-slate-850 rounded p-2 text-slate-200 outline-none"
+                            className="w-full bg-[#0f172e] border border-slate-850 rounded p-2 text-[#b0b8d4] outline-none"
                           >
                             <option value="b-yangon">Yangon HQ</option>
                             <option value="b-mandalay">Mandalay</option>
@@ -1476,12 +1476,12 @@ export default function App() {
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-slate-400">Quantity (Units)</label>
+                        <label className="text-[#8891ac]">Quantity (Units)</label>
                         <input
                           type="number"
                           value={transferQty}
                           onChange={(e) => setTransferQty(e.target.value)}
-                          className="w-full bg-slate-950 border border-slate-850 rounded p-2 text-slate-200 outline-none font-bold text-center"
+                          className="w-full bg-[#0f172e] border border-slate-850 rounded p-2 text-[#b0b8d4] outline-none font-bold text-center"
                           min="1"
                         />
                       </div>
@@ -1489,7 +1489,7 @@ export default function App() {
                       <button
                         type="submit"
                         disabled={transferLoading || !selectedTransferProduct}
-                        className="w-full bg-sky-500 hover:bg-sky-450 disabled:opacity-40 text-slate-950 font-black py-2.5 rounded-xl uppercase transition font-sans text-xs"
+                        className="w-full bg-[#00d4ff] hover:bg-sky-450 disabled:opacity-40 text-slate-950 font-black py-2.5 rounded-xl uppercase transition font-sans text-xs"
                       >
                         {transferLoading ? 'Transmitting request...' : 'Register Transfer'}
                       </button>
@@ -1497,15 +1497,15 @@ export default function App() {
                   </div>
 
                   {/* Transfer Ledger */}
-                  <div className="lg:col-span-8 bg-slate-900/20 border border-slate-900 rounded-2xl p-5 space-y-4">
+                  <div className="lg:col-span-8 bg-[#1a2554]/20 border border-[#1a2554] rounded-2xl p-5 space-y-4">
                     <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono">Pending & Historical Transmissions</span>
                     <div className="space-y-3">
                       {transfers.map((trsf) => (
-                        <div key={trsf.id} className="bg-slate-950 border border-slate-900 p-4 rounded-xl flex items-center justify-between gap-4 font-mono text-xs">
+                        <div key={trsf.id} className="bg-[#0f172e] border border-[#1a2554] p-4 rounded-xl flex items-center justify-between gap-4 font-mono text-xs">
                           <div className="space-y-1">
                             <div className="flex items-center space-x-2">
                               <span className="font-bold text-white">{trsf.productName}</span>
-                              <span className="text-[10px] bg-slate-900 text-slate-400 px-2 py-0.5 rounded">Qty: {trsf.quantity}</span>
+                              <span className="text-[10px] bg-[#1a2554] text-[#8891ac] px-2 py-0.5 rounded">Qty: {trsf.quantity}</span>
                             </div>
                             <p className="text-[10px] text-slate-500">
                               Route: <strong className="text-slate-300">{trsf.fromBranchName}</strong> → <strong className="text-slate-300">{trsf.toBranchName}</strong>
@@ -1515,8 +1515,8 @@ export default function App() {
                           <div className="flex items-center space-x-4">
                             <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                               trsf.status === 'pending' ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20' :
-                              trsf.status === 'shipped' ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20' :
-                              'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                              trsf.status === 'shipped' ? 'bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/20' :
+                              'bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20'
                             }`}>
                               {trsf.status.toUpperCase()}
                             </span>
@@ -1524,7 +1524,7 @@ export default function App() {
                             {trsf.status !== 'delivered' && (
                               <button
                                 onClick={() => handleProcessTransferStatus(trsf.id, trsf.status)}
-                                className="bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-sky-500/30 text-sky-400 text-[10px] font-bold px-3 py-1.5 rounded transition"
+                                className="bg-[#1a2554] hover:bg-[#222f5a] border border-[#222f5a] hover:border-[#00d4ff]/30 text-[#00d4ff] text-[10px] font-bold px-3 py-1.5 rounded transition"
                               >
                                 {trsf.status === 'pending' ? 'Ship Stock' : 'Confirm Delivery'}
                               </button>
@@ -1542,28 +1542,28 @@ export default function App() {
                 <div className="space-y-6">
                   {/* Financial KPI Widgets */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-5 font-mono">
-                    <div className="bg-slate-900/30 border border-slate-900 rounded-2xl p-4.5 space-y-1.5">
+                    <div className="bg-[#1a2554]/30 border border-[#1a2554] rounded-2xl p-4.5 space-y-1.5">
                       <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Gross System Revenue</span>
-                      <strong className="text-xl sm:text-2xl text-emerald-400 block font-black">
+                      <strong className="text-xl sm:text-2xl text-[#10b981] block font-black">
                         {totalRevenue.toLocaleString()} MMK
                       </strong>
-                      <span className="text-[10px] text-slate-400">Total processed tickets</span>
+                      <span className="text-[10px] text-[#8891ac]">Total processed tickets</span>
                     </div>
 
-                    <div className="bg-slate-900/30 border border-slate-900 rounded-2xl p-4.5 space-y-1.5">
+                    <div className="bg-[#1a2554]/30 border border-[#1a2554] rounded-2xl p-4.5 space-y-1.5">
                       <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Operational Expenses</span>
                       <strong className="text-xl sm:text-2xl text-rose-400 block font-black">
                         {totalCost.toLocaleString()} MMK
                       </strong>
-                      <span className="text-[10px] text-slate-400">Rent, salary, backup diesel fuel</span>
+                      <span className="text-[10px] text-[#8891ac]">Rent, salary, backup diesel fuel</span>
                     </div>
 
-                    <div className="bg-slate-900/30 border border-slate-900 rounded-2xl p-4.5 space-y-1.5">
+                    <div className="bg-[#1a2554]/30 border border-[#1a2554] rounded-2xl p-4.5 space-y-1.5">
                       <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Net Operating Surplus</span>
                       <strong className="text-xl sm:text-2xl text-white block font-black">
                         {netProfit.toLocaleString()} MMK
                       </strong>
-                      <span className="text-[10px] text-slate-400">GAAP pre-tax surplus</span>
+                      <span className="text-[10px] text-[#8891ac]">GAAP pre-tax surplus</span>
                     </div>
                   </div>
 
@@ -1572,7 +1572,7 @@ export default function App() {
 
                   {/* Recharts Analytics Charts */}
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-2">
-                    <div className="lg:col-span-7 bg-slate-900/20 border border-slate-900 rounded-2xl p-5 space-y-4">
+                    <div className="lg:col-span-7 bg-[#1a2554]/20 border border-[#1a2554] rounded-2xl p-5 space-y-4">
                       <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono block">Multi-Branch Sales Performance (MMK)</span>
                       <div className="h-64">
                         <ResponsiveContainer width="100%" height="100%">
@@ -1587,7 +1587,7 @@ export default function App() {
                       </div>
                     </div>
 
-                    <div className="lg:col-span-5 bg-slate-900/20 border border-slate-900 rounded-2xl p-5 space-y-4">
+                    <div className="lg:col-span-5 bg-[#1a2554]/20 border border-[#1a2554] rounded-2xl p-5 space-y-4">
                       <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono block">Popular Handset Brand Units</span>
                       <div className="h-64 flex flex-col justify-between">
                         <div className="flex-1">
@@ -1611,7 +1611,7 @@ export default function App() {
                           </ResponsiveContainer>
                         </div>
                         {/* Legend list */}
-                        <div className="grid grid-cols-2 gap-2 text-[9px] font-mono text-slate-400">
+                        <div className="grid grid-cols-2 gap-2 text-[9px] font-mono text-[#8891ac]">
                           {getProductPopularityData().map((entry, idx) => (
                             <div key={idx} className="flex items-center space-x-1.5">
                               <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: entry.color }} />
@@ -1628,19 +1628,19 @@ export default function App() {
               {/* SUBTAB D: CASH EXPENSES BOOKING */}
               {activeSubTab === 'expenses' && (
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6" id="erp-sub-expenses">
-                  <div className="lg:col-span-4 bg-slate-900/30 border border-slate-900 rounded-2xl p-5 space-y-4">
-                    <div className="flex items-center space-x-2 border-b border-slate-900 pb-3">
+                  <div className="lg:col-span-4 bg-[#1a2554]/30 border border-[#1a2554] rounded-2xl p-5 space-y-4">
+                    <div className="flex items-center space-x-2 border-b border-[#1a2554] pb-3">
                       <Sliders className="w-5 h-5 text-rose-400" />
-                      <h4 className="font-extrabold text-sm font-mono text-slate-100 uppercase tracking-wider">Book Cash Expense</h4>
+                      <h4 className="font-extrabold text-sm font-mono text-[#f0f4ff] uppercase tracking-wider">Book Cash Expense</h4>
                     </div>
 
                     <form onSubmit={handleAddExpense} className="space-y-4 font-mono text-xs">
                       <div className="space-y-1.5">
-                        <label className="text-slate-400">Branch Index</label>
+                        <label className="text-[#8891ac]">Branch Index</label>
                         <select
                           value={activeBranchId}
                           disabled
-                          className="w-full bg-slate-950 border border-slate-850 rounded p-2 text-slate-400 font-bold"
+                          className="w-full bg-[#0f172e] border border-slate-850 rounded p-2 text-[#8891ac] font-bold"
                         >
                           <option value="b-yangon">Yangon HQ (Kaba Aye)</option>
                           <option value="b-mandalay">Mandalay Branch</option>
@@ -1649,11 +1649,11 @@ export default function App() {
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-slate-400">GAAP Category</label>
+                        <label className="text-[#8891ac]">GAAP Category</label>
                         <select
                           value={expCategory}
                           onChange={(e) => setExpCategory(e.target.value as any)}
-                          className="w-full bg-slate-950 border border-slate-850 rounded p-2 text-slate-200 outline-none"
+                          className="w-full bg-[#0f172e] border border-slate-850 rounded p-2 text-[#b0b8d4] outline-none"
                         >
                           <option value="Rent">Rent (Showroom Space)</option>
                           <option value="Salary">Salary (Staff payroll)</option>
@@ -1665,24 +1665,24 @@ export default function App() {
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-slate-400">Expense Amount (MMK)</label>
+                        <label className="text-[#8891ac]">Expense Amount (MMK)</label>
                         <input
                           type="number"
                           value={expAmount}
                           onChange={(e) => setExpAmount(e.target.value)}
                           placeholder="e.g. 50000"
-                          className="w-full bg-slate-950 border border-slate-850 rounded p-2 text-slate-200 font-bold outline-none"
+                          className="w-full bg-[#0f172e] border border-slate-850 rounded p-2 text-[#b0b8d4] font-bold outline-none"
                           required
                         />
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-slate-400">Description Notes</label>
+                        <label className="text-[#8891ac]">Description Notes</label>
                         <textarea
                           value={expDesc}
                           onChange={(e) => setExpDesc(e.target.value)}
                           placeholder="Backup generator diesel fuel purchase for Myanmar power outages..."
-                          className="w-full bg-slate-950 border border-slate-850 rounded p-2 text-slate-200 h-16 outline-none"
+                          className="w-full bg-[#0f172e] border border-slate-850 rounded p-2 text-[#b0b8d4] h-16 outline-none"
                         />
                       </div>
 
@@ -1697,11 +1697,11 @@ export default function App() {
                   </div>
 
                   {/* Expenses List */}
-                  <div className="lg:col-span-8 bg-slate-900/20 border border-slate-900 rounded-2xl p-5 space-y-4">
+                  <div className="lg:col-span-8 bg-[#1a2554]/20 border border-[#1a2554] rounded-2xl p-5 space-y-4">
                     <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono">Recent Cash Outflows</span>
                     <div className="space-y-2.5 max-h-96 overflow-y-auto pr-1">
                       {expenses.map((exp) => (
-                        <div key={exp.id} className="bg-slate-950 border border-slate-900 p-3.5 rounded-xl flex items-center justify-between gap-4 font-mono text-xs">
+                        <div key={exp.id} className="bg-[#0f172e] border border-[#1a2554] p-3.5 rounded-xl flex items-center justify-between gap-4 font-mono text-xs">
                           <div className="space-y-1">
                             <div className="flex items-center space-x-2">
                               <span className="font-extrabold text-rose-400">[{exp.category.toUpperCase()}]</span>
@@ -1729,45 +1729,45 @@ export default function App() {
               {/* SUBTAB F: ONLINE ORDERS INTERCEPTION */}
               {activeSubTab === 'online_orders' && (
                 <div className="space-y-5" id="erp-sub-online-orders">
-                  <div className="bg-slate-900/20 border border-slate-900 rounded-2xl p-5 space-y-4">
-                    <div className="flex items-center justify-between border-b border-slate-900 pb-3">
-                      <h4 className="font-bold text-sm text-slate-100 font-mono uppercase tracking-wider">E-Commerce Website Orders</h4>
-                      <span className="text-[10px] bg-slate-950 border border-slate-800 text-slate-400 px-3 py-1 rounded font-mono">
+                  <div className="bg-[#1a2554]/20 border border-[#1a2554] rounded-2xl p-5 space-y-4">
+                    <div className="flex items-center justify-between border-b border-[#1a2554] pb-3">
+                      <h4 className="font-bold text-sm text-[#f0f4ff] font-mono uppercase tracking-wider">E-Commerce Website Orders</h4>
+                      <span className="text-[10px] bg-[#0f172e] border border-[#222f5a] text-[#8891ac] px-3 py-1 rounded font-mono">
                         {onlineOrders.filter(o => o.status === 'pending').length} Pending
                       </span>
                     </div>
 
                     <div className="space-y-3">
                       {onlineOrders.map((order) => (
-                        <div key={order.id} className="bg-slate-950 border border-slate-900 p-4 rounded-xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 font-mono text-xs">
+                        <div key={order.id} className="bg-[#0f172e] border border-[#1a2554] p-4 rounded-xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 font-mono text-xs">
                           <div className="space-y-1.5 min-w-0">
                             <div className="flex items-center space-x-2.5">
                               <span className="font-extrabold text-white text-sm">{order.id}</span>
                               <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                                 order.status === 'pending' ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20' :
-                                order.status === 'accepted' ? 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 animate-pulse' :
-                                'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                                order.status === 'accepted' ? 'bg-[#3052a3]/10 text-[#3052a3] border border-[#3052a3]/20 animate-pulse' :
+                                'bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20'
                               }`}>
                                 {order.status.toUpperCase()}
                               </span>
                             </div>
-                            <p className="font-bold text-slate-200">
+                            <p className="font-bold text-[#b0b8d4]">
                               Client: {order.customerName} ({order.customerPhone})
                             </p>
-                            <p className="text-slate-400 text-[10px] truncate max-w-[480px]">
+                            <p className="text-[#8891ac] text-[10px] truncate max-w-[480px]">
                               Addr: {order.address} | Items: {order.items.map(i => `${i.name} x${i.quantity}`).join(', ')}
                             </p>
                           </div>
 
                           <div className="text-right shrink-0 space-y-2">
-                            <span className="font-black text-emerald-400 text-sm block">
+                            <span className="font-black text-[#10b981] text-sm block">
                               {order.totalAmount.toLocaleString()} MMK
                             </span>
 
                             {order.status === 'pending' && (
                               <button
                                 onClick={() => handleFulfillOnlineOrder(order.id, 'accepted')}
-                                className="bg-sky-500 hover:bg-sky-450 text-slate-950 font-black text-[10px] px-3 py-1 rounded uppercase font-sans"
+                                className="bg-[#00d4ff] hover:bg-sky-450 text-slate-950 font-black text-[10px] px-3 py-1 rounded uppercase font-sans"
                               >
                                 Accept & Allocate Stock
                               </button>
@@ -1775,7 +1775,7 @@ export default function App() {
                             {order.status === 'accepted' && (
                               <button
                                 onClick={() => handleFulfillOnlineOrder(order.id, 'completed')}
-                                className="bg-emerald-500 hover:bg-emerald-450 text-slate-950 font-black text-[10px] px-3 py-1 rounded uppercase font-sans"
+                                className="bg-[#10b981] hover:bg-emerald-450 text-slate-950 font-black text-[10px] px-3 py-1 rounded uppercase font-sans"
                               >
                                 Mark Completed
                               </button>
@@ -1798,15 +1798,15 @@ export default function App() {
             <div className="space-y-6 animate-fade-in" id="crm-view">
               
               {/* INNER SUB-TABS SELECTOR */}
-              <div className="flex items-center space-x-1.5 bg-slate-900/40 p-1 rounded-xl border border-slate-900 w-full overflow-x-auto">
+              <div className="flex items-center space-x-1.5 bg-[#1a2554]/40 p-1 rounded-xl border border-[#1a2554] w-full overflow-x-auto">
                 {['repair', 'loyalty', 'campaign', 'eload'].map(sub => (
                   <button
                     key={sub}
                     onClick={() => setActiveSubTab(sub as any)}
                     className={`px-4 py-2 text-xs font-bold font-mono rounded-lg transition-all whitespace-nowrap ${
                       activeSubTab === sub
-                        ? 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/20'
-                        : 'text-slate-400 hover:text-slate-200'
+                        ? 'bg-[#3052a3]/10 text-[#3052a3] border border-[#3052a3]/20'
+                        : 'text-[#8891ac] hover:text-[#b0b8d4]'
                     }`}
                   >
                     {sub === 'repair' && 'Hardware Repair diagnostics Lab'}
@@ -1829,7 +1829,7 @@ export default function App() {
               {/* CRM SUBTAB B: LOYALTY PROFILES */}
               {activeSubTab === 'loyalty' && (
                 <div className="space-y-6">
-                  <div className="bg-slate-900/30 border border-slate-900 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <div className="bg-[#1a2554]/30 border border-[#1a2554] rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
                     <div className="relative flex-1 w-full">
                       <Search className="w-3.5 h-3.5 text-slate-500 absolute left-3 top-3.5" />
                       <input
@@ -1837,16 +1837,16 @@ export default function App() {
                         placeholder="Filter CRM list by client name, mobile or VIP tier status..."
                         value={crmSearch}
                         onChange={(e) => setCrmSearch(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-850 rounded-xl pl-9 pr-3 py-2.5 text-xs text-slate-200 outline-none font-mono"
+                        className="w-full bg-[#0f172e] border border-slate-850 rounded-xl pl-9 pr-3 py-2.5 text-xs text-[#b0b8d4] outline-none font-mono"
                       />
                     </div>
                   </div>
 
-                  <div className="bg-slate-900/20 border border-slate-900 rounded-2xl overflow-hidden">
+                  <div className="bg-[#1a2554]/20 border border-[#1a2554] rounded-2xl overflow-hidden">
                     <div className="overflow-x-auto">
                       <table className="w-full text-left font-mono text-xs border-collapse">
                         <thead>
-                          <tr className="bg-slate-950 text-slate-400 text-[10px] border-b border-slate-900">
+                          <tr className="bg-[#0f172e] text-[#8891ac] text-[10px] border-b border-[#1a2554]">
                             <th className="px-5 py-3 font-extrabold">CLIENT DETAIL</th>
                             <th className="px-5 py-3 font-extrabold">LOYALTY TIER</th>
                             <th className="px-5 py-3 font-extrabold text-center">EARNED POINTS</th>
@@ -1859,7 +1859,7 @@ export default function App() {
                           {customersList
                             .filter(c => c.name.toLowerCase().includes(crmSearch.toLowerCase()) || c.phone.includes(crmSearch))
                             .map((cust) => (
-                              <tr key={cust.id} className="hover:bg-slate-900/10 transition-colors">
+                              <tr key={cust.id} className="hover:bg-[#1a2554]/10 transition-colors">
                                 <td className="px-5 py-3.5">
                                   <div className="font-bold text-white text-sm">{cust.name}</div>
                                   <div className="text-[10px] text-slate-500">{cust.phone} • {cust.email}</div>
@@ -1868,16 +1868,16 @@ export default function App() {
                                   <span className={`px-2.5 py-0.5 rounded text-[9px] font-black uppercase tracking-wider ${
                                     cust.tier === 'VIP' ? 'bg-pink-500/10 text-pink-400 border border-pink-500/20' :
                                     cust.tier === 'Gold' ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20' :
-                                    cust.tier === 'Silver' ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20' :
-                                    'bg-slate-800 text-slate-400'
+                                    cust.tier === 'Silver' ? 'bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/20' :
+                                    'bg-[#222f5a] text-[#8891ac]'
                                   }`}>
                                     {cust.tier}
                                   </span>
                                 </td>
-                                <td className="px-5 py-3.5 text-center font-bold text-slate-200">
+                                <td className="px-5 py-3.5 text-center font-bold text-[#b0b8d4]">
                                   {cust.loyaltyPoints.toLocaleString()} pts
                                 </td>
-                                <td className="px-5 py-3.5 font-bold text-emerald-400">
+                                <td className="px-5 py-3.5 font-bold text-[#10b981]">
                                   {cust.totalSpent.toLocaleString()} MMK
                                 </td>
                                 <td className="px-5 py-3.5">
@@ -1902,20 +1902,20 @@ export default function App() {
               {/* CRM SUBTAB C: CAMPAIGN BROADCASTS */}
               {activeSubTab === 'campaign' && (
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6" id="crm-sub-campaign">
-                  <div className="lg:col-span-5 bg-slate-900/30 border border-slate-900 rounded-2xl p-5 space-y-4">
-                    <div className="flex items-center space-x-2 border-b border-slate-900 pb-3">
-                      <Bell className="w-5 h-5 text-indigo-400" />
-                      <h4 className="font-extrabold text-sm font-mono text-slate-100 uppercase tracking-wider">Broadcaster Channel</h4>
+                  <div className="lg:col-span-5 bg-[#1a2554]/30 border border-[#1a2554] rounded-2xl p-5 space-y-4">
+                    <div className="flex items-center space-x-2 border-b border-[#1a2554] pb-3">
+                      <Bell className="w-5 h-5 text-[#3052a3]" />
+                      <h4 className="font-extrabold text-sm font-mono text-[#f0f4ff] uppercase tracking-wider">Broadcaster Channel</h4>
                     </div>
 
                     <form onSubmit={handleSendCampaign} className="space-y-4 font-mono text-xs">
                       <div className="grid grid-cols-2 gap-3">
                         <div className="space-y-1.5">
-                          <label className="text-slate-400">Target Segment</label>
+                          <label className="text-[#8891ac]">Target Segment</label>
                           <select
                             value={campaignTier}
                             onChange={(e) => setCampaignTier(e.target.value as any)}
-                            className="w-full bg-slate-950 border border-slate-850 rounded p-2 text-slate-200 outline-none"
+                            className="w-full bg-[#0f172e] border border-slate-850 rounded p-2 text-[#b0b8d4] outline-none"
                           >
                             <option value="All">All Registered Clients</option>
                             <option value="Bronze">Bronze Tier</option>
@@ -1925,11 +1925,11 @@ export default function App() {
                           </select>
                         </div>
                         <div className="space-y-1.5">
-                          <label className="text-slate-400">Broadcast Channel</label>
+                          <label className="text-[#8891ac]">Broadcast Channel</label>
                           <select
                             value={campaignChannel}
                             onChange={(e) => setCampaignChannel(e.target.value as any)}
-                            className="w-full bg-slate-950 border border-slate-850 rounded p-2 text-slate-200 outline-none"
+                            className="w-full bg-[#0f172e] border border-slate-850 rounded p-2 text-[#b0b8d4] outline-none"
                           >
                             <option value="Telegram">Telegram Channel</option>
                             <option value="SMS">SMS Cellular</option>
@@ -1938,24 +1938,24 @@ export default function App() {
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-slate-400">Campaign Text copy</label>
+                        <label className="text-[#8891ac]">Campaign Text copy</label>
                         <textarea
                           value={campaignMessage}
                           onChange={(e) => setCampaignMessage(e.target.value)}
-                          className="w-full bg-slate-950 border border-slate-850 rounded p-2.5 text-slate-200 h-28 leading-relaxed outline-none focus:border-indigo-500/30"
+                          className="w-full bg-[#0f172e] border border-slate-850 rounded p-2.5 text-[#b0b8d4] h-28 leading-relaxed outline-none focus:border-[#3052a3]/30"
                         />
                       </div>
 
                       <button
                         type="submit"
-                        className="w-full bg-indigo-500 hover:bg-indigo-400 text-slate-950 font-black py-2.5 rounded-xl uppercase transition font-sans text-xs flex items-center justify-center space-x-1"
+                        className="w-full bg-[#3052a3] hover:bg-indigo-400 text-slate-950 font-black py-2.5 rounded-xl uppercase transition font-sans text-xs flex items-center justify-center space-x-1"
                       >
                         <Send className="w-4 h-4 stroke-[2.5]" />
                         <span>DISPATCH PROMOTION BROADCAST</span>
                       </button>
 
                       {campaignSuccess && (
-                        <div className="bg-emerald-500/10 border border-emerald-500/20 p-3 rounded text-emerald-400 font-bold text-center text-[10px]">
+                        <div className="bg-[#10b981]/10 border border-[#10b981]/20 p-3 rounded text-[#10b981] font-bold text-center text-[10px]">
                           ⚡ Campaigns successfully dispatched to targeted clients in background. See transmission logs.
                         </div>
                       )}
@@ -1963,14 +1963,14 @@ export default function App() {
                   </div>
 
                   {/* Broadcast logs */}
-                  <div className="lg:col-span-7 bg-slate-900/20 border border-slate-900 rounded-2xl p-5 space-y-4">
+                  <div className="lg:col-span-7 bg-[#1a2554]/20 border border-[#1a2554] rounded-2xl p-5 space-y-4">
                     <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono">SMS / Telegram Transmission audit</span>
                     <div className="space-y-2 max-h-96 overflow-y-auto pr-1">
                       {notifications.map((not) => (
-                        <div key={not.id} className="bg-slate-950 border border-slate-900 p-3 rounded-lg font-mono text-[11px] leading-relaxed">
+                        <div key={not.id} className="bg-[#0f172e] border border-[#1a2554] p-3 rounded-lg font-mono text-[11px] leading-relaxed">
                           <div className="flex items-center justify-between mb-1 text-[10px]">
                             <div className="flex items-center space-x-2">
-                              <span className="font-bold text-indigo-400">[{not.channel.toUpperCase()}]</span>
+                              <span className="font-bold text-[#3052a3]">[{not.channel.toUpperCase()}]</span>
                               <span className="text-slate-500">{not.recipient}</span>
                             </div>
                             <span className="text-slate-500">{new Date(not.sentAt).toLocaleTimeString()}</span>
@@ -1986,20 +1986,20 @@ export default function App() {
               {/* CRM SUBTAB D: E-LOAD VTU TOPUP */}
               {activeSubTab === 'eload' && (
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 animate-fade-in" id="crm-sub-eload">
-                  <div className="lg:col-span-5 bg-slate-900/30 border border-slate-900 rounded-2xl p-5 space-y-4">
-                    <div className="flex items-center space-x-2 border-b border-slate-900 pb-3">
-                      <Wifi className="w-5 h-5 text-sky-400" />
-                      <h4 className="font-extrabold text-sm font-mono text-slate-100 uppercase tracking-wider">Myanmar Cellular E-Load topup</h4>
+                  <div className="lg:col-span-5 bg-[#1a2554]/30 border border-[#1a2554] rounded-2xl p-5 space-y-4">
+                    <div className="flex items-center space-x-2 border-b border-[#1a2554] pb-3">
+                      <Wifi className="w-5 h-5 text-[#00d4ff]" />
+                      <h4 className="font-extrabold text-sm font-mono text-[#f0f4ff] uppercase tracking-wider">Myanmar Cellular E-Load topup</h4>
                     </div>
 
                     <form onSubmit={handleVtuSubmit} className="space-y-4 font-mono text-xs">
                       <div className="grid grid-cols-2 gap-3">
                         <div className="space-y-1.5">
-                          <label className="text-slate-400">Telecom Operator</label>
+                          <label className="text-[#8891ac]">Telecom Operator</label>
                           <select
                             value={vtuOperator}
                             onChange={(e) => setVtuOperator(e.target.value as any)}
-                            className="w-full bg-slate-950 border border-slate-850 rounded p-2 text-slate-200 font-bold"
+                            className="w-full bg-[#0f172e] border border-slate-850 rounded p-2 text-[#b0b8d4] font-bold"
                           >
                             <option value="MPT">MPT</option>
                             <option value="Atom">Atom</option>
@@ -2008,11 +2008,11 @@ export default function App() {
                           </select>
                         </div>
                         <div className="space-y-1.5">
-                          <label className="text-slate-400">Load Package</label>
+                          <label className="text-[#8891ac]">Load Package</label>
                           <select
                             value={vtuType}
                             onChange={(e) => setVtuType(e.target.value as any)}
-                            className="w-full bg-slate-950 border border-slate-850 rounded p-2 text-slate-200 font-bold"
+                            className="w-full bg-[#0f172e] border border-slate-850 rounded p-2 text-[#b0b8d4] font-bold"
                           >
                             <option value="airtime">Airtime Refill (Kyat)</option>
                             <option value="data">Data Super Pack</option>
@@ -2022,24 +2022,24 @@ export default function App() {
 
                       <div className="grid grid-cols-2 gap-3">
                         <div className="space-y-1.5">
-                          <label className="text-slate-400">Phone (e.g. 0979...)</label>
+                          <label className="text-[#8891ac]">Phone (e.g. 0979...)</label>
                           <input
                             type="tel"
                             placeholder="09799112233"
                             value={vtuPhone}
                             onChange={(e) => setVtuPhone(e.target.value)}
-                            className="w-full bg-slate-950 border border-slate-850 rounded p-2 text-slate-200 outline-none font-bold"
+                            className="w-full bg-[#0f172e] border border-slate-850 rounded p-2 text-[#b0b8d4] outline-none font-bold"
                             required
                           />
                         </div>
                         <div className="space-y-1.5">
-                          <label className="text-slate-400">Recharge (Kyats)</label>
+                          <label className="text-[#8891ac]">Recharge (Kyats)</label>
                           <input
                             type="number"
                             placeholder="5000"
                             value={vtuAmount}
                             onChange={(e) => setVtuAmount(e.target.value)}
-                            className="w-full bg-slate-950 border border-slate-850 rounded p-2 text-slate-200 outline-none font-bold text-center"
+                            className="w-full bg-[#0f172e] border border-slate-850 rounded p-2 text-[#b0b8d4] outline-none font-bold text-center"
                             required
                           />
                         </div>
@@ -2048,7 +2048,7 @@ export default function App() {
                       <button
                         type="submit"
                         disabled={vtuLoading || !vtuPhone}
-                        className="w-full bg-sky-500 hover:bg-sky-450 disabled:opacity-40 text-slate-950 font-black py-2.5 rounded-xl uppercase transition font-sans text-xs"
+                        className="w-full bg-[#00d4ff] hover:bg-sky-450 disabled:opacity-40 text-slate-950 font-black py-2.5 rounded-xl uppercase transition font-sans text-xs"
                       >
                         {vtuLoading ? 'Transmitting load signal...' : 'Dispatch Airtime/Data'}
                       </button>
@@ -2056,23 +2056,23 @@ export default function App() {
                   </div>
 
                   {/* Top-up Logs */}
-                  <div className="lg:col-span-7 bg-slate-900/20 border border-slate-900 rounded-2xl p-5 space-y-4">
+                  <div className="lg:col-span-7 bg-[#1a2554]/20 border border-[#1a2554] rounded-2xl p-5 space-y-4">
                     <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono">Live Cellular Dispatch Feed</span>
                     <div className="space-y-2 max-h-96 overflow-y-auto pr-1">
                       {vtuList.map((tx) => (
-                        <div key={tx.id} className="bg-slate-950 border border-slate-900 p-3 rounded-lg flex items-center justify-between gap-4 font-mono text-xs">
+                        <div key={tx.id} className="bg-[#0f172e] border border-[#1a2554] p-3 rounded-lg flex items-center justify-between gap-4 font-mono text-xs">
                           <div className="space-y-1">
                             <div className="flex items-center space-x-2">
-                              <span className="font-extrabold text-sky-400">[{tx.operator}]</span>
-                              <span className="text-slate-200">{tx.phoneNumber}</span>
+                              <span className="font-extrabold text-[#00d4ff]">[{tx.operator}]</span>
+                              <span className="text-[#b0b8d4]">{tx.phoneNumber}</span>
                             </div>
-                            <p className="text-slate-400 text-[10px]">{tx.planDetails}</p>
+                            <p className="text-[#8891ac] text-[10px]">{tx.planDetails}</p>
                             <span className="text-[9px] text-slate-500 block">Branch: {tx.branchId.toUpperCase()} • {new Date(tx.createdAt).toLocaleTimeString()}</span>
                           </div>
 
                           <div className="text-right space-y-1 shrink-0">
-                            <span className="font-bold text-emerald-400 block">{tx.amount.toLocaleString()} MMK</span>
-                            <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[8px] font-black uppercase px-1.5 py-0.5 rounded">
+                            <span className="font-bold text-[#10b981] block">{tx.amount.toLocaleString()} MMK</span>
+                            <span className="bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20 text-[8px] font-black uppercase px-1.5 py-0.5 rounded">
                               {tx.status}
                             </span>
                           </div>
@@ -2134,7 +2134,7 @@ export default function App() {
       </div>
 
       {/* FOOTER */}
-      <footer className="border-t border-slate-900/80 bg-slate-950 py-5 text-center text-[10px] font-mono text-slate-500 mt-auto">
+      <footer className="border-t border-[#1a2554]/80 bg-[#0f172e] py-5 text-center text-[10px] font-mono text-slate-500 mt-auto">
         <p>AKK Mobile Cloud-Sync Enterprise POS+ERP+CRM. All rights reserved.</p>
         <p className="text-slate-600 mt-1">GAAP Compliant Ledger • Myanmar Commercial Tax Registration Calibrated</p>
       </footer>

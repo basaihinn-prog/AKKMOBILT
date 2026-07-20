@@ -29,12 +29,12 @@ export default function AIPredictions({
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6" id="ai-predictions-component">
       {/* Quick Prompts Panel */}
-      <div className="lg:col-span-4 bg-slate-900/30 border border-slate-900 rounded-2xl p-5 space-y-4">
-        <div className="flex items-center space-x-2 border-b border-slate-900 pb-3">
+      <div className="lg:col-span-4 bg-[#1a2554]/30 border border-[#1a2554] rounded-2xl p-5 space-y-4">
+        <div className="flex items-center space-x-2 border-b border-[#1a2554] pb-3">
           <Brain className="w-5 h-5 text-pink-400" />
-          <h4 className="font-extrabold text-sm font-mono text-slate-100 uppercase tracking-wider">AKK Brain Copilot</h4>
+          <h4 className="font-extrabold text-sm font-mono text-[#f0f4ff] uppercase tracking-wider">AKK Brain Copilot</h4>
         </div>
-        <p className="text-[11px] text-slate-400 font-mono leading-relaxed">
+        <p className="text-[11px] text-[#8891ac] font-mono leading-relaxed">
           The AKK Mobile Enterprise Intelligence Engine is synced directly to our active branches (Yangon, Mandalay, Naypyitaw), financial general ledgers, and CRM directories.
         </p>
 
@@ -47,7 +47,7 @@ export default function AIPredictions({
                 type="button"
                 onClick={() => onSendMessage(p)}
                 disabled={aiTyping}
-                className="w-full text-left text-[11px] bg-slate-950 hover:bg-slate-900 disabled:opacity-50 text-slate-300 hover:text-pink-300 font-mono p-3 rounded-xl border border-slate-900 hover:border-pink-500/20 transition-all flex items-start space-x-2"
+                className="w-full text-left text-[11px] bg-[#0f172e] hover:bg-[#1a2554] disabled:opacity-50 text-slate-300 hover:text-pink-300 font-mono p-3 rounded-xl border border-[#1a2554] hover:border-pink-500/20 transition-all flex items-start space-x-2"
               >
                 <HelpCircle className="w-3.5 h-3.5 text-pink-500/60 shrink-0 mt-0.5" />
                 <span>{p}</span>
@@ -58,7 +58,7 @@ export default function AIPredictions({
       </div>
 
       {/* Primary Conversation Engine */}
-      <div className="lg:col-span-8 bg-slate-900/20 border border-slate-900 rounded-2xl p-5 flex flex-col justify-between h-[520px]">
+      <div className="lg:col-span-8 bg-[#1a2554]/20 border border-[#1a2554] rounded-2xl p-5 flex flex-col justify-between h-[520px]">
         {/* Messages list */}
         <div className="flex-1 overflow-y-auto space-y-4 pr-1 scrollbar-thin">
           {chatMessages.map((msg) => (
@@ -71,7 +71,7 @@ export default function AIPredictions({
               <div
                 className={`p-2.5 rounded-lg shrink-0 ${
                   msg.sender === 'user'
-                    ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400'
+                    ? 'bg-[#10b981]/10 border border-[#10b981]/20 text-[#10b981]'
                     : 'bg-pink-500/10 border border-pink-500/20 text-pink-400'
                 }`}
               >
@@ -85,8 +85,8 @@ export default function AIPredictions({
               <div
                 className={`p-3.5 rounded-2xl text-xs font-mono leading-relaxed whitespace-pre-line ${
                   msg.sender === 'user'
-                    ? 'bg-slate-900/60 text-slate-200 rounded-tr-none border border-slate-800'
-                    : 'bg-slate-950 text-slate-300 rounded-tl-none border border-slate-900'
+                    ? 'bg-[#1a2554]/60 text-[#b0b8d4] rounded-tr-none border border-[#222f5a]'
+                    : 'bg-[#0f172e] text-slate-300 rounded-tl-none border border-[#1a2554]'
                 }`}
               >
                 {msg.text}
@@ -99,7 +99,7 @@ export default function AIPredictions({
               <div className="p-2.5 rounded-lg bg-pink-500/10 border border-pink-500/20 text-pink-400 animate-pulse">
                 <Bot className="w-4 h-4" />
               </div>
-              <div className="bg-slate-950 border border-slate-900 px-4 py-3.5 rounded-2xl rounded-tl-none text-xs font-mono text-slate-400 flex items-center space-x-2">
+              <div className="bg-[#0f172e] border border-[#1a2554] px-4 py-3.5 rounded-2xl rounded-tl-none text-xs font-mono text-[#8891ac] flex items-center space-x-2">
                 <Sparkles className="w-3.5 h-3.5 text-pink-400 animate-spin" />
                 <span className="animate-pulse">Consulting branch databases & financial ledgers...</span>
               </div>
@@ -108,7 +108,7 @@ export default function AIPredictions({
         </div>
 
         {/* Input Dock */}
-        <div className="border-t border-slate-900/80 pt-4 mt-4">
+        <div className="border-t border-[#1a2554]/80 pt-4 mt-4">
           <div className="flex items-center space-x-2.5">
             <input
               type="text"
@@ -119,7 +119,7 @@ export default function AIPredictions({
               }}
               placeholder="Ask for multi-branch balance strategy, VIP campaign copy, or financial audit..."
               disabled={aiTyping}
-              className="flex-1 bg-slate-950 border border-slate-900 rounded-xl px-4 py-3 text-xs text-slate-200 outline-none focus:border-pink-500/30 font-mono placeholder:text-slate-600 disabled:opacity-50"
+              className="flex-1 bg-[#0f172e] border border-[#1a2554] rounded-xl px-4 py-3 text-xs text-[#b0b8d4] outline-none focus:border-pink-500/30 font-mono placeholder:text-slate-600 disabled:opacity-50"
             />
             <button
               onClick={() => onSendMessage()}

@@ -260,7 +260,7 @@ export default function AuditLogsModule({
             <Shield size={32} className="text-blue-400" />
             Audit Logs
           </h1>
-          <p className="text-slate-400 mt-1">Complete system change tracking and compliance audit trail</p>
+          <p className="text-[#8891ac] mt-1">Complete system change tracking and compliance audit trail</p>
         </div>
 
         <button
@@ -299,7 +299,7 @@ export default function AuditLogsModule({
           {/* Filters */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
             <div className="relative">
-              <Search className="absolute left-3 top-3 text-slate-400" size={18} />
+              <Search className="absolute left-3 top-3 text-[#8891ac]" size={18} />
               <input
                 type="text"
                 placeholder="Search user, resource, ID..."
@@ -360,7 +360,7 @@ export default function AuditLogsModule({
           </div>
 
           {/* Logs Table */}
-          <div className="bg-slate-800 border border-slate-700 rounded-lg overflow-hidden">
+          <div className="bg-[#222f5a] border border-slate-700 rounded-lg overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-slate-700 border-b border-slate-600">
@@ -399,10 +399,10 @@ export default function AuditLogsModule({
                       <td className="px-4 py-3 text-sm">
                         <div>
                           <p className="font-medium">{log.resourceType}</p>
-                          <p className="text-slate-400 text-xs">{log.resourceId}</p>
+                          <p className="text-[#8891ac] text-xs">{log.resourceId}</p>
                         </div>
                       </td>
-                      <td className="px-4 py-3 text-sm text-slate-400">
+                      <td className="px-4 py-3 text-sm text-[#8891ac]">
                         <div className="flex items-center gap-1">
                           <Clock size={14} />
                           {new Date(log.timestamp).toLocaleString()}
@@ -410,7 +410,7 @@ export default function AuditLogsModule({
                       </td>
                       <td className="px-4 py-3 text-sm">
                         {log.status === 'success' ? (
-                          <span className="flex items-center gap-1 text-emerald-400">
+                          <span className="flex items-center gap-1 text-[#10b981]">
                             <CheckCircle size={16} />
                             Success
                           </span>
@@ -421,7 +421,7 @@ export default function AuditLogsModule({
                           </span>
                         )}
                       </td>
-                      <td className="px-4 py-3 text-sm text-slate-400 font-mono text-xs">{log.ipAddress}</td>
+                      <td className="px-4 py-3 text-sm text-[#8891ac] font-mono text-xs">{log.ipAddress}</td>
                       <td className="px-4 py-3 text-center">
                         <button
                           onClick={() => setDetailsOpen(detailsOpen === log.id ? null : log.id)}
@@ -444,14 +444,14 @@ export default function AuditLogsModule({
                     <h3 className="font-bold text-lg">Change Details</h3>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                       <div>
-                        <p className="text-slate-400 text-sm mb-2">Before</p>
-                        <pre className="bg-slate-900 p-3 rounded text-xs overflow-auto max-h-32 text-slate-300">
+                        <p className="text-[#8891ac] text-sm mb-2">Before</p>
+                        <pre className="bg-[#1a2554] p-3 rounded text-xs overflow-auto max-h-32 text-slate-300">
                           {JSON.stringify(filteredLogs.find(l => l.id === detailsOpen)?.changes.before || {}, null, 2)}
                         </pre>
                       </div>
                       <div>
-                        <p className="text-slate-400 text-sm mb-2">After</p>
-                        <pre className="bg-slate-900 p-3 rounded text-xs overflow-auto max-h-32 text-slate-300">
+                        <p className="text-[#8891ac] text-sm mb-2">After</p>
+                        <pre className="bg-[#1a2554] p-3 rounded text-xs overflow-auto max-h-32 text-slate-300">
                           {JSON.stringify(filteredLogs.find(l => l.id === detailsOpen)?.changes.after || {}, null, 2)}
                         </pre>
                       </div>
@@ -481,11 +481,11 @@ export default function AuditLogsModule({
                   <div className="absolute -left-2 top-8 h-8 w-0.5 bg-slate-700" />
                 )}
 
-                <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
+                <div className="bg-[#222f5a] border border-slate-700 rounded-lg p-4">
                   <div className="flex items-start justify-between">
                     <div>
                       <p className="font-bold">{item.resourceName}</p>
-                      <p className="text-sm text-slate-400 mt-1 flex items-center gap-2">
+                      <p className="text-sm text-[#8891ac] mt-1 flex items-center gap-2">
                         <User size={14} />
                         {item.userName} • {item.action}
                       </p>
@@ -514,7 +514,7 @@ export default function AuditLogsModule({
         <div className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Action Distribution */}
-            <div className="bg-slate-800 rounded-lg p-6">
+            <div className="bg-[#222f5a] rounded-lg p-6">
               <h2 className="text-lg font-bold mb-4">Action Distribution</h2>
               <ResponsiveContainer width="100%" height={250}>
                 <PieChart>
@@ -538,7 +538,7 @@ export default function AuditLogsModule({
             </div>
 
             {/* Resource Distribution */}
-            <div className="bg-slate-800 rounded-lg p-6">
+            <div className="bg-[#222f5a] rounded-lg p-6">
               <h2 className="text-lg font-bold mb-4">Resource Types</h2>
               <ResponsiveContainer width="100%" height={250}>
                 <PieChart>
@@ -562,7 +562,7 @@ export default function AuditLogsModule({
             </div>
 
             {/* User Activity */}
-            <div className="bg-slate-800 rounded-lg p-6">
+            <div className="bg-[#222f5a] rounded-lg p-6">
               <h2 className="text-lg font-bold mb-4">User Activity</h2>
               <ResponsiveContainer width="100%" height={250}>
                 <PieChart>
@@ -610,23 +610,23 @@ export default function AuditLogsModule({
 
       {/* RETENTION VIEW */}
       {activeView === 'retention' && (
-        <div className="bg-slate-800 rounded-lg p-6">
+        <div className="bg-[#222f5a] rounded-lg p-6">
           <h2 className="text-lg font-bold mb-4">Audit Log Retention Policy</h2>
           <div className="space-y-4">
             <div className="border-l-4 border-l-blue-500 bg-slate-700 p-4 rounded">
               <p className="font-bold">Retention Period</p>
-              <p className="text-slate-400 mt-2">Audit logs are retained for 90 days by default. Logs older than 90 days are automatically archived.</p>
+              <p className="text-[#8891ac] mt-2">Audit logs are retained for 90 days by default. Logs older than 90 days are automatically archived.</p>
             </div>
             <div className="border-l-4 border-l-emerald-500 bg-slate-700 p-4 rounded">
               <p className="font-bold">Compliance</p>
-              <p className="text-slate-400 mt-2">All audit logs are encrypted and stored securely. Access is restricted to authorized administrators only.</p>
+              <p className="text-[#8891ac] mt-2">All audit logs are encrypted and stored securely. Access is restricted to authorized administrators only.</p>
             </div>
             <div className="border-l-4 border-l-amber-500 bg-slate-700 p-4 rounded">
               <p className="font-bold">Storage</p>
-              <p className="text-slate-400 mt-2">Current storage usage: 2.3 GB / 10 GB. Archived logs available for 1 year.</p>
+              <p className="text-[#8891ac] mt-2">Current storage usage: 2.3 GB / 10 GB. Archived logs available for 1 year.</p>
               <div className="mt-3">
                 <div className="w-full bg-slate-600 rounded-full h-2">
-                  <div className="bg-gradient-to-r from-blue-500 to-emerald-500 h-2 rounded-full" style={{ width: '23%' }} />
+                  <div className="bg-gradient-to-r from-blue-500 to-[#10b981] h-2 rounded-full" style={{ width: '23%' }} />
                 </div>
               </div>
             </div>

@@ -284,28 +284,28 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6" id="rbac-manager-root">
       {/* Simulation Banner */}
-      <div className="col-span-12 bg-slate-900/40 border border-indigo-500/20 p-4 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="col-span-12 bg-[#1a2554]/40 border border-[#3052a3]/20 p-4 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center space-x-3">
-          <div className="p-2 bg-indigo-500/10 text-indigo-400 rounded-xl">
+          <div className="p-2 bg-[#3052a3]/10 text-[#3052a3] rounded-xl">
             <Shield className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="text-xs font-bold text-slate-100 font-mono uppercase tracking-wider">Enterprise RBAC Sandbox</h4>
-            <p className="text-[11px] text-slate-400 font-mono mt-0.5 leading-tight">
+            <h4 className="text-xs font-bold text-[#f0f4ff] font-mono uppercase tracking-wider">Enterprise RBAC Sandbox</h4>
+            <p className="text-[11px] text-[#8891ac] font-mono mt-0.5 leading-tight">
               Test dynamic system restrictions by switching your active role perspective below.
             </p>
           </div>
         </div>
 
-        <div className="flex items-center space-x-2 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
-          <span className="text-[10px] text-slate-400 font-mono font-bold px-2 uppercase">Simulating:</span>
+        <div className="flex items-center space-x-2 bg-[#0f172e] p-1.5 rounded-xl border border-[#222f5a]">
+          <span className="text-[10px] text-[#8891ac] font-mono font-bold px-2 uppercase">Simulating:</span>
           <select
             value={activeSimulatedRole}
             onChange={(e) => onSimulateRoleChange(e.target.value)}
-            className="bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 font-mono font-bold text-xs rounded-lg px-3 py-1 outline-none cursor-pointer"
+            className="bg-[#3052a3]/10 border border-[#3052a3]/20 text-[#3052a3] font-mono font-bold text-xs rounded-lg px-3 py-1 outline-none cursor-pointer"
           >
             {roles.map((r) => (
-              <option key={r.name} value={r.name} className="bg-slate-950 text-slate-200">
+              <option key={r.name} value={r.name} className="bg-[#0f172e] text-[#b0b8d4]">
                 {r.name} {r.isSystem ? '(System)' : '(Custom)'}
               </option>
             ))}
@@ -314,12 +314,12 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
       </div>
 
       {/* Role list sidebar */}
-      <div className="lg:col-span-4 bg-slate-900/15 border border-slate-900 p-4 rounded-2xl space-y-4">
+      <div className="lg:col-span-4 bg-[#1a2554]/15 border border-[#1a2554] p-4 rounded-2xl space-y-4">
         <div className="flex items-center justify-between">
           <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono">Roles Registry</span>
           <button
             onClick={() => setIsCreatingRole(true)}
-            className="p-1 hover:bg-slate-800 rounded text-indigo-400 transition"
+            className="p-1 hover:bg-[#222f5a] rounded text-[#3052a3] transition"
             title="Create Custom Role"
           >
             <Plus className="w-4 h-4" />
@@ -327,25 +327,25 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
         </div>
 
         {isCreatingRole ? (
-          <form onSubmit={handleCreateRole} className="bg-slate-950 p-3 rounded-xl border border-slate-850 space-y-3 font-mono text-xs">
-            <span className="text-[10px] text-indigo-400 font-bold uppercase block">Create Custom Role</span>
+          <form onSubmit={handleCreateRole} className="bg-[#0f172e] p-3 rounded-xl border border-slate-850 space-y-3 font-mono text-xs">
+            <span className="text-[10px] text-[#3052a3] font-bold uppercase block">Create Custom Role</span>
             <div className="space-y-1">
-              <label className="text-slate-400 text-[10px]">Role Name</label>
+              <label className="text-[#8891ac] text-[10px]">Role Name</label>
               <input
                 type="text"
                 required
                 value={newRoleName}
                 onChange={(e) => setNewRoleName(e.target.value)}
                 placeholder="e.g. Regional Auditor"
-                className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200"
+                className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4]"
               />
             </div>
             <div className="space-y-1">
-              <label className="text-slate-400 text-[10px]">Based on Template</label>
+              <label className="text-[#8891ac] text-[10px]">Based on Template</label>
               <select
                 value={newRoleBase}
                 onChange={(e) => setNewRoleBase(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200"
+                className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4]"
               >
                 {roles.map((r) => (
                   <option key={r.name} value={r.name}>
@@ -355,26 +355,26 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
               </select>
             </div>
             <div className="space-y-1">
-              <label className="text-slate-400 text-[10px]">Brief Description</label>
+              <label className="text-[#8891ac] text-[10px]">Brief Description</label>
               <textarea
                 value={newRoleDesc}
                 onChange={(e) => setNewRoleDesc(e.target.value)}
                 placeholder="Enter role responsibilities..."
                 rows={2}
-                className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200 resize-none"
+                className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4] resize-none"
               />
             </div>
             <div className="flex gap-2 pt-1">
               <button
                 type="button"
                 onClick={() => setIsCreatingRole(false)}
-                className="flex-1 bg-slate-900 text-slate-400 py-1.5 rounded hover:text-slate-200"
+                className="flex-1 bg-[#1a2554] text-[#8891ac] py-1.5 rounded hover:text-[#b0b8d4]"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="flex-1 bg-indigo-500 hover:bg-indigo-600 text-slate-950 font-bold py-1.5 rounded"
+                className="flex-1 bg-[#3052a3] hover:bg-indigo-600 text-slate-950 font-bold py-1.5 rounded"
               >
                 Create
               </button>
@@ -388,21 +388,21 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
                 onClick={() => setSelectedRoleName(role.name)}
                 className={`w-full group relative flex flex-col p-3 rounded-xl font-mono text-xs cursor-pointer border transition ${
                   selectedRoleName === role.name
-                    ? 'bg-slate-950 border-indigo-500/30 shadow'
-                    : 'bg-slate-900/10 border-transparent hover:border-slate-800 hover:bg-slate-900/20'
+                    ? 'bg-[#0f172e] border-[#3052a3]/30 shadow'
+                    : 'bg-[#1a2554]/10 border-transparent hover:border-[#222f5a] hover:bg-[#1a2554]/20'
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className={`font-bold ${selectedRoleName === role.name ? 'text-indigo-400' : 'text-slate-300'}`}>
+                  <span className={`font-bold ${selectedRoleName === role.name ? 'text-[#3052a3]' : 'text-slate-300'}`}>
                     {role.name}
                   </span>
-                  <span className="text-[9px] bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded text-slate-500">
+                  <span className="text-[9px] bg-[#1a2554] border border-[#222f5a] px-1.5 py-0.5 rounded text-slate-500">
                     {role.isSystem ? 'system' : 'custom'}
                   </span>
                 </div>
                 <p className="text-[10px] text-slate-500 line-clamp-1 mt-1">{role.description}</p>
-                <div className="flex items-center justify-between mt-2.5 pt-2 border-t border-slate-900/40">
-                  <span className="text-[9px] text-slate-400">Roster Count: <strong className="text-slate-200">{role.employeeCount} staff</strong></span>
+                <div className="flex items-center justify-between mt-2.5 pt-2 border-t border-[#1a2554]/40">
+                  <span className="text-[9px] text-[#8891ac]">Roster Count: <strong className="text-[#b0b8d4]">{role.employeeCount} staff</strong></span>
                   
                   {/* Actions */}
                   <div className="opacity-0 group-hover:opacity-100 flex items-center space-x-2 transition-opacity">
@@ -411,7 +411,7 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
                         e.stopPropagation();
                         handleCloneRole(role);
                       }}
-                      className="p-1 hover:bg-slate-800 rounded text-slate-400 hover:text-indigo-400 transition"
+                      className="p-1 hover:bg-[#222f5a] rounded text-[#8891ac] hover:text-[#3052a3] transition"
                       title="Clone Permission Set"
                     >
                       <Copy className="w-3 h-3" />
@@ -422,7 +422,7 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
                           e.stopPropagation();
                           handleDeleteRole(role.name);
                         }}
-                        className="p-1 hover:bg-slate-800 rounded text-rose-500 hover:text-rose-400 transition"
+                        className="p-1 hover:bg-[#222f5a] rounded text-rose-500 hover:text-rose-400 transition"
                         title="Delete Role"
                       >
                         <Trash2 className="w-3 h-3" />
@@ -437,17 +437,17 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
       </div>
 
       {/* Permission Builder Panel */}
-      <div className="lg:col-span-8 bg-slate-900/15 border border-slate-900 p-5 rounded-2xl flex flex-col justify-between">
+      <div className="lg:col-span-8 bg-[#1a2554]/15 border border-[#1a2554] p-5 rounded-2xl flex flex-col justify-between">
         <div className="space-y-5">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-900 pb-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#1a2554] pb-3">
             <div>
               <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono">Permission Matrix Mapping</span>
-              <h3 className="text-sm font-bold text-indigo-400 font-mono mt-0.5">
+              <h3 className="text-sm font-bold text-[#3052a3] font-mono mt-0.5">
                 {selectedRole.name} Permission Config
               </h3>
             </div>
             {saveSuccess && (
-              <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/25 px-2.5 py-1 rounded-lg animate-fade-in flex items-center gap-1">
+              <span className="text-[10px] font-mono text-[#10b981] bg-[#10b981]/10 border border-[#10b981]/25 px-2.5 py-1 rounded-lg animate-fade-in flex items-center gap-1">
                 <CheckCircle className="w-3 h-3" /> Updated role authorizations!
               </span>
             )}
@@ -458,11 +458,11 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
             <div className="space-y-5">
               {/* Module access matrix */}
               <div className="space-y-2.5">
-                <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider font-mono flex items-center space-x-1.5">
-                  <Layers className="w-3.5 h-3.5 text-indigo-400" />
+                <span className="text-[10px] text-[#8891ac] font-bold uppercase tracking-wider font-mono flex items-center space-x-1.5">
+                  <Layers className="w-3.5 h-3.5 text-[#3052a3]" />
                   <span>Module Toggles</span>
                 </span>
-                <div className="bg-slate-950/40 border border-slate-900 p-3.5 rounded-xl space-y-2 font-mono text-xs">
+                <div className="bg-[#0f172e]/40 border border-[#1a2554] p-3.5 rounded-xl space-y-2 font-mono text-xs">
                   {[
                     { key: 'pos', label: 'POS Checkout Terminals', desc: 'Allows access to cashier sales screens' },
                     { key: 'inventory', label: 'Warehouse & Catalog Cataloging', desc: 'Allows viewing/editing product stocks' },
@@ -481,10 +481,10 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
                       </div>
                       <button
                         onClick={() => handleToggleModule(m.key as any)}
-                        className="p-1 hover:bg-slate-900 rounded transition"
+                        className="p-1 hover:bg-[#1a2554] rounded transition"
                       >
                         {selectedRole.permissions.modules[m.key as keyof PermissionSchema['modules']] ? (
-                          <ToggleRight className="w-6 h-6 text-indigo-400" />
+                          <ToggleRight className="w-6 h-6 text-[#3052a3]" />
                         ) : (
                           <ToggleLeft className="w-6 h-6 text-slate-600" />
                         )}
@@ -499,11 +499,11 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
             <div className="space-y-5">
               {/* CRUD Matrix */}
               <div className="space-y-2.5">
-                <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider font-mono flex items-center space-x-1.5">
-                  <Lock className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="text-[10px] text-[#8891ac] font-bold uppercase tracking-wider font-mono flex items-center space-x-1.5">
+                  <Lock className="w-3.5 h-3.5 text-[#10b981]" />
                   <span>Action CRUD Authorizations</span>
                 </span>
-                <div className="bg-slate-950/40 border border-slate-900 p-3.5 rounded-xl space-y-3 font-mono text-xs">
+                <div className="bg-[#0f172e]/40 border border-[#1a2554] p-3.5 rounded-xl space-y-3 font-mono text-xs">
                   {[
                     { key: 'create', label: 'Create (C)', desc: 'Grant permission to create and onboard database models' },
                     { key: 'read', label: 'Read (R)', desc: 'Grant permission to query catalogs, profiles, and logs' },
@@ -528,11 +528,11 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
 
               {/* Special Controls */}
               <div className="space-y-2.5">
-                <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider font-mono flex items-center space-x-1.5">
-                  <Key className="w-3.5 h-3.5 text-sky-400" />
+                <span className="text-[10px] text-[#8891ac] font-bold uppercase tracking-wider font-mono flex items-center space-x-1.5">
+                  <Key className="w-3.5 h-3.5 text-[#00d4ff]" />
                   <span>Administrative Security Policies</span>
                 </span>
-                <div className="bg-slate-950/40 border border-slate-900 p-3.5 rounded-xl space-y-4 font-mono text-xs">
+                <div className="bg-[#0f172e]/40 border border-[#1a2554] p-3.5 rounded-xl space-y-4 font-mono text-xs">
                   {/* Approve/Reject Toggle */}
                   <div className="flex items-center justify-between">
                     <div>
@@ -541,10 +541,10 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
                     </div>
                     <button
                       onClick={() => handleFeatureChange('approveReject', !selectedRole.permissions.features.approveReject)}
-                      className="p-1 hover:bg-slate-900 rounded transition shrink-0"
+                      className="p-1 hover:bg-[#1a2554] rounded transition shrink-0"
                     >
                       {selectedRole.permissions.features.approveReject ? (
-                        <ToggleRight className="w-6 h-6 text-emerald-400" />
+                        <ToggleRight className="w-6 h-6 text-[#10b981]" />
                       ) : (
                         <ToggleLeft className="w-6 h-6 text-slate-600" />
                       )}
@@ -552,13 +552,13 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
                   </div>
 
                   {/* Branch Restriction Dropdown */}
-                  <div className="space-y-1.5 pt-2 border-t border-slate-900/60">
+                  <div className="space-y-1.5 pt-2 border-t border-[#1a2554]/60">
                     <span className="font-extrabold text-slate-300 block">Branch Isolation Lockout</span>
                     <span className="text-[9px] text-slate-500 block leading-none mb-1.5">Isolate visibility of records strictly to assigned branch context</span>
                     <select
                       value={selectedRole.permissions.features.branchRestriction}
                       onChange={(e) => handleFeatureChange('branchRestriction', e.target.value as any)}
-                      className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200 text-[11px]"
+                      className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4] text-[11px]"
                     >
                       <option value="none">No Isolation (Global Multi-Branch Access)</option>
                       <option value="assigned_only">Assigned Showroom Isolation Only</option>
@@ -566,13 +566,13 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
                   </div>
 
                   {/* API Authorization level */}
-                  <div className="space-y-1.5 pt-2 border-t border-slate-900/60">
+                  <div className="space-y-1.5 pt-2 border-t border-[#1a2554]/60">
                     <span className="font-extrabold text-slate-300 block">System API Credential Token Scope</span>
                     <span className="text-[9px] text-slate-500 block leading-none mb-1.5">Restricts whether role can pull developer integration keys</span>
                     <select
                       value={selectedRole.permissions.features.apiAccess}
                       onChange={(e) => handleFeatureChange('apiAccess', e.target.value as any)}
-                      className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200 text-[11px]"
+                      className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4] text-[11px]"
                     >
                       <option value="write">Full Read/Write Access (Manage Keys)</option>
                       <option value="read">Read Only (Telemetry check diagnostics)</option>
@@ -581,17 +581,17 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
                   </div>
 
                   {/* Advanced Settings */}
-                  <div className="flex items-center justify-between pt-2 border-t border-slate-900/60">
+                  <div className="flex items-center justify-between pt-2 border-t border-[#1a2554]/60">
                     <div>
                       <span className="font-extrabold text-slate-300 block">Edit System Master Configuration</span>
                       <span className="text-[9px] text-slate-500 block leading-none">Allows altering legal tax parameters or service rates</span>
                     </div>
                     <button
                       onClick={() => handleFeatureChange('advancedSettings', !selectedRole.permissions.features.advancedSettings)}
-                      className="p-1 hover:bg-slate-900 rounded transition shrink-0"
+                      className="p-1 hover:bg-[#1a2554] rounded transition shrink-0"
                     >
                       {selectedRole.permissions.features.advancedSettings ? (
-                        <ToggleRight className="w-6 h-6 text-sky-400" />
+                        <ToggleRight className="w-6 h-6 text-[#00d4ff]" />
                       ) : (
                         <ToggleLeft className="w-6 h-6 text-slate-600" />
                       )}
@@ -605,7 +605,7 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
 
         <button
           onClick={handleSaveAllPermissions}
-          className="w-full mt-6 bg-gradient-to-r from-indigo-500 to-indigo-600 text-slate-950 font-black py-3 rounded-xl uppercase transition hover:opacity-90 flex items-center justify-center space-x-1.5 shadow"
+          className="w-full mt-6 bg-gradient-to-r from-[#3052a3] to-indigo-600 text-slate-950 font-black py-3 rounded-xl uppercase transition hover:opacity-90 flex items-center justify-center space-x-1.5 shadow"
         >
           <Lock className="w-4 h-4 stroke-[2.5]" />
           <span>Save Changes to Access Policies</span>

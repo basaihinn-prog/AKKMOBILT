@@ -315,7 +315,7 @@ export default function EnterpriseAdminDashboard({
           <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             {userRole} Dashboard
           </h1>
-          <p className="text-slate-400 mt-1">Real-time business intelligence & operations</p>
+          <p className="text-[#8891ac] mt-1">Real-time business intelligence & operations</p>
         </div>
 
         <div className="flex items-center gap-3">
@@ -339,7 +339,7 @@ export default function EnterpriseAdminDashboard({
       {/* Search & Filters */}
       <div className="flex flex-col sm:flex-row gap-3 mb-8">
         <div className="flex-1 relative">
-          <Search className="absolute left-3 top-3 text-slate-400" size={18} />
+          <Search className="absolute left-3 top-3 text-[#8891ac]" size={18} />
           <input
             type="text"
             placeholder="Search sales, repairs, employees, customers..."
@@ -359,7 +359,7 @@ export default function EnterpriseAdminDashboard({
                   className="w-full text-left px-4 py-2 hover:bg-slate-600 border-b border-slate-600 last:border-b-0"
                 >
                   <div className="text-sm font-medium">{result.title}</div>
-                  <div className="text-xs text-slate-400">{result.subtitle}</div>
+                  <div className="text-xs text-[#8891ac]">{result.subtitle}</div>
                 </button>
               ))}
             </div>
@@ -463,7 +463,7 @@ export default function EnterpriseAdminDashboard({
           </div>
 
           {/* Sales & Repair Trend Chart */}
-          <div className="bg-slate-800 rounded-lg p-6 shadow-lg">
+          <div className="bg-[#222f5a] rounded-lg p-6 shadow-lg">
             <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
               <LineChartIcon size={20} />
               7-Day Performance Trend
@@ -512,7 +512,7 @@ export default function EnterpriseAdminDashboard({
         <div className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Branch Performance */}
-            <div className="bg-slate-800 rounded-lg p-6 shadow-lg">
+            <div className="bg-[#222f5a] rounded-lg p-6 shadow-lg">
               <h2 className="text-lg font-bold mb-4">Branch Performance</h2>
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={branchPerformance}>
@@ -528,7 +528,7 @@ export default function EnterpriseAdminDashboard({
             </div>
 
             {/* Payment Methods */}
-            <div className="bg-slate-800 rounded-lg p-6 shadow-lg">
+            <div className="bg-[#222f5a] rounded-lg p-6 shadow-lg">
               <h2 className="text-lg font-bold mb-4">Payment Methods Distribution</h2>
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
@@ -553,7 +553,7 @@ export default function EnterpriseAdminDashboard({
           </div>
 
           {/* Repair Status Distribution */}
-          <div className="bg-slate-800 rounded-lg p-6 shadow-lg">
+          <div className="bg-[#222f5a] rounded-lg p-6 shadow-lg">
             <h2 className="text-lg font-bold mb-4">Repair Status Breakdown</h2>
             <ResponsiveContainer width="100%" height={250}>
               <BarChart data={repairStatusDistribution} layout="vertical">
@@ -572,7 +572,7 @@ export default function EnterpriseAdminDashboard({
       {activeTab === 'search' && (
         <div className="space-y-4">
           <div className="relative">
-            <Search className="absolute left-3 top-3 text-slate-400" size={20} />
+            <Search className="absolute left-3 top-3 text-[#8891ac]" size={20} />
             <input
               type="text"
               placeholder="Search across all data..."
@@ -586,24 +586,24 @@ export default function EnterpriseAdminDashboard({
           {searchResults.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {searchResults.map(result => (
-                <div key={`${result.type}-${result.id}`} className="bg-slate-800 rounded-lg p-4 hover:bg-slate-700 cursor-pointer transition">
+                <div key={`${result.type}-${result.id}`} className="bg-[#222f5a] rounded-lg p-4 hover:bg-slate-700 cursor-pointer transition">
                   <div className="flex items-center gap-3">
                     {result.type === 'sale' && <DollarSign size={20} className="text-blue-400" />}
                     {result.type === 'repair' && <Zap size={20} className="text-amber-400" />}
-                    {result.type === 'employee' && <Users size={20} className="text-emerald-400" />}
+                    {result.type === 'employee' && <Users size={20} className="text-[#10b981]" />}
                     {result.type === 'customer' && <Users size={20} className="text-purple-400" />}
                     <div>
                       <p className="font-medium">{result.title}</p>
-                      <p className="text-sm text-slate-400">{result.subtitle}</p>
+                      <p className="text-sm text-[#8891ac]">{result.subtitle}</p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <div className="bg-slate-800 rounded-lg p-8 text-center">
+            <div className="bg-[#222f5a] rounded-lg p-8 text-center">
               <Search size={40} className="mx-auto text-slate-600 mb-4" />
-              <p className="text-slate-400">
+              <p className="text-[#8891ac]">
                 {searchQuery ? 'No results found' : 'Enter a search term to find sales, repairs, employees, or customers'}
               </p>
             </div>
@@ -618,7 +618,7 @@ export default function EnterpriseAdminDashboard({
             notifications.map(notif => (
               <div
                 key={notif.id}
-                className={`bg-slate-800 rounded-lg p-4 border-l-4 ${
+                className={`bg-[#222f5a] rounded-lg p-4 border-l-4 ${
                   notif.type === 'warning'
                     ? 'border-l-amber-400'
                     : notif.type === 'error'
@@ -634,7 +634,7 @@ export default function EnterpriseAdminDashboard({
                     {notif.type === 'success' && <CheckCircle size={20} className="text-green-400 mt-0.5 flex-shrink-0" />}
                     <div>
                       <p className="font-medium">{notif.title}</p>
-                      <p className="text-sm text-slate-400 mt-1">{notif.message}</p>
+                      <p className="text-sm text-[#8891ac] mt-1">{notif.message}</p>
                       <p className="text-xs text-slate-500 mt-2">
                         <Clock size={12} className="inline mr-1" />
                         {new Date(notif.createdAt).toLocaleString()}
@@ -646,9 +646,9 @@ export default function EnterpriseAdminDashboard({
               </div>
             ))
           ) : (
-            <div className="bg-slate-800 rounded-lg p-8 text-center">
+            <div className="bg-[#222f5a] rounded-lg p-8 text-center">
               <Bell size={40} className="mx-auto text-slate-600 mb-4" />
-              <p className="text-slate-400">No notifications at this time</p>
+              <p className="text-[#8891ac]">No notifications at this time</p>
             </div>
           )}
         </div>
@@ -676,9 +676,9 @@ export default function EnterpriseAdminDashboard({
                 </div>
                 <div className="pb-6">
                   <p className="font-medium">
-                    {item.userName} <span className="text-slate-400">{item.action}d</span>
+                    {item.userName} <span className="text-[#8891ac]">{item.action}d</span>
                   </p>
-                  <p className="text-sm text-slate-400">{item.resourceName}</p>
+                  <p className="text-sm text-[#8891ac]">{item.resourceName}</p>
                   <p className="text-xs text-slate-500 mt-1">
                     {new Date(item.timestamp).toLocaleString()}
                   </p>

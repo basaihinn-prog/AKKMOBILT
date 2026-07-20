@@ -190,7 +190,7 @@ export default function BranchManagementModule({
             <Building size={32} className="text-blue-400" />
             Branch Management
           </h1>
-          <p className="text-slate-400 mt-1">{branches.length} locations • Manage hierarchy, users & performance</p>
+          <p className="text-[#8891ac] mt-1">{branches.length} locations • Manage hierarchy, users & performance</p>
         </div>
 
         <button
@@ -232,7 +232,7 @@ export default function BranchManagementModule({
           {/* Search & Filter */}
           <div className="flex flex-col sm:flex-row gap-3">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-3 text-slate-400" size={18} />
+              <Search className="absolute left-3 top-3 text-[#8891ac]" size={18} />
               <input
                 type="text"
                 placeholder="Search branches by name or city..."
@@ -263,7 +263,7 @@ export default function BranchManagementModule({
                     setSelectedBranch(branch);
                     setActiveView('detail');
                   }}
-                  className="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-blue-500 hover:shadow-lg transition cursor-pointer"
+                  className="bg-[#222f5a] border border-slate-700 rounded-lg p-6 hover:border-blue-500 hover:shadow-lg transition cursor-pointer"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-start gap-3">
@@ -272,13 +272,13 @@ export default function BranchManagementModule({
                       </div>
                       <div>
                         <h3 className="font-bold text-lg">{branch.name}</h3>
-                        <p className="text-sm text-slate-400 flex items-center gap-1 mt-1">
+                        <p className="text-sm text-[#8891ac] flex items-center gap-1 mt-1">
                           <MapPin size={14} />
                           {branch.city}
                         </p>
                       </div>
                     </div>
-                    <div className="bg-emerald-600/20 text-emerald-400 px-2 py-1 rounded text-xs font-medium">
+                    <div className="bg-emerald-600/20 text-[#10b981] px-2 py-1 rounded text-xs font-medium">
                       Active
                     </div>
                   </div>
@@ -286,25 +286,25 @@ export default function BranchManagementModule({
                   {metrics && (
                     <div className="space-y-3 pt-4 border-t border-slate-700">
                       <div className="flex items-center justify-between text-sm">
-                        <span className="text-slate-400 flex items-center gap-1">
+                        <span className="text-[#8891ac] flex items-center gap-1">
                           <DollarSign size={14} /> Revenue
                         </span>
                         <span className="font-bold">{(metrics.monthlyRevenue / 1000000).toFixed(1)}M MMK</span>
                       </div>
                       <div className="flex items-center justify-between text-sm">
-                        <span className="text-slate-400 flex items-center gap-1">
+                        <span className="text-[#8891ac] flex items-center gap-1">
                           <Users size={14} /> Staff
                         </span>
                         <span className="font-bold">{metrics.staffCount}</span>
                       </div>
                       <div className="flex items-center justify-between text-sm">
-                        <span className="text-slate-400 flex items-center gap-1">
+                        <span className="text-[#8891ac] flex items-center gap-1">
                           <Package size={14} /> Inventory
                         </span>
                         <span className="font-bold">{metrics.totalInventory} units</span>
                       </div>
                       <div className="flex items-center justify-between text-sm">
-                        <span className="text-slate-400">Rating</span>
+                        <span className="text-[#8891ac]">Rating</span>
                         <span className="font-bold text-amber-400">★ {metrics.avgRating}</span>
                       </div>
                     </div>
@@ -341,25 +341,25 @@ export default function BranchManagementModule({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Branch Info */}
             <div className="lg:col-span-1 space-y-4">
-              <div className="bg-slate-800 rounded-lg p-6">
+              <div className="bg-[#222f5a] rounded-lg p-6">
                 <h2 className="text-xl font-bold mb-4">{selectedBranch.name}</h2>
                 <div className="space-y-3">
                   <div>
-                    <p className="text-slate-400 text-sm">Location</p>
+                    <p className="text-[#8891ac] text-sm">Location</p>
                     <p className="font-medium flex items-center gap-2 mt-1">
                       <MapPin size={16} className="text-blue-400" />
                       {selectedBranch.city}
                     </p>
                   </div>
                   <div>
-                    <p className="text-slate-400 text-sm">Manager</p>
+                    <p className="text-[#8891ac] text-sm">Manager</p>
                     <p className="font-medium flex items-center gap-2 mt-1">
-                      <Users size={16} className="text-emerald-400" />
+                      <Users size={16} className="text-[#10b981]" />
                       {selectedBranch.manager}
                     </p>
                   </div>
                   <div>
-                    <p className="text-slate-400 text-sm">Contact</p>
+                    <p className="text-[#8891ac] text-sm">Contact</p>
                     <p className="font-medium flex items-center gap-2 mt-1">
                       <Phone size={16} className="text-amber-400" />
                       {selectedBranch.phone}
@@ -370,18 +370,18 @@ export default function BranchManagementModule({
 
               {/* Quick Stats */}
               {branchMetrics.find(m => m.branchId === selectedBranch.id) && (
-                <div className="bg-slate-800 rounded-lg p-6">
+                <div className="bg-[#222f5a] rounded-lg p-6">
                   <h3 className="font-bold mb-4">Key Metrics</h3>
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-slate-400">Compliance</span>
-                      <span className="font-bold text-emerald-400">
+                      <span className="text-[#8891ac]">Compliance</span>
+                      <span className="font-bold text-[#10b981]">
                         {branchMetrics.find(m => m.branchId === selectedBranch.id)?.complianceScore}%
                       </span>
                     </div>
                     <div className="w-full bg-slate-700 rounded-full h-2">
                       <div
-                        className="bg-emerald-500 h-2 rounded-full"
+                        className="bg-[#10b981] h-2 rounded-full"
                         style={{
                           width: `${branchMetrics.find(m => m.branchId === selectedBranch.id)?.complianceScore}%`,
                         }}
@@ -395,7 +395,7 @@ export default function BranchManagementModule({
             {/* Branch Staff & Transfers */}
             <div className="lg:col-span-2 space-y-6">
               {/* Staff List */}
-              <div className="bg-slate-800 rounded-lg p-6">
+              <div className="bg-[#222f5a] rounded-lg p-6">
                 <h3 className="font-bold mb-4 flex items-center gap-2">
                   <Users size={20} />
                   Team Members ({branchUsers[selectedBranch.id]?.length || 0})
@@ -405,11 +405,11 @@ export default function BranchManagementModule({
                     <div key={user.id} className="flex items-center justify-between bg-slate-700 p-3 rounded-lg">
                       <div>
                         <p className="font-medium">{user.name}</p>
-                        <p className="text-sm text-slate-400">{user.role}</p>
+                        <p className="text-sm text-[#8891ac]">{user.role}</p>
                       </div>
                       <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                        <span className="text-sm text-slate-400">Active</span>
+                        <div className="w-2 h-2 bg-[#10b981] rounded-full"></div>
+                        <span className="text-sm text-[#8891ac]">Active</span>
                       </div>
                     </div>
                   ))}
@@ -421,7 +421,7 @@ export default function BranchManagementModule({
               </div>
 
               {/* Recent Transfers */}
-              <div className="bg-slate-800 rounded-lg p-6">
+              <div className="bg-[#222f5a] rounded-lg p-6">
                 <h3 className="font-bold mb-4 flex items-center gap-2">
                   <Package size={20} />
                   Stock Transfers
@@ -436,7 +436,7 @@ export default function BranchManagementModule({
                             {branches.find(b => b.id === transfer.fromBranch)?.name} →{' '}
                             {branches.find(b => b.id === transfer.toBranch)?.name}
                           </p>
-                          <p className="text-xs text-slate-400">{transfer.quantity} units</p>
+                          <p className="text-xs text-[#8891ac]">{transfer.quantity} units</p>
                         </div>
                         <div className="flex items-center gap-2">
                           {transfer.status === 'pending' && (
@@ -453,8 +453,8 @@ export default function BranchManagementModule({
                           )}
                           {transfer.status === 'delivered' && (
                             <>
-                              <CheckCircle size={14} className="text-emerald-400" />
-                              <span className="text-xs text-emerald-400">Delivered</span>
+                              <CheckCircle size={14} className="text-[#10b981]" />
+                              <span className="text-xs text-[#10b981]">Delivered</span>
                             </>
                           )}
                         </div>
@@ -472,7 +472,7 @@ export default function BranchManagementModule({
         <div className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Revenue & Performance */}
-            <div className="bg-slate-800 rounded-lg p-6">
+            <div className="bg-[#222f5a] rounded-lg p-6">
               <h2 className="text-lg font-bold mb-4">Branch Performance</h2>
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={performanceData}>
@@ -488,7 +488,7 @@ export default function BranchManagementModule({
             </div>
 
             {/* Inventory Distribution */}
-            <div className="bg-slate-800 rounded-lg p-6">
+            <div className="bg-[#222f5a] rounded-lg p-6">
               <h2 className="text-lg font-bold mb-4">Inventory Distribution</h2>
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
@@ -513,18 +513,18 @@ export default function BranchManagementModule({
           </div>
 
           {/* Compliance Scores */}
-          <div className="bg-slate-800 rounded-lg p-6">
+          <div className="bg-[#222f5a] rounded-lg p-6">
             <h2 className="text-lg font-bold mb-4">Compliance Scores</h2>
             <div className="space-y-4">
               {branchMetrics.map(metric => (
                 <div key={metric.branchId}>
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-medium">{metric.branchName}</span>
-                    <span className="font-bold text-emerald-400">{metric.complianceScore}%</span>
+                    <span className="font-bold text-[#10b981]">{metric.complianceScore}%</span>
                   </div>
                   <div className="w-full bg-slate-700 rounded-full h-2">
                     <div
-                      className="bg-gradient-to-r from-blue-500 to-emerald-500 h-2 rounded-full"
+                      className="bg-gradient-to-r from-blue-500 to-[#10b981] h-2 rounded-full"
                       style={{ width: `${metric.complianceScore}%` }}
                     />
                   </div>
@@ -537,22 +537,22 @@ export default function BranchManagementModule({
 
       {/* HIERARCHY VIEW */}
       {activeView === 'hierarchy' && (
-        <div className="bg-slate-800 rounded-lg p-6">
+        <div className="bg-[#222f5a] rounded-lg p-6">
           <h2 className="text-lg font-bold mb-6">Organization Hierarchy</h2>
           <div className="space-y-4">
             <div className="border-l-2 border-blue-500 pl-6 py-4">
               <div className="font-bold text-lg text-blue-400">AKK Mobile Enterprise</div>
-              <p className="text-slate-400 text-sm mt-1">Head Office</p>
+              <p className="text-[#8891ac] text-sm mt-1">Head Office</p>
 
               <div className="mt-6 space-y-4 border-l-2 border-slate-600 pl-6">
                 {branches.map(branch => (
                   <div key={branch.id} className="border-l-2 border-slate-600 pl-6 py-3">
-                    <div className="font-medium text-emerald-400">{branch.name}</div>
-                    <div className="text-sm text-slate-400 mt-1 flex items-center gap-2">
+                    <div className="font-medium text-[#10b981]">{branch.name}</div>
+                    <div className="text-sm text-[#8891ac] mt-1 flex items-center gap-2">
                       <Users size={14} />
                       Manager: {branch.manager}
                     </div>
-                    <div className="text-sm text-slate-400 flex items-center gap-2">
+                    <div className="text-sm text-[#8891ac] flex items-center gap-2">
                       <MapPin size={14} />
                       {branch.city}
                     </div>

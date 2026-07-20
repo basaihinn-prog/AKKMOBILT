@@ -182,12 +182,12 @@ export default function AdminBranchView({
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6" id="branch-manager-root">
       
       {/* 1. Branch Selector List */}
-      <div className="lg:col-span-4 bg-slate-900/15 border border-slate-900 p-4 rounded-2xl space-y-4">
+      <div className="lg:col-span-4 bg-[#1a2554]/15 border border-[#1a2554] p-4 rounded-2xl space-y-4">
         <div className="flex items-center justify-between">
           <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono">Branch Registry</span>
           <button
             onClick={() => setIsAddingBranch(true)}
-            className="p-1 hover:bg-slate-850 border border-slate-800 rounded text-amber-400 font-bold text-[10px] flex items-center space-x-1 transition"
+            className="p-1 hover:bg-slate-850 border border-[#222f5a] rounded text-amber-400 font-bold text-[10px] flex items-center space-x-1 transition"
           >
             <Plus className="w-3.5 h-3.5" />
             <span className="font-mono">Create Branch</span>
@@ -195,62 +195,62 @@ export default function AdminBranchView({
         </div>
 
         {isAddingBranch ? (
-          <form onSubmit={handleAddBranchSubmit} className="bg-slate-950 p-4 rounded-xl border border-slate-850 space-y-3 font-mono text-xs">
-            <span className="text-[10px] text-amber-400 font-black uppercase block border-b border-slate-900 pb-1.5">Create Showroom Branch</span>
+          <form onSubmit={handleAddBranchSubmit} className="bg-[#0f172e] p-4 rounded-xl border border-slate-850 space-y-3 font-mono text-xs">
+            <span className="text-[10px] text-amber-400 font-black uppercase block border-b border-[#1a2554] pb-1.5">Create Showroom Branch</span>
             
             <div className="space-y-1">
-              <label className="text-slate-400 text-[10px]">Showroom Name</label>
+              <label className="text-[#8891ac] text-[10px]">Showroom Name</label>
               <input
                 type="text"
                 required
                 value={newBranch.name}
                 onChange={(e) => setNewBranch({ ...newBranch, name: e.target.value })}
                 placeholder="e.g. Pyay Road Branch"
-                className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200 outline-none"
+                className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4] outline-none"
               />
             </div>
 
             <div className="space-y-1">
-              <label className="text-slate-400 text-[10px]">City Location</label>
+              <label className="text-[#8891ac] text-[10px]">City Location</label>
               <input
                 type="text"
                 required
                 value={newBranch.city}
                 onChange={(e) => setNewBranch({ ...newBranch, city: e.target.value })}
                 placeholder="e.g. Yangon"
-                className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200 outline-none"
+                className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4] outline-none"
               />
             </div>
 
             <div className="grid grid-cols-2 gap-2">
               <div className="space-y-1">
-                <label className="text-slate-400 text-[10px]">Branch Manager</label>
+                <label className="text-[#8891ac] text-[10px]">Branch Manager</label>
                 <input
                   type="text"
                   required
                   value={newBranch.manager}
                   onChange={(e) => setNewBranch({ ...newBranch, manager: e.target.value })}
                   placeholder="e.g. U Zaw Myo"
-                  className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200 outline-none"
+                  className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4] outline-none"
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-slate-400 text-[10px]">Phone contact</label>
+                <label className="text-[#8891ac] text-[10px]">Phone contact</label>
                 <input
                   type="tel"
                   value={newBranch.phone}
                   onChange={(e) => setNewBranch({ ...newBranch, phone: e.target.value })}
                   placeholder="09..."
-                  className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200 outline-none"
+                  className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4] outline-none"
                 />
               </div>
             </div>
 
-            <div className="flex gap-2 pt-2 border-t border-slate-900">
+            <div className="flex gap-2 pt-2 border-t border-[#1a2554]">
               <button
                 type="button"
                 onClick={() => setIsAddingBranch(false)}
-                className="flex-1 bg-slate-900 text-slate-400 py-2 rounded font-bold hover:text-slate-200"
+                className="flex-1 bg-[#1a2554] text-[#8891ac] py-2 rounded font-bold hover:text-[#b0b8d4]"
               >
                 Cancel
               </button>
@@ -270,32 +270,32 @@ export default function AdminBranchView({
                 onClick={() => setSelectedBranchId(b.id as BranchId)}
                 className={`group relative flex flex-col p-3 rounded-xl border font-mono text-xs cursor-pointer transition ${
                   selectedBranchId === b.id
-                    ? 'bg-slate-950 border-amber-500/20 shadow'
-                    : 'bg-slate-900/10 border-transparent hover:border-slate-850 hover:bg-slate-900/25'
+                    ? 'bg-[#0f172e] border-amber-500/20 shadow'
+                    : 'bg-[#1a2554]/10 border-transparent hover:border-slate-850 hover:bg-[#1a2554]/25'
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className={`font-extrabold block ${selectedBranchId === b.id ? 'text-amber-400' : 'text-slate-200'}`}>
+                  <span className={`font-extrabold block ${selectedBranchId === b.id ? 'text-amber-400' : 'text-[#b0b8d4]'}`}>
                     {b.name}
                   </span>
-                  <span className="text-[9px] bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded text-slate-500 uppercase font-bold">
+                  <span className="text-[9px] bg-[#1a2554] border border-[#222f5a] px-1.5 py-0.5 rounded text-slate-500 uppercase font-bold">
                     {b.city}
                   </span>
                 </div>
-                <div className="flex items-center space-x-2 mt-2 text-[10px] text-slate-400">
+                <div className="flex items-center space-x-2 mt-2 text-[10px] text-[#8891ac]">
                   <User className="w-3 h-3 text-slate-500" />
                   <span>Manager:</span>
                   <strong className="text-slate-300">{b.manager}</strong>
                 </div>
 
-                <div className="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-900/50">
-                  <span className="text-[9px] text-slate-500">Code: <strong className="text-slate-400 uppercase">{b.id}</strong></span>
+                <div className="flex items-center justify-between mt-3 pt-2.5 border-t border-[#1a2554]/50">
+                  <span className="text-[9px] text-slate-500">Code: <strong className="text-[#8891ac] uppercase">{b.id}</strong></span>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       handleDeleteBranch(b.id);
                     }}
-                    className="opacity-0 group-hover:opacity-100 p-1 hover:bg-slate-900 rounded text-rose-500 hover:text-rose-400 transition"
+                    className="opacity-0 group-hover:opacity-100 p-1 hover:bg-[#1a2554] rounded text-rose-500 hover:text-rose-400 transition"
                     title="Close Showroom"
                   >
                     <Trash2 className="w-3 h-3" />
@@ -310,13 +310,13 @@ export default function AdminBranchView({
       {/* 2. Dynamic Showroom Viewport */}
       <div className="lg:col-span-8 space-y-6">
         {/* Sub-menu Navigation tabs for active branch */}
-        <div className="flex flex-wrap items-center gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-900 font-mono text-[11px] font-bold">
+        <div className="flex flex-wrap items-center gap-1.5 bg-[#0f172e] p-1 rounded-xl border border-[#1a2554] font-mono text-[11px] font-bold">
           <button
             onClick={() => setActiveSubView('dashboard')}
             className={`flex-1 px-3 py-1.5 rounded-lg transition-all text-center ${
               activeSubView === 'dashboard'
                 ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-[#8891ac] hover:text-[#b0b8d4]'
             }`}
           >
             Showroom KPIs
@@ -326,7 +326,7 @@ export default function AdminBranchView({
             className={`flex-1 px-3 py-1.5 rounded-lg transition-all text-center ${
               activeSubView === 'inventory'
                 ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-[#8891ac] hover:text-[#b0b8d4]'
             }`}
           >
             Inventory Stock
@@ -336,7 +336,7 @@ export default function AdminBranchView({
             className={`flex-1 px-3 py-1.5 rounded-lg transition-all text-center ${
               activeSubView === 'transfers'
                 ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-[#8891ac] hover:text-[#b0b8d4]'
             }`}
           >
             Inter-Branch Transfers ({inboundTransfers.length + outboundTransfers.length})
@@ -346,7 +346,7 @@ export default function AdminBranchView({
             className={`flex-1 px-3 py-1.5 rounded-lg transition-all text-center ${
               activeSubView === 'staff'
                 ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-[#8891ac] hover:text-[#b0b8d4]'
             }`}
           >
             Store Personnel ({branchEmployees.length})
@@ -354,18 +354,18 @@ export default function AdminBranchView({
         </div>
 
         {/* Dynamic content card view */}
-        <div className="bg-slate-900/15 border border-slate-900 p-5 rounded-2xl min-h-[400px]">
+        <div className="bg-[#1a2554]/15 border border-[#1a2554] p-5 rounded-2xl min-h-[400px]">
           
           {/* A. BRANCH DASHBOARD */}
           {activeSubView === 'dashboard' && (
             <div className="space-y-6 font-mono text-xs">
-              <div className="border-b border-slate-900 pb-3">
+              <div className="border-b border-[#1a2554] pb-3">
                 <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Showroom Performance overview</span>
-                <h3 className="text-base font-extrabold text-slate-100 flex items-center gap-2 mt-1">
+                <h3 className="text-base font-extrabold text-[#f0f4ff] flex items-center gap-2 mt-1">
                   <Building2 className="w-5 h-5 text-amber-400" />
                   <span>{selectedBranch.name}</span>
                 </h3>
-                <div className="flex items-center space-x-2 text-[10px] text-slate-400 mt-1">
+                <div className="flex items-center space-x-2 text-[10px] text-[#8891ac] mt-1">
                   <MapPin className="w-3.5 h-3.5 text-slate-500" />
                   <span>Location: {selectedBranch.city} Division</span>
                   <span className="text-slate-600">•</span>
@@ -376,32 +376,32 @@ export default function AdminBranchView({
 
               {/* Local KPIs */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="bg-slate-950/40 border border-slate-900 p-3.5 rounded-xl space-y-1">
+                <div className="bg-[#0f172e]/40 border border-[#1a2554] p-3.5 rounded-xl space-y-1">
                   <div className="flex items-center justify-between">
                     <span className="text-[9px] text-slate-500 uppercase font-bold">Total Sales</span>
-                    <DollarSign className="w-3.5 h-3.5 text-emerald-400" />
+                    <DollarSign className="w-3.5 h-3.5 text-[#10b981]" />
                   </div>
-                  <strong className="text-base text-emerald-400 font-black block">
+                  <strong className="text-base text-[#10b981] font-black block">
                     {branchSalesCurrent.toLocaleString()} MMK
                   </strong>
                   <span className="text-[9px] text-slate-500">Accumulated this month</span>
                 </div>
 
-                <div className="bg-slate-950/40 border border-slate-900 p-3.5 rounded-xl space-y-1">
+                <div className="bg-[#0f172e]/40 border border-[#1a2554] p-3.5 rounded-xl space-y-1">
                   <div className="flex items-center justify-between">
                     <span className="text-[9px] text-slate-500 uppercase font-bold">Showroom stock valuation</span>
                     <Package className="w-3.5 h-3.5 text-amber-400" />
                   </div>
-                  <strong className="text-base text-slate-200 font-black block">
+                  <strong className="text-base text-[#b0b8d4] font-black block">
                     {totalValuation.toLocaleString()} MMK
                   </strong>
                   <span className="text-[9px] text-slate-500">{totalStockUnits} units currently in-store</span>
                 </div>
 
-                <div className="bg-slate-950/40 border border-slate-900 p-3.5 rounded-xl space-y-1">
+                <div className="bg-[#0f172e]/40 border border-[#1a2554] p-3.5 rounded-xl space-y-1">
                   <div className="flex items-center justify-between">
                     <span className="text-[9px] text-slate-500 uppercase font-bold">Staffing Density</span>
-                    <Users className="w-3.5 h-3.5 text-indigo-400" />
+                    <Users className="w-3.5 h-3.5 text-[#3052a3]" />
                   </div>
                   <strong className="text-base text-indigo-300 font-black block">
                     {branchEmployees.length} active employees
@@ -411,14 +411,14 @@ export default function AdminBranchView({
               </div>
 
               {/* Progress toward targets */}
-              <div className="bg-slate-950/40 border border-slate-900 p-4 rounded-xl space-y-3">
+              <div className="bg-[#0f172e]/40 border border-[#1a2554] p-4 rounded-xl space-y-3">
                 <div className="flex justify-between items-baseline text-[10px]">
-                  <span className="text-slate-400 font-bold uppercase tracking-wider text-[9px] block">Showroom target achievement</span>
+                  <span className="text-[#8891ac] font-bold uppercase tracking-wider text-[9px] block">Showroom target achievement</span>
                   <strong className="text-amber-400 font-extrabold">{branchRevenuePct}% Achieved</strong>
                 </div>
                 
                 {/* Visual line progress */}
-                <div className="w-full bg-slate-900 h-3 rounded-full overflow-hidden border border-slate-850">
+                <div className="w-full bg-[#1a2554] h-3 rounded-full overflow-hidden border border-slate-850">
                   <div
                     className="bg-gradient-to-r from-amber-500 to-amber-400 h-full rounded-full transition-all duration-500"
                     style={{ width: `${branchRevenuePct}%` }}
@@ -436,28 +436,28 @@ export default function AdminBranchView({
           {/* B. BRANCH INVENTORY */}
           {activeSubView === 'inventory' && (
             <div className="space-y-4 font-mono text-xs">
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-900 pb-3">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#1a2554] pb-3">
                 <div>
-                  <h4 className="font-extrabold text-slate-200 uppercase text-[11px]">Showroom Stock Catalog</h4>
+                  <h4 className="font-extrabold text-[#b0b8d4] uppercase text-[11px]">Showroom Stock Catalog</h4>
                   <span className="text-[9px] text-slate-500 block">Query inventory specific to {selectedBranch.name}</span>
                 </div>
-                <div className="relative w-48 bg-slate-950 border border-slate-800 rounded p-1 flex items-center space-x-1">
+                <div className="relative w-48 bg-[#0f172e] border border-[#222f5a] rounded p-1 flex items-center space-x-1">
                   <Search className="w-3.5 h-3.5 text-slate-500" />
                   <input
                     type="text"
                     value={inventorySearch}
                     onChange={(e) => setInventorySearch(e.target.value)}
                     placeholder="Search brand/model..."
-                    className="w-full bg-transparent outline-none text-[10px] text-slate-200"
+                    className="w-full bg-transparent outline-none text-[10px] text-[#b0b8d4]"
                   />
                 </div>
               </div>
 
               {/* Inventory Table */}
               <div className="overflow-x-auto">
-                <table className="w-full text-[11px] text-slate-400 border-collapse">
+                <table className="w-full text-[11px] text-[#8891ac] border-collapse">
                   <thead>
-                    <tr className="border-b border-slate-900 text-left text-slate-500 font-bold uppercase">
+                    <tr className="border-b border-[#1a2554] text-left text-slate-500 font-bold uppercase">
                       <th className="py-2.5 pr-2">Brand & Product Model</th>
                       <th className="py-2.5 text-right px-2">Retail Price (MMK)</th>
                       <th className="py-2.5 text-center px-2">Stock Level</th>
@@ -472,9 +472,9 @@ export default function AdminBranchView({
                         const valuation = item.productPrice * item.stock;
 
                         return (
-                          <tr key={idx} className="border-b border-slate-900/50 hover:bg-slate-900/10">
+                          <tr key={idx} className="border-b border-[#1a2554]/50 hover:bg-[#1a2554]/10">
                             <td className="py-2 pr-2">
-                              <span className="font-extrabold text-slate-200 block">{item.productName}</span>
+                              <span className="font-extrabold text-[#b0b8d4] block">{item.productName}</span>
                               <span className="text-[9px] text-slate-500 block uppercase">{item.productBrand} • SKU: {item.productId}</span>
                             </td>
                             <td className="py-2 text-right px-2 text-slate-300 font-bold">
@@ -482,7 +482,7 @@ export default function AdminBranchView({
                             </td>
                             <td className="py-2 text-center px-2">
                               <span className={`font-black px-2 py-0.5 rounded text-[10px] ${
-                                lowStock ? 'bg-rose-500/10 text-rose-400 border border-rose-500/15 animate-pulse' : 'bg-slate-950 text-slate-300'
+                                lowStock ? 'bg-rose-500/10 text-rose-400 border border-rose-500/15 animate-pulse' : 'bg-[#0f172e] text-slate-300'
                               }`}>
                                 {item.stock} units
                               </span>
@@ -490,7 +490,7 @@ export default function AdminBranchView({
                             <td className="py-2 text-center px-2 text-slate-500 font-bold">
                               {item.minAlertThreshold} units
                             </td>
-                            <td className="py-2 text-right pl-2 text-emerald-400 font-extrabold">
+                            <td className="py-2 text-right pl-2 text-[#10b981] font-extrabold">
                               {valuation.toLocaleString()}
                             </td>
                           </tr>
@@ -510,15 +510,15 @@ export default function AdminBranchView({
           {/* C. BRANCH TRANSFERS */}
           {activeSubView === 'transfers' && (
             <div className="space-y-6 font-mono text-xs">
-              <div className="flex items-center justify-between border-b border-slate-900 pb-3">
+              <div className="flex items-center justify-between border-b border-[#1a2554] pb-3">
                 <div>
-                  <h4 className="font-extrabold text-slate-200 uppercase text-[11px]">Inter-Branch Logistics Ledger</h4>
+                  <h4 className="font-extrabold text-[#b0b8d4] uppercase text-[11px]">Inter-Branch Logistics Ledger</h4>
                   <span className="text-[9px] text-slate-500 block">Manage transfer pipelines for {selectedBranch.name}</span>
                 </div>
                 
                 <button
                   onClick={() => setIsTransferringStock(true)}
-                  className="bg-slate-950 hover:bg-slate-900 border border-slate-800 text-amber-400 px-2.5 py-1.5 rounded-lg text-[10px] font-bold flex items-center space-x-1"
+                  className="bg-[#0f172e] hover:bg-[#1a2554] border border-[#222f5a] text-amber-400 px-2.5 py-1.5 rounded-lg text-[10px] font-bold flex items-center space-x-1"
                 >
                   <ArrowRightLeft className="w-3.5 h-3.5" />
                   <span>Execute Transfer Out</span>
@@ -526,8 +526,8 @@ export default function AdminBranchView({
               </div>
 
               {isTransferringStock && (
-                <form onSubmit={handleExecuteTransfer} className="bg-slate-950 border border-slate-850 p-4 rounded-xl space-y-3">
-                  <span className="text-[10px] text-amber-400 font-black uppercase block border-b border-slate-900 pb-1.5">Initiate Inter-Branch Transfer Request</span>
+                <form onSubmit={handleExecuteTransfer} className="bg-[#0f172e] border border-slate-850 p-4 rounded-xl space-y-3">
+                  <span className="text-[10px] text-amber-400 font-black uppercase block border-b border-[#1a2554] pb-1.5">Initiate Inter-Branch Transfer Request</span>
                   
                   {transferError && (
                     <div className="bg-rose-500/10 border border-rose-500/25 p-2.5 rounded-lg text-rose-400 text-[10px] font-bold">
@@ -537,11 +537,11 @@ export default function AdminBranchView({
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div className="space-y-1">
-                      <label className="text-slate-400 text-[10px]">Select Product SKU</label>
+                      <label className="text-[#8891ac] text-[10px]">Select Product SKU</label>
                       <select
                         value={transferProdId}
                         onChange={(e) => setTransferProdId(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200"
+                        className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4]"
                         required
                       >
                         <option value="">-- Select Product --</option>
@@ -557,11 +557,11 @@ export default function AdminBranchView({
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-slate-400 text-[10px]">Destination Branch</label>
+                      <label className="text-[#8891ac] text-[10px]">Destination Branch</label>
                       <select
                         value={transferTargetBranch}
                         onChange={(e) => setTransferTargetBranch(e.target.value as BranchId)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200"
+                        className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4]"
                       >
                         {branches.filter(b => b.id !== selectedBranchId).map((b) => (
                           <option key={b.id} value={b.id}>
@@ -572,13 +572,13 @@ export default function AdminBranchView({
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-slate-400 text-[10px]">Quantity to Dispatch</label>
+                      <label className="text-[#8891ac] text-[10px]">Quantity to Dispatch</label>
                       <input
                         type="number"
                         required
                         value={transferQty}
                         onChange={(e) => setTransferQty(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200"
+                        className="w-full bg-[#1a2554] border border-[#222f5a] rounded p-1.5 text-[#b0b8d4]"
                       />
                     </div>
                   </div>
@@ -587,7 +587,7 @@ export default function AdminBranchView({
                     <button
                       type="button"
                       onClick={() => setIsTransferringStock(false)}
-                      className="flex-1 bg-slate-900 text-slate-400 py-1.5 rounded hover:text-slate-200 font-bold"
+                      className="flex-1 bg-[#1a2554] text-[#8891ac] py-1.5 rounded hover:text-[#b0b8d4] font-bold"
                     >
                       Cancel
                     </button>
@@ -603,13 +603,13 @@ export default function AdminBranchView({
 
               {/* Transfers tables: Incoming vs Outgoing */}
               <div className="space-y-4">
-                <span className="text-[10px] text-indigo-400 font-black uppercase tracking-wider block">Inbound shipments heading here</span>
+                <span className="text-[10px] text-[#3052a3] font-black uppercase tracking-wider block">Inbound shipments heading here</span>
                 <div className="space-y-2">
                   {inboundTransfers.length > 0 ? (
                     inboundTransfers.map((t) => (
-                      <div key={t.id} className="bg-slate-950/40 p-3 border border-slate-900 rounded-xl flex items-center justify-between">
+                      <div key={t.id} className="bg-[#0f172e]/40 p-3 border border-[#1a2554] rounded-xl flex items-center justify-between">
                         <div>
-                          <strong className="text-slate-200 block text-[11px]">{t.productName}</strong>
+                          <strong className="text-[#b0b8d4] block text-[11px]">{t.productName}</strong>
                           <span className="text-[9px] text-slate-500 block">From: {t.fromBranchName} • Quantity: <strong className="text-slate-300">{t.quantity} units</strong></span>
                           <span className="text-[9px] text-slate-600 block mt-0.5">Dispatched: {t.createdAt.split('T')[0]} • Ref: {t.id}</span>
                         </div>
@@ -618,7 +618,7 @@ export default function AdminBranchView({
                           {t.status === 'pending' && (
                             <button
                               onClick={() => handleUpdateTransferStatus(t.id, 'shipped')}
-                              className="bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[9px] px-2 py-1 rounded hover:bg-indigo-500/20 font-bold"
+                              className="bg-[#3052a3]/10 border border-[#3052a3]/20 text-[#3052a3] text-[9px] px-2 py-1 rounded hover:bg-[#3052a3]/20 font-bold"
                             >
                               Mark Shipped
                             </button>
@@ -626,13 +626,13 @@ export default function AdminBranchView({
                           {t.status === 'shipped' && (
                             <button
                               onClick={() => handleUpdateTransferStatus(t.id, 'delivered')}
-                              className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[9px] px-2 py-1 rounded hover:bg-emerald-500/20 font-bold flex items-center gap-1"
+                              className="bg-[#10b981]/10 border border-[#10b981]/20 text-[#10b981] text-[9px] px-2 py-1 rounded hover:bg-[#10b981]/20 font-bold flex items-center gap-1"
                             >
                               <CheckCircle className="w-3 h-3" /> Receive Stock
                             </button>
                           )}
                           {t.status === 'delivered' && (
-                            <span className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[9px] px-2 py-0.5 rounded uppercase font-black">
+                            <span className="bg-[#10b981]/10 border border-[#10b981]/20 text-[#10b981] text-[9px] px-2 py-0.5 rounded uppercase font-black">
                               Completed
                             </span>
                           )}
@@ -648,19 +648,19 @@ export default function AdminBranchView({
                 <div className="space-y-2">
                   {outboundTransfers.length > 0 ? (
                     outboundTransfers.map((t) => (
-                      <div key={t.id} className="bg-slate-950/40 p-3 border border-slate-900 rounded-xl flex items-center justify-between">
+                      <div key={t.id} className="bg-[#0f172e]/40 p-3 border border-[#1a2554] rounded-xl flex items-center justify-between">
                         <div>
-                          <strong className="text-slate-200 block text-[11px]">{t.productName}</strong>
+                          <strong className="text-[#b0b8d4] block text-[11px]">{t.productName}</strong>
                           <span className="text-[9px] text-slate-500 block">Destination: {t.toBranchName} • Quantity: <strong className="text-slate-300">{t.quantity} units</strong></span>
                           <span className="text-[9px] text-slate-600 block mt-0.5">Ref: {t.id} • Issued by: {t.requestedBy}</span>
                         </div>
                         
                         <span className={`text-[9px] font-black px-2 py-0.5 rounded uppercase border ${
                           t.status === 'delivered'
-                            ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/15'
+                            ? 'bg-[#10b981]/10 text-[#10b981] border-[#10b981]/15'
                             : t.status === 'shipped'
-                            ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/15'
-                            : 'bg-slate-900 text-slate-500 border-slate-800'
+                            ? 'bg-[#3052a3]/10 text-[#3052a3] border-[#3052a3]/15'
+                            : 'bg-[#1a2554] text-slate-500 border-[#222f5a]'
                         }`}>
                           {t.status}
                         </span>
@@ -677,27 +677,27 @@ export default function AdminBranchView({
           {/* D. STORE PERSONNEL */}
           {activeSubView === 'staff' && (
             <div className="space-y-4 font-mono text-xs">
-              <div className="border-b border-slate-900 pb-3">
-                <h4 className="font-extrabold text-slate-200 uppercase text-[11px]">Showroom Team Staffing</h4>
+              <div className="border-b border-[#1a2554] pb-3">
+                <h4 className="font-extrabold text-[#b0b8d4] uppercase text-[11px]">Showroom Team Staffing</h4>
                 <span className="text-[9px] text-slate-500 block">Employees active or assigned to {selectedBranch.name}</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {branchEmployees.length > 0 ? (
                   branchEmployees.map((emp) => (
-                    <div key={emp.id} className="bg-slate-950/50 border border-slate-900 p-3.5 rounded-xl flex items-start justify-between">
+                    <div key={emp.id} className="bg-[#0f172e]/50 border border-[#1a2554] p-3.5 rounded-xl flex items-start justify-between">
                       <div className="space-y-1">
-                        <strong className="text-slate-200 block">{emp.name}</strong>
+                        <strong className="text-[#b0b8d4] block">{emp.name}</strong>
                         <span className="text-[10px] text-slate-500 block">{emp.role} • Roster ID: {emp.id}</span>
-                        <span className="text-[10px] text-slate-400 block"><Phone className="w-3 h-3 text-slate-500 inline mr-1" />{emp.phone}</span>
+                        <span className="text-[10px] text-[#8891ac] block"><Phone className="w-3 h-3 text-slate-500 inline mr-1" />{emp.phone}</span>
                       </div>
 
                       <span className={`text-[9px] px-2 py-0.5 rounded-full font-bold uppercase ${
                         emp.attendanceStatus === 'checked_in'
-                          ? 'bg-emerald-500/10 text-emerald-400'
+                          ? 'bg-[#10b981]/10 text-[#10b981]'
                           : emp.attendanceStatus === 'checked_out'
                           ? 'bg-amber-500/10 text-amber-400'
-                          : 'bg-slate-900 text-slate-500'
+                          : 'bg-[#1a2554] text-slate-500'
                       }`}>
                         {emp.attendanceStatus === 'checked_in' ? 'checked-in' : emp.attendanceStatus === 'checked_out' ? 'checked-out' : 'absent'}
                       </span>
