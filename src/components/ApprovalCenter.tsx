@@ -134,7 +134,7 @@ export default function ApprovalCenter({ currentUserRole, currentUserId, current
   };
 
   return (
-    <div className="w-full h-full flex flex-col bg-gray-50 p-6">
+    <div className="w-full h-full flex flex-col bg-surface p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
@@ -142,8 +142,8 @@ export default function ApprovalCenter({ currentUserRole, currentUserId, current
             <CheckCircle2 className="w-6 h-6 text-green-600" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Approval Center</h2>
-            <p className="text-sm text-gray-600">Manage approval requests and workflows</p>
+            <h2 className="text-2xl font-bold text-foreground">Approval Center</h2>
+            <p className="text-sm text-muted">Manage approval requests and workflows</p>
           </div>
         </div>
         {canApprove && stats.myPending > 0 && (
@@ -156,29 +156,29 @@ export default function ApprovalCenter({ currentUserRole, currentUserId, current
 
       {/* Stats */}
       <div className="grid grid-cols-4 gap-4 mb-6">
-        <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <p className="text-gray-600 text-sm">Pending</p>
+        <div className="bg-card p-4 rounded-lg border border-border">
+          <p className="text-muted text-sm">Pending</p>
           <p className="text-3xl font-bold text-yellow-600">{stats.pending}</p>
         </div>
-        <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <p className="text-gray-600 text-sm">Approved</p>
+        <div className="bg-card p-4 rounded-lg border border-border">
+          <p className="text-muted text-sm">Approved</p>
           <p className="text-3xl font-bold text-green-600">{stats.approved}</p>
         </div>
-        <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <p className="text-gray-600 text-sm">Rejected</p>
+        <div className="bg-card p-4 rounded-lg border border-border">
+          <p className="text-muted text-sm">Rejected</p>
           <p className="text-3xl font-bold text-red-600">{stats.rejected}</p>
         </div>
-        <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <p className="text-gray-600 text-sm">Your Pending</p>
+        <div className="bg-card p-4 rounded-lg border border-border">
+          <p className="text-muted text-sm">Your Pending</p>
           <p className="text-3xl font-bold text-blue-600">{stats.myPending}</p>
         </div>
       </div>
 
       {/* Filters */}
-      <div className="bg-white p-4 rounded-lg border border-gray-200 mb-6">
+      <div className="bg-card p-4 rounded-lg border border-border mb-6">
         <div className="flex gap-4">
-          <div className="flex-1 flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2">
-            <Search className="w-4 h-4 text-gray-400" />
+          <div className="flex-1 flex items-center gap-2 bg-surface rounded-lg px-3 py-2">
+            <Search className="w-4 h-4 text-subtle" />
             <input
               type="text"
               placeholder="Search by name or description..."
@@ -190,7 +190,7 @@ export default function ApprovalCenter({ currentUserRole, currentUserId, current
           <select
             value={filteredStatus}
             onChange={(e) => setFilteredStatus(e.target.value as 'all' | 'pending' | 'approved' | 'rejected')}
-            className="px-3 py-2 border border-gray-200 rounded-lg text-sm"
+            className="px-3 py-2 border border-border rounded-lg text-sm"
           >
             <option value="all">All Status</option>
             <option value="pending">Pending</option>
@@ -203,8 +203,8 @@ export default function ApprovalCenter({ currentUserRole, currentUserId, current
       {/* Approvals List */}
       <div className="flex-1 space-y-3 overflow-y-auto">
         {filteredApprovals.length === 0 ? (
-          <div className="flex items-center justify-center h-32 bg-white rounded-lg border border-gray-200">
-            <p className="text-gray-500">No approvals found</p>
+          <div className="flex items-center justify-center h-32 bg-card rounded-lg border border-border">
+            <p className="text-subtle">No approvals found</p>
           </div>
         ) : (
           filteredApprovals.map((approval) => (
@@ -214,7 +214,7 @@ export default function ApprovalCenter({ currentUserRole, currentUserId, current
                 setSelectedApproval(approval);
                 setShowDetails(true);
               }}
-              className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-lg transition cursor-pointer"
+              className="bg-card rounded-lg border border-border p-4 hover:shadow-lg transition cursor-pointer"
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex-1">
@@ -223,8 +223,8 @@ export default function ApprovalCenter({ currentUserRole, currentUserId, current
                       {APPROVAL_ICONS[approval.requestType]}
                     </span>
                     <div>
-                      <h4 className="font-semibold text-gray-900">{approval.resourceName}</h4>
-                      <p className="text-sm text-gray-600">{approval.description}</p>
+                      <h4 className="font-semibold text-foreground">{approval.resourceName}</h4>
+                      <p className="text-sm text-muted">{approval.description}</p>
                     </div>
                   </div>
                 </div>
@@ -241,13 +241,13 @@ export default function ApprovalCenter({ currentUserRole, currentUserId, current
                     {approval.status.charAt(0).toUpperCase() + approval.status.slice(1)}
                   </span>
                   {approval.amount && (
-                    <p className="text-lg font-bold text-gray-900 mt-2">
+                    <p className="text-lg font-bold text-foreground mt-2">
                       {(approval.amount / 1000000).toFixed(1)}M
                     </p>
                   )}
                 </div>
               </div>
-              <div className="flex items-center justify-between text-xs text-gray-600">
+              <div className="flex items-center justify-between text-xs text-muted">
                 <div className="flex gap-4">
                   <span>By: {approval.requesterName}</span>
                   <span>Branch: {approval.requesterBranch}</span>
@@ -262,7 +262,7 @@ export default function ApprovalCenter({ currentUserRole, currentUserId, current
                           ? 'bg-green-100 text-green-700'
                           : chain.status === 'pending'
                           ? 'bg-yellow-100 text-yellow-700'
-                          : 'bg-gray-100 text-gray-700'
+                          : 'bg-elevated text-muted'
                       }`}
                     >
                       {chain.level}
@@ -278,10 +278,10 @@ export default function ApprovalCenter({ currentUserRole, currentUserId, current
       {/* Details Modal */}
       {showDetails && selectedApproval && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-card rounded-lg p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-bold text-gray-900">Approval Request Details</h3>
-              <button onClick={() => setShowDetails(false)} className="text-gray-400 hover:text-gray-600">
+              <h3 className="text-xl font-bold text-foreground">Approval Request Details</h3>
+              <button onClick={() => setShowDetails(false)} className="text-subtle hover:text-muted">
                 ✕
               </button>
             </div>
@@ -290,11 +290,11 @@ export default function ApprovalCenter({ currentUserRole, currentUserId, current
               {/* Request Info */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-sm text-gray-600 font-medium">Request Type</p>
-                  <p className="text-lg font-semibold text-gray-900">{selectedApproval.requestType.toUpperCase()}</p>
+                  <p className="text-sm text-muted font-medium">Request Type</p>
+                  <p className="text-lg font-semibold text-foreground">{selectedApproval.requestType.toUpperCase()}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600 font-medium">Status</p>
+                  <p className="text-sm text-muted font-medium">Status</p>
                   <p className={`text-lg font-semibold ${
                     selectedApproval.status === 'approved'
                       ? 'text-green-600'
@@ -306,36 +306,36 @@ export default function ApprovalCenter({ currentUserRole, currentUserId, current
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600 font-medium">Resource</p>
-                  <p className="text-lg font-semibold text-gray-900">{selectedApproval.resourceName}</p>
+                  <p className="text-sm text-muted font-medium">Resource</p>
+                  <p className="text-lg font-semibold text-foreground">{selectedApproval.resourceName}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600 font-medium">Amount</p>
-                  <p className="text-lg font-semibold text-gray-900">
+                  <p className="text-sm text-muted font-medium">Amount</p>
+                  <p className="text-lg font-semibold text-foreground">
                     {selectedApproval.amount ? `${(selectedApproval.amount / 1000000).toFixed(1)}M` : 'N/A'}
                   </p>
                 </div>
               </div>
 
               {/* Requester Info */}
-              <div className="border-t border-gray-200 pt-4">
-                <p className="text-sm text-gray-600 font-medium mb-2">Requester</p>
+              <div className="border-t border-border pt-4">
+                <p className="text-sm text-muted font-medium mb-2">Requester</p>
                 <div className="grid grid-cols-3 gap-4 text-sm">
-                  <div><span className="text-gray-600">Name:</span> {selectedApproval.requesterName}</div>
-                  <div><span className="text-gray-600">Role:</span> {selectedApproval.requesterRole}</div>
-                  <div><span className="text-gray-600">Branch:</span> {selectedApproval.requesterBranch}</div>
+                  <div><span className="text-muted">Name:</span> {selectedApproval.requesterName}</div>
+                  <div><span className="text-muted">Role:</span> {selectedApproval.requesterRole}</div>
+                  <div><span className="text-muted">Branch:</span> {selectedApproval.requesterBranch}</div>
                 </div>
               </div>
 
               {/* Description */}
-              <div className="border-t border-gray-200 pt-4">
-                <p className="text-sm text-gray-600 font-medium mb-2">Description</p>
-                <p className="text-gray-700">{selectedApproval.description}</p>
+              <div className="border-t border-border pt-4">
+                <p className="text-sm text-muted font-medium mb-2">Description</p>
+                <p className="text-muted">{selectedApproval.description}</p>
               </div>
 
               {/* Approval Chain */}
-              <div className="border-t border-gray-200 pt-4">
-                <p className="text-sm text-gray-600 font-medium mb-3">Approval Chain</p>
+              <div className="border-t border-border pt-4">
+                <p className="text-sm text-muted font-medium mb-3">Approval Chain</p>
                 <div className="space-y-2">
                   {selectedApproval.approvalChain.map((chain, idx) => (
                     <div
@@ -350,8 +350,8 @@ export default function ApprovalCenter({ currentUserRole, currentUserId, current
                     >
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="font-semibold text-gray-900 capitalize">{chain.level} Level</p>
-                          <p className="text-sm text-gray-600">Approvers: {chain.approvers.join(', ')}</p>
+                          <p className="font-semibold text-foreground capitalize">{chain.level} Level</p>
+                          <p className="text-sm text-muted">Approvers: {chain.approvers.join(', ')}</p>
                         </div>
                         <span className={`px-3 py-1 rounded text-xs font-medium ${
                           chain.status === 'approved'
@@ -364,11 +364,11 @@ export default function ApprovalCenter({ currentUserRole, currentUserId, current
                         </span>
                       </div>
                       {chain.approvedBy && (
-                        <p className="text-xs text-gray-600 mt-2">
+                        <p className="text-xs text-muted mt-2">
                           {chain.approverName} on {new Date(chain.timestamp!).toLocaleDateString()}
                         </p>
                       )}
-                      {chain.comments && <p className="text-sm text-gray-700 mt-2 italic">{chain.comments}</p>}
+                      {chain.comments && <p className="text-sm text-muted mt-2 italic">{chain.comments}</p>}
                     </div>
                   ))}
                 </div>
@@ -376,14 +376,14 @@ export default function ApprovalCenter({ currentUserRole, currentUserId, current
 
               {/* Action Buttons */}
               {canApprove && selectedApproval.status === 'pending' && ApprovalWorkflowEngine.canUserApproveRequest(selectedApproval.id, currentUserRole) && (
-                <div className="border-t border-gray-200 pt-4">
+                <div className="border-t border-border pt-4">
                   <div className="space-y-3">
                     <textarea
                       placeholder="Add comments (optional)"
                       value={rejectReason}
                       onChange={(e) => setRejectReason(e.target.value)}
                       rows={2}
-                      className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm"
+                      className="w-full px-3 py-2 border border-border rounded-lg text-sm"
                     />
                     <div className="flex gap-3">
                       <button

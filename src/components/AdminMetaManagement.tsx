@@ -399,7 +399,7 @@ export default function AdminMetaManagement() {
 
             <button
               type="submit"
-              className="w-full bg-primary hover:bg-accent text-slate-950 font-black py-2.5 rounded-xl uppercase transition shadow"
+              className="w-full bg-primary-strong hover:bg-accent text-white font-black py-2.5 rounded-xl uppercase transition shadow"
             >
               Commit Configuration
             </button>

@@ -506,7 +506,7 @@ export default function AdminEmployeeView() {
               </button>
               <button
                 type="submit"
-                className="flex-1 bg-gradient-to-r from-rose-500 to-rose-600 text-slate-950 font-black py-2 rounded"
+                className="flex-1 bg-gradient-to-r from-rose-500 to-rose-600 text-white font-black py-2 rounded"
               >
                 Onboard Staff
               </button>
@@ -792,7 +792,7 @@ export default function AdminEmployeeView() {
 
               <button
                 type="submit"
-                className="w-full bg-rose-500 hover:bg-rose-600 text-slate-950 font-black py-1.5 rounded-lg text-[9px] uppercase transition"
+                className="w-full bg-rose-500 hover:bg-rose-600 text-white font-black py-1.5 rounded-lg text-[9px] uppercase transition"
               >
                 DISPATCH LEAVE APPLICATION
               </button>

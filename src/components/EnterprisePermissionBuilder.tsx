@@ -163,7 +163,7 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
   };
 
   return (
-    <div className="w-full h-full flex flex-col bg-gray-50 p-6">
+    <div className="w-full h-full flex flex-col bg-surface p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
@@ -171,8 +171,8 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
             <Shield className="w-6 h-6 text-red-600" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Permission Builder</h2>
-            <p className="text-sm text-gray-600">Create and manage roles with granular permissions</p>
+            <h2 className="text-2xl font-bold text-foreground">Permission Builder</h2>
+            <p className="text-sm text-muted">Create and manage roles with granular permissions</p>
           </div>
         </div>
         {canCreateRoles && activeTab === 'list' && (
@@ -190,26 +190,26 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
       {activeTab === 'list' && (
         <div className="space-y-4">
           {roles.map((role) => (
-            <div key={role.id} className="bg-white rounded-lg border border-gray-200 p-6">
+            <div key={role.id} className="bg-card rounded-lg border border-border p-6">
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
-                    <h3 className="text-lg font-bold text-gray-900">{role.name}</h3>
+                    <h3 className="text-lg font-bold text-foreground">{role.name}</h3>
                     {role.isSystem && (
-                      <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs font-medium">
+                      <span className="px-2 py-1 bg-elevated text-muted rounded text-xs font-medium">
                         System Role
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-gray-600 mb-3">{role.description}</p>
+                  <p className="text-sm text-muted mb-3">{role.description}</p>
                   <div className="flex gap-6">
                     <div className="flex items-center gap-2">
-                      <Users className="w-4 h-4 text-gray-400" />
-                      <span className="text-sm text-gray-600">{role.userCount} user{role.userCount !== 1 ? 's' : ''}</span>
+                      <Users className="w-4 h-4 text-subtle" />
+                      <span className="text-sm text-muted">{role.userCount} user{role.userCount !== 1 ? 's' : ''}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-gray-400" />
-                      <span className="text-sm text-gray-600">
+                      <CheckCircle2 className="w-4 h-4 text-subtle" />
+                      <span className="text-sm text-muted">
                         {Object.values(role.permissions.modules).filter(Boolean).length}/
                         {Object.keys(role.permissions.modules).length} modules
                       </span>
@@ -220,19 +220,19 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
                   <div className="flex gap-2">
                     <button
                       onClick={() => handleEditRole(role)}
-                      className="p-2 hover:bg-gray-100 rounded-lg transition"
+                      className="p-2 hover:bg-elevated rounded-lg transition"
                       title="View/Edit"
                     >
-                      <Eye className="w-4 h-4 text-gray-600" />
+                      <Eye className="w-4 h-4 text-muted" />
                     </button>
                     {!role.isSystem && (
                       <>
                         <button
                           onClick={() => handleCloneRole(role)}
-                          className="p-2 hover:bg-gray-100 rounded-lg transition"
+                          className="p-2 hover:bg-elevated rounded-lg transition"
                           title="Clone role"
                         >
-                          <Copy className="w-4 h-4 text-gray-600" />
+                          <Copy className="w-4 h-4 text-muted" />
                         </button>
                         <button
                           onClick={() => handleDeleteRole(role.id)}
@@ -253,9 +253,9 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
 
       {/* CREATE/EDIT VIEW */}
       {(activeTab === 'create' || activeTab === 'edit') && editingPermissions && (
-        <div className="flex-1 flex flex-col bg-white rounded-lg border border-gray-200 p-6 overflow-y-auto">
+        <div className="flex-1 flex flex-col bg-card rounded-lg border border-border p-6 overflow-y-auto">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-bold text-gray-900">
+            <h3 className="text-xl font-bold text-foreground">
               {selectedRole ? 'Edit Role' : 'Create New Role'}
             </h3>
             <button
@@ -264,9 +264,9 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
                 setSelectedRole(null);
                 setEditingPermissions(null);
               }}
-              className="p-1 hover:bg-gray-100 rounded"
+              className="p-1 hover:bg-elevated rounded"
             >
-              <X className="w-6 h-6 text-gray-400" />
+              <X className="w-6 h-6 text-subtle" />
             </button>
           </div>
 
@@ -278,7 +278,7 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
                 type="text"
                 defaultValue={selectedRole?.name}
                 placeholder="Role name"
-                className="px-3 py-2 border border-gray-200 rounded-lg"
+                className="px-3 py-2 border border-border rounded-lg"
               />
               <div />
               <textarea
@@ -286,13 +286,13 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
                 defaultValue={selectedRole?.description}
                 placeholder="Role description"
                 rows={2}
-                className="col-span-2 px-3 py-2 border border-gray-200 rounded-lg"
+                className="col-span-2 px-3 py-2 border border-border rounded-lg"
               />
             </div>
 
             {/* Module Access */}
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                 <Lock className="w-4 h-4" />
                 Module Access
               </h4>
@@ -300,7 +300,7 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
                 {moduleNames.map((module) => (
                   <label
                     key={module}
-                    className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition"
+                    className="flex items-center gap-3 p-3 bg-surface rounded-lg cursor-pointer hover:bg-elevated transition"
                   >
                     <input
                       type="checkbox"
@@ -308,7 +308,7 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
                       onChange={() => handleToggleModule(module)}
                       className="w-4 h-4 rounded"
                     />
-                    <span className="text-sm font-medium text-gray-700">
+                    <span className="text-sm font-medium text-muted">
                       {module.charAt(0).toUpperCase() + module.slice(1)}
                     </span>
                   </label>
@@ -318,12 +318,12 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
 
             {/* CRUD Operations */}
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3">Basic CRUD Operations</h4>
+              <h4 className="font-semibold text-foreground mb-3">Basic CRUD Operations</h4>
               <div className="grid grid-cols-4 gap-3">
                 {Object.keys(editingPermissions.crud).map((op) => (
                   <label
                     key={op}
-                    className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition"
+                    className="flex items-center gap-3 p-3 bg-surface rounded-lg cursor-pointer hover:bg-elevated transition"
                   >
                     <input
                       type="checkbox"
@@ -331,7 +331,7 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
                       onChange={() => handleToggleCRUD(op as keyof CRUDPermissions)}
                       className="w-4 h-4 rounded"
                     />
-                    <span className="text-sm font-medium text-gray-700">
+                    <span className="text-sm font-medium text-muted">
                       {op.charAt(0).toUpperCase() + op.slice(1)}
                     </span>
                   </label>
@@ -341,7 +341,7 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
 
             {/* Approval Permissions */}
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4" />
                 Approval Permissions
               </h4>
@@ -349,7 +349,7 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
                 {approvalNames.map((approval) => (
                   <label
                     key={approval}
-                    className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition"
+                    className="flex items-center gap-3 p-3 bg-surface rounded-lg cursor-pointer hover:bg-elevated transition"
                   >
                     <input
                       type="checkbox"
@@ -357,7 +357,7 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
                       onChange={() => handleToggleApproval(approval as keyof PermissionSchema['approvals'])}
                       className="w-4 h-4 rounded"
                     />
-                    <span className="text-sm font-medium text-gray-700">
+                    <span className="text-sm font-medium text-muted">
                       {approval
                         .replace(/([A-Z])/g, ' $1')
                         .replace('_', ' ')
@@ -370,7 +370,7 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
 
             {/* Branch Restriction */}
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3">Branch Restriction</h4>
+              <h4 className="font-semibold text-foreground mb-3">Branch Restriction</h4>
               <select
                 value={editingPermissions.features.branchRestriction}
                 onChange={(e) =>
@@ -382,7 +382,7 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
                     },
                   })
                 }
-                className="w-full max-w-xs px-3 py-2 border border-gray-200 rounded-lg"
+                className="w-full max-w-xs px-3 py-2 border border-border rounded-lg"
               >
                 <option value="none">No Restriction - Access All Branches</option>
                 <option value="assigned_only">Assigned Branch Only</option>
@@ -392,9 +392,9 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
 
             {/* Advanced Features */}
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3">Advanced Features</h4>
+              <h4 className="font-semibold text-foreground mb-3">Advanced Features</h4>
               <div className="space-y-3">
-                <label className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+                <label className="flex items-center gap-3 p-3 bg-surface rounded-lg cursor-pointer hover:bg-elevated transition">
                   <input
                     type="checkbox"
                     checked={editingPermissions.features.restrictFinancialData}
@@ -409,9 +409,9 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
                     }
                     className="w-4 h-4 rounded"
                   />
-                  <span className="text-sm font-medium text-gray-700">Restrict Financial Data</span>
+                  <span className="text-sm font-medium text-muted">Restrict Financial Data</span>
                 </label>
-                <label className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+                <label className="flex items-center gap-3 p-3 bg-surface rounded-lg cursor-pointer hover:bg-elevated transition">
                   <input
                     type="checkbox"
                     checked={editingPermissions.features.twoFactorRequired}
@@ -426,14 +426,14 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
                     }
                     className="w-4 h-4 rounded"
                   />
-                  <span className="text-sm font-medium text-gray-700">Require 2-Factor Authentication</span>
+                  <span className="text-sm font-medium text-muted">Require 2-Factor Authentication</span>
                 </label>
               </div>
             </div>
           </div>
 
           {/* Save Button */}
-          <div className="flex gap-3 border-t border-gray-200 pt-6">
+          <div className="flex gap-3 border-t border-border pt-6">
             <button
               onClick={handleSavePermissions}
               className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
@@ -447,7 +447,7 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
                 setSelectedRole(null);
                 setEditingPermissions(null);
               }}
-              className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition"
+              className="px-4 py-2 bg-elevated text-muted rounded-lg hover:bg-elevated transition"
             >
               Cancel
             </button>
@@ -458,17 +458,17 @@ export default function EnterprisePermissionBuilder({ currentUserRole }: Permiss
       {/* DETAILS VIEW (System Roles) */}
       {showDetails && showDetails.isSystem && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-card rounded-lg p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-bold text-gray-900">{showDetails.name} - Permissions</h3>
-              <button onClick={() => setShowDetails(null)} className="text-gray-400 hover:text-gray-600">
+              <h3 className="text-xl font-bold text-foreground">{showDetails.name} - Permissions</h3>
+              <button onClick={() => setShowDetails(null)} className="text-subtle hover:text-muted">
                 ✕
               </button>
             </div>
             <div className="space-y-4 text-sm">
-              <p className="text-gray-700">{showDetails.description}</p>
+              <p className="text-muted">{showDetails.description}</p>
               <div>
-                <p className="font-semibold text-gray-900 mb-2">Modules:</p>
+                <p className="font-semibold text-foreground mb-2">Modules:</p>
                 <div className="flex flex-wrap gap-2">
                   {Object.entries(showDetails.permissions.modules).map(([module, hasAccess]) =>
                     hasAccess ? (

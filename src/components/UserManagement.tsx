@@ -111,7 +111,7 @@ export default function UserManagement({ currentUserRole, currentBranchId }: Use
   };
 
   return (
-    <div className="w-full h-full flex flex-col bg-gray-50 p-6">
+    <div className="w-full h-full flex flex-col bg-surface p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
@@ -119,8 +119,8 @@ export default function UserManagement({ currentUserRole, currentBranchId }: Use
             <User className="w-6 h-6 text-blue-600" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">User Management</h2>
-            <p className="text-sm text-gray-600">Manage system users and their access permissions</p>
+            <h2 className="text-2xl font-bold text-foreground">User Management</h2>
+            <p className="text-sm text-muted">Manage system users and their access permissions</p>
           </div>
         </div>
         {canManageUsers && (
@@ -136,29 +136,29 @@ export default function UserManagement({ currentUserRole, currentBranchId }: Use
 
       {/* Stats */}
       <div className="grid grid-cols-4 gap-4 mb-6">
-        <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <p className="text-gray-600 text-sm font-medium">Total Users</p>
-          <p className="text-3xl font-bold text-gray-900">{users.length}</p>
+        <div className="bg-card p-4 rounded-lg border border-border">
+          <p className="text-muted text-sm font-medium">Total Users</p>
+          <p className="text-3xl font-bold text-foreground">{users.length}</p>
         </div>
-        <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <p className="text-gray-600 text-sm font-medium">Active</p>
+        <div className="bg-card p-4 rounded-lg border border-border">
+          <p className="text-muted text-sm font-medium">Active</p>
           <p className="text-3xl font-bold text-green-600">{users.filter((u) => u.isActive).length}</p>
         </div>
-        <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <p className="text-gray-600 text-sm font-medium">Inactive</p>
-          <p className="text-3xl font-bold text-gray-400">{users.filter((u) => !u.isActive).length}</p>
+        <div className="bg-card p-4 rounded-lg border border-border">
+          <p className="text-muted text-sm font-medium">Inactive</p>
+          <p className="text-3xl font-bold text-subtle">{users.filter((u) => !u.isActive).length}</p>
         </div>
-        <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <p className="text-gray-600 text-sm font-medium">Roles</p>
+        <div className="bg-card p-4 rounded-lg border border-border">
+          <p className="text-muted text-sm font-medium">Roles</p>
           <p className="text-3xl font-bold text-blue-600">{new Set(users.map((u) => u.role)).size}</p>
         </div>
       </div>
 
       {/* Filters & Search */}
-      <div className="bg-white p-4 rounded-lg border border-gray-200 mb-6">
+      <div className="bg-card p-4 rounded-lg border border-border mb-6">
         <div className="grid grid-cols-4 gap-4">
-          <div className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2">
-            <Search className="w-4 h-4 text-gray-400" />
+          <div className="flex items-center gap-2 bg-surface rounded-lg px-3 py-2">
+            <Search className="w-4 h-4 text-subtle" />
             <input
               type="text"
               placeholder="Search by name, email or phone..."
@@ -170,7 +170,7 @@ export default function UserManagement({ currentUserRole, currentBranchId }: Use
           <select
             value={filterRole}
             onChange={(e) => setFilterRole(e.target.value as RoleType | 'all')}
-            className="px-3 py-2 border border-gray-200 rounded-lg text-sm"
+            className="px-3 py-2 border border-border rounded-lg text-sm"
           >
             <option value="all">All Roles</option>
             {ROLES.map((role) => (
@@ -182,13 +182,13 @@ export default function UserManagement({ currentUserRole, currentBranchId }: Use
           <select
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value as 'all' | 'active' | 'inactive')}
-            className="px-3 py-2 border border-gray-200 rounded-lg text-sm"
+            className="px-3 py-2 border border-border rounded-lg text-sm"
           >
             <option value="all">All Status</option>
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
           </select>
-          <button className="px-3 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition flex items-center justify-center gap-2">
+          <button className="px-3 py-2 bg-elevated rounded-lg hover:bg-elevated transition flex items-center justify-center gap-2">
             <Filter className="w-4 h-4" />
             Advanced
           </button>
@@ -196,36 +196,36 @@ export default function UserManagement({ currentUserRole, currentBranchId }: Use
       </div>
 
       {/* Users Table */}
-      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden flex-1 flex flex-col">
+      <div className="bg-card rounded-lg border border-border overflow-hidden flex-1 flex flex-col">
         <div className="overflow-x-auto flex-1">
           <table className="w-full">
-            <thead className="bg-gray-50 border-b border-gray-200">
+            <thead className="bg-surface border-b border-border">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700">Name</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700">Email</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700">Role</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700">Branch</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700">Status</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700">Last Activity</th>
-                <th className="px-6 py-3 text-right text-xs font-semibold text-gray-700">Actions</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-muted">Name</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-muted">Email</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-muted">Role</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-muted">Branch</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-muted">Status</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-muted">Last Activity</th>
+                <th className="px-6 py-3 text-right text-xs font-semibold text-muted">Actions</th>
               </tr>
             </thead>
             <tbody>
               {filteredUsers.map((user) => (
-                <tr key={user.id} className="border-b border-gray-200 hover:bg-gray-50 transition">
+                <tr key={user.id} className="border-b border-border hover:bg-surface transition">
                   <td className="px-6 py-4">
                     <div>
-                      <p className="font-medium text-gray-900">{user.name}</p>
-                      <p className="text-xs text-gray-500">{user.phone}</p>
+                      <p className="font-medium text-foreground">{user.name}</p>
+                      <p className="text-xs text-subtle">{user.phone}</p>
                     </div>
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-700">{user.email}</td>
+                  <td className="px-6 py-4 text-sm text-muted">{user.email}</td>
                   <td className="px-6 py-4 text-sm">
                     <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
                       {user.role}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-700">{user.branchId}</td>
+                  <td className="px-6 py-4 text-sm text-muted">{user.branchId}</td>
                   <td className="px-6 py-4">
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-medium ${
@@ -237,7 +237,7 @@ export default function UserManagement({ currentUserRole, currentBranchId }: Use
                       {user.isActive ? 'Active' : 'Inactive'}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-700">
+                  <td className="px-6 py-4 text-sm text-muted">
                     {user.lastActivityDate
                       ? new Date(user.lastActivityDate).toLocaleDateString()
                       : 'Never'}
@@ -246,29 +246,29 @@ export default function UserManagement({ currentUserRole, currentBranchId }: Use
                     <div className="flex items-center justify-end gap-2">
                       <button
                         onClick={() => setViewDetails(user)}
-                        className="p-1 hover:bg-gray-200 rounded transition"
+                        className="p-1 hover:bg-elevated rounded transition"
                         title="View details"
                       >
-                        <Eye className="w-4 h-4 text-gray-600" />
+                        <Eye className="w-4 h-4 text-muted" />
                       </button>
                       {canEditUsers && (
                         <>
                           <button
                             onClick={() => handleEditUser(user)}
-                            className="p-1 hover:bg-gray-200 rounded transition"
+                            className="p-1 hover:bg-elevated rounded transition"
                             title="Edit user"
                           >
-                            <Edit2 className="w-4 h-4 text-gray-600" />
+                            <Edit2 className="w-4 h-4 text-muted" />
                           </button>
                           <button
                             onClick={() => handleToggleStatus(user)}
-                            className="p-1 hover:bg-gray-200 rounded transition"
+                            className="p-1 hover:bg-elevated rounded transition"
                             title={user.isActive ? 'Deactivate' : 'Activate'}
                           >
                             {user.isActive ? (
-                              <Lock className="w-4 h-4 text-gray-600" />
+                              <Lock className="w-4 h-4 text-muted" />
                             ) : (
-                              <Unlock className="w-4 h-4 text-gray-600" />
+                              <Unlock className="w-4 h-4 text-muted" />
                             )}
                           </button>
                           <button
@@ -292,12 +292,12 @@ export default function UserManagement({ currentUserRole, currentBranchId }: Use
       {/* User Detail Modal */}
       {viewDetails && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-card rounded-lg p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-bold">User Details</h3>
               <button
                 onClick={() => setViewDetails(null)}
-                className="text-gray-400 hover:text-gray-600"
+                className="text-subtle hover:text-muted"
               >
                 ✕
               </button>
@@ -305,29 +305,29 @@ export default function UserManagement({ currentUserRole, currentBranchId }: Use
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-sm text-gray-600">Name</p>
+                  <p className="text-sm text-muted">Name</p>
                   <p className="font-semibold">{viewDetails.name}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600">Email</p>
+                  <p className="text-sm text-muted">Email</p>
                   <p className="font-semibold">{viewDetails.email}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600">Role</p>
+                  <p className="text-sm text-muted">Role</p>
                   <p className="font-semibold">{viewDetails.role}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600">Branch</p>
+                  <p className="text-sm text-muted">Branch</p>
                   <p className="font-semibold">{viewDetails.branchId}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600">Status</p>
+                  <p className="text-sm text-muted">Status</p>
                   <p className={`font-semibold ${viewDetails.isActive ? 'text-green-600' : 'text-red-600'}`}>
                     {viewDetails.isActive ? 'Active' : 'Inactive'}
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600">Created</p>
+                  <p className="text-sm text-muted">Created</p>
                   <p className="font-semibold">{new Date(viewDetails.createdAt).toLocaleDateString()}</p>
                 </div>
               </div>

@@ -2017,7 +2017,7 @@ export default function AdminDashboard({
                 {/* Form submit button */}
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-success to-emerald-600 text-slate-950 font-black py-3 rounded-xl uppercase transition hover:opacity-90 flex items-center justify-center space-x-1.5 shadow"
+                  className="w-full bg-gradient-to-r from-success to-emerald-600 text-white font-black py-3 rounded-xl uppercase transition hover:opacity-90 flex items-center justify-center space-x-1.5 shadow"
                 >
                   <CheckCircle2 className="w-4 h-4 stroke-[2.5]" />
                   <span>TRANSMIT EVENT & LOG TO LEDGERS</span>
@@ -2181,7 +2181,7 @@ export default function AdminDashboard({
                 <button
                   type="submit"
                   disabled={saveLoading}
-                  className="flex-1 bg-primary hover:bg-sky-450 disabled:opacity-50 text-slate-950 font-black py-2.5 rounded-xl uppercase transition"
+                  className="flex-1 bg-primary-strong hover:brightness-110 disabled:opacity-50 text-white font-black py-2.5 rounded-xl uppercase transition"
                 >
                   {saveLoading ? 'Securing keys...' : 'Commit Gateway Tokens'}
                 </button>

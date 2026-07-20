@@ -124,7 +124,7 @@ export default function AIPredictions({
             <button
               onClick={() => onSendMessage()}
               disabled={aiTyping || !userInput.trim()}
-              className="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-400 hover:to-purple-400 disabled:opacity-40 disabled:pointer-events-none text-slate-950 font-black p-3 rounded-xl transition shadow-lg shadow-pink-500/10 shrink-0"
+              className="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-400 hover:to-purple-400 disabled:opacity-40 disabled:pointer-events-none text-white font-black p-3 rounded-xl transition shadow-lg shadow-pink-500/10 shrink-0"
               title="Query AI Assistant"
             >
               <Send className="w-4 h-4 stroke-[2.5]" />

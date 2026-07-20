@@ -1152,7 +1152,7 @@ export default function App() {
                         </div>
                         <button
                           type="submit"
-                          className="w-full bg-primary hover:bg-indigo-400 text-slate-950 font-black py-2.5 rounded-xl text-[10px] uppercase tracking-wider transition-all active:scale-[0.98] shadow-md shadow-accent/5"
+                          className="w-full bg-primary-strong hover:brightness-110 text-white font-black py-2.5 rounded-xl text-[10px] uppercase tracking-wider transition-all active:scale-[0.98] shadow-md shadow-accent/5"
                         >
                           Confirm & Bind to Invoice
                         </button>
@@ -1201,7 +1201,7 @@ export default function App() {
                       ))
                     ) : (
                       <div className="py-14 text-center text-subtle space-y-2">
-                        <ShoppingCart className="w-8 h-8 mx-auto text-slate-800" />
+                        <ShoppingCart className="w-8 h-8 mx-auto text-subtle" />
                         <p className="text-xs font-mono">Terminal cart is empty. Click model color options to bill items.</p>
                       </div>
                     )}
@@ -1256,7 +1256,7 @@ export default function App() {
 
                     <button
                       onClick={handleCheckoutSubmit}
-                      className="w-full bg-gradient-to-r from-success to-emerald-600 hover:from-emerald-400 hover:to-success text-slate-950 font-black text-xs py-4 rounded-xl transition-all duration-300 active:scale-[0.99] shadow-lg shadow-emerald-500/10 flex items-center justify-center space-x-1.5 uppercase tracking-wider"
+                      className="w-full bg-gradient-to-r from-success to-emerald-600 hover:from-emerald-400 hover:to-success text-white font-black text-xs py-4 rounded-xl transition-all duration-300 active:scale-[0.99] shadow-lg shadow-emerald-500/10 flex items-center justify-center space-x-1.5 uppercase tracking-wider"
                     >
                       <CreditCard className="w-4 h-4 stroke-[2.5]" />
                       <span>DISPENSE ORDER & INVOICE</span>
@@ -1405,7 +1405,7 @@ export default function App() {
                                         />
                                         <button
                                           onClick={() => handleUpdateThreshold(item.branchId, item.productId, parseInt(editingThresholdVal))}
-                                          className="bg-success text-slate-950 p-1 rounded"
+                                          className="bg-success text-white p-1 rounded"
                                         >
                                           <CheckCircle2 className="w-3.5 h-3.5 stroke-[2.5]" />
                                         </button>
@@ -1511,7 +1511,7 @@ export default function App() {
                       <button
                         type="submit"
                         disabled={transferLoading || !selectedTransferProduct}
-                        className="w-full bg-primary hover:bg-sky-450 disabled:opacity-40 text-slate-950 font-black py-2.5 rounded-xl uppercase transition font-sans text-xs"
+                        className="w-full bg-primary-strong hover:brightness-110 disabled:opacity-40 text-white font-black py-2.5 rounded-xl uppercase transition font-sans text-xs"
                       >
                         {transferLoading ? 'Transmitting request...' : 'Register Transfer'}
                       </button>
@@ -1711,7 +1711,7 @@ export default function App() {
                       <button
                         type="submit"
                         disabled={expLoading || !expAmount}
-                        className="w-full bg-rose-500 hover:bg-rose-400 disabled:opacity-40 text-slate-950 font-black py-2.5 rounded-xl uppercase transition font-sans text-xs"
+                        className="w-full bg-rose-500 hover:brightness-110 disabled:opacity-40 text-white font-black py-2.5 rounded-xl uppercase transition font-sans text-xs"
                       >
                         {expLoading ? 'Recording expense...' : 'Submit Expense Log'}
                       </button>
@@ -1789,7 +1789,7 @@ export default function App() {
                             {order.status === 'pending' && (
                               <button
                                 onClick={() => handleFulfillOnlineOrder(order.id, 'accepted')}
-                                className="bg-primary hover:bg-sky-450 text-slate-950 font-black text-[10px] px-3 py-1 rounded uppercase font-sans"
+                                className="bg-primary-strong hover:brightness-110 text-white font-black text-[10px] px-3 py-1 rounded uppercase font-sans"
                               >
                                 Accept & Allocate Stock
                               </button>
@@ -1797,7 +1797,7 @@ export default function App() {
                             {order.status === 'accepted' && (
                               <button
                                 onClick={() => handleFulfillOnlineOrder(order.id, 'completed')}
-                                className="bg-success hover:bg-emerald-450 text-slate-950 font-black text-[10px] px-3 py-1 rounded uppercase font-sans"
+                                className="bg-success-strong hover:brightness-110 text-white font-black text-[10px] px-3 py-1 rounded uppercase font-sans"
                               >
                                 Mark Completed
                               </button>
@@ -1970,7 +1970,7 @@ export default function App() {
 
                       <button
                         type="submit"
-                        className="w-full bg-primary hover:bg-indigo-400 text-slate-950 font-black py-2.5 rounded-xl uppercase transition font-sans text-xs flex items-center justify-center space-x-1"
+                        className="w-full bg-primary-strong hover:brightness-110 text-white font-black py-2.5 rounded-xl uppercase transition font-sans text-xs flex items-center justify-center space-x-1"
                       >
                         <Send className="w-4 h-4 stroke-[2.5]" />
                         <span>DISPATCH PROMOTION BROADCAST</span>
@@ -2070,7 +2070,7 @@ export default function App() {
                       <button
                         type="submit"
                         disabled={vtuLoading || !vtuPhone}
-                        className="w-full bg-primary hover:bg-sky-450 disabled:opacity-40 text-slate-950 font-black py-2.5 rounded-xl uppercase transition font-sans text-xs"
+                        className="w-full bg-primary-strong hover:brightness-110 disabled:opacity-40 text-white font-black py-2.5 rounded-xl uppercase transition font-sans text-xs"
                       >
                         {vtuLoading ? 'Transmitting load signal...' : 'Dispatch Airtime/Data'}
                       </button>

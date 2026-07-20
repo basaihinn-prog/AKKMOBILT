@@ -374,7 +374,7 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
               </button>
               <button
                 type="submit"
-                className="flex-1 bg-primary hover:bg-accent text-slate-950 font-bold py-1.5 rounded"
+                className="flex-1 bg-primary-strong hover:bg-accent text-white font-bold py-1.5 rounded"
               >
                 Create
               </button>
@@ -605,7 +605,7 @@ export default function AdminRBAC({ onSimulateRoleChange, activeSimulatedRole }:
 
         <button
           onClick={handleSaveAllPermissions}
-          className="w-full mt-6 bg-gradient-to-r from-primary to-indigo-600 text-slate-950 font-black py-3 rounded-xl uppercase transition hover:opacity-90 flex items-center justify-center space-x-1.5 shadow"
+          className="w-full mt-6 bg-gradient-to-r from-primary to-indigo-600 text-white font-black py-3 rounded-xl uppercase transition hover:opacity-90 flex items-center justify-center space-x-1.5 shadow"
         >
           <Lock className="w-4 h-4 stroke-[2.5]" />
           <span>Save Changes to Access Policies</span>

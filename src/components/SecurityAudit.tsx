@@ -141,10 +141,10 @@ export default function SecurityAudit({ currentUserRole, currentBranchId }: Secu
 
   if (!canViewAudit) {
     return (
-      <div className="w-full h-full flex items-center justify-center bg-gray-50">
+      <div className="w-full h-full flex items-center justify-center bg-surface">
         <div className="text-center">
           <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-          <p className="text-gray-600 text-lg">You don't have permission to view audit logs</p>
+          <p className="text-muted text-lg">You don't have permission to view audit logs</p>
         </div>
       </div>
     );
@@ -158,7 +158,7 @@ export default function SecurityAudit({ currentUserRole, currentBranchId }: Secu
   };
 
   return (
-    <div className="w-full h-full flex flex-col bg-gray-50 p-6">
+    <div className="w-full h-full flex flex-col bg-surface p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
@@ -166,34 +166,34 @@ export default function SecurityAudit({ currentUserRole, currentBranchId }: Secu
             <Shield className="w-6 h-6 text-red-600" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Security & Audit</h2>
-            <p className="text-sm text-gray-600">Monitor system activity, security events, and access logs</p>
+            <h2 className="text-2xl font-bold text-foreground">Security & Audit</h2>
+            <p className="text-sm text-muted">Monitor system activity, security events, and access logs</p>
           </div>
         </div>
       </div>
 
       {/* Stats */}
       <div className="grid grid-cols-4 gap-4 mb-6">
-        <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <p className="text-gray-600 text-sm">Today's Actions</p>
+        <div className="bg-card p-4 rounded-lg border border-border">
+          <p className="text-muted text-sm">Today's Actions</p>
           <p className="text-3xl font-bold text-blue-600">{stats.todayActions}</p>
         </div>
-        <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <p className="text-gray-600 text-sm">Failed Logins</p>
+        <div className="bg-card p-4 rounded-lg border border-border">
+          <p className="text-muted text-sm">Failed Logins</p>
           <p className="text-3xl font-bold text-red-600">{stats.failedAttempts}</p>
         </div>
-        <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <p className="text-gray-600 text-sm">Active Sessions</p>
+        <div className="bg-card p-4 rounded-lg border border-border">
+          <p className="text-muted text-sm">Active Sessions</p>
           <p className="text-3xl font-bold text-green-600">{stats.activeSessions}</p>
         </div>
-        <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <p className="text-gray-600 text-sm">Security Events</p>
+        <div className="bg-card p-4 rounded-lg border border-border">
+          <p className="text-muted text-sm">Security Events</p>
           <p className="text-3xl font-bold text-yellow-600">{stats.securityEvents}</p>
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-4 mb-6 border-b border-gray-200 bg-white rounded-t-lg px-6 py-3">
+      <div className="flex gap-4 mb-6 border-b border-border bg-card rounded-t-lg px-6 py-3">
         {['logs', 'timeline', 'logins', 'sessions', 'events'].map((tab) => (
           <button
             key={tab}
@@ -201,7 +201,7 @@ export default function SecurityAudit({ currentUserRole, currentBranchId }: Secu
             className={`px-4 py-2 font-medium transition ${
               activeTab === tab
                 ? 'text-blue-600 border-b-2 border-blue-600'
-                : 'text-gray-600 hover:text-gray-900'
+                : 'text-muted hover:text-foreground'
             }`}
           >
             {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -212,18 +212,18 @@ export default function SecurityAudit({ currentUserRole, currentBranchId }: Secu
       {/* AUDIT LOGS */}
       {activeTab === 'logs' && (
         <div className="space-y-4">
-          <div className="bg-white p-4 rounded-lg border border-gray-200 flex gap-4">
-            <div className="flex-1 flex items-center gap-2 bg-gray-50 rounded-lg px-3">
-              <Calendar className="w-4 h-4 text-gray-400" />
+          <div className="bg-card p-4 rounded-lg border border-border flex gap-4">
+            <div className="flex-1 flex items-center gap-2 bg-surface rounded-lg px-3">
+              <Calendar className="w-4 h-4 text-subtle" />
               <input type="date" className="flex-1 bg-transparent outline-none text-sm py-2" />
             </div>
-            <select className="px-3 py-2 border border-gray-200 rounded-lg text-sm">
+            <select className="px-3 py-2 border border-border rounded-lg text-sm">
               <option>All Users</option>
             </select>
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value as any)}
-              className="px-3 py-2 border border-gray-200 rounded-lg text-sm"
+              className="px-3 py-2 border border-border rounded-lg text-sm"
             >
               <option value="all">All Status</option>
               <option value="success">Success</option>
@@ -231,29 +231,29 @@ export default function SecurityAudit({ currentUserRole, currentBranchId }: Secu
             </select>
           </div>
 
-          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <div className="bg-card rounded-lg border border-border overflow-hidden">
             <table className="w-full text-sm">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-surface border-b border-border">
                 <tr>
-                  <th className="px-6 py-3 text-left font-semibold text-gray-700">Timestamp</th>
-                  <th className="px-6 py-3 text-left font-semibold text-gray-700">User</th>
-                  <th className="px-6 py-3 text-left font-semibold text-gray-700">Action</th>
-                  <th className="px-6 py-3 text-left font-semibold text-gray-700">Resource</th>
-                  <th className="px-6 py-3 text-left font-semibold text-gray-700">Status</th>
-                  <th className="px-6 py-3 text-left font-semibold text-gray-700">IP Address</th>
+                  <th className="px-6 py-3 text-left font-semibold text-muted">Timestamp</th>
+                  <th className="px-6 py-3 text-left font-semibold text-muted">User</th>
+                  <th className="px-6 py-3 text-left font-semibold text-muted">Action</th>
+                  <th className="px-6 py-3 text-left font-semibold text-muted">Resource</th>
+                  <th className="px-6 py-3 text-left font-semibold text-muted">Status</th>
+                  <th className="px-6 py-3 text-left font-semibold text-muted">IP Address</th>
                 </tr>
               </thead>
               <tbody>
                 {auditLogs.map((log) => (
-                  <tr key={log.id} className="border-b border-gray-200 hover:bg-gray-50">
-                    <td className="px-6 py-3 text-gray-600">{new Date(log.timestamp).toLocaleString()}</td>
-                    <td className="px-6 py-3 font-medium text-gray-900">{log.userName}</td>
+                  <tr key={log.id} className="border-b border-border hover:bg-surface">
+                    <td className="px-6 py-3 text-muted">{new Date(log.timestamp).toLocaleString()}</td>
+                    <td className="px-6 py-3 font-medium text-foreground">{log.userName}</td>
                     <td className="px-6 py-3">
                       <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">
                         {log.action.toUpperCase()}
                       </span>
                     </td>
-                    <td className="px-6 py-3 text-gray-600">{log.resourceName}</td>
+                    <td className="px-6 py-3 text-muted">{log.resourceName}</td>
                     <td className="px-6 py-3">
                       {log.status === 'success' ? (
                         <CheckCircle2 className="w-4 h-4 text-green-600" />
@@ -261,7 +261,7 @@ export default function SecurityAudit({ currentUserRole, currentBranchId }: Secu
                         <XCircle className="w-4 h-4 text-red-600" />
                       )}
                     </td>
-                    <td className="px-6 py-3 text-gray-600 text-xs">{log.ipAddress}</td>
+                    <td className="px-6 py-3 text-muted text-xs">{log.ipAddress}</td>
                   </tr>
                 ))}
               </tbody>
@@ -274,7 +274,7 @@ export default function SecurityAudit({ currentUserRole, currentBranchId }: Secu
       {activeTab === 'timeline' && (
         <div className="space-y-4">
           {activityTimeline.map((activity) => (
-            <div key={activity.id} className="bg-white rounded-lg border border-gray-200 p-4">
+            <div key={activity.id} className="bg-card rounded-lg border border-border p-4">
               <div className="flex gap-4">
                 <div className={`p-3 rounded-lg ${
                   activity.severity === 'critical' ? 'bg-red-100' :
@@ -290,10 +290,10 @@ export default function SecurityAudit({ currentUserRole, currentBranchId }: Secu
                 <div className="flex-1">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="font-semibold text-gray-900">{activity.description}</p>
-                      <p className="text-sm text-gray-600">{activity.userName} • {activity.resourceType}</p>
+                      <p className="font-semibold text-foreground">{activity.description}</p>
+                      <p className="text-sm text-muted">{activity.userName} • {activity.resourceType}</p>
                     </div>
-                    <span className="text-xs text-gray-600">{new Date(activity.timestamp).toLocaleString()}</span>
+                    <span className="text-xs text-muted">{new Date(activity.timestamp).toLocaleString()}</span>
                   </div>
                 </div>
               </div>
@@ -304,23 +304,23 @@ export default function SecurityAudit({ currentUserRole, currentBranchId }: Secu
 
       {/* LOGIN ATTEMPTS */}
       {activeTab === 'logins' && (
-        <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+        <div className="bg-card rounded-lg border border-border overflow-hidden">
           <table className="w-full text-sm">
-            <thead className="bg-gray-50 border-b border-gray-200">
+            <thead className="bg-surface border-b border-border">
               <tr>
-                <th className="px-6 py-3 text-left font-semibold text-gray-700">Email</th>
-                <th className="px-6 py-3 text-left font-semibold text-gray-700">IP Address</th>
-                <th className="px-6 py-3 text-left font-semibold text-gray-700">Device</th>
-                <th className="px-6 py-3 text-left font-semibold text-gray-700">Status</th>
-                <th className="px-6 py-3 text-left font-semibold text-gray-700">Timestamp</th>
+                <th className="px-6 py-3 text-left font-semibold text-muted">Email</th>
+                <th className="px-6 py-3 text-left font-semibold text-muted">IP Address</th>
+                <th className="px-6 py-3 text-left font-semibold text-muted">Device</th>
+                <th className="px-6 py-3 text-left font-semibold text-muted">Status</th>
+                <th className="px-6 py-3 text-left font-semibold text-muted">Timestamp</th>
               </tr>
             </thead>
             <tbody>
               {loginAttempts.map((attempt) => (
-                <tr key={attempt.id} className="border-b border-gray-200 hover:bg-gray-50">
-                  <td className="px-6 py-3 text-gray-900">{attempt.email}</td>
-                  <td className="px-6 py-3 text-gray-600 text-xs">{attempt.ipAddress}</td>
-                  <td className="px-6 py-3 text-gray-600 text-xs">{attempt.deviceFingerprint}</td>
+                <tr key={attempt.id} className="border-b border-border hover:bg-surface">
+                  <td className="px-6 py-3 text-foreground">{attempt.email}</td>
+                  <td className="px-6 py-3 text-muted text-xs">{attempt.ipAddress}</td>
+                  <td className="px-6 py-3 text-muted text-xs">{attempt.deviceFingerprint}</td>
                   <td className="px-6 py-3">
                     {attempt.status === 'success' ? (
                       <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">
@@ -332,7 +332,7 @@ export default function SecurityAudit({ currentUserRole, currentBranchId }: Secu
                       </span>
                     )}
                   </td>
-                  <td className="px-6 py-3 text-gray-600">{new Date(attempt.timestamp).toLocaleString()}</td>
+                  <td className="px-6 py-3 text-muted">{new Date(attempt.timestamp).toLocaleString()}</td>
                 </tr>
               ))}
             </tbody>
@@ -344,27 +344,27 @@ export default function SecurityAudit({ currentUserRole, currentBranchId }: Secu
       {activeTab === 'sessions' && (
         <div className="space-y-4">
           {sessions.map((session) => (
-            <div key={session.id} className="bg-white rounded-lg border border-gray-200 p-4">
+            <div key={session.id} className="bg-card rounded-lg border border-border p-4">
               <div className="flex items-center justify-between mb-3">
                 <div>
-                  <p className="font-semibold text-gray-900">{session.userName}</p>
-                  <p className="text-sm text-gray-600">{session.role} • {session.branchId}</p>
+                  <p className="font-semibold text-foreground">{session.userName}</p>
+                  <p className="text-sm text-muted">{session.role} • {session.branchId}</p>
                 </div>
                 {session.isActive ? (
                   <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
                     Active
                   </span>
                 ) : (
-                  <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
+                  <span className="px-3 py-1 bg-elevated text-muted rounded-full text-xs font-medium">
                     Offline
                   </span>
                 )}
               </div>
               <div className="grid grid-cols-4 gap-4 text-sm">
-                <div><span className="text-gray-600">Device:</span> {session.deviceName}</div>
-                <div><span className="text-gray-600">Browser:</span> {session.browser}</div>
-                <div><span className="text-gray-600">IP:</span> {session.ipAddress}</div>
-                <div><span className="text-gray-600">Logged in:</span> {new Date(session.loginTime).toLocaleString()}</div>
+                <div><span className="text-muted">Device:</span> {session.deviceName}</div>
+                <div><span className="text-muted">Browser:</span> {session.browser}</div>
+                <div><span className="text-muted">IP:</span> {session.ipAddress}</div>
+                <div><span className="text-muted">Logged in:</span> {new Date(session.loginTime).toLocaleString()}</div>
               </div>
             </div>
           ))}
@@ -391,9 +391,9 @@ export default function SecurityAudit({ currentUserRole, currentBranchId }: Secu
                     'text-yellow-600'
                   }`} />
                   <div>
-                    <p className="font-semibold text-gray-900">{event.description}</p>
-                    <p className="text-sm text-gray-600">{event.eventType} • {event.ipAddress}</p>
-                    <p className="text-xs text-gray-500 mt-1">{new Date(event.timestamp).toLocaleString()}</p>
+                    <p className="font-semibold text-foreground">{event.description}</p>
+                    <p className="text-sm text-muted">{event.eventType} • {event.ipAddress}</p>
+                    <p className="text-xs text-subtle mt-1">{new Date(event.timestamp).toLocaleString()}</p>
                   </div>
                 </div>
                 <span className={`px-3 py-1 rounded-full text-xs font-medium flex-shrink-0 ${

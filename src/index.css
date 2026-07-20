@@ -14,16 +14,18 @@
   --card: #111a38;
   --elevated: #1a2650;
   --border: #24325e;
-  --foreground: #eef2ff;
-  --muted: #a7b1d6;
-  --subtle: #7e89b0;
+  --foreground: #f4f7ff;
+  --muted: #b6c0e2;
+  --subtle: #8d99c4;
 
   --primary: #4f8ef7;
   --primary-strong: #2f6de4;
   --accent: #8b5cf6;
   --success: #10b981;
+  --success-strong: #059669;
   --warning: #f59e0b;
   --danger: #f43f5e;
+  --danger-strong: #e11d48;
 
   --glass: rgba(17, 26, 56, 0.62);
   --glass-border: rgba(122, 148, 255, 0.14);
@@ -50,8 +52,10 @@
   --primary-strong: #1d4fd8;
   --accent: #7c3aed;
   --success: #059669;
+  --success-strong: #047857;
   --warning: #d97706;
   --danger: #e11d48;
+  --danger-strong: #be123c;
 
   --glass: rgba(255, 255, 255, 0.72);
   --glass-border: rgba(37, 99, 235, 0.14);
@@ -80,8 +84,10 @@
   --color-primary-strong: var(--primary-strong);
   --color-accent: var(--accent);
   --color-success: var(--success);
+  --color-success-strong: var(--success-strong);
   --color-warning: var(--warning);
   --color-danger: var(--danger);
+  --color-danger-strong: var(--danger-strong);
 
   /* Animations */
   --animate-slide-down: slide-down 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -205,15 +211,97 @@ table { min-width: 100%; border-collapse: collapse; }
   color: transparent;
 }
 
-/* Gradient button */
-.btn-gradient {
+/* ============================================
+   BUTTON SYSTEM
+   Consistent bg/text pairs, hover, active, disabled
+   ============================================ */
+
+/* Primary: blue -> purple gradient, pure white text */
+.btn-gradient,
+.btn-primary {
   background: linear-gradient(120deg, var(--primary-strong) 0%, var(--accent) 100%);
   color: #ffffff;
   transition: filter 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
   box-shadow: var(--shadow-glow);
 }
-.btn-gradient:hover { filter: brightness(1.1); }
-.btn-gradient:active { transform: scale(0.98); }
+.btn-gradient:hover:not(:disabled),
+.btn-primary:hover:not(:disabled) { filter: brightness(1.12); }
+.btn-gradient:active:not(:disabled),
+.btn-primary:active:not(:disabled) { transform: scale(0.98); filter: brightness(0.95); }
+
+/* Success: emerald, white text */
+.btn-success {
+  background: var(--success-strong);
+  color: #ffffff;
+  transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--success) 25%, transparent);
+}
+.btn-success:hover:not(:disabled) { filter: brightness(1.12); }
+.btn-success:active:not(:disabled) { transform: scale(0.98); filter: brightness(0.95); }
+
+/* Warning: amber, dark readable text */
+.btn-warning {
+  background: var(--warning);
+  color: #1a1305;
+  transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--warning) 25%, transparent);
+}
+.btn-warning:hover:not(:disabled) { filter: brightness(1.1); }
+.btn-warning:active:not(:disabled) { transform: scale(0.98); filter: brightness(0.95); }
+
+/* Danger: red, white text */
+.btn-danger {
+  background: var(--danger-strong);
+  color: #ffffff;
+  transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--danger) 25%, transparent);
+}
+.btn-danger:hover:not(:disabled) { filter: brightness(1.12); }
+.btn-danger:active:not(:disabled) { transform: scale(0.98); filter: brightness(0.95); }
+
+/* Ghost/secondary: outlined, theme-aware */
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.btn-ghost:hover:not(:disabled) {
+  color: var(--foreground);
+  border-color: color-mix(in srgb, var(--primary) 50%, var(--border));
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
+}
+
+/* Universal disabled state — readable but visually reduced */
+.btn-gradient:disabled, .btn-primary:disabled, .btn-success:disabled,
+.btn-warning:disabled, .btn-danger:disabled, .btn-ghost:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+  filter: saturate(0.6);
+}
+
+/* Global disabled fallback for any button without a btn-* class */
+button:disabled { cursor: not-allowed; }
+
+/* ============================================
+   TYPOGRAPHY HIERARCHY
+   ============================================ */
+.text-heading {
+  color: var(--foreground);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.text-body { color: var(--foreground); }
+.text-secondary { color: var(--muted); }
+.text-disabled { color: var(--subtle); opacity: 0.75; }
+.text-label {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
 /* Elevated card hover */
 .card-interactive {

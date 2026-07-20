@@ -129,7 +129,7 @@ export default function HRSubTab({ activeBranchId }: HRSubTabProps) {
                           />
                           <button
                             onClick={() => handleUpdateTarget(emp.id)}
-                            className="bg-success text-slate-950 p-1.5 rounded"
+                            className="bg-success text-white p-1.5 rounded"
                           >
                             <CheckCircle2 className="w-3 h-3" />
                           </button>

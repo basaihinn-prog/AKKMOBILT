@@ -209,7 +209,7 @@ export default function AccountingSubTab({ activeBranchId, cashierName }: Accoun
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-success hover:bg-emerald-450 disabled:opacity-50 text-slate-950 font-black py-2.5 rounded-xl uppercase transition font-sans text-xs flex items-center justify-center space-x-1.5"
+            className="w-full bg-success-strong hover:brightness-110 disabled:opacity-50 text-white font-black py-2.5 rounded-xl uppercase transition font-sans text-xs flex items-center justify-center space-x-1.5"
           >
             <CheckCircle2 className="w-4 h-4 stroke-[2.5]" />
             <span>{loading ? 'POSTING LEDGER AUDIT...' : 'POST CLOSING SHIFT'}</span>

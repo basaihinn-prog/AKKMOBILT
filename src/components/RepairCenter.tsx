@@ -125,7 +125,7 @@ export default function RepairCenter({ repairs, activeBranchId, onRefresh }: Rep
           </div>
           <button
             onClick={() => setIsCreating(!isCreating)}
-            className="w-full sm:w-auto bg-primary hover:bg-indigo-400 text-slate-950 font-black text-xs px-4 py-2.5 rounded-xl transition flex items-center justify-center space-x-1.5"
+            className="w-full sm:w-auto bg-primary-strong hover:brightness-110 text-white font-black text-xs px-4 py-2.5 rounded-xl transition flex items-center justify-center space-x-1.5"
           >
             <Plus className="w-4 h-4 stroke-[2.5]" />
             <span>Create diagnostics ticket</span>
@@ -231,7 +231,7 @@ export default function RepairCenter({ repairs, activeBranchId, onRefresh }: Rep
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-primary hover:bg-indigo-400 text-slate-950 font-black py-2.5 rounded transition uppercase font-sans text-xs"
+                  className="w-full bg-primary-strong hover:brightness-110 text-white font-black py-2.5 rounded transition uppercase font-sans text-xs"
                 >
                   {loading ? 'Logging diagnostics...' : 'Dispatch Ticket'}
                 </button>
@@ -284,7 +284,7 @@ export default function RepairCenter({ repairs, activeBranchId, onRefresh }: Rep
             ))
           ) : (
             <div className="py-12 bg-card/10 border border-border rounded-2xl text-center text-subtle font-mono space-y-2">
-              <ClipboardList className="w-8 h-8 mx-auto text-slate-800" />
+              <ClipboardList className="w-8 h-8 mx-auto text-subtle" />
               <p className="text-xs">No active hardware repair diagnostic tickets found matching filter.</p>
             </div>
           )}
@@ -374,7 +374,7 @@ export default function RepairCenter({ repairs, activeBranchId, onRefresh }: Rep
                 <button
                   type="button"
                   onClick={() => setIsPrinting(true)}
-                  className="w-full bg-primary hover:bg-indigo-400 text-slate-950 font-black py-3 rounded-xl transition uppercase tracking-wider text-[11px] flex items-center justify-center space-x-1.5"
+                  className="w-full bg-primary-strong hover:brightness-110 text-white font-black py-3 rounded-xl transition uppercase tracking-wider text-[11px] flex items-center justify-center space-x-1.5"
                 >
                   <Printer className="w-3.5 h-3.5 stroke-[2.5]" />
                   <span>Print Slip</span>
@@ -384,7 +384,7 @@ export default function RepairCenter({ repairs, activeBranchId, onRefresh }: Rep
           </div>
         ) : (
           <div className="bg-card/10 border border-border rounded-2xl p-8 text-center text-subtle font-mono space-y-2 py-24">
-            <Wrench className="w-10 h-10 mx-auto text-slate-800 animate-bounce" />
+            <Wrench className="w-10 h-10 mx-auto text-subtle animate-bounce" />
             <p className="text-xs">No active ticket loaded on workbench.</p>
             <p className="text-[10px] text-subtle">Select any diagnostic ticket from the general list to inspect hardware logs or perform teardown updates.</p>
           </div>
