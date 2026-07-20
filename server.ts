@@ -1,3 +1,4 @@
+// AKK Mobile Enterprise dev/prod server
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
