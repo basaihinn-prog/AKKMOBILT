@@ -41,7 +41,8 @@ import {
   Target,
   Bell,
   Sun,
-  Moon
+  Moon,
+  LogOut
 } from 'lucide-react';
 import {
   BarChart,
@@ -84,8 +85,10 @@ import RepairCenter from './components/RepairCenter';
 import AccountingSubTab from './components/AccountingSubTab';
 import HRSubTab from './components/HRSubTab';
 import AdminDashboard from './components/AdminDashboard';
+import { useAuth } from './components/AuthGate';
 
 export default function App() {
+  const auth = useAuth();
   // THEME MODE (UI only — persisted to localStorage, defaults to dark)
   const [isLightMode, setIsLightMode] = useState(() => {
     if (typeof window === 'undefined') return false;
@@ -803,6 +806,15 @@ export default function App() {
             title={isLightMode ? 'Dark mode' : 'Light mode'}
           >
             {isLightMode ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+          </button>
+
+          <button
+            onClick={() => auth.signOut()}
+            className="flex items-center justify-center w-10 h-10 rounded-xl bg-card border border-border text-muted hover:text-danger hover:border-danger/50 transition-all duration-300"
+            aria-label="Sign out"
+            title="Sign out"
+          >
+            <LogOut className="w-4 h-4" />
           </button>
         </div>
       </header>
