@@ -33,7 +33,6 @@ export async function GET() {
 
     return NextResponse.json(branches);
   } catch (error) {
-    console.error('[branches-api]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

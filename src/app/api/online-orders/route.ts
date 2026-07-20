@@ -16,7 +16,6 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(results.slice(0, limit).reverse());
   } catch (error) {
-    console.error('[orders-get]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -44,7 +43,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(order, { status: 201 });
   } catch (error) {
-    console.error('[orders-post]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -65,7 +63,6 @@ export async function PUT(request: NextRequest) {
 
     return NextResponse.json(order);
   } catch (error) {
-    console.error('[orders-put]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

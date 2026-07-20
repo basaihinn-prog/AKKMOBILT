@@ -37,7 +37,6 @@ export async function GET(request: NextRequest) {
     const expenses = await getExpenses(branchId, startDate || undefined, endDate || undefined, status || undefined);
     return NextResponse.json(expenses);
   } catch (error) {
-    console.error('[accounting-api]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -64,7 +63,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(expense, { status: 201 });
   } catch (error) {
-    console.error('[accounting-post-error]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

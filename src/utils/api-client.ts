@@ -17,7 +17,6 @@ export class APIClient {
       }
       return await response.json();
     } catch (error) {
-      console.error(`[API] Error: ${method} ${path}`, error);
       throw error;
     }
   }

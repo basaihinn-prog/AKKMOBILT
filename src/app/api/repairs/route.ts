@@ -21,7 +21,6 @@ export async function GET(request: NextRequest) {
     const repairs = await getRepairs(branchId, status || undefined);
     return NextResponse.json(repairs);
   } catch (error) {
-    console.error('[repairs-api]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -48,7 +47,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(repair, { status: 201 });
   } catch (error) {
-    console.error('[repairs-post-error]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

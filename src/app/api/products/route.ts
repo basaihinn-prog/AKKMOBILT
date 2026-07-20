@@ -31,7 +31,6 @@ export async function GET(request: NextRequest) {
     const products = await getProducts(companyId);
     return NextResponse.json(products);
   } catch (error) {
-    console.error('[products-api]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -58,7 +57,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(product, { status: 201 });
   } catch (error) {
-    console.error('[products-post-error]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

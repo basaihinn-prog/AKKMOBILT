@@ -32,7 +32,6 @@ export async function GET(request: NextRequest) {
     const customers = await getCustomers(companyId);
     return NextResponse.json(customers);
   } catch (error) {
-    console.error('[customers-api]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -59,7 +58,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(customer, { status: 201 });
   } catch (error) {
-    console.error('[customers-post-error]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

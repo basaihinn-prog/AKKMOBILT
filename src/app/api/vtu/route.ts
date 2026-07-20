@@ -21,7 +21,6 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(vtuTransactions.slice(0, limit));
   } catch (error) {
-    console.error('[vtu-get]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -65,7 +64,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(transaction, { status: 201 });
   } catch (error) {
-    console.error('[vtu-post]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

@@ -34,7 +34,6 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ error: 'IMEI or query parameter required' }, { status: 400 });
   } catch (error) {
-    console.error('[imei-api]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -61,7 +60,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(tracking, { status: 201 });
   } catch (error: any) {
-    console.error('[imei-post-error]', error);
     const message = error.message || 'Internal server error';
     return NextResponse.json({ error: message }, { status: error.message?.includes('already') ? 409 : 500 });
   }

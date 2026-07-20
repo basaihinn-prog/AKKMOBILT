@@ -24,7 +24,6 @@ export async function GET(request: NextRequest) {
     const sales = await getSales(branchId, startDate || undefined, endDate || undefined);
     return NextResponse.json(sales);
   } catch (error) {
-    console.error('[sales-api]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -52,7 +51,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(sale, { status: 201 });
   } catch (error) {
-    console.error('[sales-post-error]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

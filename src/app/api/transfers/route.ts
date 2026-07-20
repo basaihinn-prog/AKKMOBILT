@@ -27,7 +27,6 @@ export async function GET(request: NextRequest) {
     if (error) throw error;
     return NextResponse.json(data);
   } catch (error) {
-    console.error('[transfers-get]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -82,7 +81,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ status: 'transferred' }, { status: 201 });
   } catch (error) {
-    console.error('[transfers-post]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

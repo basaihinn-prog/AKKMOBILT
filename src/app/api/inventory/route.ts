@@ -26,7 +26,6 @@ export async function GET(request: NextRequest) {
     const inventory = await getInventory(warehouseId);
     return NextResponse.json(inventory);
   } catch (error) {
-    console.error('[inventory-api]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -62,7 +61,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(result, { status: 201 });
   } catch (error) {
-    console.error('[inventory-post-error]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
