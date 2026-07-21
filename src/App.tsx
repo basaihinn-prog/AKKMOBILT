@@ -86,6 +86,7 @@ import AccountingSubTab from './components/AccountingSubTab';
 import HRSubTab from './components/HRSubTab';
 import AdminDashboard from './components/AdminDashboard';
 import { useAuth } from './components/AuthGate';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 export default function App() {
   const auth = useAuth();
@@ -2172,6 +2173,7 @@ export default function App() {
         <p>AKK Mobile Cloud-Sync Enterprise POS+ERP+CRM. All rights reserved.</p>
         <p className="text-subtle mt-1">GAAP Compliant Ledger • Myanmar Commercial Tax Registration Calibrated</p>
       </footer>
+      <SpeedInsights />
     </div>
   );
 }
