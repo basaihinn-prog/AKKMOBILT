@@ -82,6 +82,7 @@ import RepairCenter from './components/RepairCenter';
 import AccountingSubTab from './components/AccountingSubTab';
 import HRSubTab from './components/HRSubTab';
 import AdminDashboard from './components/AdminDashboard';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 export default function App() {
   // CORE STATE
@@ -2138,6 +2139,9 @@ export default function App() {
         <p>AKK Mobile Cloud-Sync Enterprise POS+ERP+CRM. All rights reserved.</p>
         <p className="text-slate-600 mt-1">GAAP Compliant Ledger • Myanmar Commercial Tax Registration Calibrated</p>
       </footer>
+
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
     </div>
   );
 }
